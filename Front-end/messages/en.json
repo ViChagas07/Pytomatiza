@@ -1,0 +1,878 @@
+{
+  "a11y": {
+    "skipToMain": "Skip to main content",
+    "themeToggle": "Toggle color theme",
+    "languageSwitcher": "Select language",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "closeModal": "Close dialog",
+    "mainNavigation": "Main navigation",
+    "sidebarNavigation": "Sidebar navigation",
+    "breadcrumb": "Breadcrumb",
+    "pagination": "Pagination",
+    "currentPage": "Current page, page {page}",
+    "goToPage": "Go to page {page}"
+  },
+  "common": {
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "filter": "Filter",
+    "noResults": "No results found",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "confirm": "Confirm",
+    "actions": "Actions",
+    "more": "More options",
+    "copied": "Copied to clipboard",
+    "enabled": "Enabled",
+    "disabled": "Disabled"
+  },
+  "auth": {
+    "signIn": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to your Pytomatiza+ account",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "submit": "Sign in",
+      "forgotPassword": "Forgot your password?",
+      "noAccount": "Don't have an account?",
+      "createOne": "Create one"
+    },
+    "signUp": {
+      "title": "Create your account",
+      "subtitle": "Start automating with Pytomatiza+",
+      "nameLabel": "Full name",
+      "namePlaceholder": "Jane Smith",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "At least 8 characters",
+      "confirmPasswordLabel": "Confirm password",
+      "confirmPasswordPlaceholder": "Re-enter your password",
+      "submit": "Create account",
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign in"
+    },
+    "google": "Continue with Google",
+    "divider": "or",
+    "errors": {
+      "invalidCredentials": "Invalid email or password",
+      "emailExists": "An account with this email already exists",
+      "invalidEmail": "Please enter a valid email address",
+      "passwordTooShort": "Password must be at least 8 characters",
+      "passwordUppercase": "Password must contain at least one uppercase letter",
+      "passwordNumber": "Password must contain at least one number",
+      "passwordsDoNotMatch": "Passwords do not match",
+      "nameTooShort": "Name must be at least 2 characters",
+      "generic": "An unexpected error occurred. Please try again.",
+      "rateLimited": "Too many attempts. Please wait a moment."
+    }
+  },
+  "meta": {
+    "login": {
+      "title": "Sign in — Pytomatiza+",
+      "description": "Sign in to your Pytomatiza+ account to manage your AI-powered automation agents."
+    },
+    "dashboard": {
+      "title": "Dashboard — Pytomatiza+",
+      "description": "Overview of your Pytomatiza+ automation agents, recent activity, and system status."
+    },
+    "agents": {
+      "title": "Agents — Pytomatiza+",
+      "description": "Browse and manage your AI automation agents."
+    },
+    "automations": {
+      "title": "Automations — Pytomatiza+",
+      "description": "Create and manage natural language automation workflows."
+    },
+    "settings": {
+      "title": "Settings — Pytomatiza+",
+      "description": "Manage your account, integrations, and notification preferences."
+    },
+    "help": {
+      "title": "Help & Support — Pytomatiza+",
+      "description": "Get help, browse documentation, and contact our team."
+    },
+    "logs": {
+      "title": "Logs & Approvals — Pytomatiza+",
+      "description": "View automation executions, agent history, and manage pending approvals."
+    },
+    "documents": {
+      "title": "Documents — Pytomatiza+",
+      "description": "Automate document processing with AI. Extract data, convert formats, and manage PDFs, DOCX, and more."
+    },
+    "data": {
+      "title": "Data & Spreadsheets — Pytomatiza+",
+      "description": "Connect data sources, transform spreadsheets, and automate analysis with AI agents."
+    },
+    "communication": {
+      "title": "Communication — Pytomatiza+",
+      "description": "Automate emails, messages, and multi-channel notifications with intelligent workflows."
+    },
+    "media": {
+      "title": "Media & Images — Pytomatiza+",
+      "description": "Process, convert, and optimize images and media in batch with intelligent automation."
+    },
+    "files": {
+      "title": "Files — Pytomatiza+",
+      "description": "Manage, organize, and automate file operations with intelligent rules."
+    },
+    "architecture": {
+      "title": "Architecture — Pytomatiza+",
+      "description": "Generate architecture diagrams, technical documentation, and system flows with AI."
+    }
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "agents": "Agents",
+    "automations": "Automations",
+    "settings": "Settings",
+    "help": "Help & Support",
+    "signOut": "Sign out",
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar",
+    "mainNavigation": "Main navigation",
+    "sidebarNavigation": "Sidebar navigation"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your account, preferences, and application settings.",
+    "tabs": {
+      "appearance": "Appearance",
+      "accessibility": "Accessibility",
+      "languageRegion": "Language & Region",
+      "account": "Account",
+      "security": "Security",
+      "notifications": "Notifications",
+      "advanced": "Advanced"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "subtitle": "Customize your visual experience.",
+      "accentColor": "Accent Color",
+      "accentColorDescription": "Choose the highlight color for the '+' and accent elements.",
+      "fontSize": "Font size",
+      "fontSizeSmall": "Small",
+      "fontSizeMedium": "Medium",
+      "fontSizeLarge": "Large",
+      "boldMode": "Bold mode",
+      "boldModeDescription": "Increases font weight throughout the app.",
+      "elementDensity": "Element size",
+      "densitySmall": "Small",
+      "densityMedium": "Medium",
+      "densityLarge": "Large",
+      "systemColor": "System color",
+      "themeLight": "Light",
+      "themeDark": "Dark",
+      "themeSystem": "System",
+      "backgroundColor": "Background color",
+      "bgPresetDefault": "Default",
+      "bgPresetWarm": "Warm",
+      "bgPresetCool": "Cool",
+      "bgPresetForest": "Forest",
+      "bgPresetLavender": "Lavender",
+      "bgPresetSepia": "Sepia",
+      "bgPresetMidnight": "Midnight",
+      "bgPresetSlate": "Slate"
+    },
+    "accessibility": {
+      "title": "Accessibility",
+      "subtitle": "Configure options to make the app more accessible.",
+      "highContrast": "High contrast",
+      "highContrastDescription": "Increases color contrast for better readability.",
+      "reduceMotion": "Reduce animations",
+      "reduceMotionDescription": "Minimizes motion effects and transitions.",
+      "focusOutline": "Enlarged focus outline",
+      "focusOutlineDescription": "Increases the thickness of keyboard focus outlines.",
+      "skipLinks": "Always show skip links",
+      "skipLinksDescription": "Makes skip navigation links permanently visible.",
+      "underlineLinks": "Underline all links",
+      "underlineLinksDescription": "Adds underline to all links for better identification.",
+      "screenReader": "Screen reader optimizations",
+      "screenReaderDescription": "Adds extra descriptions and enriched ARIA labels."
+    },
+    "languageRegion": {
+      "title": "Language & Region",
+      "subtitle": "Choose your preferred language and timezone.",
+      "language": "Language",
+      "languageDescription": "Select the display language of the application.",
+      "timezone": "Timezone",
+      "timezoneDescription": "Select your local timezone."
+    },
+    "account": {
+      "title": "Account",
+      "subtitle": "Manage your personal information.",
+      "fullName": "Full name",
+      "fullNamePlaceholder": "Your full name",
+      "birthDate": "Date of birth",
+      "profilePicture": "Profile picture",
+      "uploadPhoto": "Upload photo",
+      "removePhoto": "Remove photo",
+      "saveChanges": "Save changes",
+      "lockedTitle": "Restricted area",
+      "lockedDescription": "Sign in to manage your account information.",
+      "login": "Sign in",
+      "register": "Create account"
+    },
+    "security": {
+      "title": "Security",
+      "subtitle": "Configure your account security options.",
+      "twoFactor": "Two-factor authentication (2FA)",
+      "twoFactorDescription": "Adds an extra layer of protection when signing in.",
+      "changePassword": "Change password",
+      "changePasswordDescription": "Update your password regularly to keep your account secure.",
+      "activeSessions": "Active sessions",
+      "activeSessionsDescription": "View and end sessions on other devices.",
+      "configure": "Configure",
+      "change": "Change",
+      "current": "Current",
+      "revoke": "Revoke",
+      "revokeAll": "End all other sessions"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "subtitle": "Choose how you want to be notified.",
+      "email": "Email notifications",
+      "emailDescription": "Receive summaries and important alerts in your email.",
+      "inApp": "In-app notifications",
+      "inAppDescription": "Displays banners and badges inside the app.",
+      "push": "Push notifications",
+      "pushDescription": "Receive alerts even when the app is closed.",
+      "sound": "Alert sound",
+      "soundDescription": "Plays a sound when a notification arrives."
+    },
+    "advanced": {
+      "title": "Advanced",
+      "subtitle": "Advanced application maintenance options.",
+      "clearCache": "Clear app cache",
+      "clearCacheDescription": "Removes locally stored temporary data.",
+      "clearCacheButton": "Clear cache now",
+      "clearCacheConfirm": "Are you sure? This will remove all temporary local data.",
+      "resetSettings": "Reset settings",
+      "resetSettingsDescription": "Restores all settings to default values.",
+      "resetSettingsButton": "Reset to default",
+      "resetSettingsConfirm": "Are you sure? All your preferences will be lost.",
+      "appVersion": "App version"
+    }
+  },
+  "help": {
+    "title": "Help & Support",
+    "subtitle": "Get help, browse documentation, and contact our team."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Good {timeOfDay}, {name}",
+    "morning": "morning",
+    "afternoon": "afternoon",
+    "evening": "evening",
+    "subtitle": "Here's what's happening with your automations today.",
+    "stats": {
+      "activeAgents": "Active agents",
+      "automationsToday": "Automations today",
+      "successRate": "Success rate",
+      "pendingApprovals": "Pending approvals"
+    },
+    "recentActivity": "Recent activity",
+    "quickActions": "Quick actions",
+    "quickActionsDescription": "Common tasks to get you started",
+    "createAutomation": "New automation",
+    "viewAgents": "View all agents",
+    "viewReports": "View reports"
+  },
+  "agents": {
+    "title": "Agents",
+    "subtitle": "Browse and manage your AI automation agents",
+    "searchPlaceholder": "Search agents by name or type…",
+    "filterByType": "Filter by type",
+    "filterByStatus": "Filter by status",
+    "allTypes": "All types",
+    "allStatuses": "All statuses",
+    "types": {
+      "productivity": "Productivity",
+      "data": "Data",
+      "content": "Content",
+      "admin": "Admin",
+      "technical": "Technical"
+    },
+    "statuses": {
+      "idle": "Idle",
+      "running": "Running",
+      "error": "Error",
+      "paused": "Paused"
+    },
+    "statusDescriptions": {
+      "idle": "Status: Ready and waiting",
+      "running": "Status: Currently executing",
+      "error": "Status: Error encountered",
+      "paused": "Status: Paused by user"
+    },
+    "card": {
+      "lastRun": "Last run",
+      "successRate": "Success rate",
+      "runNow": "Run now",
+      "pause": "Pause",
+      "resume": "Resume",
+      "configure": "Configure",
+      "never": "Never"
+    },
+    "empty": "No agents match your current filters. Try adjusting the search or filter criteria.",
+    "agentsFound": "{count, plural, =1 {1 agent found} other {{count} agents found}}",
+    "error": "Unable to load agents. Please check your connection and try again.",
+    "mock": {
+      "1": {
+        "name": "Email Attachment Saver",
+        "desc": "Monitors inbox for attachments, saves them to Google Drive, and notifies via Slack."
+      },
+      "2": {
+        "name": "Weekly Report Generator",
+        "desc": "Compiles data from multiple sources and generates a formatted PDF report every Monday."
+      },
+      "3": {
+        "name": "Social Media Monitor",
+        "desc": "Tracks brand mentions across Twitter, LinkedIn, and Reddit. Auto-responds to support queries."
+      },
+      "4": {
+        "name": "Database Backup Agent",
+        "desc": "Performs nightly database backups and verifies integrity. Alerts on failure."
+      },
+      "5": {
+        "name": "API Health Checker",
+        "desc": "Pings all internal APIs every minute. Escalates to PagerDuty on downtime."
+      },
+      "6": {
+        "name": "Invoice Processor",
+        "desc": "Extracts data from PDF invoices using OCR and pushes to accounting software."
+      },
+      "7": {
+        "name": "Meeting Scheduler",
+        "desc": "Coordinates calendars across teams to find optimal meeting times and sends invites."
+      },
+      "8": {
+        "name": "Content Translator",
+        "desc": "Translates blog posts and documentation into 9 languages using AI."
+      }
+    }
+  },
+  "automations": {
+    "title": "Automations",
+    "subtitle": "Create and manage natural language automation workflows",
+    "nlpBuilder": {
+      "title": "Natural Language Workflow Builder",
+      "description": "Describe what you want to automate in plain English, and Pytomatiza+ will build the workflow for you.",
+      "instructionLabel": "What would you like to automate?",
+      "instructionPlaceholder": "e.g., When I receive an email from a client with an attachment, save the attachment to Google Drive and notify me on Slack.",
+      "instructionHelper": "Be as specific as possible. Include triggers, conditions, and desired actions.",
+      "agentTypeLabel": "Recommended agent type",
+      "agentTypePlaceholder": "Auto-detect (recommended)",
+      "requireApprovalLabel": "Require approval before execution",
+      "requireApprovalHelper": "When enabled, the workflow will pause for your review before running.",
+      "build": "Build workflow",
+      "building": "Building workflow…",
+      "charCount": "{current}/{max} characters",
+      "suggestions": "Try these examples:",
+      "example1": "Send a weekly report of all closed tickets to the team Slack channel every Friday at 5pm",
+      "example2": "Monitor our Twitter mentions and automatically reply to support questions with a link to the help center",
+      "example3": "When a new row is added to the 'Leads' Google Sheet, send a personalized welcome email via Gmail"
+    },
+    "workflowList": {
+      "title": "Your workflows",
+      "empty": "No workflows yet. Create your first one above.",
+      "lastTriggered": "Last triggered",
+      "executions": "executions",
+      "toggle": "Toggle workflow",
+      "delete": "Delete workflow",
+      "deleteConfirm": "Are you sure you want to delete this workflow? This action cannot be undone.",
+      "deleted": "Workflow deleted successfully",
+      "statusToggled": "Workflow {status}"
+    },
+    "errors": {
+      "instructionTooShort": "Instruction must be at least 10 characters",
+      "instructionTooLong": "Instruction must not exceed 500 characters",
+      "buildFailed": "Failed to build workflow. Please try again."
+    }
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "errors": {
+    "notFound": {
+      "title": "Page not found",
+      "description": "The page you're looking for doesn't exist or has been moved.",
+      "goHome": "Go to dashboard"
+    },
+    "serverError": {
+      "title": "Server error",
+      "description": "An unexpected error occurred. Our team has been notified.",
+      "retry": "Try again"
+    },
+    "unauthorized": {
+      "title": "Unauthorized",
+      "description": "You need to sign in to access this page.",
+      "signIn": "Sign in"
+    }
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "automations": "Automations",
+    "agents": "Agents",
+    "logs": "Logs & Approvals",
+    "modules": "Modules",
+    "modulesPanel": "Available modules",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "closeModules": "Close modules panel",
+    "primary": "Primary navigation",
+    "documents": "Documents",
+    "documentsDesc": "Manage and organize your documents.",
+    "data": "Data & Spreadsheets",
+    "dataDesc": "Work with data sources and spreadsheets.",
+    "communication": "Communication",
+    "communicationDesc": "Emails, messages, and notifications.",
+    "media": "Media & Images",
+    "mediaDesc": "Image and media asset management.",
+    "files": "Files",
+    "filesDesc": "General file storage and management.",
+    "architecture": "Architecture",
+    "architectureDesc": "System diagrams and architecture docs."
+  },
+  "logs": {
+    "title": "Logs & Approvals",
+    "subtitle": "Monitor automation executions and manage pending approval requests.",
+    "stats": {
+      "totalExecutions": "Total Executions",
+      "successRate": "Success Rate",
+      "pendingApprovals": "Pending Approvals",
+      "errors24h": "Errors (24h)"
+    },
+    "tableHeader": "Recent Executions",
+    "tableAriaLabel": "Execution logs",
+    "status": {
+      "success": "Success",
+      "error": "Error",
+      "pending": "Pending Approval",
+      "running": "Running"
+    },
+    "agents": {
+      "emailSaver": "Email Attachment Saver",
+      "reportGen": "Weekly Report Generator",
+      "socialMonitor": "Social Media Monitor",
+      "dbBackup": "Database Backup Agent",
+      "apiChecker": "API Health Checker",
+      "invoiceProc": "Invoice Processor",
+      "meetingSched": "Meeting Scheduler",
+      "contentTrans": "Content Translator"
+    },
+    "actions": {
+      "log1": "Processed 3 attachments from 2 emails",
+      "log2": "Generated weekly sales report PDF",
+      "log3": "Auto-responded to 5 support mentions",
+      "log4": "Nightly backup — integrity check failed",
+      "log5": "Pinged 12 endpoints — all healthy",
+      "log6": "Awaiting approval for 3 invoices",
+      "log7": "Scheduled 2 team syncs for next week",
+      "log8": "Translating blog post to 9 languages"
+    },
+    "duration": {
+      "ongoing": "ongoing"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Pytomatiza+. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "status": "System Status"
+  },
+  "modules": {
+    "documents": {
+      "title": "Documents",
+      "subtitle": "Automate intelligent document processing with AI agents",
+      "upload": {
+        "title": "Attach document",
+        "description": "Drag and drop your file here or click to select",
+        "dragActive": "Drop the file to attach",
+        "browse": "Browse files",
+        "supportedFormats": "Supported formats: PDF, DOCX, XLSX, PPTX, TXT, CSV, images",
+        "maxSize": "Max size: 25 MB",
+        "fileSelected": "File selected",
+        "remove": "Remove file"
+      },
+      "instruction": {
+        "title": "What should the AI agent do?",
+        "description": "Describe in natural language what you want the agent to do with this document.",
+        "label": "Agent instruction",
+        "placeholder": "e.g., Extract all data from the table on page 3 and convert it to a CSV spreadsheet. Then email it to finance@company.com.",
+        "helper": "Be specific: include which data to extract, output format, recipients, and post-processing actions.",
+        "charCount": "{current}/{max} characters"
+      },
+      "quickActions": {
+        "title": "Quick actions",
+        "extractData": "Extract data",
+        "convertFormat": "Convert format",
+        "mergeDocs": "Merge documents",
+        "ocrScan": "OCR scan",
+        "summarize": "Summarize content",
+        "translate": "Translate"
+      },
+      "recentDocuments": {
+        "title": "Recent documents",
+        "empty": "No documents processed yet. Upload your first document above.",
+        "processed": "Processed",
+        "status": "Status",
+        "actions": "Actions",
+        "download": "Download result",
+        "reprocess": "Reprocess",
+        "delete": "Delete"
+      },
+      "processing": {
+        "button": "Process document",
+        "processing": "Processing…",
+        "success": "Document processed successfully!",
+        "error": "Failed to process document. Please try again."
+      },
+      "integrations": {
+        "googleDrive": {
+          "title": "Google Drive",
+          "description": "Access and select documents directly from your Google Drive.",
+          "connect": "Connect Google Drive",
+          "connecting": "Connecting...",
+          "connected": "Connected to Google Drive",
+          "browse": "Browse Drive"
+        }
+      }
+    },
+    "data": {
+      "title": "Data & Spreadsheets",
+      "subtitle": "Connect data sources, transform spreadsheets, and automate analysis",
+      "source": {
+        "title": "Data source",
+        "description": "Choose how to connect your data",
+        "uploadCsv": "Upload CSV/Excel",
+        "googleSheets": "Google Sheets",
+        "database": "SQL Database",
+        "api": "REST API",
+        "url": "Public URL",
+        "selectPlaceholder": "Select source type…",
+        "connect": "Connect",
+        "connecting": "Connecting…"
+      },
+      "instruction": {
+        "title": "What to do with the data?",
+        "description": "Describe the desired transformation, analysis, or automation",
+        "label": "Processing instruction",
+        "placeholder": "e.g., Merge 'First Name' and 'Last Name' columns, filter records with sales over $10,000, group by region, and generate a bar chart.",
+        "helper": "Include filters, aggregations, table joins, and the desired output format.",
+        "charCount": "{current}/{max} characters"
+      },
+      "preview": {
+        "title": "Preview",
+        "noData": "Connect a data source to preview",
+        "rows": "{count} rows",
+        "columns": "{count} columns"
+      },
+      "recentDatasets": {
+        "title": "Recent datasets",
+        "empty": "No datasets processed yet",
+        "source": "Source",
+        "lastUsed": "Last used"
+      },
+      "actions": {
+        "transform": "Transform data",
+        "analyze": "Analyze data",
+        "export": "Export result",
+        "schedule": "Schedule automation"
+      },
+      "integrations": {
+        "googleDrive": {
+          "title": "Google Drive",
+          "description": "Access spreadsheets and data files directly from your Google Drive.",
+          "connect": "Connect Google Drive",
+          "connecting": "Connecting...",
+          "connected": "Connected to Google Drive",
+          "browse": "Browse Drive"
+        }
+      }
+    },
+    "communication": {
+      "title": "Communication",
+      "subtitle": "Automate emails, messages, and multi-channel notifications",
+      "composer": {
+        "title": "Compose message",
+        "description": "Describe the content and the AI agent will draft the message",
+        "instructionLabel": "Message instruction",
+        "instructionPlaceholder": "e.g., Send a reminder email to all clients with invoices due in 3 days, using a professional yet friendly tone, and include the payment link.",
+        "instructionHelper": "Specify: message tone, information to include, personalizations, and call-to-action.",
+        "subjectLabel": "Subject (for emails)",
+        "subjectPlaceholder": "Email subject…",
+        "charCount": "{current}/{max} characters"
+      },
+      "channels": {
+        "title": "Delivery channels",
+        "email": "Email",
+        "slack": "Slack",
+        "whatsapp": "WhatsApp",
+        "teams": "Microsoft Teams",
+        "sms": "SMS",
+        "discord": "Discord"
+      },
+      "recipients": {
+        "title": "Recipients",
+        "description": "Configure who will receive the message",
+        "to": "To",
+        "toPlaceholder": "email@example.com",
+        "cc": "CC (carbon copy)",
+        "ccPlaceholder": "email@example.com",
+        "addMore": "Add more",
+        "list": "Distribution list",
+        "condition": "By condition (e.g., inactive clients)"
+      },
+      "schedule": {
+        "title": "Schedule",
+        "sendNow": "Send now",
+        "scheduleLater": "Schedule for later",
+        "recurring": "Recurring",
+        "dateTime": "Date and time",
+        "frequency": "Frequency",
+        "daily": "Daily",
+        "weekly": "Weekly",
+        "monthly": "Monthly"
+      },
+      "recentMessages": {
+        "title": "Recent messages",
+        "empty": "No messages sent yet",
+        "channel": "Channel",
+        "sentAt": "Sent at",
+        "status": "Status"
+      },
+      "actions": {
+        "send": "Send message",
+        "sending": "Sending…",
+        "preview": "Preview",
+        "saveDraft": "Save draft",
+        "testSend": "Send test"
+      }
+    },
+    "media": {
+      "title": "Media & Images",
+      "subtitle": "Process, convert, and optimize images and media in batch",
+      "instruction": {
+        "title": "What should the AI agent do with the media?",
+        "description": "Describe in natural language what you want the agent to do with your images or videos.",
+        "label": "Agent instruction",
+        "placeholder": "e.g., Remove the background from all images, resize to 1200x800 maintaining aspect ratio, convert to WebP at 85% quality, apply brightness +10 filter, and add '© My Company' watermark at the bottom right corner.",
+        "helper": "Include: which transformations to apply, dimensions, output format, quality, filters, and watermark.",
+        "charCount": "{current}/{max} characters",
+        "button": "Process with AI",
+        "processing": "Processing…"
+      },
+      "upload": {
+        "title": "Media upload",
+        "description": "Drag images or videos to get started",
+        "dragActive": "Drop files to upload",
+        "browse": "Browse files",
+        "supportedFormats": "Formats: JPG, PNG, GIF, SVG, WebP, MP4, MOV, WebM",
+        "maxSize": "Max size: 100 MB per file",
+        "batchInfo": "{count} file(s) selected"
+      },
+      "transformations": {
+        "title": "Transformations",
+        "description": "Choose what to do with your media",
+        "resize": "Resize",
+        "resizeDescription": "Change image dimensions",
+        "width": "Width",
+        "height": "Height",
+        "maintainAspect": "Maintain aspect ratio",
+        "convertFormat": "Convert format",
+        "convertDescription": "Convert to another file format",
+        "targetFormat": "Target format",
+        "compress": "Compress",
+        "compressDescription": "Reduce file size",
+        "quality": "Quality",
+        "watermark": "Watermark",
+        "watermarkDescription": "Add text or logo overlay on the image",
+        "watermarkText": "Watermark text",
+        "filters": "Filters & adjustments",
+        "brightness": "Brightness",
+        "contrast": "Contrast",
+        "saturation": "Saturation",
+        "blur": "Blur"
+      },
+      "preview": {
+        "title": "Preview",
+        "original": "Original",
+        "processed": "Processed",
+        "noMedia": "Upload media to preview"
+      },
+      "recentMedia": {
+        "title": "Recent media",
+        "empty": "No media processed yet"
+      },
+      "actions": {
+        "process": "Process media",
+        "processing": "Processing…",
+        "download": "Download result",
+        "downloadAll": "Download all (ZIP)",
+        "batchProcess": "Batch processing"
+      },
+      "integrations": {
+        "googleDrive": {
+          "title": "Google Drive",
+          "description": "Access images and videos stored in your Google Drive.",
+          "connect": "Connect Google Drive",
+          "connecting": "Connecting...",
+          "connected": "Connected to Google Drive",
+          "browse": "Browse Drive"
+        },
+        "googlePhotos": {
+          "title": "Google Photos",
+          "description": "Access your photos and albums directly from Google Photos.",
+          "connect": "Connect Google Photos",
+          "connecting": "Connecting...",
+          "connected": "Connected to Google Photos",
+          "browse": "Browse Photos"
+        }
+      }
+    },
+    "files": {
+      "title": "Files",
+      "subtitle": "Manage, organize, and automate file operations",
+      "instruction": {
+        "title": "What should the AI agent do with your files?",
+        "description": "Describe in natural language how you want to organize, process, or manage your files.",
+        "label": "Agent instruction",
+        "placeholder": "e.g., Organize all PDFs in the Downloads folder by creation date, rename them using the pattern 'YYYY-MM-DD - original name', move invoices to /Finance/Invoices/{year}/{month}, and compress files older than 6 months.",
+        "helper": "Include: which files to affect, how to organize them, renaming pattern, destination folders, and additional actions.",
+        "charCount": "{current}/{max} characters",
+        "button": "Execute with AI",
+        "processing": "Executing…"
+      },
+      "storage": {
+        "title": "Storage",
+        "used": "Used",
+        "total": "of {total}",
+        "files": "{count} files",
+        "folders": "{count} folders"
+      },
+      "upload": {
+        "title": "File upload",
+        "description": "Drag files or folders to upload",
+        "dragActive": "Drop to upload",
+        "browse": "Browse",
+        "createFolder": "Create folder"
+      },
+      "browser": {
+        "title": "File explorer",
+        "empty": "This folder is empty",
+        "name": "Name",
+        "size": "Size",
+        "modified": "Modified",
+        "type": "Type",
+        "sortBy": "Sort by",
+        "search": "Search files…",
+        "gridView": "Grid view",
+        "listView": "List view"
+      },
+      "rules": {
+        "title": "Organization rules",
+        "description": "Automate file organization",
+        "ruleName": "Rule name",
+        "ruleNamePlaceholder": "e.g., Sort invoices by month",
+        "condition": "Condition",
+        "conditionPlaceholder": "e.g., filename contains 'invoice'",
+        "action": "Action",
+        "actionPlaceholder": "e.g., move to /Finance/Invoices/{year}/{month}",
+        "addRule": "Add rule",
+        "active": "Active",
+        "inactive": "Inactive",
+        "empty": "No rules configured"
+      },
+      "actions": {
+        "label": "Actions",
+        "moreOptions": "More options",
+        "upload": "Upload",
+        "newFolder": "New folder",
+        "delete": "Delete",
+        "rename": "Rename",
+        "move": "Move",
+        "copy": "Copy",
+        "share": "Share",
+        "download": "Download"
+      },
+      "integrations": {
+        "googleDrive": {
+          "title": "Google Drive",
+          "description": "Access and manage files directly from your Google Drive as if it were a local folder.",
+          "connect": "Connect Google Drive",
+          "connecting": "Connecting...",
+          "connected": "Connected to Google Drive",
+          "browse": "Explore Drive",
+          "disconnect": "Disconnect"
+        }
+      }
+    },
+    "architecture": {
+      "title": "Architecture",
+      "subtitle": "Generate architecture diagrams and technical documentation with AI",
+      "diagramBuilder": {
+        "title": "Describe your architecture",
+        "description": "Describe the system in natural language and the AI agent will generate the diagram",
+        "instructionLabel": "Architecture description",
+        "instructionPlaceholder": "e.g., E-commerce system with: load balancer (Nginx), 3 API instances (Node.js on Kubernetes), primary PostgreSQL + read replica, Redis for caching, RabbitMQ queue for orders, Python workers, and S3 storage for product images.",
+        "instructionHelper": "Include: components, connections, protocols, technologies, and data flow.",
+        "charCount": "{current}/{max} characters"
+      },
+      "templates": {
+        "title": "Architecture templates",
+        "description": "Choose a template as a starting point",
+        "aws": "AWS Cloud",
+        "gcp": "Google Cloud",
+        "azure": "Microsoft Azure",
+        "microservices": "Microservices",
+        "monolith": "Modular Monolith",
+        "serverless": "Serverless",
+        "eventDriven": "Event-Driven",
+        "ciCd": "CI/CD Pipeline",
+        "network": "Network Topology",
+        "dataPipeline": "Data Pipeline"
+      },
+      "export": {
+        "title": "Export format",
+        "description": "Choose how to export the diagram",
+        "png": "PNG (image)",
+        "svg": "SVG (vector)",
+        "pdf": "PDF (document)",
+        "drawio": "Draw.io (editable)",
+        "terraform": "Terraform (IaC)",
+        "mermaid": "Mermaid (text)",
+        "plantuml": "PlantUML"
+      },
+      "recentDiagrams": {
+        "title": "Recent diagrams",
+        "empty": "No diagrams generated yet",
+        "createdAt": "Created at",
+        "components": "{count} components",
+        "download": "Download",
+        "edit": "Edit",
+        "delete": "Delete"
+      },
+      "actions": {
+        "generate": "Generate diagram",
+        "generating": "Generating diagram…",
+        "generateDescription": "Generate documentation",
+        "save": "Save project",
+        "share": "Share"
+      }
+    }
+  }
+}

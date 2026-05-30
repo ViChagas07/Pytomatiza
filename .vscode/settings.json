@@ -1,0 +1,13 @@
+{
+    "python.defaultInterpreterPath": "C:/Users/Alisson Davi/AppData/Local/pypoetry/Cache/virtualenvs/pytomatiza-backend-2rWTXipn-py3.11/Scripts/python.exe",
+
+    "python.analysis.extraPaths": [
+        "./Back-end/src"
+    ],
+
+    "python.autoComplete.extraPaths": [
+        "./Back-end/src"
+    ],
+
+    "python.analysis.autoSearchPaths": true
+}

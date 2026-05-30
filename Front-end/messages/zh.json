@@ -1,0 +1,897 @@
+{
+  "a11y": {
+    "skipToMain": "跳至主要内容",
+    "themeToggle": "切换颜色主题",
+    "languageSwitcher": "选择语言",
+    "showPassword": "显示密码",
+    "hidePassword": "隐藏密码",
+    "closeModal": "关闭对话框",
+    "mainNavigation": "主导航",
+    "sidebarNavigation": "侧边栏导航",
+    "breadcrumb": "面包屑",
+    "pagination": "分页",
+    "currentPage": "当前页面，第 {page} 页",
+    "goToPage": "转到第{页}页"
+  },
+  "common": {
+    "loading": "加载中…",
+    "error": "出了点问题",
+    "retry": "再试一次",
+    "save": "节省",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "create": "创造",
+    "search": "搜索",
+    "filter": "筛选",
+    "noResults": "没有找到结果",
+    "back": "后退",
+    "next": "下一个",
+    "previous": "以前的",
+    "confirm": "确认",
+    "actions": "行动",
+    "more": "更多选择",
+    "copied": "已复制到剪贴板",
+    "enabled": "启用",
+    "disabled": "残疾人"
+  },
+  "auth": {
+    "signIn": {
+      "title": "欢迎回来",
+      "subtitle": "登录您的 Pytomatiza+ 帐户",
+      "emailLabel": "电子邮件",
+      "emailPlaceholder": "你@example.com",
+      "passwordLabel": "密码",
+      "passwordPlaceholder": "输入您的密码",
+      "submit": "登入",
+      "forgotPassword": "忘记密码了吗？",
+      "noAccount": "没有帐户？",
+      "createOne": "创建一个"
+    },
+    "signUp": {
+      "title": "创建您的帐户",
+      "subtitle": "使用 Pytomatiza+ 开始自动化",
+      "nameLabel": "姓名",
+      "namePlaceholder": "简·史密斯",
+      "emailLabel": "电子邮件",
+      "emailPlaceholder": "你@example.com",
+      "passwordLabel": "密码",
+      "passwordPlaceholder": "至少 8 个字符",
+      "confirmPasswordLabel": "确认密码",
+      "confirmPasswordPlaceholder": "重新输入您的密码",
+      "submit": "创建账户",
+      "haveAccount": "已经有帐户？",
+      "signIn": "登入"
+    },
+    "google": "继续使用谷歌",
+    "divider": "or",
+    "errors": {
+      "invalidCredentials": "电子邮件或密码无效",
+      "emailExists": "使用此电子邮件的帐户已存在",
+      "invalidEmail": "请输入有效的电子邮件地址",
+      "passwordTooShort": "密码必须至少为 8 个字符",
+      "passwordUppercase": "密码必须包含至少一个大写字母",
+      "passwordNumber": "密码必须包含至少一个数字",
+      "passwordsDoNotMatch": "密码不匹配",
+      "nameTooShort": "名称必须至少有 2 个字符",
+      "generic": "发生意外错误。 请再试一次。",
+      "rateLimited": "尝试次数太多。 请稍等。"
+    }
+  },
+  "meta": {
+    "login": {
+      "title": "登录 — Pytomatiza+",
+      "description": "登录您的 Pytomatiza+ 帐户来管理您的 AI 支持的自动化代理。"
+    },
+    "dashboard": {
+      "title": "仪表板 - Pytomatiza+",
+      "description": "Pytomatiza+ 自动化代理、最近活动和系统状态的概述。"
+    },
+    "agents": {
+      "title": "代理 - Pytomatiza+",
+      "description": "浏览和管理您的 AI 自动化代理。"
+    },
+    "automations": {
+      "title": "自动化 — Pytomatiza+",
+      "description": "创建和管理自然语言自动化工作流程。"
+    },
+    "settings": {
+      "title": "设置 - Pytomatiza+",
+      "description": "管理您的帐户、集成和通知首选项。"
+    },
+    "help": {
+      "title": "帮助与支持 — Pytomatiza+",
+      "description": "获取帮助、浏览文档并联系支持人员。"
+    },
+    "logs": {
+      "title": "Logs & Aprovações — Pytomatiza+",
+      "description": "Visualize execuções de automação, histórico de agentes e gerencie aprovações pendentes."
+    },
+    "documents": {
+      "title": "Documents — Pytomatiza+",
+      "description": "Automate document processing with AI. Extract data, convert formats, and manage PDFs, DOCX, and more."
+    },
+    "data": {
+      "title": "Data & Spreadsheets — Pytomatiza+",
+      "description": "Connect data sources, transform spreadsheets, and automate analysis with AI agents."
+    },
+    "communication": {
+      "title": "Communication — Pytomatiza+",
+      "description": "Automate emails, messages, and multi-channel notifications with intelligent workflows."
+    },
+    "media": {
+      "title": "Media & Images — Pytomatiza+",
+      "description": "Process, convert, and optimize images and media in batch with intelligent automation."
+    },
+    "files": {
+      "title": "Files — Pytomatiza+",
+      "description": "Manage, organize, and automate file operations with intelligent rules."
+    },
+    "architecture": {
+      "title": "Architecture — Pytomatiza+",
+      "description": "Generate architecture diagrams, technical documentation, and system flows with AI."
+    }
+  },
+  "navigation": {
+    "dashboard": "仪表板",
+    "agents": "代理商",
+    "automations": "自动化",
+    "settings": "设置",
+    "help": "帮助与支持",
+    "signOut": "登出",
+    "collapse": "折叠侧边栏",
+    "expand": "展开侧边栏",
+    "mainNavigation": "主导航",
+    "sidebarNavigation": "侧边栏导航"
+  },
+  "settings": {
+    "title": "设置",
+    "subtitle": "管理您的帐户、首选项和应用程序设置。",
+    "tabs": {
+      "appearance": "外貌",
+      "accessibility": "无障碍",
+      "languageRegion": "语言&地区",
+      "account": "帐户",
+      "security": "安全",
+      "notifications": "通知",
+      "advanced": "先进的"
+    },
+    "appearance": {
+      "title": "外貌",
+      "subtitle": "定制您的视觉体验。",
+      "accentColor": "强调色",
+      "accentColorDescription": "选择“+”和强调元素的突出显示颜色。",
+      "fontSize": "字体大小",
+      "fontSizeSmall": "小的",
+      "fontSizeMedium": "中等的",
+      "fontSizeLarge": "大的",
+      "boldMode": "粗体模式",
+      "boldModeDescription": "增加整个应用程序的字体粗细。",
+      "elementDensity": "元件尺寸",
+      "densitySmall": "小的",
+      "densityMedium": "中等的",
+      "densityLarge": "大的",
+      "systemColor": "系统颜色",
+      "themeLight": "光",
+      "themeDark": "黑暗的",
+      "themeSystem": "系统",
+      "backgroundColor": "背景颜色",
+      "bgPresetDefault": "默认",
+      "bgPresetWarm": "温暖的",
+      "bgPresetCool": "凉爽的",
+      "bgPresetForest": "森林",
+      "bgPresetLavender": "薰衣草",
+      "bgPresetSepia": "棕褐色",
+      "bgPresetMidnight": "午夜",
+      "bgPresetSlate": "石板"
+    },
+    "accessibility": {
+      "title": "无障碍",
+      "subtitle": "配置选项以使应用程序更易于访问。",
+      "highContrast": "高对比度",
+      "highContrastDescription": "增加颜色对比度以获得更好的可读性。",
+      "reduceMotion": "减少动画",
+      "reduceMotionDescription": "最大限度地减少运动效果和过渡。",
+      "focusOutline": "放大的焦点轮廓",
+      "focusOutlineDescription": "增加键盘焦点轮廓的厚度。",
+      "skipLinks": "始终显示跳过链接",
+      "skipLinksDescription": "使跳过导航链接永久可见。",
+      "underlineLinks": "为所有链接添加下划线",
+      "underlineLinksDescription": "为所有链接添加下划线以便更好地识别。",
+      "screenReader": "屏幕阅读器优化",
+      "screenReaderDescription": "添加额外的描述和丰富的 ARIA 标签。"
+    },
+    "languageRegion": {
+      "title": "语言&地区",
+      "subtitle": "选择您的首选语言和时区。",
+      "language": "语言",
+      "languageDescription": "选择应用程序的显示语言。",
+      "timezone": "时区",
+      "timezoneDescription": "选择您当地的时区。"
+    },
+    "account": {
+      "title": "帐户",
+      "subtitle": "管理您的个人信息。",
+      "fullName": "姓名",
+      "fullNamePlaceholder": "你的全名",
+      "birthDate": "出生日期",
+      "profilePicture": "个人资料图片",
+      "uploadPhoto": "上传照片",
+      "removePhoto": "删除照片",
+      "saveChanges": "保存更改",
+      "lockedTitle": "禁区",
+      "lockedDescription": "登录以管理您的帐户信息。",
+      "login": "登入",
+      "register": "创建账户"
+    },
+    "security": {
+      "title": "安全",
+      "subtitle": "配置您的帐户安全选项。",
+      "twoFactor": "双因素身份验证 (2FA)",
+      "twoFactorDescription": "登录时添加额外的保护层。",
+      "changePassword": "更改密码",
+      "changePasswordDescription": "定期更新您的密码以确保您的帐户安全。",
+      "activeSessions": "活跃会话",
+      "activeSessionsDescription": "查看和结束其他设备上的会话。",
+      "configure": "配置",
+      "change": "改变",
+      "current": "当前的",
+      "revoke": "撤销",
+      "revokeAll": "结束所有其他会话"
+    },
+    "notifications": {
+      "title": "通知",
+      "subtitle": "选择您希望如何收到通知。",
+      "email": "电子邮件通知",
+      "emailDescription": "在您的电子邮件中接收摘要和重要警报。",
+      "inApp": "应用内通知",
+      "inAppDescription": "在应用程序内显示横幅和徽章。",
+      "push": "推送通知",
+      "pushDescription": "即使应用程序关闭也能收到警报。",
+      "sound": "警报声",
+      "soundDescription": "当通知到达时播放声音。"
+    },
+    "advanced": {
+      "title": "先进的",
+      "subtitle": "高级应用程序维护选项。",
+      "clearCache": "清除应用程序缓存",
+      "clearCacheDescription": "删除本地存储的临时数据。",
+      "clearCacheButton": "立即清除缓存",
+      "clearCacheConfirm": "你确定吗？ 这将删除所有临时本地数据。",
+      "resetSettings": "重置设置",
+      "resetSettingsDescription": "将所有设置恢复为默认值。",
+      "resetSettingsButton": "重置为默认值",
+      "resetSettingsConfirm": "你确定吗？ 您所有的偏好都将丢失。",
+      "appVersion": "应用程序版本"
+    }
+  },
+  "help": {
+    "title": "帮助与支持",
+    "subtitle": "获取帮助、浏览文档并联系我们的团队。"
+  },
+  "dashboard": {
+    "title": "仪表板",
+    "welcome": "好，{timeOfDay}，{name}",
+    "morning": "早晨",
+    "afternoon": "下午",
+    "evening": "晚上",
+    "subtitle": "以下是您今天的自动化所发生的情况。",
+    "stats": {
+      "activeAgents": "活性剂",
+      "automationsToday": "当今的自动化",
+      "successRate": "成功率",
+      "pendingApprovals": "待批准"
+    },
+    "recentActivity": "最近的活动",
+    "quickActions": "快速行动",
+    "quickActionsDescription": "帮助您入门的常见任务",
+    "createAutomation": "新自动化",
+    "viewAgents": "查看所有代理",
+    "viewReports": "查看报告"
+  },
+  "agents": {
+    "title": "代理商",
+    "subtitle": "浏览和管理您的 AI 自动化代理",
+    "searchPlaceholder": "按名称或类型搜索代理...",
+    "filterByType": "按类型过滤",
+    "filterByStatus": "按状态过滤",
+    "allTypes": "所有类型",
+    "allStatuses": "所有状态",
+    "types": {
+      "productivity": "生产率",
+      "data": "数据",
+      "content": "内容",
+      "admin": "行政",
+      "technical": "技术的"
+    },
+    "statuses": {
+      "idle": "闲置的",
+      "running": "跑步",
+      "error": "错误",
+      "mock": {
+        "1": {
+          "name": "Salvador de Anexos de E-mail",
+          "desc": "Monitora a caixa de entrada em busca de anexos, salva-os no Google Drive e notifica via Slack."
+        },
+        "2": {
+          "name": "Gerador de Relat�rios Semanais",
+          "desc": "Compila dados de m�ltiplas fontes e gera um relat�rio PDF formatado toda segunda-feira."
+        },
+        "3": {
+          "name": "Monitor de Redes Sociais",
+          "desc": "Rastreia men��es � marca no Twitter, LinkedIn e Reddit. Responde automaticamente a consultas de suporte."
+        },
+        "4": {
+          "name": "Agente de Backup de Banco de Dados",
+          "desc": "Realiza backups noturnos do banco de dados e verifica a integridade. Alerta em caso de falha."
+        },
+        "5": {
+          "name": "Verificador de Sa�de de APIs",
+          "desc": "Faz ping em todas as APIs internas a cada minuto. Escala para o PagerDuty em caso de inatividade."
+        },
+        "6": {
+          "name": "Processador de Faturas",
+          "desc": "Extrai dados de faturas em PDF usando OCR e envia para o software de contabilidade."
+        },
+        "7": {
+          "name": "Agendador de Reuni�es",
+          "desc": "Coordena calend�rios entre equipes para encontrar hor�rios ideais e envia convites."
+        },
+        "8": {
+          "name": "Tradutor de Conte�do",
+          "desc": "Traduz posts de blog e documenta��o para 9 idiomas usando IA."
+        }
+      },
+      "paused": "已暂停"
+    },
+    "statusDescriptions": {
+      "idle": "状态：准备就绪，等待",
+      "running": "状态：正在执行",
+      "error": "状态：遇到错误",
+      "mock": {
+        "1": {
+          "name": "Salvador de Anexos de E-mail",
+          "desc": "Monitora a caixa de entrada em busca de anexos, salva-os no Google Drive e notifica via Slack."
+        },
+        "2": {
+          "name": "Gerador de Relat�rios Semanais",
+          "desc": "Compila dados de m�ltiplas fontes e gera um relat�rio PDF formatado toda segunda-feira."
+        },
+        "3": {
+          "name": "Monitor de Redes Sociais",
+          "desc": "Rastreia men��es � marca no Twitter, LinkedIn e Reddit. Responde automaticamente a consultas de suporte."
+        },
+        "4": {
+          "name": "Agente de Backup de Banco de Dados",
+          "desc": "Realiza backups noturnos do banco de dados e verifica a integridade. Alerta em caso de falha."
+        },
+        "5": {
+          "name": "Verificador de Sa�de de APIs",
+          "desc": "Faz ping em todas as APIs internas a cada minuto. Escala para o PagerDuty em caso de inatividade."
+        },
+        "6": {
+          "name": "Processador de Faturas",
+          "desc": "Extrai dados de faturas em PDF usando OCR e envia para o software de contabilidade."
+        },
+        "7": {
+          "name": "Agendador de Reuni�es",
+          "desc": "Coordena calend�rios entre equipes para encontrar hor�rios ideais e envia convites."
+        },
+        "8": {
+          "name": "Tradutor de Conte�do",
+          "desc": "Traduz posts de blog e documenta��o para 9 idiomas usando IA."
+        }
+      },
+      "paused": "状态：已被用户暂停"
+    },
+    "card": {
+      "lastRun": "最后一次运行",
+      "successRate": "成功率",
+      "runNow": "立即运行",
+      "pause": "暂停",
+      "resume": "恢复",
+      "configure": "配置",
+      "never": "绝不"
+    },
+    "empty": "没有代理符合您当前的过滤条件。 尝试调整搜索或过滤条件。",
+    "error": "无法加载代理。 请检查您的连接并重试。",
+    "mock": {
+      "1": {
+        "name": "Salvador de Anexos de E-mail",
+        "desc": "Monitora a caixa de entrada em busca de anexos, salva-os no Google Drive e notifica via Slack."
+      },
+      "2": {
+        "name": "Gerador de Relat�rios Semanais",
+        "desc": "Compila dados de m�ltiplas fontes e gera um relat�rio PDF formatado toda segunda-feira."
+      },
+      "3": {
+        "name": "Monitor de Redes Sociais",
+        "desc": "Rastreia men��es � marca no Twitter, LinkedIn e Reddit. Responde automaticamente a consultas de suporte."
+      },
+      "4": {
+        "name": "Agente de Backup de Banco de Dados",
+        "desc": "Realiza backups noturnos do banco de dados e verifica a integridade. Alerta em caso de falha."
+      },
+      "5": {
+        "name": "Verificador de Sa�de de APIs",
+        "desc": "Faz ping em todas as APIs internas a cada minuto. Escala para o PagerDuty em caso de inatividade."
+      },
+      "6": {
+        "name": "Processador de Faturas",
+        "desc": "Extrai dados de faturas em PDF usando OCR e envia para o software de contabilidade."
+      },
+      "7": {
+        "name": "Agendador de Reuni�es",
+        "desc": "Coordena calend�rios entre equipes para encontrar hor�rios ideais e envia convites."
+      },
+      "8": {
+        "name": "Tradutor de Conte�do",
+        "desc": "Traduz posts de blog e documenta��o para 9 idiomas usando IA."
+      }
+    },
+    "agentsFound": "{count, plural, =1 {1 agente encontrado} other {{count} agentes encontrados}}"
+  },
+  "automations": {
+    "title": "自动化",
+    "subtitle": "创建和管理自然语言自动化工作流程",
+    "nlpBuilder": {
+      "title": "自然语言工作流程构建器",
+      "description": "用简单的英语描述您想要自动化的内容，Pytomatiza+ 将为您构建工作流程。",
+      "instructionLabel": "您想要自动化什么？",
+      "instructionPlaceholder": "例如，当我收到客户发来的带有附件的电子邮件时，将附件保存到 Google 云端硬盘并在 Slack 上通知我。",
+      "instructionHelper": "尽可能具体。 包括触发器、条件和所需的操作。",
+      "agentTypeLabel": "推荐代理类型",
+      "agentTypePlaceholder": "自动检测（推荐）",
+      "requireApprovalLabel": "执行前需要批准",
+      "requireApprovalHelper": "启用后，工作流程将在运行前暂停以供您查看。",
+      "build": "构建工作流程",
+      "building": "构建工作流程...",
+      "charCount": "{当前}/{最大} 个字符",
+      "suggestions": "尝试以下示例：",
+      "example1": "每周五下午 5 点向团队 Slack 频道发送所有已关闭工单的每周报告",
+      "example2": "监控我们的 Twitter 提及并通过帮助中心的链接自动回复支持问题",
+      "example3": "当新行添加到“潜在客户”Google 表格时，通过 Gmail 发送个性化欢迎电子邮件"
+    },
+    "workflowList": {
+      "title": "您的工作流程",
+      "empty": "还没有工作流程。 在上面创建您的第一个。",
+      "lastTriggered": "最后触发",
+      "executions": "处决",
+      "toggle": "切换工作流程",
+      "delete": "删除工作流程",
+      "deleteConfirm": "您确定要删除此工作流程吗？ 此操作无法撤消。",
+      "deleted": "工作流程删除成功",
+      "statusToggled": "工作流程{状态}"
+    },
+    "errors": {
+      "instructionTooShort": "说明必须至少 10 个字符",
+      "instructionTooLong": "说明不得超过 500 个字符",
+      "buildFailed": "无法构建工作流程。 请再试一次。"
+    }
+  },
+  "theme": {
+    "light": "光",
+    "dark": "黑暗的",
+    "system": "系统"
+  },
+  "errors": {
+    "notFound": {
+      "title": "找不到页面",
+      "description": "您要查找的页面不存在或已被移动。",
+      "goHome": "转到仪表板"
+    },
+    "serverError": {
+      "title": "服务器错误",
+      "description": "发生意外错误。 我们的团队已收到通知。",
+      "retry": "再试一次"
+    },
+    "unauthorized": {
+      "title": "未经授权",
+      "description": "您需要登录才能访问此页面。",
+      "signIn": "登入"
+    }
+  },
+  "nav": {
+    "dashboard": "仪表板",
+    "automations": "自动化",
+    "agents": "代理商",
+    "logs": "日志和批准",
+    "modules": "模块",
+    "modulesPanel": "可用模块",
+    "openMenu": "打开导航菜单",
+    "closeMenu": "关闭导航菜单",
+    "closeModules": "关闭模块面板",
+    "primary": "主要导航",
+    "documents": "文件",
+    "documentsDesc": "管理和组织您的文档。",
+    "data": "数据和电子表格",
+    "dataDesc": "使用数据源和电子表格。",
+    "communication": "沟通",
+    "communicationDesc": "电子邮件、消息和通知。",
+    "media": "媒体与图像",
+    "mediaDesc": "图像和媒体资产管理。",
+    "files": "文件",
+    "filesDesc": "一般文件存储和管理。",
+    "architecture": "建筑学",
+    "architectureDesc": "系统图和架构文档。"
+  },
+  "modules": {
+    "documents": {
+      "title": "Documents",
+      "subtitle": "Automate intelligent document processing with AI agents",
+      "upload": {
+        "title": "Attach document",
+        "description": "Drag and drop your file here or click to select",
+        "dragActive": "Drop the file to attach",
+        "browse": "Browse files",
+        "supportedFormats": "Supported formats: PDF, DOCX, XLSX, PPTX, TXT, CSV, images",
+        "maxSize": "Max size: 25 MB",
+        "fileSelected": "File selected",
+        "remove": "Remove file"
+      },
+      "instruction": {
+        "title": "What should the AI agent do?",
+        "description": "Describe in natural language what you want the agent to do with this document.",
+        "label": "Agent instruction",
+        "placeholder": "e.g., Extract all data from the table on page 3 and convert it to a CSV spreadsheet. Then email it to finance@company.com.",
+        "helper": "Be specific: include which data to extract, output format, recipients, and post-processing actions.",
+        "charCount": "{current}/{max} characters"
+      },
+      "quickActions": {
+        "title": "Quick actions",
+        "extractData": "Extract data",
+        "convertFormat": "Convert format",
+        "mergeDocs": "Merge documents",
+        "ocrScan": "OCR scan",
+        "summarize": "Summarize content",
+        "translate": "Translate"
+      },
+      "recentDocuments": {
+        "title": "Recent documents",
+        "empty": "No documents processed yet. Upload your first document above.",
+        "processed": "Processed",
+        "status": "Status",
+        "actions": "Actions",
+        "download": "Download result",
+        "reprocess": "Reprocess",
+        "delete": "Delete"
+      },
+      "processing": {
+        "button": "Process document",
+        "processing": "Processing\u2026",
+        "success": "Document processed successfully!",
+        "error": "Failed to process document. Please try again."
+      }
+    },
+    "data": {
+      "title": "Data & Spreadsheets",
+      "subtitle": "Connect data sources, transform spreadsheets, and automate analysis",
+      "source": {
+        "title": "Data source",
+        "description": "Choose how to connect your data",
+        "uploadCsv": "Upload CSV/Excel",
+        "googleSheets": "Google Sheets",
+        "database": "SQL Database",
+        "api": "REST API",
+        "url": "Public URL",
+        "selectPlaceholder": "Select source type\u2026",
+        "connect": "Connect",
+        "connecting": "Connecting\u2026"
+      },
+      "instruction": {
+        "title": "What to do with the data?",
+        "description": "Describe the desired transformation, analysis, or automation",
+        "label": "Processing instruction",
+        "placeholder": "e.g., Merge 'First Name' and 'Last Name' columns, filter records with sales over $10,000, group by region, and generate a bar chart.",
+        "helper": "Include filters, aggregations, table joins, and the desired output format.",
+        "charCount": "{current}/{max} characters"
+      },
+      "preview": {
+        "title": "Preview",
+        "noData": "Connect a data source to preview",
+        "rows": "{count} rows",
+        "columns": "{count} columns"
+      },
+      "recentDatasets": {
+        "title": "Recent datasets",
+        "empty": "No datasets processed yet",
+        "source": "Source",
+        "lastUsed": "Last used"
+      },
+      "actions": {
+        "transform": "Transform data",
+        "analyze": "Analyze data",
+        "export": "Export result",
+        "schedule": "Schedule automation"
+      }
+    },
+    "communication": {
+      "title": "Communication",
+      "subtitle": "Automate emails, messages, and multi-channel notifications",
+      "composer": {
+        "title": "Compose message",
+        "description": "Describe the content and the AI agent will draft the message",
+        "instructionLabel": "Message instruction",
+        "instructionPlaceholder": "e.g., Send a reminder email to all clients with invoices due in 3 days, using a professional yet friendly tone, and include the payment link.",
+        "instructionHelper": "Specify: message tone, information to include, personalizations, and call-to-action.",
+        "subjectLabel": "Subject (for emails)",
+        "subjectPlaceholder": "Email subject\u2026",
+        "charCount": "{current}/{max} characters"
+      },
+      "channels": {
+        "title": "Delivery channels",
+        "email": "Email",
+        "slack": "Slack",
+        "whatsapp": "WhatsApp",
+        "teams": "Microsoft Teams",
+        "sms": "SMS",
+        "discord": "Discord"
+      },
+      "recipients": {
+        "title": "Recipients",
+        "description": "Configure who will receive the message",
+        "to": "To",
+        "toPlaceholder": "email@example.com",
+        "cc": "CC (carbon copy)",
+        "ccPlaceholder": "email@example.com",
+        "addMore": "Add more",
+        "list": "Distribution list",
+        "condition": "By condition (e.g., inactive clients)"
+      },
+      "schedule": {
+        "title": "Schedule",
+        "sendNow": "Send now",
+        "scheduleLater": "Schedule for later",
+        "recurring": "Recurring",
+        "dateTime": "Date and time",
+        "frequency": "Frequency",
+        "daily": "Daily",
+        "weekly": "Weekly",
+        "monthly": "Monthly"
+      },
+      "recentMessages": {
+        "title": "Recent messages",
+        "empty": "No messages sent yet",
+        "channel": "Channel",
+        "sentAt": "Sent at",
+        "status": "Status"
+      },
+      "actions": {
+        "send": "Send message",
+        "sending": "Sending\u2026",
+        "preview": "Preview",
+        "saveDraft": "Save draft",
+        "testSend": "Send test"
+      }
+    },
+    "media": {
+      "title": "Media & Images",
+      "subtitle": "Process, convert, and optimize images and media in batch",
+      "instruction": {
+        "title": "What should the AI agent do with the media?",
+        "description": "Describe in natural language what you want the agent to do with your images or videos.",
+        "label": "Agent instruction",
+        "placeholder": "e.g., Remove the background from all images, resize to 1200x800 maintaining aspect ratio, convert to WebP at 85% quality, apply brightness +10 filter, and add '\u00a9 My Company' watermark at the bottom right corner.",
+        "helper": "Include: which transformations to apply, dimensions, output format, quality, filters, and watermark.",
+        "charCount": "{current}/{max} characters",
+        "button": "Process with AI",
+        "processing": "Processing\u2026"
+      },
+      "upload": {
+        "title": "Media upload",
+        "description": "Drag images or videos to get started",
+        "dragActive": "Drop files to upload",
+        "browse": "Browse files",
+        "supportedFormats": "Formats: JPG, PNG, GIF, SVG, WebP, MP4, MOV, WebM",
+        "maxSize": "Max size: 100 MB per file",
+        "batchInfo": "{count} file(s) selected"
+      },
+      "transformations": {
+        "title": "Transformations",
+        "description": "Choose what to do with your media",
+        "resize": "Resize",
+        "resizeDescription": "Change image dimensions",
+        "width": "Width",
+        "height": "Height",
+        "maintainAspect": "Maintain aspect ratio",
+        "convertFormat": "Convert format",
+        "convertDescription": "Convert to another file format",
+        "targetFormat": "Target format",
+        "compress": "Compress",
+        "compressDescription": "Reduce file size",
+        "quality": "Quality",
+        "watermark": "Watermark",
+        "watermarkDescription": "Add text or logo overlay on the image",
+        "watermarkText": "Watermark text",
+        "filters": "Filters & adjustments",
+        "brightness": "Brightness",
+        "contrast": "Contrast",
+        "saturation": "Saturation",
+        "blur": "Blur"
+      },
+      "preview": {
+        "title": "Preview",
+        "original": "Original",
+        "processed": "Processed",
+        "noMedia": "Upload media to preview"
+      },
+      "recentMedia": {
+        "title": "Recent media",
+        "empty": "No media processed yet"
+      },
+      "actions": {
+        "process": "Process media",
+        "processing": "Processing\u2026",
+        "download": "Download result",
+        "downloadAll": "Download all (ZIP)",
+        "batchProcess": "Batch processing"
+      }
+    },
+    "files": {
+      "title": "Files",
+      "subtitle": "Manage, organize, and automate file operations",
+      "instruction": {
+        "title": "What should the AI agent do with your files?",
+        "description": "Describe in natural language how you want to organize, process, or manage your files.",
+        "label": "Agent instruction",
+        "placeholder": "e.g., Organize all PDFs in the Downloads folder by creation date, rename them using the pattern 'YYYY-MM-DD - original name', move invoices to /Finance/Invoices/{year}/{month}, and compress files older than 6 months.",
+        "helper": "Include: which files to affect, how to organize them, renaming pattern, destination folders, and additional actions.",
+        "charCount": "{current}/{max} characters",
+        "button": "Execute with AI",
+        "processing": "Executing\u2026"
+      },
+      "storage": {
+        "title": "Storage",
+        "used": "Used",
+        "total": "of {total}",
+        "files": "{count} files",
+        "folders": "{count} folders"
+      },
+      "upload": {
+        "title": "File upload",
+        "description": "Drag files or folders to upload",
+        "dragActive": "Drop to upload",
+        "browse": "Browse",
+        "createFolder": "Create folder"
+      },
+      "browser": {
+        "title": "File explorer",
+        "empty": "This folder is empty",
+        "name": "Name",
+        "size": "Size",
+        "modified": "Modified",
+        "type": "Type",
+        "sortBy": "Sort by",
+        "search": "Search files…",
+        "gridView": "Grid view",
+        "listView": "List view"
+      },
+      "rules": {
+        "title": "Organization rules",
+        "description": "Automate file organization",
+        "ruleName": "Rule name",
+        "ruleNamePlaceholder": "e.g., Sort invoices by month",
+        "condition": "Condition",
+        "conditionPlaceholder": "e.g., filename contains 'invoice'",
+        "action": "Action",
+        "actionPlaceholder": "e.g., move to /Finance/Invoices/{year}/{month}",
+        "addRule": "Add rule",
+        "active": "Active",
+        "inactive": "Inactive",
+        "empty": "No rules configured"
+      },
+      "actions": {
+        "label": "Actions",
+        "moreOptions": "More options",
+        "upload": "Upload",
+        "newFolder": "New folder",
+        "delete": "Delete",
+        "rename": "Rename",
+        "move": "Move",
+        "copy": "Copy",
+        "share": "Share",
+        "download": "Download"
+      }
+    },
+    "architecture": {
+      "title": "Architecture",
+      "subtitle": "Generate architecture diagrams and technical documentation with AI",
+      "diagramBuilder": {
+        "title": "Describe your architecture",
+        "description": "Describe the system in natural language and the AI agent will generate the diagram",
+        "instructionLabel": "Architecture description",
+        "instructionPlaceholder": "e.g., E-commerce system with: load balancer (Nginx), 3 API instances (Node.js on Kubernetes), primary PostgreSQL + read replica, Redis for caching, RabbitMQ queue for orders, Python workers, and S3 storage for product images.",
+        "instructionHelper": "Include: components, connections, protocols, technologies, and data flow.",
+        "charCount": "{current}/{max} characters"
+      },
+      "templates": {
+        "title": "Architecture templates",
+        "description": "Choose a template as a starting point",
+        "aws": "AWS Cloud",
+        "gcp": "Google Cloud",
+        "azure": "Microsoft Azure",
+        "microservices": "Microservices",
+        "monolith": "Modular Monolith",
+        "serverless": "Serverless",
+        "eventDriven": "Event-Driven",
+        "ciCd": "CI/CD Pipeline",
+        "network": "Network Topology",
+        "dataPipeline": "Data Pipeline"
+      },
+      "export": {
+        "title": "Export format",
+        "description": "Choose how to export the diagram",
+        "png": "PNG (image)",
+        "svg": "SVG (vector)",
+        "pdf": "PDF (document)",
+        "drawio": "Draw.io (editable)",
+        "terraform": "Terraform (IaC)",
+        "mermaid": "Mermaid (text)",
+        "plantuml": "PlantUML"
+      },
+      "recentDiagrams": {
+        "title": "Recent diagrams",
+        "empty": "No diagrams generated yet",
+        "createdAt": "Created at",
+        "components": "{count} components",
+        "download": "Download",
+        "edit": "Edit",
+        "delete": "Delete"
+      },
+      "actions": {
+        "generate": "Generate diagram",
+        "generating": "Generating diagram\u2026",
+        "generateDescription": "Generate documentation",
+        "save": "Save project",
+        "share": "Share"
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Pytomatiza+. All rights reserved.",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "status": "系统状态"
+  },
+  "logs": {
+    "title": "Logs & Aprovações",
+    "subtitle": "Monitore execuções de automação e gerencie solicitações de aprovação pendentes.",
+    "stats": {
+      "totalExecutions": "Total de Execuções",
+      "successRate": "Taxa de Sucesso",
+      "pendingApprovals": "Aprovações Pendentes",
+      "errors24h": "Erros (24h)"
+    },
+    "tableHeader": "Execuções Recentes",
+    "tableAriaLabel": "Registros de execução",
+    "status": {
+      "success": "Sucesso",
+      "error": "Erro",
+      "pending": "Aprovação Pendente",
+      "running": "Em Execução"
+    },
+    "agents": {
+      "emailSaver": "Salvador de Anexos de E-mail",
+      "reportGen": "Gerador de Relatórios Semanais",
+      "socialMonitor": "Monitor de Redes Sociais",
+      "dbBackup": "Agente de Backup de Banco de Dados",
+      "apiChecker": "Verificador de Saúde de APIs",
+      "invoiceProc": "Processador de Faturas",
+      "meetingSched": "Agendador de Reuniões",
+      "contentTrans": "Tradutor de Conteúdo"
+    },
+    "actions": {
+      "log1": "Processou 3 anexos de 2 e-mails",
+      "log2": "Gerou relatório semanal de vendas em PDF",
+      "log3": "Respondeu automaticamente a 5 menções de suporte",
+      "log4": "Backup noturno — verificação de integridade falhou",
+      "log5": "Verificou 12 endpoints — todos saudáveis",
+      "log6": "Aguardando aprovação de 3 faturas",
+      "log7": "Agendou 2 sincronizações de equipe para a próxima semana",
+      "log8": "Traduzindo post do blog para 9 idiomas"
+    },
+    "duration": {
+      "ongoing": "em andamento"
+    }
+  }
+}

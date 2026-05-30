@@ -1,0 +1,23 @@
+{
+    "folders": [
+        {
+            "path": "Back-end"
+        },
+        {
+            "path": "Front-end"
+        }
+    ],
+    "settings": {
+        "python.defaultInterpreterPath": "C:/Users/Alisson Davi/AppData/Local/pypoetry/Cache/virtualenvs/pytomatiza-backend-2rWTXipn-py3.11/Scripts/python.exe",
+
+        "python.analysis.extraPaths": [
+            "${workspaceFolder:Back-end}/src"
+        ],
+
+        "python.autoComplete.extraPaths": [
+            "${workspaceFolder:Back-end}/src"
+        ],
+
+        "python.analysis.autoSearchPaths": true
+    }
+}

@@ -1,0 +1,372 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Pytomatiza+ Design System — globals.css
+   Tailwind v4 + CSS custom properties + class-based dark mode
+   Python brand colors: Blue (#3776AB) & Yellow (#FFD43B)
+   ═══════════════════════════════════════════════════════════════════ */
+
+@import "tailwindcss";
+
+/* ── Dark mode variant via class strategy ──────────────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ═══════════════════════════════════════════════════════════════════
+   DESIGN TOKENS — Light theme (default)
+   ═══════════════════════════════════════════════════════════════════ */
+:root {
+  /* Python Brand Core */
+  --brand-python-blue: #3776AB;
+  --brand-python-yellow: #FFD43B;
+
+  /* Brand — Primary is Python Blue, Accent is Python Yellow */
+  --brand-primary: #3776AB;
+  --brand-primary-light: #E8F0F8;
+  --brand-primary-dark: #2E5F8A;
+  --brand-accent: #FFD43B;
+  --brand-accent-light: #FFF8E1;
+  --brand-accent-hover: #E6BF36;
+
+  /* Dynamic accent (controlled by user settings, defaults to yellow) */
+  --brand-accent-dynamic: #FFD43B;
+
+  /* Semantic — distributed wisely with Python palette */
+  --color-success: #1d9e75;
+  --color-warning: #e8732e;
+  --color-danger: #e24b4a;
+  --color-info: #4A9FD4;
+
+  /* Surfaces */
+  --surface-0: #ffffff;
+  --surface-1: #f8f8f6;
+  --surface-2: #f1efe8;
+  --border-default: rgba(0, 0, 0, 0.12);
+  --border-strong: rgba(0, 0, 0, 0.25);
+
+  /* Text */
+  --text-primary: #171717;
+  --text-secondary: #525252;
+  --text-tertiary: #737373;
+  --text-inverse: #ffffff;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+
+  /* Shadow — ring + drop + aura glow */
+  --shadow-xs: 0 0 0 1px rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 0 0 1px rgba(0, 0, 0, 0.05),
+               0 2px 8px rgba(0, 0, 0, 0.08),
+               0 0 6px 1px var(--brand-accent-light);
+  --shadow-md: 0 0 0 1px rgba(0, 0, 0, 0.06),
+               0 4px 16px rgba(0, 0, 0, 0.12),
+               0 0 10px 2px var(--brand-accent-light);
+
+  /* Navbar */
+  --navbar-height: 56px;
+
+  /* Typography scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   DESIGN TOKENS — Dark theme
+   ═══════════════════════════════════════════════════════════════════ */
+.dark {
+  --brand-primary: #4A9FD4;
+  --brand-primary-light: #1A2A35;
+  --brand-primary-dark: #7EC8E3;
+  --brand-accent: #FFE066;
+  --brand-accent-light: #2A2618;
+  --brand-accent-hover: #E6C84A;
+
+  --surface-0: #1a1a18;
+  --surface-1: #222220;
+  --surface-2: #2a2a28;
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+
+  --text-primary: #ededed;
+  --text-secondary: #a3a3a3;
+  --text-tertiary: #737373;
+  --text-inverse: #171717;
+
+  --shadow-xs: 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --shadow-sm: 0 0 0 1px rgba(255, 255, 255, 0.05),
+               0 2px 8px rgba(0, 0, 0, 0.25),
+               0 0 6px 1px var(--brand-accent);
+  --shadow-md: 0 0 0 1px rgba(255, 255, 255, 0.06),
+               0 4px 16px rgba(0, 0, 0, 0.35),
+               0 0 10px 2px var(--brand-accent);
+
+  color-scheme: dark;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Tailwind v4 @theme — bridge CSS vars to utility classes
+   ═══════════════════════════════════════════════════════════════════ */
+@theme inline {
+  /* Font families
+     Clash Display (headings) + Inter (body) — loaded via layout.tsx
+     Geist Sans kept available as fallback only for the Login page */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Clash Display", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Brand colors as Tailwind utilities */
+  --color-brand: var(--brand-primary);
+  --color-brand-light: var(--brand-primary-light);
+  --color-brand-dark: var(--brand-primary-dark);
+  --color-accent: var(--brand-accent);
+  --color-accent-light: var(--brand-accent-light);
+  --color-accent-hover: var(--brand-accent-hover);
+  --color-accent-dynamic: var(--brand-accent-dynamic);
+  --color-python-blue: var(--brand-python-blue);
+  --color-python-yellow: var(--brand-python-yellow);
+
+  /* Semantic colors */
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+  --color-info: var(--color-info);
+
+  /* Surface colors */
+  --color-surface-0: var(--surface-0);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+
+  /* Text colors */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-inverse: var(--text-inverse);
+
+  /* Border colors */
+  --color-border-default: var(--border-default);
+  --color-border-strong: var(--border-strong);
+
+  /* Radius */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-full: var(--radius-full);
+
+  /* Shadows */
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+
+  /* Background / Foreground fallback (Tailwind requires these) */
+  --color-background: var(--surface-0);
+  --color-foreground: var(--text-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Smooth scrolling with anchor offset for fixed header */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--surface-0);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Focus ring — visible only on keyboard focus ───────────────── */
+*:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ── Skip-to-main link (hidden offscreen until focused) ────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: var(--brand-accent);
+  color: var(--text-inverse);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  border-radius: 0 0 var(--radius-md) 0;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── Selection styles ──────────────────────────────────────────── */
+::selection {
+  background-color: var(--brand-accent-light);
+  color: var(--brand-accent-hover);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TYPOGRAPHY UTILITIES
+   ═══════════════════════════════════════════════════════════════════ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+h1 { font-size: var(--text-3xl); letter-spacing: -0.02em; }
+h2 { font-size: var(--text-2xl); letter-spacing: -0.015em; }
+h3 { font-size: var(--text-xl); }
+h4 { font-size: var(--text-lg); }
+h5 { font-size: var(--text-md); }
+h6 { font-size: var(--text-base); }
+
+p {
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* ── Code elements use mono font ───────────────────────────────── */
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ACCESSIBILITY — Screen reader only
+   ═══════════════════════════════════════════════════════════════════ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SCROLLBAR — subtle cross-browser
+   ═══════════════════════════════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-default) transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   APPEARANCE & ACCESSIBILITY UTILITIES
+   Controlled by settingsStore.ts — applied to <html> element
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Font weight override — 600 ensures nothing gets lighter when enabled */
+.font-bold-mode body,
+.font-bold-mode * {
+  font-weight: 600 !important;
+}
+
+/* Density scaling — applied via html.fontSize (multiplies rem units).
+   These classes also expose --density-scale for any px-based tweaks. */
+.density-small { --density-scale: 0.82; }
+.density-medium { --density-scale: 1; }
+.density-large { --density-scale: 1.18; }
+
+/* Auto-scale px-only properties like border-width and shadow when density changes */
+.density-small { --border-scale: 0.82; }
+.density-medium { --border-scale: 1; }
+.density-large { --border-scale: 1.18; }
+
+@media (min-width: 768px) {
+  .density-small * { --density-gap: 0.82; }
+  .density-large * { --density-gap: 1.18; }
+}
+
+/* High contrast */
+.high-contrast {
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --border-default: rgba(0, 0, 0, 0.4);
+  --border-strong: rgba(0, 0, 0, 0.7);
+}
+.dark.high-contrast {
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --border-default: rgba(255, 255, 255, 0.4);
+  --border-strong: rgba(255, 255, 255, 0.7);
+}
+
+/* Reduce motion */
+.reduce-motion * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Enlarged focus outline */
+.enlarged-focus *:focus-visible {
+  outline-width: 4px !important;
+  outline-offset: 4px !important;
+}
+
+/* Always show skip links */
+.always-skip-links .skip-link {
+  top: 0;
+  position: fixed;
+}
+
+/* Underline all links */
+.underline-links a,
+.underline-links [role="link"] {
+  text-decoration: underline !important;
+  text-underline-offset: 2px;
+}
+
+/* Screen reader optimizations — visually hidden descriptions shown for SR only */
+.sr-optimizations .sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  clip: auto;
+  overflow: visible;
+  white-space: normal;
+  border-width: initial;
+  opacity: 0;
+  pointer-events: none;
+}

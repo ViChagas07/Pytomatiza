@@ -1,0 +1,16 @@
+
+> pytomatiza-front@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.18.29:3000
+- Environments: .env.local
+✓ Ready in 453ms
+⚠ Slow filesystem detected. The benchmark took 1762ms. If D:\Pytomatiza+\Front-end\.next/dev is a network drive, consider moving it to a local folder.
+See more: https://nextjs.org/docs/app/guides/local-development
+- Experiments (use with caution):
+  · clientTraceMetadata
+
+ HEAD /en/dashboard 200 in 3.9s (next.js: 3.2s, proxy.ts: 4ms, generate-params: 458ms, application-code: 679ms)
+ HEAD /en/settings 200 in 1186ms (next.js: 1057ms, proxy.ts: 5ms, generate-params: 466ms, application-code: 124ms)
