@@ -12,14 +12,15 @@ from pytomatiza.config import settings
 
 engine = create_async_engine(
     settings.DATABASE_URL,
+    pool_pre_ping=True,
     pool_size=10,
     max_overflow=20,
-    pool_pre_ping=True,
     pool_recycle=3600,
-    echo=False,  # produção
+    echo=False,
     connect_args={
         "statement_cache_size": 0,
     },
+    poolclass=None,
 )
 
 AsyncSessionLocal = async_sessionmaker(
