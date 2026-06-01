@@ -140,7 +140,7 @@ export function ArchitectureContent() {
       };
       setDiagrams((prev) => [newDiagram, ...prev]);
     } catch {
-      setError("Falha ao gerar o diagrama. Tente novamente.");
+      setError(t("errors.generateFailed"));
     } finally {
       setIsGenerating(false);
     }
@@ -168,13 +168,13 @@ export function ArchitectureContent() {
   };
 
   const handleDeleteDiagram = (id: string) => {
-    if (window.confirm("Tem certeza que deseja excluir este diagrama?")) {
+    if (window.confirm(t("dialogs.deleteConfirm"))) {
       setDiagrams((prev) => prev.filter((d) => d.id !== id));
     }
   };
 
   const handleShare = () => {
-    alert("Link de compartilhamento copiado para a área de transferência!\n\nCompartilhe este projeto de arquitetura com sua equipe.");
+    alert(t("dialogs.shareLink"));
   };
 
   if (!loaded) return null;
@@ -364,7 +364,7 @@ export function ArchitectureContent() {
             </div>
             <div>
               <p className="text-sm font-medium text-[var(--text-primary)]">{t("actions.share")}</p>
-              <p className="text-xs text-[var(--text-tertiary)] mt-0.5">Compartilhe com sua equipe via link</p>
+              <p className="text-xs text-[var(--text-tertiary)] mt-0.5">{t("actions.shareDescription")}</p>
             </div>
           </button>
         </aside>

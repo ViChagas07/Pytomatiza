@@ -11,7 +11,8 @@
     "breadcrumb": "Breadcrumb",
     "pagination": "Pagination",
     "currentPage": "Current page, page {page}",
-    "goToPage": "Go to page {page}"
+    "goToPage": "Go to page {page}",
+    "goToHome": "Go to home page"
   },
   "common": {
     "loading": "Loading…",
@@ -33,7 +34,9 @@
     "more": "More options",
     "copied": "Copied to clipboard",
     "enabled": "Enabled",
-    "disabled": "Disabled"
+    "disabled": "Disabled",
+    "increasedBy": "Increased by",
+    "decreasedBy": "Decreased by"
   },
   "auth": {
     "signIn": {
@@ -65,6 +68,7 @@
     },
     "google": "Continue with Google",
     "divider": "or",
+    "authenticationForm": "Authentication form",
     "errors": {
       "invalidCredentials": "Invalid email or password",
       "emailExists": "An account with this email already exists",
@@ -183,7 +187,15 @@
       "bgPresetLavender": "Lavender",
       "bgPresetSepia": "Sepia",
       "bgPresetMidnight": "Midnight",
-      "bgPresetSlate": "Slate"
+      "bgPresetSlate": "Slate",
+      "colorYellow": "Yellow",
+      "colorBlue": "Blue",
+      "colorGreen": "Green",
+      "colorPurple": "Purple",
+      "colorOrange": "Orange",
+      "colorRed": "Red",
+      "colorPink": "Pink",
+      "accentColorAria": "{color} accent color"
     },
     "accessibility": {
       "title": "Accessibility",
@@ -267,7 +279,28 @@
   },
   "help": {
     "title": "Help & Support",
-    "subtitle": "Get help, browse documentation, and contact our team."
+    "subtitle": "Get help, browse documentation, and contact our team.",
+    "documentation": "Documentation",
+    "documentationDescription": "Browse guides, tutorials, and API references.",
+    "contactSupport": "Contact Support",
+    "contactSupportDescription": "Get help from our team. Usually responds within 24 hours.",
+    "faqTitle": "Frequently Asked Questions",
+    "faq0": {
+      "question": "How do I create an automation?",
+      "answer": "Go to the Automations page and use the Natural Language Workflow Builder. Describe what you want to automate in plain English, and Pytomatiza+ will build the workflow for you."
+    },
+    "faq1": {
+      "question": "How do I connect a new integration?",
+      "answer": "Navigate to Settings → Integrations to connect third-party services like Google Workspace, Slack, or GitHub."
+    },
+    "faq2": {
+      "question": "What happens if an agent fails?",
+      "answer": "Failed agents are marked with an error status. You can view the error details in the agent card and retry the execution."
+    },
+    "faq3": {
+      "question": "How do I change my language?",
+      "answer": "Click the globe icon in the header to switch between 9 supported languages."
+    }
   },
   "dashboard": {
     "title": "Dashboard",
@@ -276,11 +309,14 @@
     "afternoon": "afternoon",
     "evening": "evening",
     "subtitle": "Here's what's happening with your automations today.",
+    "user": "User",
     "stats": {
       "activeAgents": "Active agents",
       "automationsToday": "Automations today",
       "successRate": "Success rate",
-      "pendingApprovals": "Pending approvals"
+      "pendingApprovals": "Pending approvals",
+      "increasedBy": "Increased by {value}",
+      "decreasedBy": "Decreased by {value}"
     },
     "recentActivity": "Recent activity",
     "recentActivityEmpty": "Empty history… Create your first automation with Pytomatiza+ by going to Modules!",
@@ -293,7 +329,8 @@
       "title": "Error loading data",
       "loadingFailed": "Unable to load dashboard data. Please check your connection and try again.",
       "retry": "Try again",
-      "offlineBanner": "Backend unavailable — displayed data may be out of date"
+      "offlineBanner": "Backend unavailable — displayed data may be out of date",
+      "unknown": "Unknown error"
     },
     "loginPrompt": "Sign in to your account to access real-time data!",
     "loginAction": "Sign in",
@@ -399,6 +436,13 @@
       "example2": "Monitor our Twitter mentions and automatically reply to support questions with a link to the help center",
       "example3": "When a new row is added to the 'Leads' Google Sheet, send a personalized welcome email via Gmail"
     },
+    "agentTypes": {
+      "productivity": "Productivity",
+      "data": "Data",
+      "content": "Content",
+      "admin": "Admin",
+      "technical": "Technical"
+    },
     "workflowList": {
       "title": "Your workflows",
       "empty": "No workflows yet. Create your first one above.",
@@ -408,7 +452,13 @@
       "delete": "Delete workflow",
       "deleteConfirm": "Are you sure you want to delete this workflow? This action cannot be undone.",
       "deleted": "Workflow deleted successfully",
-      "statusToggled": "Workflow {status}"
+      "statusToggled": "Workflow {status}",
+      "label": "Workflows",
+      "neverTriggered": "Never triggered",
+      "status": "Status: {status}",
+      "created": "Workflow created! Agent type: {agentType}. Approval: {approval}.",
+      "required": "required",
+      "notRequired": "not required"
     },
     "loginPrompt": "Log in to your account to access real-time data!",
     "errors": {
@@ -437,7 +487,18 @@
       "title": "Unauthorized",
       "description": "You need to sign in to access this page.",
       "signIn": "Sign in"
-    }
+    },
+    "notFoundTitle": "Page not found",
+    "notFoundDescription": "The page you're looking for doesn't exist or has been moved.",
+    "notFoundAction": "Go to dashboard",
+    "somethingWentWrong": "Something went wrong",
+    "unexpectedError": "An unexpected error occurred. Our team has been notified.",
+    "dashboardErrorDescription": "An unexpected error occurred while loading this page.",
+    "tryAgain": "Try again",
+    "goHome": "Go home",
+    "errorId": "Error ID: ",
+    "loadingDashboard": "Loading dashboard",
+    "loadingDashboardContent": "Loading dashboard content…"
   },
   "nav": {
     "dashboard": "Dashboard",
@@ -461,7 +522,11 @@
     "files": "Files",
     "filesDesc": "General file storage and management.",
     "architecture": "Architecture",
-    "architectureDesc": "System diagrams and architecture docs."
+    "architectureDesc": "System diagrams and architecture docs.",
+    "settings": "Settings",
+    "signOut": "Sign Out",
+    "signIn": "Sign In",
+    "user": "User"
   },
   "logs": {
     "title": "Logs & Approvals",
@@ -541,7 +606,15 @@
         "mergeDocs": "Merge documents",
         "ocrScan": "OCR scan",
         "summarize": "Summarize content",
-        "translate": "Translate"
+        "translate": "Translate",
+        "presets": {
+          "extract": "Extract all structured data from this document and export as CSV.",
+          "convert": "Convert this document to PDF format while preserving the original layout.",
+          "merge": "Merge this document with other files in the folder and generate a single unified PDF.",
+          "ocr": "Scan this document using OCR and extract all text in editable format.",
+          "summarize": "Summarize the content of this document in one paragraph with key points.",
+          "translate": "Translate this document to English while preserving the original formatting."
+        }
       },
       "recentDocuments": {
         "title": "Recent documents",
@@ -557,7 +630,11 @@
         "button": "Process document",
         "processing": "Processing…",
         "success": "Document processed successfully!",
-        "error": "Failed to process document. Please try again."
+        "error": "Failed to process document. Please try again.",
+        "reprocessInstruction": "Reprocess the document {name} applying the same previous transformations."
+      },
+      "dialogs": {
+        "deleteConfirm": "Are you sure you want to delete this document? This action cannot be undone."
       },
       "integrations": {
         "googleDrive": {
@@ -597,19 +674,66 @@
         "title": "Preview",
         "noData": "Connect a data source to preview",
         "rows": "{count} rows",
-        "columns": "{count} columns"
+        "columns": "{count} columns",
+        "id": "ID",
+        "name": "Name",
+        "region": "Region",
+        "sales": "Sales",
+        "status": "Status",
+        "showingRecords": "Showing {shown} of {total} records"
       },
       "recentDatasets": {
         "title": "Recent datasets",
         "empty": "No datasets processed yet",
         "source": "Source",
-        "lastUsed": "Last used"
+        "lastUsed": "Last used",
+        "info": "{rows} rows · {cols} columns"
       },
       "actions": {
         "transform": "Transform data",
         "analyze": "Analyze data",
         "export": "Export result",
-        "schedule": "Schedule automation"
+        "schedule": "Schedule automation",
+        "sidebarTitle": "Actions",
+        "dashboard": "Dashboard",
+        "processing": "Processing…"
+      },
+      "presets": {
+        "merge": {
+          "label": "Merge columns",
+          "prompt": "Merge 'Name' and 'Last Name' columns into a single 'Full Name' column."
+        },
+        "filter": {
+          "label": "Filter records",
+          "prompt": "Filter records where 'Sales' column is greater than $10,000."
+        },
+        "group": {
+          "label": "Group & summarize",
+          "prompt": "Group data by 'Region' and calculate the sum and average of 'Sales'."
+        },
+        "pivot": {
+          "label": "Pivot table",
+          "prompt": "Create a pivot table with 'Category' as rows, 'Month' as columns, and sum of 'Revenue'."
+        },
+        "chart": {
+          "label": "Generate chart",
+          "prompt": "Generate a bar chart comparing sales by region."
+        },
+        "export": {
+          "label": "Export structured",
+          "prompt": "Export the transformed data to a CSV file with UTF-8 encoding."
+        }
+      },
+      "errors": {
+        "connectFailed": "Failed to connect to data source.",
+        "processFailed": "Failed to process data."
+      },
+      "results": {
+        "connected": "Connected successfully! Data source ready for processing.",
+        "transformComplete": "Transformation complete! {count} records processed. The result is ready for download.",
+        "analyzeInstruction": "Analyze the connected data and generate insights: trends, outliers, correlations, and recommendations.",
+        "scheduleAlert": "Scheduling configured! Data will be processed automatically.",
+        "comingSoon": "Feature coming soon."
       },
       "integrations": {
         "googleDrive": {
@@ -633,6 +757,7 @@
         "instructionHelper": "Specify: message tone, information to include, personalizations, and call-to-action.",
         "subjectLabel": "Subject (for emails)",
         "subjectPlaceholder": "Email subject…",
+        "noSubject": "(no subject)",
         "charCount": "{current}/{max} characters"
       },
       "channels": {
@@ -664,7 +789,8 @@
         "frequency": "Frequency",
         "daily": "Daily",
         "weekly": "Weekly",
-        "monthly": "Monthly"
+        "monthly": "Monthly",
+        "dateTimePlaceholder": "Date/time picker available in the full version."
       },
       "recentMessages": {
         "title": "Recent messages",
@@ -673,12 +799,28 @@
         "sentAt": "Sent at",
         "status": "Status"
       },
+      "status": {
+        "sent": "Sent",
+        "scheduled": "Scheduled",
+        "failed": "Failed"
+      },
+      "results": {
+        "sent": "Message sent successfully via {channels}!",
+        "preview": "[PREVIEW]\n\nChannels: {channels}\nSubject: {subject}\n\n{instruction}\n\n(This is a preview simulation)",
+        "draftSaved": "Draft saved successfully! You can access it in 'Messages > Drafts'.",
+        "testSent": "Test sent to {email}! Check your inbox."
+      },
+      "errors": {
+        "sendFailed": "Failed to send message.",
+        "testNoRecipient": "Please enter a recipient for the test."
+      },
       "actions": {
         "send": "Send message",
         "sending": "Sending…",
         "preview": "Preview",
         "saveDraft": "Save draft",
-        "testSend": "Send test"
+        "testSend": "Send test",
+        "testSendDescription": "Send a test to verify formatting"
       }
     },
     "media": {
@@ -701,7 +843,8 @@
         "browse": "Browse files",
         "supportedFormats": "Formats: JPG, PNG, GIF, SVG, WebP, MP4, MOV, WebM",
         "maxSize": "Max size: 100 MB per file",
-        "batchInfo": "{count} file(s) selected"
+        "batchInfo": "{count} file(s) selected",
+        "remove": "Remove"
       },
       "transformations": {
         "title": "Transformations",
@@ -741,7 +884,18 @@
         "processing": "Processing…",
         "download": "Download result",
         "downloadAll": "Download all (ZIP)",
-        "batchProcess": "Batch processing"
+        "batchProcess": "Batch processing",
+        "filesCount": "{count} files"
+      },
+      "errors": {
+        "processFailed": "Failed to process media.",
+        "aiFailed": "Failed to interpret instruction."
+      },
+      "results": {
+        "processComplete": "Processing complete! {count} file(s) transformed successfully.",
+        "aiInterpreted": "Instruction interpreted successfully! Transformations have been pre-configured as described. Review the adjustments in the panel and click 'Process media' to apply.",
+        "downloadSimulation": "Simulating download of {count} processed file(s) as ZIP.\n\nIn the full version, all files would be compressed and downloaded.",
+        "downloadComplete": "Download complete! Files removed from the list."
       },
       "integrations": {
         "googleDrive": {
@@ -780,7 +934,11 @@
         "used": "Used",
         "total": "of {total}",
         "files": "{count} files",
-        "folders": "{count} folders"
+        "folders": "{count} folders",
+        "activeRules": "Active rules",
+        "rulesConfigured": "{count} configured",
+        "lastFolder": "Last: {name}",
+        "progressLabel": "{progress}% used"
       },
       "upload": {
         "title": "File upload",
@@ -799,7 +957,8 @@
         "sortBy": "Sort by",
         "search": "Search files…",
         "gridView": "Grid view",
-        "listView": "List view"
+        "listView": "List view",
+        "folder": "Folder"
       },
       "rules": {
         "title": "Organization rules",
@@ -814,6 +973,18 @@
         "active": "Active",
         "inactive": "Inactive",
         "empty": "No rules configured"
+      },
+      "dialogs": {
+        "newFolder": "New folder name:",
+        "rename": "Rename to:",
+        "deleteConfirm": "Are you sure you want to delete \"{name}\"? This action cannot be undone.",
+        "moveAlert": "Move \"{name}\" — In the full version, a folder selector would be shown.",
+        "copySuffix": " (copy)",
+        "shareLink": "Share link for \"{name}\" copied to clipboard!\n\nhttps://pytomatiza.app/share/{id}",
+        "selectFile": "\"{label}\" — Select a file in the explorer to use this action."
+      },
+      "results": {
+        "aiInterpreted": "Instruction interpreted successfully! Organization rules have been created automatically. Review them in the rules panel."
       },
       "actions": {
         "label": "Actions",
@@ -837,7 +1008,8 @@
           "browse": "Explore Drive",
           "disconnect": "Disconnect"
         }
-      }
+      },
+      "aiPlaceholder": "Ex.: Organize todos os PDFs da pasta Downloads por data de criação, renomeie com o padrão 'YYYY-MM-DD - nome original', mova faturas para /Financeiro/Faturas/{ano}/{mês} e compacte arquivos com mais de 6 meses."
     },
     "architecture": {
       "title": "Architecture",
@@ -884,13 +1056,30 @@
         "edit": "Edit",
         "delete": "Delete"
       },
+      "errors": {
+        "generateFailed": "Failed to generate diagram. Please try again."
+      },
+      "dialogs": {
+        "deleteConfirm": "Are you sure you want to delete this diagram?",
+        "shareLink": "Share link copied to clipboard!\n\nShare this architecture project with your team."
+      },
       "actions": {
         "generate": "Generate diagram",
         "generating": "Generating diagram…",
         "generateDescription": "Generate documentation",
         "save": "Save project",
-        "share": "Share"
+        "share": "Share",
+        "shareDescription": "Share with your team via link"
       }
     }
+  },
+  "brand": {
+    "tagline": "AI-powered automation that thinks, learns, and executes — so you don't have to.",
+    "feature1Title": "Natural Language Workflows",
+    "feature1Desc": "Describe tasks in plain English. Our NLP engine builds the automation for you.",
+    "feature2Title": "Multi-Agent Orchestration",
+    "feature2Desc": "Specialized AI agents collaborate to handle complex, multi-step processes.",
+    "feature3Title": "Enterprise-Grade Security",
+    "feature3Desc": "End-to-end encryption, role-based access, and full audit trails."
   }
 }

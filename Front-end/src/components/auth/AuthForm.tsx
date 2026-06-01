@@ -179,7 +179,7 @@ export function AuthForm() {
         <div
           ref={tabListRef}
           role="tablist"
-          aria-label="Authentication form"
+          aria-label={tAuth("authenticationForm")}
           onKeyDown={handleTabKeyDown}
           className="flex rounded-[var(--radius-md)] bg-white/10 p-1 mb-6"
         >

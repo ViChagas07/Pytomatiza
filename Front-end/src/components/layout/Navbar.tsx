@@ -313,7 +313,7 @@ export function Navbar() {
                             )}
                           >
                             <Settings className="h-4 w-4" aria-hidden="true" />
-                            Configurações
+                            {t("settings")}
                           </Link>
                         </DropdownMenu.Item>
                         <DropdownMenu.Item asChild>
@@ -329,7 +329,7 @@ export function Navbar() {
                             )}
                           >
                             <LogOut className="h-4 w-4" aria-hidden="true" />
-                            Sair
+                            {t("signOut")}
                           </button>
                         </DropdownMenu.Item>
                       </>
@@ -348,7 +348,7 @@ export function Navbar() {
                             )}
                           >
                             <LogIn className="h-4 w-4" aria-hidden="true" />
-                            Fazer Login
+                            {t("signIn")}
                           </button>
                         </DropdownMenu.Item>
                         <DropdownMenu.Item asChild>
@@ -363,7 +363,7 @@ export function Navbar() {
                             )}
                           >
                             <Settings className="h-4 w-4" aria-hidden="true" />
-                            Configurações
+                            {t("settings")}
                           </Link>
                         </DropdownMenu.Item>
                       </>

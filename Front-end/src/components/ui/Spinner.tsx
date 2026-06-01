@@ -3,6 +3,9 @@
    Accessible loading indicator with aria-live region.
    ═══════════════════════════════════════════════════════════════════ */
 
+"use client";
+
+import { useTranslations } from "next-intl";
 import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -21,14 +24,16 @@ const sizeMap = {
   lg: "h-8 w-8",
 } as const;
 
-export function Spinner({ size = "md", label = "Loading", className }: SpinnerProps) {
+export function Spinner({ size = "md", label, className }: SpinnerProps) {
+  const t = useTranslations("common");
+  const resolvedLabel = label || t("loading");
   return (
-    <span role="status" aria-label={label} data-testid="spinner">
+    <span role="status" aria-label={resolvedLabel} data-testid="spinner">
       <Loader2
         className={cn("animate-spin text-[var(--text-tertiary)]", sizeMap[size], className)}
         aria-hidden="true"
       />
-      <span className="sr-only">{label}</span>
+      <span className="sr-only">{resolvedLabel}</span>
     </span>
   );
 }

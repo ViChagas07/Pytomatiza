@@ -10,14 +10,14 @@ import { useAccentColorStore, accentColorMap, type AccentColor } from "@/store";
 import { cn } from "@/lib/utils";
 import { Palette } from "lucide-react";
 
-const accentOptions: { value: AccentColor; label: string }[] = [
-  { value: "yellow", label: "Yellow" },
-  { value: "blue", label: "Blue" },
-  { value: "green", label: "Green" },
-  { value: "purple", label: "Purple" },
-  { value: "orange", label: "Orange" },
-  { value: "red", label: "Red" },
-  { value: "pink", label: "Pink" },
+const accentOptions: { value: AccentColor; labelKey: string }[] = [
+  { value: "yellow", labelKey: "colorYellow" },
+  { value: "blue", labelKey: "colorBlue" },
+  { value: "green", labelKey: "colorGreen" },
+  { value: "purple", labelKey: "colorPurple" },
+  { value: "orange", labelKey: "colorOrange" },
+  { value: "red", labelKey: "colorRed" },
+  { value: "pink", labelKey: "colorPink" },
 ];
 
 export function AccentColorPicker() {
@@ -37,7 +37,7 @@ export function AccentColorPicker() {
       </div>
 
       <div className="flex flex-wrap gap-4">
-        {accentOptions.map(({ value, label }) => {
+        {accentOptions.map(({ value, labelKey }) => {
           const isActive = accentColor === value;
           return (
             <button
@@ -53,9 +53,9 @@ export function AccentColorPicker() {
                   : "hover:scale-105"
               )}
               style={{ backgroundColor: accentColorMap[value] }}
-              aria-label={`${label} accent color`}
+              aria-label={t("accentColorAria", { color: t(labelKey) })}
               aria-pressed={isActive}
-              title={label}
+              title={t(labelKey)}
             >
               {isActive && (
                 <span className="block h-4 w-4 rounded-full bg-[var(--surface-0)] shadow-sm" />

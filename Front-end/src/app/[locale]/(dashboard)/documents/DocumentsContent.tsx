@@ -167,15 +167,15 @@ export function DocumentsContent() {
 
   /* ── Quick action handler ────────────────────────────────────── */
   const handleQuickAction = (actionId: string) => {
-    const presets: Record<string, string> = {
-      extract: "Extraia todos os dados estruturados deste documento e exporte como CSV.",
-      convert: "Converta este documento para o formato PDF mantendo a formatação original.",
-      merge: "Mescle este documento com os demais arquivos da pasta e gere um único PDF unificado.",
-      ocr: "Digitalize este documento usando OCR e extraia todo o texto em formato editável.",
-      summarize: "Resuma o conteúdo deste documento em um parágrafo com os pontos principais.",
-      translate: "Traduza este documento para inglês mantendo a formatação original.",
+    const presetKeys: Record<string, string> = {
+      extract: "quickActions.presets.extract",
+      convert: "quickActions.presets.convert",
+      merge: "quickActions.presets.merge",
+      ocr: "quickActions.presets.ocr",
+      summarize: "quickActions.presets.summarize",
+      translate: "quickActions.presets.translate",
     };
-    setInstruction(presets[actionId] || "");
+    setInstruction(t(presetKeys[actionId] || ""));
     // Scroll to the instruction textarea
     const textarea = document.getElementById("doc-instruction");
     textarea?.focus();
@@ -197,7 +197,7 @@ export function DocumentsContent() {
   };
 
   const handleReprocess = (doc: RecentDoc) => {
-    setInstruction(`Reprocesse o documento ${doc.name} aplicando as mesmas transformações anteriores.`);
+    setInstruction(t("processing.reprocessInstruction", { name: doc.name }));
     setSelectedFile(null);
     setResult(null);
     setError(null);
@@ -207,7 +207,7 @@ export function DocumentsContent() {
   };
 
   const handleDeleteDoc = (id: string) => {
-    if (window.confirm("Tem certeza que deseja excluir este documento? Esta ação não pode ser desfeita.")) {
+    if (window.confirm(t("dialogs.deleteConfirm"))) {
       setRecentDocs((prev) => prev.filter((d) => d.id !== id));
     }
   };

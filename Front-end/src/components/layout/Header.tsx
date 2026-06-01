@@ -6,6 +6,7 @@
 "use client";
 
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useTranslations } from "next-intl";
 import { LanguageSwitcher, ThemeToggle } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
@@ -18,7 +19,8 @@ interface HeaderProps {
 
 export function Header({ className }: HeaderProps) {
   const { data: session } = useSession();
-  const userName = session?.user?.name || "User";
+  const t = useTranslations("nav");
+  const userName = session?.user?.name || t("user");
 
   return (
     <header
@@ -88,7 +90,7 @@ export function Header({ className }: HeaderProps) {
                       )}
                     >
                       <Settings className="h-4 w-4" aria-hidden="true" />
-                      Configurações
+                      {t("settings")}
                     </Link>
                   </DropdownMenu.Item>
                   <DropdownMenu.Item asChild>
@@ -104,7 +106,7 @@ export function Header({ className }: HeaderProps) {
                       )}
                     >
                       <LogOut className="h-4 w-4" aria-hidden="true" />
-                      Sair
+                      {t("signOut")}
                     </button>
                   </DropdownMenu.Item>
                 </>
@@ -123,7 +125,7 @@ export function Header({ className }: HeaderProps) {
                       )}
                     >
                       <LogIn className="h-4 w-4" aria-hidden="true" />
-                      Fazer Login
+                      {t("signIn")}
                     </button>
                   </DropdownMenu.Item>
                   <DropdownMenu.Item asChild>
@@ -138,7 +140,7 @@ export function Header({ className }: HeaderProps) {
                       )}
                     >
                       <Settings className="h-4 w-4" aria-hidden="true" />
-                      Configurações
+                      {t("settings")}
                     </Link>
                   </DropdownMenu.Item>
                 </>

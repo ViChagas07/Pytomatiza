@@ -66,7 +66,7 @@ export function DashboardContent({
   const { data: session, status } = useSession();
   const isAuthenticated = status === "authenticated";
   const isSessionLoaded = status !== "loading";
-  const userName = session?.user?.name || "User";
+  const userName = session?.user?.name || t("user");
 
   const hour = new Date().getHours();
   const timeOfDay =
@@ -243,7 +243,7 @@ export function DashboardContent({
         )
       );
     } catch (err) {
-      setActionError(err instanceof Error ? err.message : "Unknown error");
+      setActionError(err instanceof Error ? err.message : t("error.unknown"));
     }
   }, []);
 
@@ -261,7 +261,7 @@ export function DashboardContent({
         )
       );
     } catch (err) {
-      setActionError(err instanceof Error ? err.message : "Unknown error");
+      setActionError(err instanceof Error ? err.message : t("error.unknown"));
     }
   }, []);
 

@@ -6,6 +6,7 @@
 "use client";
 
 import * as React from "react";
+import { useTranslations } from "next-intl";
 import { AlertTriangle, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 interface ErrorBoundaryProps {
@@ -14,6 +15,7 @@ interface ErrorBoundaryProps {
 }
 
 export default function DashboardError({ error, reset }: ErrorBoundaryProps) {
+  const t = useTranslations("errors");
   /* Log the error in development */
   React.useEffect(() => {
     if (process.env.NODE_ENV === "development") {
@@ -32,16 +34,16 @@ export default function DashboardError({ error, reset }: ErrorBoundaryProps) {
       </div>
 
       <h2 className="text-xl font-semibold text-[var(--text-primary)] mb-2">
-        Something went wrong
+        {t("somethingWentWrong")}
       </h2>
 
       <p className="text-sm text-[var(--text-secondary)] max-w-md mb-1">
-        {error.message || "An unexpected error occurred while loading this page."}
+        {error.message || t("dashboardErrorDescription")}
       </p>
 
       {error.digest && (
         <p className="text-xs text-[var(--text-tertiary)] mb-6">
-          Error ID: {error.digest}
+          {t("errorId")}{error.digest}
         </p>
       )}
 
@@ -51,7 +53,7 @@ export default function DashboardError({ error, reset }: ErrorBoundaryProps) {
         data-testid="error-retry"
       >
         <RefreshCw className="h-4 w-4" aria-hidden="true" />
-        Try again
+        {t("tryAgain")}
       </Button>
     </div>
   );

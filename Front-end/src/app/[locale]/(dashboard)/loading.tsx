@@ -3,12 +3,16 @@
    Full-page loading state for dashboard routes.
    ═══════════════════════════════════════════════════════════════════ */
 
+"use client";
+
+import { useTranslations } from "next-intl";
 import { Skeleton } from "@/components/ui/Skeleton";
 
 export default function DashboardLoading() {
+  const t = useTranslations("errors");
   return (
-    <div className="space-y-8" aria-label="Loading dashboard" role="status">
-      <span className="sr-only">Loading dashboard content…</span>
+    <div className="space-y-8" aria-label={t("loadingDashboard")} role="status">
+      <span className="sr-only">{t("loadingDashboardContent")}</span>
 
       {/* Header skeletons */}
       <Skeleton className="h-8 w-48" />

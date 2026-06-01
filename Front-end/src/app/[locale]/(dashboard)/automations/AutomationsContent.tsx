@@ -86,7 +86,10 @@ export function AutomationsContent() {
 
       // Mock result
       setBuildResult(
-        `Workflow created! Agent type: ${data.agentType || "auto-detected"}. Approval: ${data.requireApproval ? "required" : "not required"}.`
+        t("workflowList.created", {
+          agentType: data.agentType || "auto-detected",
+          approval: data.requireApproval ? t("workflowList.required") : t("workflowList.notRequired"),
+        })
       );
 
       // Add to workflow list
@@ -104,7 +107,7 @@ export function AutomationsContent() {
       // Reset form
       setValue("instruction", "");
     } catch {
-      setBuildError(ta("buildFailed") || "Failed to build workflow.");
+      setBuildError(ta("buildFailed"));
     } finally {
       setIsBuilding(false);
     }
@@ -246,11 +249,11 @@ export function AutomationsContent() {
               {...register("agentType")}
             >
               <option value="">{ta("agentTypePlaceholder")}</option>
-              <option value="productivity">Productivity</option>
-              <option value="data">Data</option>
-              <option value="content">Content</option>
-              <option value="admin">Admin</option>
-              <option value="technical">Technical</option>
+              <option value="productivity">{t("agentTypes.productivity")}</option>
+              <option value="data">{t("agentTypes.data")}</option>
+              <option value="content">{t("agentTypes.content")}</option>
+              <option value="admin">{t("agentTypes.admin")}</option>
+              <option value="technical">{t("agentTypes.technical")}</option>
             </select>
           </div>
 
@@ -377,7 +380,7 @@ export function AutomationsContent() {
             </p>
           </div>
         ) : (
-          <div className="space-y-5" role="list" aria-label="Workflows">
+          <div className="space-y-5" role="list" aria-label={t("workflowList.label")}>
             {workflows.map((wf) => (
               <div
                 key={wf.id}
@@ -400,7 +403,7 @@ export function AutomationsContent() {
                     aria-hidden="true"
                   />
                   <span className="sr-only">
-                    Status: {wf.status}
+                    {t("workflowList.status", { status: wf.status })}
                   </span>
                 </div>
 
@@ -414,7 +417,7 @@ export function AutomationsContent() {
                       <Clock className="h-3 w-3" aria-hidden="true" />
                       {wf.lastTriggered
                         ? `${t("workflowList.lastTriggered")}: ${new Date(wf.lastTriggered).toLocaleDateString()}`
-                        : "Never triggered"}
+                        : t("workflowList.neverTriggered")}
                     </span>
                     <span className="flex items-center gap-1">
                       <Play className="h-3 w-3" aria-hidden="true" />

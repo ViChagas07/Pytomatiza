@@ -5,6 +5,7 @@
 "use client";
 
 import * as React from "react";
+import { useTranslations } from "next-intl";
 import { AlertTriangle, RefreshCw, Home } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 
@@ -14,6 +15,7 @@ interface GlobalErrorProps {
 }
 
 export default function GlobalError({ error, reset }: GlobalErrorProps) {
+  const t = useTranslations("errors");
   React.useEffect(() => {
     if (process.env.NODE_ENV === "development") {
       console.error("Global error:", error);
@@ -29,11 +31,11 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
           </div>
 
           <h1 className="text-2xl font-bold text-[var(--text-primary)] mb-2">
-            Something went wrong
+            {t("somethingWentWrong")}
           </h1>
 
           <p className="text-sm text-[var(--text-secondary)] max-w-md mb-6">
-            {error.message || "An unexpected error occurred. Our team has been notified."}
+            {error.message || t("unexpectedError")}
           </p>
 
           <div className="flex gap-4">
@@ -42,14 +44,14 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
               className="inline-flex items-center gap-2 rounded-[var(--radius-md)] bg-[var(--brand-accent)] px-5 py-2.5 text-sm font-medium text-[var(--brand-accent-foreground)] hover:bg-[var(--brand-accent-hover)] transition-colors min-h-[44px]"
             >
               <RefreshCw className="h-4 w-4" aria-hidden="true" />
-              Try again
+              {t("tryAgain")}
             </button>
             <Link
               href="/dashboard"
               className="inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--border-default)] px-5 py-2.5 text-sm font-medium text-[var(--text-primary)] hover:bg-[var(--surface-1)] transition-colors min-h-[44px]"
             >
               <Home className="h-4 w-4" aria-hidden="true" />
-              Go home
+              {t("goHome")}
             </Link>
           </div>
         </main>

@@ -64,12 +64,12 @@ const sourceOptions: SourceOption[] = [
 /* ── Quick transformation presets ────────────────────────────────── */
 
 const transformationPresets = [
-  { id: "merge", label: "Combinar colunas", prompt: "Combine as colunas 'Nome' e 'Sobrenome' em uma única coluna 'Nome Completo'." },
-  { id: "filter", label: "Filtrar registros", prompt: "Filtre os registros onde a coluna 'Vendas' for maior que R$10.000." },
-  { id: "group", label: "Agrupar e sumarizar", prompt: "Agrupe os dados por 'Região' e calcule a soma e média de 'Vendas'." },
-  { id: "pivot", label: "Tabela dinâmica", prompt: "Crie uma tabela dinâmica com 'Categoria' nas linhas, 'Mês' nas colunas e soma de 'Receita'." },
-  { id: "chart", label: "Gerar gráfico", prompt: "Gere um gráfico de barras comparando vendas por região." },
-  { id: "export", label: "Exportar estruturado", prompt: "Exporte os dados transformados para um arquivo CSV com encoding UTF-8." },
+  { id: "merge" },
+  { id: "filter" },
+  { id: "group" },
+  { id: "pivot" },
+  { id: "chart" },
+  { id: "export" },
 ];
 
 /* ── Component ───────────────────────────────────────────────────── */
@@ -106,7 +106,7 @@ export function DataContent() {
       await new Promise((resolve) => setTimeout(resolve, 1500));
       setIsConnected(true);
     } catch {
-      setError("Falha ao conectar à fonte de dados.");
+      setError(t("errors.connectFailed"));
     } finally {
       setIsConnecting(false);
     }
@@ -121,9 +121,9 @@ export function DataContent() {
     setResult(null);
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      setResult("Transformação concluída! 3.240 registros processados. O resultado está pronto para download.");
+      setResult(t("results.transformComplete", { count: 3240 }));
     } catch {
-      setError("Falha ao processar os dados.");
+      setError(t("errors.processFailed"));
     } finally {
       setIsProcessing(false);
     }
@@ -201,7 +201,7 @@ export function DataContent() {
             {isConnected && (
               <div className="mt-3 flex items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-success)]/10 border border-[var(--color-success)]/30 px-4 py-2.5 text-sm text-[var(--color-success)]">
                 <CheckCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
-                Conectado com sucesso! Fonte de dados pronta para processamento.
+                {t("results.connected")}
               </div>
             )}
           </section>
@@ -224,11 +224,11 @@ export function DataContent() {
                 <table className="w-full text-xs" role="table" aria-label={t("preview.title")}>
                   <thead>
                     <tr className="border-b border-[var(--border-default)] bg-[var(--surface-1)]">
-                      <th className="px-4 py-2 text-left font-medium text-[var(--text-secondary)]">ID</th>
-                      <th className="px-4 py-2 text-left font-medium text-[var(--text-secondary)]">Nome</th>
-                      <th className="px-4 py-2 text-left font-medium text-[var(--text-secondary)]">Região</th>
-                      <th className="px-4 py-2 text-right font-medium text-[var(--text-secondary)]">Vendas</th>
-                      <th className="px-4 py-2 text-left font-medium text-[var(--text-secondary)]">Status</th>
+                      <th className="px-4 py-2 text-left font-medium text-[var(--text-secondary)]">{t("preview.id")}</th>
+                      <th className="px-4 py-2 text-left font-medium text-[var(--text-secondary)]">{t("preview.name")}</th>
+                      <th className="px-4 py-2 text-left font-medium text-[var(--text-secondary)]">{t("preview.region")}</th>
+                      <th className="px-4 py-2 text-right font-medium text-[var(--text-secondary)]">{t("preview.sales")}</th>
+                      <th className="px-4 py-2 text-left font-medium text-[var(--text-secondary)]">{t("preview.status")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -255,7 +255,7 @@ export function DataContent() {
                   </tbody>
                 </table>
                 <div className="px-4 py-2 text-center text-xs text-[var(--text-tertiary)]">
-                  Exibindo 3 de 3.240 registros
+                  {t("preview.showingRecords", { shown: 3, total: 3240 })}
                 </div>
               </div>
             </section>
@@ -320,7 +320,7 @@ export function DataContent() {
                   <button
                     key={preset.id}
                     type="button"
-                    onClick={() => applyPreset(preset.prompt)}
+                    onClick={() => applyPreset(t(`presets.${preset.id}.prompt`))}
                     className={cn(
                       "rounded-[var(--radius-full)] border border-[var(--border-default)]",
                       "px-3 py-1.5 text-xs text-[var(--text-secondary)]",
@@ -329,7 +329,7 @@ export function DataContent() {
                       "focus-visible:outline-[var(--brand-accent)]"
                     )}
                   >
-                    {preset.label}
+                    {t(`presets.${preset.id}.label`)}
                   </button>
                 ))}
               </div>
@@ -342,7 +342,7 @@ export function DataContent() {
                 data-testid="data-process"
               >
                 <Send className="h-4 w-4" aria-hidden="true" />
-                {isProcessing ? "Processando…" : t("actions.transform")}
+                {isProcessing ? t("actions.processing") : t("actions.transform")}
               </Button>
             </form>
 
@@ -367,13 +367,13 @@ export function DataContent() {
             aria-labelledby="data-actions-heading"
             className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] shadow-[var(--shadow-sm)] p-5"
           >
-            <h2 id="data-actions-heading" className="text-sm font-semibold text-[var(--text-primary)] mb-4">Ações</h2>
+            <h2 id="data-actions-heading" className="text-sm font-semibold text-[var(--text-primary)] mb-4">{t("actions.sidebarTitle")}</h2>
             <div className="space-y-2">
               {[
                 { icon: BarChart3, label: t("actions.analyze"), color: "var(--brand-python-blue)", action: "analyze" },
                 { icon: Download, label: t("actions.export"), color: "var(--color-success)", action: "export" },
                 { icon: Calendar, label: t("actions.schedule"), color: "var(--color-warning)", action: "schedule" },
-                { icon: PieChart, label: "Dashboard", color: "var(--color-info)", action: "dashboard" },
+                { icon: PieChart, label: t("actions.dashboard"), color: "var(--color-info)", action: "dashboard" },
               ].map((action, i) => (
                 <button
                   key={i}
@@ -390,14 +390,14 @@ export function DataContent() {
                       a.click();
                       URL.revokeObjectURL(url);
                     } else if (action.action === "analyze") {
-                      setInstruction("Analise os dados conectados e gere insights: tendências, outliers, correlações e recomendações.");
+                      setInstruction(t("results.analyzeInstruction"));
                       const ta = document.getElementById("data-instruction");
                       ta?.focus();
                       ta?.scrollIntoView({ behavior: "smooth", block: "center" });
                     } else if (action.action === "schedule") {
-                      alert("Agendamento configurado! Os dados serão processados automaticamente.");
+                      alert(t("results.scheduleAlert"));
                     } else {
-                      alert("Funcionalidade disponível em breve.");
+                      alert(t("results.comingSoon"));
                     }
                   }}
                   className={cn(
@@ -481,7 +481,7 @@ export function DataContent() {
                   </div>
                 </div>
                 <div className="flex items-center justify-between text-xs text-[var(--text-tertiary)]">
-                  <span>{ds.rows.toLocaleString()} linhas · {ds.cols} colunas</span>
+                  <span>{t("recentDatasets.info", { rows: ds.rows.toLocaleString(), cols: ds.cols })}</span>
                   <span>{t("recentDatasets.lastUsed")}: {ds.lastUsed.toLocaleDateString()}</span>
                 </div>
               </div>

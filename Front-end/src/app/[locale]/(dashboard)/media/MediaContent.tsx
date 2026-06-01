@@ -158,7 +158,7 @@ export function MediaContent() {
     setResult(null);
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      setResult(`Processamento concluído! ${files.length} arquivo(s) transformado(s) com sucesso.`);
+      setResult(t("results.processComplete", { count: files.length }));
 
       const transformed: typeof recentMedia = files.map((f) => ({
         id: `r${Date.now()}-${f.id}`,
@@ -169,7 +169,7 @@ export function MediaContent() {
       }));
       setRecentMedia((prev) => [...transformed, ...prev]);
     } catch {
-      setError("Falha ao processar mídia.");
+      setError(t("errors.processFailed"));
     } finally {
       setIsProcessing(false);
     }
@@ -204,9 +204,9 @@ export function MediaContent() {
       if (lower.includes("fundo") || lower.includes("background") || lower.includes("remove")) {
         setTransform((prev) => ({ ...prev, brightness: 105, contrast: 110 }));
       }
-      setAiResult("Instrução interpretada com sucesso! As transformações foram pré-configuradas conforme sua descrição. Revise os ajustes no painel ao lado e clique em 'Processar mídia' para aplicar.");
+      setAiResult(t("results.aiInterpreted"));
     } catch {
-      setError("Falha ao interpretar a instrução.");
+      setError(t("errors.aiFailed"));
     } finally {
       setIsAiProcessing(false);
     }
@@ -219,10 +219,10 @@ export function MediaContent() {
 
   /* ── Download handlers ────────────────────────────────────────── */
   const handleDownloadAll = () => {
-    alert(`Simulando download de ${files.length} arquivo(s) processado(s) como ZIP.\n\nNa versão completa, todos os arquivos seriam compactados e baixados.`);
+    alert(t("results.downloadSimulation", { count: files.length }));
     files.forEach((f) => { if (f.previewUrl) URL.revokeObjectURL(f.previewUrl); });
     setFiles([]);
-    setResult("Download concluído! Arquivos removidos da lista.");
+    setResult(t("results.downloadComplete"));
   };
 
   const handleDownloadSingle = (name: string) => {
@@ -272,7 +272,7 @@ export function MediaContent() {
             rows={3}
             value={aiInstruction}
             onChange={(e) => setAiInstruction(e.target.value)}
-            placeholder={"Ex.: Remova o fundo de todas as imagens, redimensione para 1200x800 mantendo a proporção, converta para WebP com qualidade 85%, aplique um filtro de brilho +10 e adicione a marca d'água '© Minha Empresa' no canto inferior direito."}
+            placeholder={t("instruction.placeholder")}
             aria-describedby="media-ai-helper media-ai-char-count"
             data-testid="media-ai-instruction"
             className={cn(
@@ -391,7 +391,7 @@ export function MediaContent() {
                       <button
                         type="button"
                         onClick={() => removeFile(file.id)}
-                        aria-label="Remover"
+                        aria-label={t("upload.remove")}
                         className="absolute top-1 right-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-black/60 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600"
                       >
                         <X className="h-3.5 w-3.5" aria-hidden="true" />
@@ -704,7 +704,7 @@ export function MediaContent() {
       {files.length > 1 && (
         <div className="flex items-center gap-3 mt-4 p-3 rounded-[var(--radius-md)] bg-[var(--surface-1)] border border-[var(--border-default)]">
           <Monitor className="h-4 w-4 text-[var(--text-tertiary)]" aria-hidden="true" />
-          <span className="text-xs text-[var(--text-secondary)]">{t("actions.batchProcess")}: {files.length} arquivos</span>
+          <span className="text-xs text-[var(--text-secondary)]">{t("actions.batchProcess")}: {t("actions.filesCount", { count: files.length })}</span>
           <Button size="sm" variant="outline" className="ml-auto" onClick={handleDownloadAll}>
             <Download className="h-3.5 w-3.5" aria-hidden="true" />
             {t("actions.downloadAll")}

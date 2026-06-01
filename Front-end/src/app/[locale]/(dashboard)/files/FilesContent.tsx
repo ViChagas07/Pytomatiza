@@ -213,7 +213,7 @@ export function FilesContent() {
           active: true,
         }]);
       }
-      setAiResult("Instrução interpretada com sucesso! As regras de organização foram criadas automaticamente. Revise-as no painel de regras ao lado.");
+      setAiResult(t("results.aiInterpreted"));
     } catch {
       // silent
     } finally {
@@ -222,7 +222,7 @@ export function FilesContent() {
   };
 
   const handleNewFolder = () => {
-    const name = window.prompt("Nome da nova pasta:");
+    const name = window.prompt(t("dialogs.newFolder"));
     if (name?.trim()) {
       const folder: FileEntry = {
         id: `f${Date.now()}`,
@@ -236,32 +236,32 @@ export function FilesContent() {
   };
 
   const handleRename = (file: FileEntry) => {
-    const newName = window.prompt("Renomear para:", file.name);
+    const newName = window.prompt(t("dialogs.rename"), file.name);
     if (newName?.trim() && newName.trim() !== file.name) {
       setFilesList((prev) => prev.map((f) => (f.id === file.id ? { ...f, name: newName.trim(), modified: new Date() } : f)));
     }
   };
 
   const handleDeleteFile = (file: FileEntry) => {
-    if (window.confirm(`Tem certeza que deseja excluir "${file.name}"? Esta ação não pode ser desfeita.`)) {
+    if (window.confirm(t("dialogs.deleteConfirm", { name: file.name }))) {
       setFilesList((prev) => prev.filter((f) => f.id !== file.id));
     }
     setOpenMenuId(null);
   };
 
   const handleMove = (file: FileEntry) => {
-    alert(`Mover "${file.name}" — Na versão completa, um seletor de pastas seria exibido.`);
+    alert(t("dialogs.moveAlert", { name: file.name }));
     setOpenMenuId(null);
   };
 
   const handleCopy = (file: FileEntry) => {
-    const copy: FileEntry = { ...file, id: `f${Date.now()}`, name: `${file.name} (cópia)`, modified: new Date() };
+    const copy: FileEntry = { ...file, id: `f${Date.now()}`, name: `${file.name}${t("dialogs.copySuffix")}`, modified: new Date() };
     setFilesList((prev) => [...prev, copy]);
     setOpenMenuId(null);
   };
 
   const handleShare = (file: FileEntry) => {
-    alert(`Link de compartilhamento para "${file.name}" copiado para a área de transferência!\n\nhttps://pytomatiza.app/share/${file.id}`);
+    alert(t("dialogs.shareLink", { name: file.name, id: file.id }));
     setOpenMenuId(null);
   };
 
@@ -313,7 +313,7 @@ export function FilesContent() {
             rows={3}
             value={aiInstruction}
             onChange={(e) => setAiInstruction(e.target.value)}
-            placeholder={"Ex.: Organize todos os PDFs da pasta Downloads por data de criação, renomeie com o padrão 'YYYY-MM-DD - nome original', mova faturas para /Financeiro/Faturas/{ano}/{mês} e compacte arquivos com mais de 6 meses."}
+            placeholder={t("instruction.placeholder")}
             aria-describedby="files-ai-helper files-ai-char-count"
             data-testid="files-ai-instruction"
             className={cn(
@@ -347,9 +347,9 @@ export function FilesContent() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {[
           { icon: HardDrive, label: t("storage.used"), value: "3.2 GB", sub: t("storage.total", { total: "10 GB" }), color: "var(--brand-python-blue)", progress: 32 },
-          { icon: File, label: t("storage.files", { count: 184 }), value: "184", sub: "12 pastas", color: "var(--color-success)" },
-          { icon: FolderOpen, label: t("storage.folders", { count: 12 }), value: "12", sub: "Última: Financeiro", color: "var(--brand-accent)" },
-          { icon: Zap, label: "Regras ativas", value: String(rules.filter((r) => r.active).length), sub: `${rules.length} configuradas`, color: "var(--color-warning)" },
+          { icon: File, label: t("storage.files", { count: 184 }), value: "184", sub: t("storage.folders", { count: 12 }), color: "var(--color-success)" },
+          { icon: FolderOpen, label: t("storage.folders", { count: 12 }), value: "12", sub: t("storage.lastFolder", { name: "Financeiro" }), color: "var(--brand-accent)" },
+          { icon: Zap, label: t("storage.activeRules"), value: String(rules.filter((r) => r.active).length), sub: t("storage.rulesConfigured", { count: rules.length }), color: "var(--color-warning)" },
         ].map((stat, i) => (
           <div
             key={i}
@@ -374,7 +374,7 @@ export function FilesContent() {
                   aria-valuenow={stat.progress}
                   aria-valuemin={0}
                   aria-valuemax={100}
-                  aria-label={`${stat.progress}% usado`}
+                  aria-label={t("storage.progressLabel", { progress: stat.progress })}
                 />
               </div>
             )}
@@ -544,7 +544,7 @@ export function FilesContent() {
                     >
                       <span style={{ color }}><FileIcon className="h-8 w-8 mb-2" aria-hidden="true" /></span>
                       <p className="text-xs font-medium text-[var(--text-primary)] truncate">{file.name}</p>
-                      <p className="text-[10px] text-[var(--text-tertiary)]">{file.size !== "—" ? file.size : "Pasta"}</p>
+                      <p className="text-[10px] text-[var(--text-tertiary)]">{file.size !== "—" ? file.size : t("browser.folder")}</p>
                     </div>
                   );
                 })}
@@ -736,7 +736,7 @@ export function FilesContent() {
                   onClick={() => {
                     if (action === "upload") handleUpload();
                     else if (action === "newFolder") handleNewFolder();
-                    else alert(`"${label}" — Selecione um arquivo no explorador para usar esta ação.`);
+                    else alert(t("dialogs.selectFile", { label }));
                   }}
                   className={cn(
                     "flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--border-default)]",

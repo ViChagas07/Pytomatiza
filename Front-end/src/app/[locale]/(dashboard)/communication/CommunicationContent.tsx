@@ -110,7 +110,7 @@ export function CommunicationContent() {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1800));
       const channelLabels = Array.from(selectedChannels).join(", ");
-      setResult(`Mensagem enviada com sucesso via ${channelLabels}!`);
+      setResult(t("results.sent", { channels: channelLabels }));
 
       const newMsg: RecentMessage = {
         id: `m${Date.now()}`,
@@ -122,7 +122,7 @@ export function CommunicationContent() {
       };
       setRecentMessages((prev) => [newMsg, ...prev]);
     } catch {
-      setError("Falha ao enviar mensagem.");
+      setError(t("errors.sendFailed"));
     } finally {
       setIsSending(false);
     }
@@ -139,18 +139,18 @@ export function CommunicationContent() {
 
   const handlePreview = () => {
     const channelList = Array.from(selectedChannels).map(channelName).join(", ");
-    alert(`[PRÉ-VISUALIZAÇÃO]\n\nCanais: ${channelList}\nAssunto: ${subject || "(sem assunto)"}\n\n${instruction}\n\n(Esta é uma simulação de pré-visualização)`);
+    alert(t("results.preview", { channels: channelList, subject: subject || t("composer.noSubject"), instruction }));
   };
 
   const handleSaveDraft = () => {
-    alert("Rascunho salvo com sucesso! Você pode acessá-lo em 'Mensagens > Rascunhos'.");
+    alert(t("results.draftSaved"));
   };
 
   const handleTestSend = () => {
     if (toEmails[0]) {
-      alert(`Teste enviado para ${toEmails[0]}! Verifique a caixa de entrada.`);
+      alert(t("results.testSent", { email: toEmails[0] }));
     } else {
-      alert("Por favor, insira um destinatário para o teste.");
+      alert(t("errors.testNoRecipient"));
     }
   };
 
@@ -340,7 +340,7 @@ export function CommunicationContent() {
                 {sendMode !== "now" && (
                   <div className="mt-3 p-3 rounded-[var(--radius-md)] bg-[var(--surface-1)] text-xs text-[var(--text-tertiary)] flex items-center gap-2">
                     <Calendar className="h-4 w-4 shrink-0" aria-hidden="true" />
-                    Seletor de data/hora disponível na versão completa.
+                    {t("schedule.dateTimePlaceholder")}
                   </div>
                 )}
               </div>
@@ -454,7 +454,7 @@ export function CommunicationContent() {
             </div>
             <div>
               <p className="text-sm font-medium text-[var(--text-primary)]">{t("actions.testSend")}</p>
-              <p className="text-xs text-[var(--text-tertiary)] mt-0.5">Envie um teste para verificar a formatação</p>
+              <p className="text-xs text-[var(--text-tertiary)] mt-0.5">{t("actions.testSendDescription")}</p>
             </div>
             <ArrowRight className="h-4 w-4 text-[var(--text-tertiary)] shrink-0 ml-auto" aria-hidden="true" />
           </button>
@@ -490,7 +490,7 @@ export function CommunicationContent() {
                     <div className="mt-0.5 flex items-center gap-3 text-xs text-[var(--text-tertiary)]">
                       <span>{channelName(msg.channel)}</span>
                       <span>{t("recentMessages.sentAt")}: {msg.sentAt.toLocaleString()}</span>
-                      <span>{msg.recipients} destinatário(s)</span>
+                      <span>{t("recentMessages.recipients", { count: msg.recipients })}</span>
                     </div>
                   </div>
                   <span
@@ -502,7 +502,7 @@ export function CommunicationContent() {
                     )}
                     role="status"
                   >
-                    {msg.status === "sent" ? "Enviado" : msg.status === "scheduled" ? "Agendado" : "Falhou"}
+                    {t("status." + msg.status)}
                   </span>
                 </div>
               );

@@ -11,7 +11,8 @@
     "breadcrumb": "Breadcrumb",
     "pagination": "Paginação",
     "currentPage": "Página atual, página {page}",
-    "goToPage": "Ir para a página {page}"
+    "goToPage": "Ir para a página {page}",
+    "goToHome": "Ir para a página inicial"
   },
   "common": {
     "loading": "Carregando…",
@@ -33,7 +34,9 @@
     "more": "Mais opções",
     "copied": "Copiado para a área de transferência",
     "enabled": "Ativado",
-    "disabled": "Desativado"
+    "disabled": "Desativado",
+    "increasedBy": "Aumentou",
+    "decreasedBy": "Diminuiu"
   },
   "auth": {
     "signIn": {
@@ -65,6 +68,7 @@
     },
     "google": "Continuar com Google",
     "divider": "ou",
+    "authenticationForm": "Formulário de autenticação",
     "errors": {
       "invalidCredentials": "E-mail ou senha inválidos",
       "emailExists": "Já existe uma conta com este e-mail",
@@ -183,7 +187,15 @@
       "bgPresetLavender": "Lavanda",
       "bgPresetSepia": "Sépia",
       "bgPresetMidnight": "Meia-noite",
-      "bgPresetSlate": "Ardósia"
+      "bgPresetSlate": "Ardósia",
+      "colorYellow": "Amarelo",
+      "colorBlue": "Azul",
+      "colorGreen": "Verde",
+      "colorPurple": "Roxo",
+      "colorOrange": "Laranja",
+      "colorRed": "Vermelho",
+      "colorPink": "Rosa",
+      "accentColorAria": "Cor de destaque {color}"
     },
     "accessibility": {
       "title": "Acessibilidade",
@@ -267,7 +279,28 @@
   },
   "help": {
     "title": "Ajuda & Suporte",
-    "subtitle": "Obtenha ajuda, navegue pela documentação e entre em contato."
+    "subtitle": "Obtenha ajuda, navegue pela documentação e entre em contato.",
+    "documentation": "Documentação",
+    "documentationDescription": "Navegue por guias, tutoriais e referências de API.",
+    "contactSupport": "Fale com o Suporte",
+    "contactSupportDescription": "Obtenha ajuda da nossa equipe. Normalmente respondemos em até 24 horas.",
+    "faqTitle": "Perguntas Frequentes",
+    "faq0": {
+      "question": "Como criar uma automação?",
+      "answer": "Vá para a página de Automações e use o Construtor de Fluxos em Linguagem Natural. Descreva o que deseja automatizar e o Pytomatiza+ criará o fluxo para você."
+    },
+    "faq1": {
+      "question": "Como conectar uma nova integração?",
+      "answer": "Navegue até Configurações → Integrações para conectar serviços de terceiros como Google Workspace, Slack ou GitHub."
+    },
+    "faq2": {
+      "question": "O que acontece se um agente falhar?",
+      "answer": "Agentes com falha são marcados com status de erro. Você pode ver os detalhes do erro no cartão do agente e tentar novamente."
+    },
+    "faq3": {
+      "question": "Como alterar o idioma?",
+      "answer": "Clique no ícone do globo no cabeçalho para alternar entre 9 idiomas suportados."
+    }
   },
   "dashboard": {
     "title": "Painel",
@@ -276,11 +309,14 @@
     "afternoon": "tarde",
     "evening": "noite",
     "subtitle": "Veja o que está acontecendo com suas automações hoje.",
+    "user": "Usuário",
     "stats": {
       "activeAgents": "Agentes ativos",
       "automationsToday": "Automações hoje",
       "successRate": "Taxa de sucesso",
-      "pendingApprovals": "Aprovações pendentes"
+      "pendingApprovals": "Aprovações pendentes",
+      "increasedBy": "Aumentou {value}",
+      "decreasedBy": "Diminuiu {value}"
     },
     "recentActivity": "Atividade recente",
     "recentActivityEmpty": "Histórico vazio… Faça sua primeira automação com o Pytomatiza+ indo em Módulos!",
@@ -293,7 +329,8 @@
       "title": "Erro ao carregar dados",
       "loadingFailed": "Não foi possível carregar os dados do painel. Verifique sua conexão e tente novamente.",
       "retry": "Tentar novamente",
-      "offlineBanner": "Backend indisponível — os dados exibidos podem estar desatualizados"
+      "offlineBanner": "Backend indisponível — os dados exibidos podem estar desatualizados",
+      "unknown": "Erro desconhecido"
     },
     "loginPrompt": "Faça login em sua conta para ter acesso a dados em tempo-real!",
     "loginAction": "Entrar",
@@ -399,6 +436,13 @@
       "example2": "Monitorar menções no Twitter e responder automaticamente a perguntas de suporte com um link para o centro de ajuda",
       "example3": "Quando uma nova linha for adicionada à planilha 'Leads' do Google Sheets, enviar um e-mail de boas-vindas personalizado pelo Gmail"
     },
+    "agentTypes": {
+      "productivity": "Produtividade",
+      "data": "Dados",
+      "content": "Conteúdo",
+      "admin": "Administrativo",
+      "technical": "Técnico"
+    },
     "workflowList": {
       "title": "Seus fluxos de trabalho",
       "empty": "Nenhum fluxo ainda. Crie o primeiro acima.",
@@ -408,7 +452,13 @@
       "delete": "Excluir fluxo",
       "deleteConfirm": "Tem certeza de que deseja excluir este fluxo? Esta ação não pode ser desfeita.",
       "deleted": "Fluxo excluído com sucesso",
-      "statusToggled": "Fluxo {status}"
+      "statusToggled": "Fluxo {status}",
+      "label": "Fluxos de trabalho",
+      "neverTriggered": "Nunca acionado",
+      "status": "Status: {status}",
+      "created": "Fluxo criado! Tipo de agente: {agentType}. Aprovação: {approval}.",
+      "required": "obrigatória",
+      "notRequired": "não obrigatória"
     },
     "loginPrompt": "Faça login em sua conta para ter acesso a dados em tempo-real!",
     "errors": {
@@ -437,7 +487,18 @@
       "title": "Não autorizado",
       "description": "Você precisa entrar para acessar esta página.",
       "signIn": "Entrar"
-    }
+    },
+    "notFoundTitle": "Página não encontrada",
+    "notFoundDescription": "A página que você procura não existe ou foi movida.",
+    "notFoundAction": "Ir para o painel",
+    "somethingWentWrong": "Algo deu errado",
+    "unexpectedError": "Ocorreu um erro inesperado. Nossa equipe foi notificada.",
+    "dashboardErrorDescription": "Ocorreu um erro inesperado ao carregar esta página.",
+    "tryAgain": "Tentar novamente",
+    "goHome": "Ir para o início",
+    "errorId": "ID do erro: ",
+    "loadingDashboard": "Carregando painel",
+    "loadingDashboardContent": "Carregando conteúdo do painel…"
   },
   "nav": {
     "dashboard": "Painel",
@@ -461,7 +522,11 @@
     "files": "Arquivos",
     "filesDesc": "Armazenamento e gestão de arquivos.",
     "architecture": "Arquitetura",
-    "architectureDesc": "Diagramas e documentação de arquitetura."
+    "architectureDesc": "Diagramas e documentação de arquitetura.",
+    "settings": "Configurações",
+    "signOut": "Sair",
+    "signIn": "Fazer Login",
+    "user": "Usuário"
   },
   "logs": {
     "title": "Logs & Aprovações",
@@ -541,7 +606,15 @@
         "mergeDocs": "Mesclar documentos",
         "ocrScan": "Digitalizar OCR",
         "summarize": "Resumir conteúdo",
-        "translate": "Traduzir"
+        "translate": "Traduzir",
+        "presets": {
+          "extract": "Extraia todos os dados estruturados deste documento e exporte como CSV.",
+          "convert": "Converta este documento para o formato PDF mantendo a formatação original.",
+          "merge": "Mescle este documento com os demais arquivos da pasta e gere um único PDF unificado.",
+          "ocr": "Digitalize este documento usando OCR e extraia todo o texto em formato editável.",
+          "summarize": "Resuma o conteúdo deste documento em um parágrafo com os pontos principais.",
+          "translate": "Traduza este documento para inglês mantendo a formatação original."
+        }
       },
       "recentDocuments": {
         "title": "Documentos recentes",
@@ -557,7 +630,11 @@
         "button": "Processar documento",
         "processing": "Processando…",
         "success": "Documento processado com sucesso!",
-        "error": "Falha ao processar o documento. Tente novamente."
+        "error": "Falha ao processar o documento. Tente novamente.",
+        "reprocessInstruction": "Reprocesse o documento {name} aplicando as mesmas transformações anteriores."
+      },
+      "dialogs": {
+        "deleteConfirm": "Tem certeza que deseja excluir este documento? Esta ação não pode ser desfeita."
       },
       "integrations": {
         "googleDrive": {
@@ -597,19 +674,66 @@
         "title": "Pré-visualização",
         "noData": "Conecte uma fonte de dados para visualizar",
         "rows": "{count} linhas",
-        "columns": "{count} colunas"
+        "columns": "{count} colunas",
+        "id": "ID",
+        "name": "Nome",
+        "region": "Região",
+        "sales": "Vendas",
+        "status": "Status",
+        "showingRecords": "Exibindo {shown} de {total} registros"
       },
       "recentDatasets": {
         "title": "Datasets recentes",
         "empty": "Nenhum dataset processado ainda",
         "source": "Origem",
-        "lastUsed": "Último uso"
+        "lastUsed": "Último uso",
+        "info": "{rows} linhas · {cols} colunas"
       },
       "actions": {
         "transform": "Transformar dados",
         "analyze": "Analisar dados",
         "export": "Exportar resultado",
-        "schedule": "Agendar automação"
+        "schedule": "Agendar automação",
+        "sidebarTitle": "Ações",
+        "dashboard": "Dashboard",
+        "processing": "Processando…"
+      },
+      "presets": {
+        "merge": {
+          "label": "Combinar colunas",
+          "prompt": "Combine as colunas 'Nome' e 'Sobrenome' em uma única coluna 'Nome Completo'."
+        },
+        "filter": {
+          "label": "Filtrar registros",
+          "prompt": "Filtre os registros onde a coluna 'Vendas' for maior que R$10.000."
+        },
+        "group": {
+          "label": "Agrupar e sumarizar",
+          "prompt": "Agrupe os dados por 'Região' e calcule a soma e média de 'Vendas'."
+        },
+        "pivot": {
+          "label": "Tabela dinâmica",
+          "prompt": "Crie uma tabela dinâmica com 'Categoria' nas linhas, 'Mês' nas colunas e soma de 'Receita'."
+        },
+        "chart": {
+          "label": "Gerar gráfico",
+          "prompt": "Gere um gráfico de barras comparando vendas por região."
+        },
+        "export": {
+          "label": "Exportar estruturado",
+          "prompt": "Exporte os dados transformados para um arquivo CSV com encoding UTF-8."
+        }
+      },
+      "errors": {
+        "connectFailed": "Falha ao conectar à fonte de dados.",
+        "processFailed": "Falha ao processar os dados."
+      },
+      "results": {
+        "connected": "Conectado com sucesso! Fonte de dados pronta para processamento.",
+        "transformComplete": "Transformação concluída! {count} registros processados. O resultado está pronto para download.",
+        "analyzeInstruction": "Analise os dados conectados e gere insights: tendências, outliers, correlações e recomendações.",
+        "scheduleAlert": "Agendamento configurado! Os dados serão processados automaticamente.",
+        "comingSoon": "Funcionalidade disponível em breve."
       },
       "integrations": {
         "googleDrive": {
@@ -633,6 +757,7 @@
         "instructionHelper": "Especifique: tom da mensagem, informações a incluir, personalizações e call-to-action.",
         "subjectLabel": "Assunto (para e-mails)",
         "subjectPlaceholder": "Assunto do e-mail…",
+        "noSubject": "(sem assunto)",
         "charCount": "{current}/{max} caracteres"
       },
       "channels": {
@@ -664,7 +789,8 @@
         "frequency": "Frequência",
         "daily": "Diário",
         "weekly": "Semanal",
-        "monthly": "Mensal"
+        "monthly": "Mensal",
+        "dateTimePlaceholder": "Seletor de data/hora disponível na versão completa."
       },
       "recentMessages": {
         "title": "Mensagens recentes",
@@ -673,12 +799,28 @@
         "sentAt": "Enviado em",
         "status": "Status"
       },
+      "status": {
+        "sent": "Enviado",
+        "scheduled": "Agendado",
+        "failed": "Falhou"
+      },
+      "results": {
+        "sent": "Mensagem enviada com sucesso via {channels}!",
+        "preview": "[PRÉ-VISUALIZAÇÃO]\n\nCanais: {channels}\nAssunto: {subject}\n\n{instruction}\n\n(Esta é uma simulação de pré-visualização)",
+        "draftSaved": "Rascunho salvo com sucesso! Você pode acessá-lo em 'Mensagens > Rascunhos'.",
+        "testSent": "Teste enviado para {email}! Verifique a caixa de entrada."
+      },
+      "errors": {
+        "sendFailed": "Falha ao enviar mensagem.",
+        "testNoRecipient": "Por favor, insira um destinatário para o teste."
+      },
       "actions": {
         "send": "Enviar mensagem",
         "sending": "Enviando…",
         "preview": "Pré-visualizar",
         "saveDraft": "Salvar rascunho",
-        "testSend": "Enviar teste"
+        "testSend": "Enviar teste",
+        "testSendDescription": "Envie um teste para verificar a formatação"
       }
     },
     "media": {
@@ -701,7 +843,8 @@
         "browse": "Procurar arquivos",
         "supportedFormats": "Formatos: JPG, PNG, GIF, SVG, WebP, MP4, MOV, WebM",
         "maxSize": "Tamanho máximo: 100 MB por arquivo",
-        "batchInfo": "{count} arquivo(s) selecionado(s)"
+        "batchInfo": "{count} arquivo(s) selecionado(s)",
+        "remove": "Remover"
       },
       "transformations": {
         "title": "Transformações",
@@ -741,7 +884,18 @@
         "processing": "Processando…",
         "download": "Baixar resultado",
         "downloadAll": "Baixar tudo (ZIP)",
-        "batchProcess": "Processamento em lote"
+        "batchProcess": "Processamento em lote",
+        "filesCount": "{count} arquivos"
+      },
+      "errors": {
+        "processFailed": "Falha ao processar mídia.",
+        "aiFailed": "Falha ao interpretar a instrução."
+      },
+      "results": {
+        "processComplete": "Processamento concluído! {count} arquivo(s) transformado(s) com sucesso.",
+        "aiInterpreted": "Instrução interpretada com sucesso! As transformações foram pré-configuradas conforme sua descrição. Revise os ajustes no painel ao lado e clique em 'Processar mídia' para aplicar.",
+        "downloadSimulation": "Simulando download de {count} arquivo(s) processado(s) como ZIP.\n\nNa versão completa, todos os arquivos seriam compactados e baixados.",
+        "downloadComplete": "Download concluído! Arquivos removidos da lista."
       },
       "integrations": {
         "googleDrive": {
@@ -781,7 +935,11 @@
         "used": "Usado",
         "total": "de {total}",
         "files": "{count} arquivos",
-        "folders": "{count} pastas"
+        "folders": "{count} pastas",
+        "activeRules": "Regras ativas",
+        "rulesConfigured": "{count} configuradas",
+        "lastFolder": "Última: {name}",
+        "progressLabel": "{progress}% usado"
       },
       "upload": {
         "title": "Upload de arquivos",
@@ -800,7 +958,8 @@
         "sortBy": "Ordenar por",
         "search": "Buscar arquivos…",
         "gridView": "Visualização em grade",
-        "listView": "Visualização em lista"
+        "listView": "Visualização em lista",
+        "folder": "Pasta"
       },
       "rules": {
         "title": "Regras de organização",
@@ -815,6 +974,18 @@
         "active": "Ativa",
         "inactive": "Inativa",
         "empty": "Nenhuma regra configurada"
+      },
+      "dialogs": {
+        "newFolder": "Nome da nova pasta:",
+        "rename": "Renomear para:",
+        "deleteConfirm": "Tem certeza que deseja excluir \"{name}\"? Esta ação não pode ser desfeita.",
+        "moveAlert": "Mover \"{name}\" — Na versão completa, um seletor de pastas seria exibido.",
+        "copySuffix": " (cópia)",
+        "shareLink": "Link de compartilhamento para \"{name}\" copiado para a área de transferência!\n\nhttps://pytomatiza.app/share/{id}",
+        "selectFile": "\"{label}\" — Selecione um arquivo no explorador para usar esta ação."
+      },
+      "results": {
+        "aiInterpreted": "Instrução interpretada com sucesso! As regras de organização foram criadas automaticamente. Revise-as no painel de regras ao lado."
       },
       "actions": {
         "label": "Ações",
@@ -885,13 +1056,30 @@
         "edit": "Editar",
         "delete": "Excluir"
       },
+      "errors": {
+        "generateFailed": "Falha ao gerar o diagrama. Tente novamente."
+      },
+      "dialogs": {
+        "deleteConfirm": "Tem certeza que deseja excluir este diagrama?",
+        "shareLink": "Link de compartilhamento copiado para a área de transferência!\n\nCompartilhe este projeto de arquitetura com sua equipe."
+      },
       "actions": {
         "generate": "Gerar diagrama",
         "generating": "Gerando diagrama…",
         "generateDescription": "Gerar documentação",
         "save": "Salvar projeto",
-        "share": "Compartilhar"
+        "share": "Compartilhar",
+        "shareDescription": "Compartilhe com sua equipe via link"
       }
     }
+  },
+  "brand": {
+    "tagline": "Automação com IA que pensa, aprende e executa — para que você não precise.",
+    "feature1Title": "Fluxos em Linguagem Natural",
+    "feature1Desc": "Descreva tarefas em linguagem natural. Nosso motor de NLP cria a automação para você.",
+    "feature2Title": "Orquestração Multi-Agente",
+    "feature2Desc": "Agentes de IA especializados colaboram para lidar com processos complexos de múltiplas etapas.",
+    "feature3Title": "Segurança Nível Corporativo",
+    "feature3Desc": "Criptografia de ponta a ponta, controle de acesso baseado em funções e trilhas de auditoria completas."
   }
 }

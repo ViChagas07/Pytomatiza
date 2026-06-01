@@ -3,10 +3,14 @@
    Decorative left panel on desktop. Pure CSS + SVG, no images.
    ═══════════════════════════════════════════════════════════════════ */
 
+"use client";
+
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Zap, Workflow, Shield } from "lucide-react";
 
 export function BrandPanel() {
+  const t = useTranslations("brand");
   return (
     <div
       className="relative hidden h-full flex-col overflow-hidden bg-[var(--brand-accent)] p-12 lg:flex"
@@ -34,37 +38,24 @@ export function BrandPanel() {
           </span>
         </div>
         <p className="mt-6 max-w-sm text-lg leading-relaxed text-[var(--brand-accent-foreground)]/80">
-          AI-powered automation that thinks, learns, and executes &mdash; so you
-          don&apos;t have to.
+          {t("tagline")}
         </p>
       </div>
 
       {/* Feature highlights */}
       <div className="relative z-10 mt-auto space-y-5">
         {[
-          {
-            icon: Zap,
-            title: "Natural Language Workflows",
-            desc: "Describe tasks in plain English. Our NLP engine builds the automation for you.",
-          },
-          {
-            icon: Workflow,
-            title: "Multi-Agent Orchestration",
-            desc: "Specialized AI agents collaborate to handle complex, multi-step processes.",
-          },
-          {
-            icon: Shield,
-            title: "Enterprise-Grade Security",
-            desc: "End-to-end encryption, role-based access, and full audit trails.",
-          },
-        ].map(({ icon: Icon, title, desc }) => (
-          <div key={title} className="flex gap-4">
+          { icon: Zap, titleKey: "feature1Title", descKey: "feature1Desc" },
+          { icon: Workflow, titleKey: "feature2Title", descKey: "feature2Desc" },
+          { icon: Shield, titleKey: "feature3Title", descKey: "feature3Desc" },
+        ].map(({ icon: Icon, titleKey, descKey }) => (
+          <div key={titleKey} className="flex gap-4">
             <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-white/15">
               <Icon className="h-4 w-4 text-[var(--brand-accent-foreground)]" aria-hidden="true" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-[var(--brand-accent-foreground)]">{title}</p>
-              <p className="text-xs leading-relaxed text-[var(--brand-accent-foreground)]/65">{desc}</p>
+              <p className="text-sm font-semibold text-[var(--brand-accent-foreground)]">{t(titleKey)}</p>
+              <p className="text-xs leading-relaxed text-[var(--brand-accent-foreground)]/65">{t(descKey)}</p>
             </div>
           </div>
         ))}

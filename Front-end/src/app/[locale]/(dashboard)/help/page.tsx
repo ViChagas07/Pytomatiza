@@ -34,27 +34,6 @@ export async function generateMetadata({
   };
 }
 
-/* ── FAQ items ────────────────────────────────────────────────────── */
-
-const faqItems = [
-  {
-    question: "How do I create an automation?",
-    answer: 'Go to the Automations page and use the Natural Language Workflow Builder. Describe what you want to automate in plain English, and Pytomatiza+ will build the workflow for you.',
-  },
-  {
-    question: "How do I connect a new integration?",
-    answer: "Navigate to Settings → Integrations to connect third-party services like Google Workspace, Slack, or GitHub.",
-  },
-  {
-    question: "What happens if an agent fails?",
-    answer: "Failed agents are marked with an error status. You can view the error details in the agent card and retry the execution.",
-  },
-  {
-    question: "How do I change my language?",
-    answer: "Click the globe icon in the header to switch between 9 supported languages.",
-  },
-];
-
 /* ── Page ─────────────────────────────────────────────────────────── */
 
 export default async function HelpPage({ params }: HelpPageProps) {
@@ -87,11 +66,11 @@ export default async function HelpPage({ params }: HelpPageProps) {
           </div>
           <div>
             <h2 className="text-sm font-semibold text-[var(--text-primary)] flex items-center gap-1">
-              Documentation
+              {t("documentation")}
               <ExternalLink className="h-3 w-3" aria-hidden="true" />
             </h2>
             <p className="text-xs text-[var(--text-secondary)] mt-1">
-              Browse guides, tutorials, and API references.
+              {t("documentationDescription")}
             </p>
           </div>
         </a>
@@ -105,10 +84,10 @@ export default async function HelpPage({ params }: HelpPageProps) {
           </div>
           <div>
             <h2 className="text-sm font-semibold text-[var(--text-primary)]">
-              Contact Support
+              {t("contactSupport")}
             </h2>
             <p className="text-xs text-[var(--text-secondary)] mt-1">
-              Get help from our team. Usually responds within 24 hours.
+              {t("contactSupportDescription")}
             </p>
           </div>
         </a>
@@ -117,16 +96,21 @@ export default async function HelpPage({ params }: HelpPageProps) {
       {/* FAQ */}
       <div className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] p-5 shadow-[var(--shadow-sm)]">
         <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-4">
-          Frequently Asked Questions
+          {t("faqTitle")}
         </h2>
         <dl className="space-y-6">
-          {faqItems.map(({ question, answer }) => (
-            <div key={question}>
+          {[
+            { q: t("faq0.question"), a: t("faq0.answer") },
+            { q: t("faq1.question"), a: t("faq1.answer") },
+            { q: t("faq2.question"), a: t("faq2.answer") },
+            { q: t("faq3.question"), a: t("faq3.answer") },
+          ].map(({ q, a }) => (
+            <div key={q}>
               <dt className="text-sm font-medium text-[var(--text-primary)]">
-                {question}
+                {q}
               </dt>
               <dd className="text-xs text-[var(--text-secondary)] mt-1">
-                {answer}
+                {a}
               </dd>
             </div>
           ))}

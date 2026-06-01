@@ -3,6 +3,9 @@
    Key metric display with icon, value, label, and trend indicator.
    ═══════════════════════════════════════════════════════════════════ */
 
+"use client";
+
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 interface StatsCardProps {
@@ -25,6 +28,7 @@ export function StatsCard({
   className,
   "data-testid": testId,
 }: StatsCardProps) {
+  const t = useTranslations("common");
   return (
     <div
       className={cn(
@@ -50,7 +54,7 @@ export function StatsCard({
               "text-xs font-medium",
               trend.positive ? "text-[var(--color-success)]" : "text-[var(--color-danger)]"
             )}
-            aria-label={`${trend.positive ? "Increased by" : "Decreased by"} ${trend.value}`}
+            aria-label={`${trend.positive ? t("increasedBy") : t("decreasedBy")} ${trend.value}`}
           >
             {trend.positive ? "↑" : "↓"} {trend.value}
           </span>
