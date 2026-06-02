@@ -11,7 +11,6 @@ from sqlalchemy.ext.asyncio import (
 from pytomatiza.config import settings
 
 from sqlalchemy.ext.asyncio import create_async_engine
-from sqlalchemy.pool import NullPool
 
 engine = create_async_engine(
     settings.DATABASE_URL,
@@ -19,8 +18,7 @@ engine = create_async_engine(
     pool_pre_ping=True,
     connect_args={
         "statement_cache_size": 0,
-    },
-    poolclass=NullPool,
+    }
 )
 
 AsyncSessionLocal = async_sessionmaker(
