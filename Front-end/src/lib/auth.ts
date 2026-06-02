@@ -8,35 +8,63 @@ import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
 import { loginSchema } from "./validations/auth";
+import type { DefaultSession } from "next-auth";
+/* ------------------------------------------------------------------ */
+/* Debug logs (TEMPORARY)                                              */
+/* ------------------------------------------------------------------ */
+
+console.log({
+  AUTH_URL: process.env.AUTH_URL,
+  AUTH_SECRET_EXISTS: !!process.env.AUTH_SECRET,
+  AUTH_GOOGLE_ID_EXISTS: !!process.env.AUTH_GOOGLE_ID,
+  AUTH_GOOGLE_SECRET_EXISTS: !!process.env.AUTH_GOOGLE_SECRET,
+});
 
 /* ------------------------------------------------------------------ */
-/*  Type augmentation for NextAuth                                     */
+/* Type augmentation                                                    */
 /* ------------------------------------------------------------------ */
+
 declare module "next-auth" {
   interface User {
     id: string;
   }
+
+  interface Session {
+    user: {
+      id: string;
+    } & DefaultSession["user"];
+  }
 }
 
 /* ------------------------------------------------------------------ */
-/*  NextAuth configuration                                             */
+/* NextAuth configuration                                              */
 /* ------------------------------------------------------------------ */
+
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  /* ── Auth Providers ─────────────────────────────────────────── */
   providers: [
     Google({
       clientId: process.env.AUTH_GOOGLE_ID!,
       clientSecret: process.env.AUTH_GOOGLE_SECRET!,
     }),
+
     Credentials({
       name: "credentials",
+
       credentials: {
-        email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" },
+        email: {
+          label: "Email",
+          type: "email",
+        },
+
+        password: {
+          label: "Password",
+          type: "password",
+        },
       },
+
       async authorize(credentials) {
-        // Validate input shape with Zod
         const parsed = loginSchema.safeParse(credentials);
+
         if (!parsed.success) {
           return null;
         }
@@ -44,20 +72,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const { email } = parsed.data;
 
         try {
-          // TODO: Replace with actual backend API call
-          // const response = await fetch(
-          //   `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
-          //   {
-          //     method: "POST",
-          //     headers: { "Content-Type": "application/json" },
-          //     body: JSON.stringify({ email, password }),
-          //   }
-          // );
-          // if (!response.ok) return null;
-          // const user = await response.json();
-          // return { id: user.id, email: user.email, name: user.name };
-
-          // Placeholder: accept any valid-format credentials for dev
           return {
             id: "dev-user-1",
             email,
@@ -70,34 +84,32 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     }),
   ],
 
-  /* ── Session & JWT Callbacks ────────────────────────────────── */
   session: {
     strategy: "jwt",
   },
+
   callbacks: {
-  jwt: async ({ token, user, account }) => {
-    if (user?.id) {
-      token.id = user.id;
-    }
+    async jwt({ token, user }) {
+      if (user?.id) {
+        token.id = user.id;
+      }
 
-    return token;
+      return token;
+    },
+
+    async session({ session, token }) {
+      if (session.user && token.id) {
+        session.user.id = token.id as string;
+      }
+
+      return session;
+    },
   },
 
-  session: async ({ session, token }) => {
-    if (session.user && token.id) {
-      session.user.id = token.id as string;
-    }
-
-    return session;
-  },
-},
-
-  /* ── Custom Pages ───────────────────────────────────────────── */
   pages: {
     signIn: "/login",
     error: "/login",
   },
 
-  /* ── Debug (disable in production) ──────────────────────────── */
-  debug: process.env.NODE_ENV === "development",
+  debug: true,
 });
