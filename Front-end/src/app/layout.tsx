@@ -51,8 +51,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     description: "Intelligent automation platform",
     metadataBase: new URL(
-      process.env.AUTH_URL || "http://localhost:3000"
-    ),
+      process.env.NEXTAUTH_URL || "https://pytomatiza.vercel.app"
+    )
   };
 }
 
