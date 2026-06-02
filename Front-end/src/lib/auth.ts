@@ -75,19 +75,22 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     strategy: "jwt",
   },
   callbacks: {
-    jwt: async ({ token, user }) => {
-      if (user) {
-        token.id = user.id;
-      }
-      return token;
-    },
-    session: async ({ session, token }) => {
-      if (session.user) {
-        session.user.id = token.id as string;
-      }
-      return session;
-    },
+  jwt: async ({ token, user, account }) => {
+    if (user?.id) {
+      token.id = user.id;
+    }
+
+    return token;
   },
+
+  session: async ({ session, token }) => {
+    if (session.user && token.id) {
+      session.user.id = token.id as string;
+    }
+
+    return session;
+  },
+},
 
   /* ── Custom Pages ───────────────────────────────────────────── */
   pages: {
