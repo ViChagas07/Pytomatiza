@@ -526,8 +526,9 @@
     "settings": "Settings",
     "signOut": "Sign Out",
     "signIn": "Sign In",
-    "user": "User"
-  },
+      "appearance": "Appearance",
+      "user": "User"
+    },
   "logs": {
     "title": "Logs & Approvals",
     "subtitle": "Monitor automation executions and manage pending approval requests.",

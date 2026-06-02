@@ -6,7 +6,9 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { signOut, useSession } from "next-auth/react";
 import { Link, usePathname } from "@/i18n/navigation";
 import {
   LayoutDashboard,
@@ -17,10 +19,15 @@ import {
   FileText,
   Table2,
   MessageSquare,
-  Image,
+  Image as ImageIcon,
   FolderOpen,
   Layers,
+  LogOut,
+  Settings,
+  LogIn,
 } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { cn } from "@/lib/utils";
 
 /* ── Nav items (mirror of Navbar) ─────────────────────────────── */
@@ -72,7 +79,7 @@ const moduleItems: ModuleDef[] = [
   { id: "documents", nameKey: "documents", icon: FileText, href: "/documents" },
   { id: "data", nameKey: "data", icon: Table2, href: "/data" },
   { id: "communication", nameKey: "communication", icon: MessageSquare, href: "/communication" },
-  { id: "media", nameKey: "media", icon: Image, href: "/media" },
+  { id: "media", nameKey: "media", icon: ImageIcon, href: "/media" },
   { id: "files", nameKey: "files", icon: FolderOpen, href: "/files" },
   { id: "architecture", nameKey: "architecture", icon: Layers, href: "/architecture" },
 ];
@@ -139,6 +146,8 @@ interface MobileMenuProps {
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const t = useTranslations("nav");
   const pathname = usePathname();
+  const { data: session } = useSession();
+  const userName = session?.user?.name || "User";
   const panelRef = React.useRef<HTMLDivElement>(null);
 
   useFocusTrap(panelRef, isOpen);
@@ -271,6 +280,80 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               );
             })}
           </ul>
+        </div>
+
+        {/* ── User info + appearance + sign out ────────────────────── */}
+        <div className="border-t border-[var(--border-default)] px-4 py-3">
+          {/* User info */}
+          {session?.user ? (
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--brand-accent-light)] text-sm font-semibold text-[var(--brand-accent)]">
+                {session.user.image ? (
+                  <Image
+                    src={session.user.image}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 rounded-full object-cover"
+                  />
+                ) : (
+                  <span>{userName.charAt(0).toUpperCase()}</span>
+                )}
+              </div>
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-[var(--text-primary)] truncate">
+                  {userName}
+                </p>
+                <p className="text-xs text-[var(--text-tertiary)]">
+                  {session.user.email ?? ""}
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div className="mb-4">
+              <Link
+                href="/login"
+                onClick={onClose}
+                className="flex items-center gap-3 rounded-[var(--radius-md)] px-3 py-2.5 text-sm font-medium text-[var(--brand-python-blue)] hover:bg-[var(--surface-1)] transition-colors"
+              >
+                <LogIn className="h-5 w-5" aria-hidden="true" />
+                {t("signIn")}
+              </Link>
+            </div>
+          )}
+
+          {/* Appearance controls */}
+          <div className="flex items-center justify-between rounded-[var(--radius-md)] bg-[var(--surface-1)] px-4 py-3">
+            <span className="text-sm font-medium text-[var(--text-primary)]">
+              {t("appearance")}
+            </span>
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <LanguageSwitcher />
+            </div>
+          </div>
+
+          {/* Settings + Sign out (only when authenticated) */}
+          {session?.user && (
+            <div className="mt-3 space-y-1">
+              <Link
+                href="/settings"
+                onClick={onClose}
+                className="flex items-center gap-3 rounded-[var(--radius-md)] px-3 py-2.5 text-sm font-medium text-[var(--text-secondary)] hover:bg-[var(--surface-1)] hover:text-[var(--text-primary)] transition-colors"
+              >
+                <Settings className="h-5 w-5" aria-hidden="true" />
+                {t("settings")}
+              </Link>
+              <button
+                type="button"
+                onClick={() => signOut()}
+                className="flex w-full items-center gap-3 rounded-[var(--radius-md)] px-3 py-2.5 text-sm font-medium text-[var(--text-secondary)] hover:bg-[var(--surface-1)] hover:text-[var(--color-danger)] transition-colors"
+              >
+                <LogOut className="h-5 w-5" aria-hidden="true" />
+                {t("signOut")}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
