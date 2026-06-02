@@ -75,15 +75,26 @@ export function DashboardContent({
   /* ── Local state ────────────────────────────────────────────────── */
 
   const [stats, setStats] = React.useState<DashboardStats | null>(
-    // If server-side fetch gave us null AND it's a network error,
-    // use zeroed stats so the UI renders immediately.
+    // If server-side fetch gave us null AND the server classified it as a
+    // network error, start with zeroed stats so the UI renders immediately.
     isNetworkError(serverError ?? null) ? EMPTY_DASHBOARD_STATS : initialStats
   );
   const [agents, setAgents] = React.useState<Agent[]>(initialAgents);
   const [actionError, setActionError] = React.useState<string | null>(null);
-  /** Was the last fetch failure a network error? (backend unreachable) */
+
+  /**
+   * Whether the *client* believes the backend is unreachable.
+   *
+   * This state is NEVER initialised from the server-side error because
+   * the server might not be able to reach `localhost:8000` directly
+   * while the client CAN reach it through the Next.js proxy.
+   *
+   * The only situations that turn this flag on are:
+   *   1. Browser reports the user is offline (navigator.onLine === false)
+   *   2. A client-side health‑check against the backend fails
+   */
   const [backendOffline, setBackendOffline] = React.useState(
-    isNetworkError(serverError ?? null)
+    () => typeof navigator !== "undefined" && navigator.onLine === false
   );
   const [isRetrying, setIsRetrying] = React.useState(false);
 
@@ -95,6 +106,21 @@ export function DashboardContent({
   const showLoginAlert = isSessionLoaded && !isAuthenticated;
   const showOfflineAlert = isAuthenticated && backendOffline;
 
+  /* ── Listen to browser online/offline events ────────────────────── */
+
+  React.useEffect(() => {
+    const goOnline = () => setBackendOffline(false);
+    const goOffline = () => setBackendOffline(true);
+
+    window.addEventListener("online", goOnline);
+    window.addEventListener("offline", goOffline);
+
+    return () => {
+      window.removeEventListener("online", goOnline);
+      window.removeEventListener("offline", goOffline);
+    };
+  }, []);
+
   /* ── Determine if we need to fallback-fetch on the client ───────── */
 
   const needsStatsFetch =
@@ -104,8 +130,38 @@ export function DashboardContent({
   const needsFallbackFetch = needsStatsFetch || needsAgentsFetch;
 
   /**
+   * Helper: given an API error, decide whether it is a connectivity issue
+   * (user offline / backend down) or a genuine API error.
+   *
+   * Returns `"offline"` / `"backend_down"` / `"api_error"`.
+   */
+  const classifyFetchError = React.useCallback(
+    async (error: ApiError): Promise<"offline" | "backend_down" | "api_error"> => {
+      // 1. User is offline according to the browser
+      if (typeof navigator !== "undefined" && navigator.onLine === false) {
+        return "offline";
+      }
+
+      // 2. The fetch itself threw a network-level exception
+      if (isNetworkError(error)) {
+        // Double‑check with the health endpoint to be sure
+        const healthy = await checkBackendHealth();
+        // Always reset the module-level cache after a health check so we
+        // don't get stale false positives for the next 15 s.
+        if (!healthy) resetHealthState();
+
+        return healthy ? "api_error" : "backend_down";
+      }
+
+      // 3. Any other error code → real API error
+      return "api_error";
+    },
+    [],
+  );
+
+  /**
    * Attempt to fetch data from the client side.
-   * On network failure: shows zeros + offline banner (not a full error).
+   * On connectivity failure: shows zeros + offline banner (not a full error).
    * On real API error (auth, 500, etc.): shows error block with retry.
    */
   const fetchFallbackData = React.useCallback(async () => {
@@ -117,9 +173,10 @@ export function DashboardContent({
 
       if (needsStatsFetch) {
         promises.push(
-          api.getDashboardStats().then((res) => {
+          api.getDashboardStats().then(async (res) => {
             if (res.error) {
-              if (isNetworkError(res.error)) {
+              const kind = await classifyFetchError(res.error);
+              if (kind === "offline" || kind === "backend_down") {
                 setStats(EMPTY_DASHBOARD_STATS);
                 setBackendOffline(true);
               } else {
@@ -135,9 +192,10 @@ export function DashboardContent({
 
       if (needsAgentsFetch) {
         promises.push(
-          api.getAgents().then((res) => {
+          api.getAgents().then(async (res) => {
             if (res.error) {
-              if (isNetworkError(res.error)) {
+              const kind = await classifyFetchError(res.error);
+              if (kind === "offline" || kind === "backend_down") {
                 setAgents([]);
                 setBackendOffline(true);
               } else {
@@ -159,7 +217,7 @@ export function DashboardContent({
     } finally {
       setIsRetrying(false);
     }
-  }, [needsStatsFetch, needsAgentsFetch, t]);
+  }, [needsStatsFetch, needsAgentsFetch, t, classifyFetchError]);
 
   /* ── Fallback fetch for edge cases (non-SSR contexts) ───────────── */
 
@@ -178,8 +236,17 @@ export function DashboardContent({
     setActionError(null);
 
     try {
-      // First verify the backend is reachable
+      // 1. If the browser says offline, don't even try
+      if (typeof navigator !== "undefined" && navigator.onLine === false) {
+        setBackendOffline(true);
+        setIsRetrying(false);
+        return;
+      }
+
+      // 2. Check backend health from the client side
       const healthy = await checkBackendHealth();
+      // Always reset the module-level cache so next call is fresh
+      resetHealthState();
 
       if (!healthy) {
         setBackendOffline(true);
@@ -187,18 +254,17 @@ export function DashboardContent({
         return;
       }
 
-      // Backend is reachable — reset cached state and re-fetch
-      resetHealthState();
+      // 3. Backend is reachable — fetch fresh data
       setBackendOffline(false);
 
-      // Fetch fresh data
       const [statsRes, agentsRes] = await Promise.all([
         api.getDashboardStats(),
         api.getAgents(),
       ]);
 
       if (statsRes.error) {
-        if (isNetworkError(statsRes.error)) {
+        const kind = await classifyFetchError(statsRes.error);
+        if (kind === "offline" || kind === "backend_down") {
           setStats(EMPTY_DASHBOARD_STATS);
           setBackendOffline(true);
         } else {
@@ -209,7 +275,8 @@ export function DashboardContent({
       }
 
       if (agentsRes.error) {
-        if (isNetworkError(agentsRes.error)) {
+        const kind = await classifyFetchError(agentsRes.error);
+        if (kind === "offline" || kind === "backend_down") {
           setAgents([]);
           setBackendOffline(true);
         } else if (!actionError) {
@@ -225,7 +292,7 @@ export function DashboardContent({
     } finally {
       setIsRetrying(false);
     }
-  }, [t, actionError]);
+  }, [t, actionError, classifyFetchError]);
 
   /* ── Action handlers (real API calls) ──────────────────────────── */
 
