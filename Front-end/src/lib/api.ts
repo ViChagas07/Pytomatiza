@@ -142,7 +142,7 @@ const HEALTH_CACHE_MS = 15_000;                  // 15 s cooldown
 
 /* ── Error Classification ─────────────────────────────────────────── */
 
-function classifyError(status: number, message: string): ErrorCode {
+function classifyError(status: number, _message?: string): ErrorCode {
   if (status === 0) return "NETWORK_ERROR";
   if (status === 401 || status === 403) return "AUTH_ERROR";
   if (status === 404) return "NOT_FOUND";
@@ -151,11 +151,67 @@ function classifyError(status: number, message: string): ErrorCode {
   return "UNKNOWN_ERROR";
 }
 
-/** Returns true if the error is a network/connectivity problem. */
+/**
+ * Normalise a raw error body from the backend into the ApiError format.
+ *
+ * FastAPI sends `{ detail: string, type?: string }` but the frontend
+ * expects `{ code: ErrorCode, message: string }`.
+ *
+ * If the body already uses the frontend format (`code` / `message`) it
+ * passes through unchanged.  Otherwise `detail` → `message` and
+ * `type` → `code`, falling back to the HTTP status code.
+ */
+function normalizeErrorResponse(
+  body: Record<string, unknown>,
+  status: number,
+): ApiError {
+  // Already in frontend format?  Use it as-is.
+  if (typeof body.code === "string" && typeof body.message === "string") {
+    return body as unknown as ApiError;
+  }
+
+  // FastAPI shape → frontend shape
+  const message =
+    (body.message as string) ??
+    (body.detail as string) ??
+    `HTTP ${status}`;
+  const code: ErrorCode =
+    (body.code as ErrorCode) ??
+    (body.type as ErrorCode) ??
+    classifyError(status, message);
+
+  return { code, message };
+}
+
+/** Returns `true` when the browser reports the user is offline. */
+function isBrowserOffline(): boolean {
+  return (
+    typeof navigator !== "undefined" &&
+    typeof navigator.onLine === "boolean" &&
+    !navigator.onLine
+  );
+}
+
+/**
+ * Returns `true` when the error is a genuine network / connectivity problem.
+ *
+ * Only `NETWORK_ERROR`, `BACKEND_OFFLINE`, or the browser's own offline
+ * flag are considered network errors.  Auth, validation, server errors etc.
+ * are never conflated with network issues.
+ */
 export function isNetworkError(error: ApiError | null): boolean {
   if (!error) return false;
-  const code = (error.code as ErrorCode) || classifyError(0, error.message);
-  return code === "NETWORK_ERROR" || code === "BACKEND_OFFLINE";
+
+  // Direct fetch-failure codes
+  if (
+    error.code === "NETWORK_ERROR" ||
+    error.code === "BACKEND_OFFLINE"
+  ) {
+    return true;
+  }
+
+  // Browser reports offline
+  return isBrowserOffline();
 }
 
 /* ── Retry helper ─────────────────────────────────────────────────── */
@@ -281,10 +337,14 @@ export async function serverFetch<T>(
       if (!response.ok) {
         let error: ApiError;
         try {
-          error = await response.json();
+          const body = await response.json();
+          error = normalizeErrorResponse(
+            typeof body === "object" && body !== null ? body : {},
+            status,
+          );
         } catch {
           error = {
-            code: classifyError(status, `HTTP ${status}`),
+            code: classifyError(status),
             message: `Request failed with status ${status}`,
           };
         }
@@ -294,6 +354,7 @@ export async function serverFetch<T>(
       const data = (await response.json()) as T;
       return { data, error: null, status };
     } catch (err) {
+      // Genuine network failure (DNS, connection refused, timeout, CORS, etc.)
       return {
         data: null,
         error: {
@@ -348,10 +409,14 @@ export async function clientFetch<T>(
       if (!response.ok) {
         let error: ApiError;
         try {
-          error = await response.json();
+          const body = await response.json();
+          error = normalizeErrorResponse(
+            typeof body === "object" && body !== null ? body : {},
+            status,
+          );
         } catch {
           error = {
-            code: classifyError(status, `HTTP ${status}`),
+            code: classifyError(status),
             message: `Request failed with status ${status}`,
           };
         }
@@ -361,6 +426,7 @@ export async function clientFetch<T>(
       const data = (await response.json()) as T;
       return { data, error: null, status };
     } catch (err) {
+      // Genuine network failure (DNS, connection refused, timeout, CORS, etc.)
       return {
         data: null,
         error: {
