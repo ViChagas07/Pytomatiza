@@ -17,16 +17,28 @@ export function ThemeScript() {
         __html: `
           (function() {
             try {
-              var theme = JSON.parse(localStorage.getItem('pytomatiza-theme'));
-              if (!theme || !theme.state || !theme.state.theme) return;
-              var mode = theme.state.theme;
-              var isDark = mode === 'dark' ||
-                (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-              if (isDark) {
-                document.documentElement.classList.add('dark');
-              } else {
-                document.documentElement.classList.remove('dark');
+              var stored = localStorage.getItem('pytomatiza-theme');
+              var mode;
+
+              if (stored) {
+                var parsed = JSON.parse(stored);
+                if (parsed && parsed.state && parsed.state.theme) {
+                  mode = parsed.state.theme;
+                }
               }
+
+              /* If no stored preference (first visit), fall back to system */
+              var isDark;
+              if (mode === 'dark') {
+                isDark = true;
+              } else if (mode === 'light') {
+                isDark = false;
+              } else {
+                /* 'system' or first visit: check OS/browser preference */
+                isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+              }
+
+              document.documentElement.classList.toggle('dark', isDark);
             } catch(e) {}
           })();
         `,
