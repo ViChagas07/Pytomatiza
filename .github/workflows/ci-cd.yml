@@ -1,0 +1,479 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  Pytomatiza+ CI/CD Pipeline
+# ─────────────────────────────────────────────────────────────────────────────
+#  Triggered on pushes to main/develop and PRs targeting main.
+#  Provides:
+#    · Backend lint (Ruff), formatting check, type-check (Mypy)
+#    · Frontend lint (ESLint) and build verification
+#    · Backend unit + integration tests with coverage (PostgreSQL + Redis)
+#    · CodeQL security analysis
+#    · OWASP ZAP DAST scan against a live API instance
+#    · Docker image build + Trivy vulnerability scan
+#    · Production deployment (main branch only)
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Pytomatiza+ CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# ── Global environment ──────────────────────────────────────────────────────
+env:
+  PYTHON_VERSION: "3.11.11"
+  POETRY_VERSION: "2.4.1"
+  NODE_VERSION: "20"
+
+# ─────────────────────────────────────────────────────────────────────────────
+#  JOBS
+# ─────────────────────────────────────────────────────────────────────────────
+jobs:
+
+  # ───────────────────────────────────────────────────────────────────────────
+  #  Backend Lint & Type Check
+  #    - Ruff (linter + formatter)
+  #    - Mypy (static type checking)
+  # ───────────────────────────────────────────────────────────────────────────
+  lint-backend:
+    name: Backend Lint & Type Check
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Back-end
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: poetry
+          cache-dependency-path: Back-end/poetry.lock
+
+      - name: Install Poetry ${{ env.POETRY_VERSION }}
+        run: pip install poetry==${{ env.POETRY_VERSION }}
+
+      - name: Check lock file consistency
+        run: poetry check
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Ruff linter check
+        run: poetry run ruff check src/
+
+      - name: Ruff format check
+        run: poetry run ruff format --check src/
+
+      - name: Mypy type check
+        run: poetry run mypy src/
+
+      # Nota: Pyright está configurado apenas para uso local (VS Code).
+      # Em CI, o MyPy cobre a verificação de tipos.
+
+
+  # ───────────────────────────────────────────────────────────────────────────
+  #  Frontend Lint, TypeScript Check & Build
+  #    - ESLint (code quality)
+  #    - TypeScript compiler check (noEmit)
+  #    - Next.js production build
+  # ───────────────────────────────────────────────────────────────────────────
+  lint-frontend:
+    name: Frontend Lint & Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Front-end
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: Front-end/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: ESLint
+        run: npm run lint
+
+      - name: TypeScript check
+        run: npx tsc --noEmit
+
+      - name: Next.js build
+        run: npm run build
+        env:
+          # Minimal env vars required for build to succeed
+          SENTRY_AUTH_TOKEN: ""
+          NEXT_PUBLIC_SENTRY_DSN: ""
+          NEXT_PUBLIC_API_URL: "http://localhost:8000"
+          NEXTAUTH_SECRET: "ci-build-secret"
+          NEXTAUTH_URL: "http://localhost:3000"
+          GOOGLE_CLIENT_ID: ""
+          GOOGLE_CLIENT_SECRET: ""
+
+
+  # ───────────────────────────────────────────────────────────────────────────
+  #  Backend Tests
+  #    Runs all tests (unit + integration) with coverage reports.
+  #    Requires PostgreSQL and Redis via GitHub service containers.
+  # ───────────────────────────────────────────────────────────────────────────
+  test-backend:
+    name: Backend Tests
+    runs-on: ubuntu-latest
+    needs: lint-backend
+    defaults:
+      run:
+        working-directory: Back-end
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: pytomatiza
+          POSTGRES_PASSWORD: pytomatiza_secret
+          POSTGRES_DB: pytomatiza_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: poetry
+          cache-dependency-path: Back-end/poetry.lock
+
+      - name: Install Poetry ${{ env.POETRY_VERSION }}
+        run: pip install poetry==${{ env.POETRY_VERSION }}
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Run tests with coverage
+        env:
+          DATABASE_URL: postgresql+asyncpg://pytomatiza:pytomatiza_secret@localhost:5432/pytomatiza_test
+          REDIS_URL: redis://localhost:6379/0
+          JWT_SECRET: test-secret-key-for-ci
+          ENVIRONMENT: test
+        run: |
+          poetry run pytest \
+            --cov=pytomatiza \
+            --cov-report=xml:coverage.xml \
+            --cov-report=term-missing \
+            -v
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-coverage
+          path: Back-end/coverage.xml
+
+      - name: Upload test results (for failed test analysis)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: Back-end/test-results/
+          retention-days: 7
+
+
+  # ───────────────────────────────────────────────────────────────────────────
+  #  CodeQL Security Analysis
+  #    Scans the entire repository for security vulnerabilities.
+  # ───────────────────────────────────────────────────────────────────────────
+  codeql:
+    name: CodeQL Security Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: python, javascript
+          queries: security-and-quality
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL analysis
+        uses: github/codeql-action/analyze@v3
+
+
+  # ───────────────────────────────────────────────────────────────────────────
+  #  OWASP ZAP DAST Scan
+  #    Spins up the full backend stack (API + Postgres + Redis),
+  #    runs the OWASP ZAP baseline scanner against it, and uploads reports.
+  # ───────────────────────────────────────────────────────────────────────────
+  owasp-zap:
+    name: OWASP ZAP DAST Scan
+    runs-on: ubuntu-latest
+    needs: test-backend
+    defaults:
+      run:
+        working-directory: Back-end
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: poetry
+          cache-dependency-path: Back-end/poetry.lock
+
+      - name: Install Poetry ${{ env.POETRY_VERSION }}
+        run: pip install poetry==${{ env.POETRY_VERSION }}
+
+      - name: Install dependencies
+        run: poetry install
+
+      # ── Bootstrap infrastructure ──────────────────────────────────────
+      - name: Create .env for Docker Compose
+        run: |
+          cat > .env << 'EOF'
+          ENVIRONMENT=test
+          JWT_SECRET=zap-scan-secret-key
+          DATABASE_URL=postgresql+asyncpg://pytomatiza:pytomatiza_secret@postgres:5432/pytomatiza_zap
+          REDIS_URL=redis://:pytomatiza_redis_pwd@redis:6379/0
+          REDIS_PASSWORD=pytomatiza_redis_pwd
+          POSTGRES_USER=pytomatiza
+          POSTGRES_PASSWORD=pytomatiza_secret
+          POSTGRES_DB=pytomatiza_zap
+          CORS_ORIGINS=["http://localhost:3000"]
+          FRONTEND_URL=http://localhost:3000
+          S3_BUCKET=
+          EOF
+
+      - name: Start Postgres & Redis via Docker Compose
+        run: |
+          docker compose -f docker-compose.yaml up -d postgres redis
+
+          echo "Waiting for both containers to become healthy..."
+          for i in $(seq 1 45); do
+            PG_OK=$(docker compose -f docker-compose.yaml exec -T postgres \
+              pg_isready -U pytomatiza -d pytomatiza_zap > /dev/null 2>&1 && echo 1 || echo 0)
+            RD_OK=$(docker compose -f docker-compose.yaml exec -T redis \
+              redis-cli -a pytomatiza_redis_pwd ping > /dev/null 2>&1 && echo 1 || echo 0)
+            if [ "$PG_OK" = "1" ] && [ "$RD_OK" = "1" ]; then
+              echo "Both postgres and redis are healthy"
+              break
+            fi
+            echo "  ... waiting (pg=$PG_OK redis=$RD_OK) attempt $i"
+            sleep 1
+          done
+
+      # ── Start API & Run ZAP scan ──────────────────────────────────────
+      - name: Start API & Run ZAP Baseline Scan
+        env:
+          DATABASE_URL: postgresql+asyncpg://pytomatiza:pytomatiza_secret@localhost:5432/pytomatiza_zap
+          REDIS_URL: redis://:pytomatiza_redis_pwd@localhost:6379/0
+          JWT_SECRET: zap-scan-secret-key
+          ENVIRONMENT: test
+        run: |
+          # ── 1. Start API in the background ──
+          nohup poetry run uvicorn pytomatiza.main:create_app \
+            --factory \
+            --host 0.0.0.0 \
+            --port 8000 > /tmp/api.log 2>&1 &
+          API_PID=$!
+          echo "API PID: $API_PID"
+
+          # ── 2. Wait for health endpoint (up to 45s) ──
+          echo "Waiting for API at http://localhost:8000/api/v1/health ..."
+          for i in $(seq 1 45); do
+            if curl -sf http://localhost:8000/api/v1/health > /dev/null 2>&1; then
+              echo "API ready at attempt $i"
+              break
+            fi
+            if [ $((i % 10)) -eq 0 ]; then
+              echo "--- Last lines from API log (attempt $i) ---"
+              tail -20 /tmp/api.log 2>/dev/null || echo "(log empty)"
+            fi
+            sleep 1
+          done
+
+          # ── 3. Verify API process is alive ──
+          if ! kill -0 "$API_PID" 2>/dev/null; then
+            echo "ERROR: API process died. Full log:"
+            cat /tmp/api.log
+            exit 1
+          fi
+          echo "API process is running (PID $API_PID)"
+
+          # ── 4. Run ZAP baseline scan ──
+          TARGET_DIR="${{ github.workspace }}/Back-end"
+          mkdir -p "$TARGET_DIR"
+          chmod 777 "$TARGET_DIR"
+
+          docker run \
+            -v "${{ github.workspace }}/Back-end:/zap/wrk/:rw" \
+            --network=host \
+            ghcr.io/zaproxy/zaproxy:stable \
+            zap-baseline.py \
+            -t http://localhost:8000 \
+            -J report_json.json \
+            -w report_md.md \
+            -r report_html.html
+
+          ZAP_EXIT=$?
+          echo "ZAP scan exit code: $ZAP_EXIT"
+          # 0 = clean, 1 = FAIL alerts, 2 = WARN alerts
+          # Only fail on actual scan errors (3+)
+          if [ "$ZAP_EXIT" -ge 3 ]; then
+            echo "ZAP encountered a fatal error."
+            exit "$ZAP_EXIT"
+          fi
+          echo "ZAP scan completed — see uploaded reports for details."
+
+      - name: Upload ZAP reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zap-reports
+          path: |
+            Back-end/report_json.json
+            Back-end/report_md.md
+            Back-end/report_html.html
+          retention-days: 7
+
+      # ── Cleanup ───────────────────────────────────────────────────────
+      - name: Stop Docker Compose
+        if: always()
+        run: docker compose -f docker-compose.yaml down -v
+
+
+  # ───────────────────────────────────────────────────────────────────────────
+  #  Docker Build & Vulnerability Scan
+  #    Builds the production Docker image and scans it with Trivy for
+  #    critical / high severity vulnerabilities.
+  # ───────────────────────────────────────────────────────────────────────────
+  docker:
+    name: Docker Build & Trivy Scan
+    runs-on: ubuntu-latest
+    needs: test-backend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./Back-end
+          file: ./Back-end/Dockerfile
+          push: false
+          load: true
+          tags: pytomatiza-backend:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: pytomatiza-backend:ci
+          format: table
+          exit-code: "1"
+          ignore-unfixed: true
+          severity: CRITICAL,HIGH
+          vuln-type: os,library
+
+      - name: Run Trivy filesystem scan (IaC & secrets)
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: fs
+          scan-ref: ./Back-end
+          format: table
+          exit-code: "1"
+          ignore-unfixed: true
+          severity: CRITICAL,HIGH
+          skip-dirs: |
+            .venv
+            __pycache__
+
+
+  # ───────────────────────────────────────────────────────────────────────────
+  #  Deploy to Production
+  #    Triggered only on pushes to main.  Deploys both backend and frontend.
+  #    Currently a placeholder — replace with your actual deployment logic
+  #    (e.g., SSH deploy, Kubernetes rollout, AWS ECS, Vercel, etc.).
+  # ───────────────────────────────────────────────────────────────────────────
+  deploy:
+    name: Deploy Production
+    runs-on: ubuntu-latest
+
+    needs:
+      - test-backend
+      - lint-frontend
+      - codeql
+      - docker
+
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy Backend
+        run: |
+          echo "🚀 Deploying Pytomatiza+ Backend to production..."
+          echo ""
+          echo "  Replace this step with your actual deployment command:"
+          echo "    · SSH:       ssh user@host 'cd /app && git pull && docker compose up -d --build'"
+          echo "    · AWS ECS:   aws ecs update-service --cluster prod --service api --force-new-deployment"
+          echo "    · Kubernetes: kubectl set image deployment/api api=ghcr.io/org/pytomatiza-backend:latest"
+          echo "    · Ansible:   ansible-playbook deploy.yml -i inventory/prod"
+
+      - name: Deploy Frontend
+        run: |
+          echo "🚀 Deploying Pytomatiza+ Frontend to production..."
+          echo ""
+          echo "  Replace this step with your actual deployment command:"
+          echo "    · Vercel:    vercel --prod"
+          echo "    · Docker:    docker compose up -d --build frontend"
+          echo "    · S3/CloudFront: aws s3 sync ./out s3://pytomatiza-frontend-prod/"
+
+      - name: Notify deployment success
+        run: |
+          echo "✅ Deployment completed successfully!"
+          echo "  Add notifications here:"
+          echo "    · Sentry release:   sentry-cli releases new ${{ github.sha }}"
+          echo "    · Slack webhook:    curl -X POST https://hooks.slack.com/services/..."
+          echo "    · GitHub deploy:    gh deployment create ..."
