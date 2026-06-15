@@ -25,9 +25,9 @@ import {
   BarChart3,
   RefreshCw,
   WifiOff,
-  LogIn,
   Sparkles,
 } from "lucide-react";
+import { LoginOverlay } from "@/components/ui/LoginOverlay";
 import { StatsCard, AgentCard } from "@/components/dashboard";
 import { type Agent } from "@/store";
 import { cn } from "@/lib/utils";
@@ -65,7 +65,6 @@ export function DashboardContent({
   const locale = useLocale();
   const { data: session, status } = useSession();
   const isAuthenticated = status === "authenticated";
-  const isSessionLoaded = status !== "loading";
   const userName = session?.user?.name || t("user");
 
   const hour = new Date().getHours();
@@ -99,11 +98,8 @@ export function DashboardContent({
   const [isRetrying, setIsRetrying] = React.useState(false);
 
   // Banner priority:
-  // The DashboardAlert in the content area shows:
-  //   1. Login prompt (amber, clickable → /login)  when NOT authenticated
-  //   2. Offline alert (amber, retry button)        when authenticated + backend offline
-  //   3. Nothing                                    otherwise
-  const showLoginAlert = isSessionLoaded && !isAuthenticated;
+  //   - Offline alert (amber, retry button)  when authenticated + backend offline
+  //   - Nothing                              otherwise
   const showOfflineAlert = isAuthenticated && backendOffline;
 
   /* ── Listen to browser online/offline events ────────────────────── */
@@ -341,13 +337,6 @@ export function DashboardContent({
   if (actionError) {
     const alertContent = (
       <>
-        {section !== "agents" && showLoginAlert && (
-          <DashboardAlert
-            icon={LogIn}
-            label={t("loginPrompt")}
-            href={`/${locale}/login`}
-          />
-        )}
         {section !== "agents" && showOfflineAlert && (
           <DashboardAlert
             icon={WifiOff}
@@ -357,14 +346,13 @@ export function DashboardContent({
             retryLabel={t("error.retry")}
           />
         )}
-        {/* ErrorBlock REMOVED — the alert above replaces it */}
       </>
     );
 
     if (section === "all") {
-      return <div className="space-y-8">{alertContent}</div>;
+      return <LoginOverlay label={t("loginPrompt")}><div className="space-y-8">{alertContent}</div></LoginOverlay>;
     }
-    return alertContent;
+    return <LoginOverlay label={t("loginPrompt")}>{alertContent}</LoginOverlay>;
   }
 
   /* ── Render ─────────────────────────────────────────────────────── */
@@ -373,28 +361,16 @@ export function DashboardContent({
   const showAgents = section === "all" || section === "agents";
 
   return (
+    <LoginOverlay label={t("loginPrompt")}>
     <div className="space-y-8">
-      {/* Login prompt — only in the "all" or "stats" section (top of page),
-          NOT in the "agents" section (bottom) to avoid duplicating the banner. */}
-      {section !== "agents" && (
-        <div className={cn(showLoginAlert || showOfflineAlert ? "mb-12" : "")}>
-          {showLoginAlert && (
-            <DashboardAlert
-              icon={LogIn}
-              label={t("loginPrompt")}
-              href={`/${locale}/login`}
-            />
-          )}
-          {showOfflineAlert && (
-            <DashboardAlert
-              icon={WifiOff}
-              label={t("error.offlineBanner")}
-              onReconnect={handleReconnect}
-              isRetrying={isRetrying}
-              retryLabel={t("error.retry")}
-            />
-          )}
-        </div>
+      {section !== "agents" && showOfflineAlert && (
+        <DashboardAlert
+          icon={WifiOff}
+          label={t("error.offlineBanner")}
+          onReconnect={handleReconnect}
+          isRetrying={isRetrying}
+          retryLabel={t("error.retry")}
+        />
       )}
 
       {/* Welcome header + Stats grid */}
@@ -554,6 +530,7 @@ export function DashboardContent({
         </section>
       )}
     </div>
+    </LoginOverlay>
   );
 }
 

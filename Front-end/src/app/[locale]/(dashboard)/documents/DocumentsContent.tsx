@@ -34,6 +34,7 @@ import { Button } from "@/components/ui/Button";
 import { GoogleDriveIcon } from "@/components/ui/GoogleIcons";
 import { cn } from "@/lib/utils";
 import { useGoogleIntegration } from "@/lib/useGoogleIntegration";
+import { LoginOverlay } from "@/components/ui/LoginOverlay";
 
 /* ── Types ──────────────────────────────────────────────────────── */
 
@@ -201,6 +202,7 @@ export function DocumentsContent() {
         </p>
       </div>
 
+      <LoginOverlay label={t("loginPrompt")}>
       <div className="grid gap-6 lg:grid-cols-[1fr_340px]">
         {/* Main column */}
         <div className="space-y-6">
@@ -553,6 +555,7 @@ export function DocumentsContent() {
           </div>
         )}
       </section>
+    </LoginOverlay>
     </>
   );
 }

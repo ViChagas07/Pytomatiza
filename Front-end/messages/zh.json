@@ -414,6 +414,7 @@
       }
     },
     "agentsFound": "{count, plural, =1 {1 agente encontrado} other {{count} agentes encontrados}}",
+    "loginPrompt": "登录或注册以保存您的代理和历史记录！",
     "resetFilters": "重置所有筛选条件"
   },
   "automations": {
@@ -995,10 +996,7 @@
         "png": "PNG（图片）",
         "svg": "SVG（矢量）",
         "pdf": "PDF（文档）",
-        "drawio": "Draw.io（可编辑）",
-        "terraform": "地形 (IaC)",
-        "mermaid": "美人鱼（文）",
-        "plantuml": "植物UML"
+        "terraform": "地形 (IaC)"
       },
       "recentDiagrams": {
         "title": "最近的图表",

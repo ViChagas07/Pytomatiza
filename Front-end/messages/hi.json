@@ -414,6 +414,7 @@
       }
     },
     "agentsFound": "{count, plural, =1 {1 agente encontrado} other {{count} agentes encontrados}}",
+    "loginPrompt": "अपने एजेंट और इतिहास को सहेजने के लिए लॉग इन करें या खाता बनाएं!",
     "resetFilters": "सभी फ़िल्टर रीसेट करें"
   },
   "automations": {
@@ -995,10 +996,7 @@
         "png": "पीएनजी (छवि)",
         "svg": "एसवीजी (वेक्टर)",
         "pdf": "पीडीएफ (दस्तावेज़)",
-        "drawio": "ड्रा.आईओ (संपादन योग्य)",
-        "terraform": "टेराफॉर्म (IaC)",
-        "mermaid": "जलपरी (पाठ)",
-        "plantuml": "प्लांटयूएमएल"
+        "terraform": "टेराफॉर्म (IaC)"
       },
       "recentDiagrams": {
         "title": "हाल के चित्र",

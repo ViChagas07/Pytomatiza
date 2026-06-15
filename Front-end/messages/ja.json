@@ -414,6 +414,7 @@
       }
     },
     "agentsFound": "{count, plural, =1 {1 agente encontrado} other {{count} agentes encontrados}}",
+    "loginPrompt": "エージェントと履歴を保存するには、ログインまたはアカウントを作成してください！",
     "resetFilters": "すべてのフィルターをリセット"
   },
   "automations": {
@@ -995,10 +996,7 @@
         "png": "PNG（イメージ）",
         "svg": "SVG（ベクター）",
         "pdf": "PDF（文書）",
-        "drawio": "Draw.io (編集可能)",
-        "terraform": "テラフォーム (IaC)",
-        "mermaid": "人魚（テキスト）",
-        "plantuml": "プラントUML"
+        "terraform": "テラフォーム (IaC)"
       },
       "recentDiagrams": {
         "title": "最近の図",

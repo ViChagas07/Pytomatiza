@@ -35,6 +35,7 @@ import { Button } from "@/components/ui/Button";
 import { GoogleDriveIcon, GooglePhotosIcon } from "@/components/ui/GoogleIcons";
 import { cn } from "@/lib/utils";
 import { useGoogleIntegration } from "@/lib/useGoogleIntegration";
+import { LoginOverlay } from "@/components/ui/LoginOverlay";
 
 /* ── Types ──────────────────────────────────────────────────────── */
 
@@ -245,6 +246,7 @@ export function MediaContent() {
         </p>
       </div>
 
+      <LoginOverlay label={t("loginPrompt")}>
       {/* AI Instruction Form */}
       <section
         aria-labelledby="media-ai-heading"
@@ -707,6 +709,7 @@ export function MediaContent() {
           </Button>
         </div>
       )}
+    </LoginOverlay>
     </>
   );
 }

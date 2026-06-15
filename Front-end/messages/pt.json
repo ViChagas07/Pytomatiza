@@ -648,7 +648,8 @@
           "connected": "Conectado ao Google Drive",
           "browse": "Procurar no Drive"
         }
-      }
+      },
+      "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!"
     },
     "data": {
       "title": "Dados & Planilhas",
@@ -747,7 +748,8 @@
           "connected": "Conectado ao Google Drive",
           "browse": "Procurar no Drive"
         }
-      }
+      },
+      "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!"
     },
     "communication": {
       "title": "Comunicação",
@@ -824,7 +826,8 @@
         "saveDraft": "Salvar rascunho",
         "testSend": "Enviar teste",
         "testSendDescription": "Envie um teste para verificar a formatação"
-      }
+      },
+      "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!"
     },
     "media": {
       "title": "Mídia & Imagens",
@@ -917,7 +920,8 @@
           "connected": "Conectado ao Google Fotos",
           "browse": "Procurar no Fotos"
         }
-      }
+      },
+      "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!"
     },
     "files": {
       "title": "Arquivos",
@@ -1012,7 +1016,8 @@
           "browse": "Explorar Drive",
           "disconnect": "Desconectar"
         }
-      }
+      },
+      "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!"
     },
     "architecture": {
       "title": "Arquitetura",
@@ -1045,10 +1050,7 @@
         "png": "PNG (imagem)",
         "svg": "SVG (vetorial)",
         "pdf": "PDF (documento)",
-        "drawio": "Draw.io (editável)",
-        "terraform": "Terraform (infra como código)",
-        "mermaid": "Mermaid (texto)",
-        "plantuml": "PlantUML"
+        "terraform": "Terraform (infra como código)"
       },
       "recentDiagrams": {
         "title": "Diagramas recentes",
@@ -1074,7 +1076,8 @@
         "save": "Salvar projeto",
         "share": "Compartilhar",
         "shareDescription": "Compartilhe com sua equipe via link"
-      }
+      },
+      "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!"
     }
   },
   "brand": {

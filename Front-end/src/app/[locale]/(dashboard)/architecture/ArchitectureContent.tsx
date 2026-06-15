@@ -26,7 +26,6 @@ import {
   FileImage,
   FileCode,
   FileText,
-  PenTool,
   Share2,
   CheckCircle,
   AlertTriangle,
@@ -82,10 +81,7 @@ const exportFormats: ExportFormat[] = [
   { id: "png", labelKey: "export.png", icon: FileImage, extension: ".png" },
   { id: "svg", labelKey: "export.svg", icon: FileCode, extension: ".svg" },
   { id: "pdf", labelKey: "export.pdf", icon: FileText, extension: ".pdf" },
-  { id: "drawio", labelKey: "export.drawio", icon: PenTool, extension: ".drawio" },
   { id: "terraform", labelKey: "export.terraform", icon: Cpu, extension: ".tf" },
-  { id: "mermaid", labelKey: "export.mermaid", icon: FileCode, extension: ".mmd" },
-  { id: "plantuml", labelKey: "export.plantuml", icon: FileCode, extension: ".puml" },
 ];
 
 /* ── Component ───────────────────────────────────────────────────── */

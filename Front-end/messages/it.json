@@ -414,6 +414,7 @@
       }
     },
     "agentsFound": "{count, plural, =1 {1 agente encontrado} other {{count} agentes encontrados}}",
+    "loginPrompt": "Accedi o registrati per salvare i tuoi agenti e la cronologia!",
     "resetFilters": "Reimposta tutti i filtri"
   },
   "automations": {
@@ -995,10 +996,7 @@
         "png": "PNG (immagine)",
         "svg": "SVG (vettoriale)",
         "pdf": "PDF (documento)",
-        "drawio": "Draw.io (modificabile)",
-        "terraform": "Terraformazione (IaC)",
-        "mermaid": "Sirena (testo)",
-        "plantuml": "PiantaUML"
+        "terraform": "Terraformazione (IaC)"
       },
       "recentDiagrams": {
         "title": "Diagrammi recenti",

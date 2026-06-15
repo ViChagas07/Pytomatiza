@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { LoginOverlay } from "@/components/ui/LoginOverlay";
 
 /* ── Types ──────────────────────────────────────────────────────── */
 
@@ -177,6 +178,7 @@ export function CommunicationContent() {
         </p>
       </div>
 
+      <LoginOverlay label={t("loginPrompt")}>
       <div className="grid gap-6 lg:grid-cols-[1fr_340px]">
         {/* Main column */}
         <div className="space-y-6">
@@ -506,6 +508,7 @@ export function CommunicationContent() {
           </div>
         )}
       </section>
+    </LoginOverlay>
     </>
   );
 }

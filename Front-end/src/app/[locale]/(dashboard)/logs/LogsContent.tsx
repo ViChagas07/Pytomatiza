@@ -15,7 +15,7 @@ import {
   XCircle,
   Clock,
 } from "lucide-react";
-import { LoginAlert } from "@/components/ui/LoginAlert";
+import { LoginOverlay } from "@/components/ui/LoginOverlay";
 
 /* ── Component ────────────────────────────────────────────────────── */
 
@@ -41,9 +41,6 @@ export function LogsContent() {
 
   return (
     <div className="space-y-8">
-      {/* Login prompt — shown when user is a visitor (not authenticated) */}
-      <LoginAlert label={t("loginPrompt")} />
-
       {/* ── Header ──────────────────────────────────────────────── */}
       <div>
         <h1 className="text-2xl font-semibold tracking-tight text-[var(--text-primary)]">
@@ -54,39 +51,41 @@ export function LogsContent() {
         </p>
       </div>
 
-      {/* ── Stats row ───────────────────────────────────────────── */}
-      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-        {stats.map(({ key, value, icon: Icon }) => (
-          <div
-            key={key}
-            className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] p-5 shadow-[var(--shadow-sm)]"
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-[var(--brand-accent-light)]">
-                <Icon className="h-5 w-5 text-[var(--brand-accent)]" aria-hidden="true" />
-              </div>
-              <div>
-                <p className="text-xs text-[var(--text-tertiary)]">{t(`stats.${key}`)}</p>
-                <p className="text-xl font-semibold text-[var(--text-primary)]">{value}</p>
+      <LoginOverlay label={t("loginPrompt")}>
+        {/* ── Stats row ───────────────────────────────────────────── */}
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          {stats.map(({ key, value, icon: Icon }) => (
+            <div
+              key={key}
+              className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] p-5 shadow-[var(--shadow-sm)]"
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-[var(--brand-accent-light)]">
+                  <Icon className="h-5 w-5 text-[var(--brand-accent)]" aria-hidden="true" />
+                </div>
+                <div>
+                  <p className="text-xs text-[var(--text-tertiary)]">{t(`stats.${key}`)}</p>
+                  <p className="text-xl font-semibold text-[var(--text-primary)]">{value}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* ── Logs table (empty — mock data removed) ────────────────── */}
-      <div className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] shadow-[var(--shadow-sm)] overflow-hidden">
-        <div className="flex items-center gap-4 border-b border-[var(--border-default)] px-5 py-3">
-          <Clock className="h-4 w-4 text-[var(--text-tertiary)]" aria-hidden="true" />
-          <span className="text-sm font-semibold text-[var(--text-primary)]">{t("tableHeader")}</span>
+        {/* ── Logs table (empty — mock data removed) ────────────────── */}
+        <div className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] shadow-[var(--shadow-sm)] overflow-hidden">
+          <div className="flex items-center gap-4 border-b border-[var(--border-default)] px-5 py-3">
+            <Clock className="h-4 w-4 text-[var(--text-tertiary)]" aria-hidden="true" />
+            <span className="text-sm font-semibold text-[var(--text-primary)]">{t("tableHeader")}</span>
+          </div>
+          <div className="flex flex-col items-center justify-center py-12 text-center">
+            <Clock className="h-10 w-10 text-[var(--text-tertiary)] mb-3" aria-hidden="true" />
+            <p className="text-sm text-[var(--text-secondary)]">
+              {t("tableEmpty")}
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col items-center justify-center py-12 text-center">
-          <Clock className="h-10 w-10 text-[var(--text-tertiary)] mb-3" aria-hidden="true" />
-          <p className="text-sm text-[var(--text-secondary)]">
-            {t("tableEmpty")}
-          </p>
-        </div>
-      </div>
+      </LoginOverlay>
     </div>
   );
 }

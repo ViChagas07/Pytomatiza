@@ -40,6 +40,7 @@ import { Button } from "@/components/ui/Button";
 import { GoogleDriveIcon } from "@/components/ui/GoogleIcons";
 import { cn } from "@/lib/utils";
 import { useGoogleIntegration } from "@/lib/useGoogleIntegration";
+import { LoginOverlay } from "@/components/ui/LoginOverlay";
 
 /* ── Types ──────────────────────────────────────────────────────── */
 
@@ -273,6 +274,7 @@ export function FilesContent() {
         </p>
       </div>
 
+      <LoginOverlay label={t("loginPrompt")}>
       {/* AI Instruction Form */}
       <section
         aria-labelledby="files-ai-heading"
@@ -735,6 +737,7 @@ export function FilesContent() {
           </section>
         </aside>
       </div>
+    </LoginOverlay>
     </>
   );
 }

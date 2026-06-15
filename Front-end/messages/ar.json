@@ -414,6 +414,7 @@
       }
     },
     "agentsFound": "{count, plural, =1 {1 agente encontrado} other {{count} agentes encontrados}}",
+    "loginPrompt": "قم بتسجيل الدخول أو إنشاء حساب لحفظ وكلائك وسجلك!",
     "resetFilters": "إعادة تعيين جميع الفلاتر"
   },
   "automations": {
@@ -995,10 +996,7 @@
         "png": "PNG (الصورة)",
         "svg": "SVG (المتجه)",
         "pdf": "PDF (وثيقة)",
-        "drawio": "Draw.io (قابل للتحرير)",
-        "terraform": "تيرافورم (IAC)",
-        "mermaid": "حورية البحر (نص)",
-        "plantuml": "PlantUML"
+        "terraform": "تيرافورم (IAC)"
       },
       "recentDiagrams": {
         "title": "المخططات الأخيرة",

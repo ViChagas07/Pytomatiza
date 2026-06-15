@@ -414,6 +414,7 @@
       }
     },
     "agentsFound": "{count, plural, =1 {1 agente encontrado} other {{count} agentes encontrados}}",
+    "loginPrompt": "Войдите или зарегистрируйтесь, чтобы сохранить своих агентов и историю!",
     "resetFilters": "Сбросить все фильтры"
   },
   "automations": {
@@ -995,10 +996,7 @@
         "png": "PNG (изображение)",
         "svg": "SVG (векторный)",
         "pdf": "PDF (документ)",
-        "drawio": "Draw.io (редактируемый)",
-        "terraform": "Терраформирование (IAC)",
-        "mermaid": "Русалка (текст)",
-        "plantuml": "ПлантУМЛ"
+        "terraform": "Терраформирование (IAC)"
       },
       "recentDiagrams": {
         "title": "Последние диаграммы",

@@ -648,7 +648,8 @@
           "connected": "Connected to Google Drive",
           "browse": "Browse Drive"
         }
-      }
+      },
+      "loginPrompt": "Sign in or create an account to use this tool!"
     },
     "data": {
       "title": "Data & Spreadsheets",
@@ -747,7 +748,8 @@
           "connected": "Connected to Google Drive",
           "browse": "Browse Drive"
         }
-      }
+      },
+      "loginPrompt": "Sign in or create an account to use this tool!"
     },
     "communication": {
       "title": "Communication",
@@ -824,7 +826,8 @@
         "saveDraft": "Save draft",
         "testSend": "Send test",
         "testSendDescription": "Send a test to verify formatting"
-      }
+      },
+      "loginPrompt": "Sign in or create an account to use this tool!"
     },
     "media": {
       "title": "Media & Images",
@@ -917,7 +920,8 @@
           "connected": "Connected to Google Photos",
           "browse": "Browse Photos"
         }
-      }
+      },
+      "loginPrompt": "Sign in or create an account to use this tool!"
     },
     "files": {
       "title": "Files",
@@ -1045,10 +1049,7 @@
         "png": "PNG (image)",
         "svg": "SVG (vector)",
         "pdf": "PDF (document)",
-        "drawio": "Draw.io (editable)",
-        "terraform": "Terraform (IaC)",
-        "mermaid": "Mermaid (text)",
-        "plantuml": "PlantUML"
+        "terraform": "Terraform (IaC)"
       },
       "recentDiagrams": {
         "title": "Recent diagrams",
@@ -1074,7 +1075,8 @@
         "save": "Save project",
         "share": "Share",
         "shareDescription": "Share with your team via link"
-      }
+      },
+      "loginPrompt": "Sign in or create an account to use this tool!"
     }
   },
   "brand": {
