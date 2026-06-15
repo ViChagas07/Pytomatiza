@@ -414,6 +414,7 @@
         "desc": "Translates blog posts and documentation into 9 languages using AI."
       }
     },
+    "loginPrompt": "Sign in or create an account to save your agents and history!",
     "resetFilters": "Reset all filters"
   },
   "automations": {

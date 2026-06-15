@@ -10,6 +10,7 @@ import * as React from "react";
 import { useTranslations } from "next-intl";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { AgentCard } from "@/components/dashboard/AgentCard";
+import { LoginAlert } from "@/components/ui/LoginAlert";
 import {
   useAgentStore,
   type AgentType,
@@ -125,6 +126,9 @@ export function AgentsContent({ initialAgents }: AgentsContentProps) {
           {t("subtitle")}
         </p>
       </div>
+
+      {/* Login prompt for unauthenticated users */}
+      <LoginAlert label={t("loginPrompt")} />
 
       {/* Action error banner */}
       {actionError && (
