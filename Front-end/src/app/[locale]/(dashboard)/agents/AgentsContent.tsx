@@ -10,7 +10,7 @@ import * as React from "react";
 import { useTranslations } from "next-intl";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { AgentCard } from "@/components/dashboard/AgentCard";
-import { LoginAlert } from "@/components/ui/LoginAlert";
+import { LoginOverlay } from "@/components/ui/LoginOverlay";
 import {
   useAgentStore,
   type AgentType,
@@ -127,9 +127,6 @@ export function AgentsContent({ initialAgents }: AgentsContentProps) {
         </p>
       </div>
 
-      {/* Login prompt for unauthenticated users */}
-      <LoginAlert label={t("loginPrompt")} />
-
       {/* Action error banner */}
       {actionError && (
         <div
@@ -240,57 +237,60 @@ export function AgentsContent({ initialAgents }: AgentsContentProps) {
         {t("agentsFound", { count: filtered.length })}
       </p>
 
-      {/* Agent cards grid or empty state */}
-      {filtered.length > 0 ? (
-        <div
-          className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3"
-          role="list"
-          aria-label={t("title")}
-        >
-          {filtered.map((agent) => (
-            <div key={agent.id} role="listitem">
-              <AgentCard
-                agent={agent}
-                onRun={handleRun}
-                onPause={handlePause}
-                onConfigure={handleConfigure}
-                data-testid={`agent-card-${agent.id}`}
-              />
-            </div>
-          ))}
-        </div>
-      ) : agents.length === 0 ? (
-        /* No agents at all — real empty state */
-        <div
-          className="flex flex-col items-center justify-center py-16 text-center"
-          role="status"
-          data-testid="agents-empty"
-        >
-          <SlidersHorizontal className="h-10 w-10 text-[var(--text-tertiary)] mb-3" aria-hidden="true" />
-          <p className="text-sm text-[var(--text-secondary)] max-w-sm">
-            {t("empty")}
-          </p>
-        </div>
-      ) : (
-        /* Has agents but none match filters */
-        <div
-          className="flex flex-col items-center justify-center py-16 text-center"
-          role="status"
-          data-testid="agents-empty"
-        >
-          <SlidersHorizontal className="h-10 w-10 text-[var(--text-tertiary)] mb-3" aria-hidden="true" />
-          <p className="text-sm text-[var(--text-secondary)] max-w-sm">
-            {t("empty")}
-          </p>
-          <button
-            type="button"
-            onClick={resetFilters}
-            className="mt-3 text-sm font-medium text-[var(--brand-accent)] hover:underline"
+      {/* Login overlay: blurs agent grid until user signs in */}
+      <LoginOverlay label={t("loginPrompt")}>
+        {/* Agent cards grid or empty state */}
+        {filtered.length > 0 ? (
+          <div
+            className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3"
+            role="list"
+            aria-label={t("title")}
           >
-            {t("resetFilters")}
-          </button>
-        </div>
-      )}
+            {filtered.map((agent) => (
+              <div key={agent.id} role="listitem">
+                <AgentCard
+                  agent={agent}
+                  onRun={handleRun}
+                  onPause={handlePause}
+                  onConfigure={handleConfigure}
+                  data-testid={`agent-card-${agent.id}`}
+                />
+              </div>
+            ))}
+          </div>
+        ) : agents.length === 0 ? (
+          /* No agents at all — real empty state */
+          <div
+            className="flex flex-col items-center justify-center py-16 text-center"
+            role="status"
+            data-testid="agents-empty"
+          >
+            <SlidersHorizontal className="h-10 w-10 text-[var(--text-tertiary)] mb-3" aria-hidden="true" />
+            <p className="text-sm text-[var(--text-secondary)] max-w-sm">
+              {t("empty")}
+            </p>
+          </div>
+        ) : (
+          /* Has agents but none match filters */
+          <div
+            className="flex flex-col items-center justify-center py-16 text-center"
+            role="status"
+            data-testid="agents-empty"
+          >
+            <SlidersHorizontal className="h-10 w-10 text-[var(--text-tertiary)] mb-3" aria-hidden="true" />
+            <p className="text-sm text-[var(--text-secondary)] max-w-sm">
+              {t("empty")}
+            </p>
+            <button
+              type="button"
+              onClick={resetFilters}
+              className="mt-3 text-sm font-medium text-[var(--brand-accent)] hover:underline"
+            >
+              {t("resetFilters")}
+            </button>
+          </div>
+        )}
+      </LoginOverlay>
     </>
   );
 }

@@ -25,7 +25,7 @@ import {
   type NLPWorkflowInput,
 } from "@/lib/validations/workflow";
 import { Button } from "@/components/ui/Button";
-import { LoginAlert } from "@/components/ui/LoginAlert";
+import { LoginOverlay } from "@/components/ui/LoginOverlay";
 import { cn } from "@/lib/utils";
 
 /* ── Mock workflow type ──────────────────────────────────────────── */
@@ -138,9 +138,6 @@ export function AutomationsContent() {
 
   return (
     <>
-      {/* Login prompt — shown when user is a visitor (not authenticated) */}
-      <LoginAlert label={t("loginPrompt")} />
-
       {/* Header */}
       <div>
         <h1 className="text-2xl font-bold tracking-tight text-[var(--text-primary)]">
@@ -151,6 +148,8 @@ export function AutomationsContent() {
         </p>
       </div>
 
+      {/* Login overlay: blurs form + workflows until user signs in */}
+      <LoginOverlay label={t("loginPrompt")}>
       {/* NLP Workflow Builder */}
       <section
         aria-labelledby="nlp-builder-heading"
@@ -474,6 +473,7 @@ export function AutomationsContent() {
           </div>
         )}
       </section>
+      </LoginOverlay>
     </>
   );
 }
