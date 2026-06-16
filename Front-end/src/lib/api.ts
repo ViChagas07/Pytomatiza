@@ -73,6 +73,16 @@ export interface BackendAgentResponse {
   owner_id: string;
   created_at: string;
   updated_at: string;
+
+  // ── Run‑result metadata (populated by POST /agents/{id}/run) ─────
+  accepted?: boolean | null;
+  refusal_reason?: string | null;
+  recommendation?: {
+    agent_type: string;
+    label: string;
+    reason: string;
+    tools: string[];
+  } | null;
 }
 
 /** Paginated agent list as returned by GET /agents */
@@ -522,8 +532,11 @@ export const api = {
     };
   },
 
-  runAgent: (id: string) =>
-    clientFetch<BackendAgentResponse>(`/agents/${id}/run`, { method: "POST" }),
+  runAgent: (id: string, prompt?: string) =>
+    clientFetch<BackendAgentResponse>(`/agents/${id}/run`, {
+      method: "POST",
+      body: { prompt: prompt ?? "" },
+    }),
 
   pauseAgent: (id: string) =>
     clientFetch<BackendAgentResponse>(`/agents/${id}/pause`, { method: "POST" }),

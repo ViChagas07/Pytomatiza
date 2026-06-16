@@ -62,20 +62,25 @@ export function AgentsContent({ initialAgents }: AgentsContentProps) {
 
   /* ── Action handlers ────────────────────────────────────────── */
 
-  const handleRun = React.useCallback(async (id: string) => {
+  const handleRun = React.useCallback(async (id: string, skipApiCall?: boolean) => {
     setActionError(null);
-    try {
-      const res = await api.runAgent(id);
-      if (res.error) {
-        setActionError(res.error.message);
+
+    if (!skipApiCall) {
+      try {
+        const res = await api.runAgent(id);
+        if (res.error) {
+          setActionError(res.error.message);
+          return;
+        }
+      } catch (err) {
+        setActionError(err instanceof Error ? err.message : t("error"));
         return;
       }
-      setLocalAgents((prev) =>
-        prev.map((a) => (a.id === id ? { ...a, status: "running" as const } : a))
-      );
-    } catch (err) {
-      setActionError(err instanceof Error ? err.message : t("error"));
     }
+
+    setLocalAgents((prev) =>
+      prev.map((a) => (a.id === id ? { ...a, status: "running" as const } : a))
+    );
   }, []);
 
   const handlePause = React.useCallback(async (id: string) => {

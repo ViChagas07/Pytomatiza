@@ -12,11 +12,13 @@ from pytomatiza.application.dtos.agent_dtos import (
     ActivateAgentCommand,
     AgentListResponse,
     AgentResponse,
+    RunAgentCommand,
 )
 from pytomatiza.application.use_cases.agents.activate_agent import (
     ActivateAgentUseCase,
 )
 from pytomatiza.application.use_cases.agents.list_agents import ListAgentsUseCase
+from pytomatiza.application.use_cases.agents.run_agent import RunAgentUseCase
 from pytomatiza.domain.entities.user import User
 from pytomatiza.domain.exceptions.base import EntityNotFound
 from pytomatiza.entrypoints.api.deps import get_current_user, get_db
@@ -81,10 +83,16 @@ async def activate_agent(
 @router.post("/{agent_id}/run", response_model=AgentResponse)
 async def run_agent(
     agent_id: UUID,
+    command: RunAgentCommand,
     current_user: Annotated[User, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(get_db)],
 ) -> AgentResponse:
-    """Trigger an agent execution run."""
+    """Trigger an agent execution run with a natural‑language prompt.
+
+    The agent analyses the prompt against its capabilities.  If the
+    request is out of scope the agent refuses and, when another agent
+    type can handle it, recommends that alternative.
+    """
     repo = SQLAlchemyAgentRepository(db)
     agent = await repo.find_by_id(agent_id)
     if agent is None or agent.owner_id != current_user.id:
@@ -92,9 +100,8 @@ async def run_agent(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Agent not found.",
         )
-    # TODO: Integrate with CrewAI agent runner
-    # For now, just acknowledge the run request
-    return AgentResponse.model_validate(agent, from_attributes=True)
+    use_case = RunAgentUseCase(agent_repo=repo)
+    return await use_case.execute(agent_id=agent_id, command=command)
 
 
 @router.post("/{agent_id}/pause", response_model=AgentResponse)
