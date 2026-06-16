@@ -89,7 +89,7 @@ export function LandingNav() {
               {t("nav.signIn")}
             </Button>
           )}
-          <Link href="/login">
+          <Link href={session?.user ? "/dashboard" : "/login"}>
             <Button variant="primary" size="sm">
               {t("nav.getStarted")}
             </Button>
@@ -132,7 +132,7 @@ export function LandingNav() {
                 {t("nav.signIn")}
               </Button>
             )}
-            <Link href="/login" onClick={() => setMobileOpen(false)}>
+            <Link href={session?.user ? "/dashboard" : "/login"} onClick={() => setMobileOpen(false)}>
               <Button variant="primary" size="sm" className="w-full">
                 {t("nav.getStarted")}
               </Button>
