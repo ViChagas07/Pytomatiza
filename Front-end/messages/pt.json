@@ -504,6 +504,7 @@
   },
   "nav": {
     "dashboard": "Painel",
+    "home": "Início",
     "automations": "Automações",
     "agents": "Agentes",
     "logs": "Logs & Aprovações",

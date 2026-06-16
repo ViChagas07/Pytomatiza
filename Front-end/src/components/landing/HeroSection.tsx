@@ -31,7 +31,7 @@ export function HeroSection() {
               {t("hero.subtitle")}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/auth/signup">
+              <Link href="/login">
                 <Button variant="primary" size="lg">
                   {t("hero.cta")}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />

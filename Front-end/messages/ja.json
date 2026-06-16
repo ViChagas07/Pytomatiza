@@ -504,6 +504,7 @@
   },
   "nav": {
     "dashboard": "ダッシュボード",
+    "home": "ホーム",
     "automations": "自動化",
     "agents": "エージェント",
     "logs": "ログと承認",

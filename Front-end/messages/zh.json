@@ -504,6 +504,7 @@
   },
   "nav": {
     "dashboard": "仪表板",
+    "home": "首页",
     "automations": "自动化",
     "agents": "代理商",
     "logs": "日志和批准",

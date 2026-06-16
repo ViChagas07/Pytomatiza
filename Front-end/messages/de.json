@@ -504,6 +504,7 @@
   },
   "nav": {
     "dashboard": "Armaturenbrett",
+    "home": "Startseite",
     "automations": "Automatisierungen",
     "agents": "Agentinnen",
     "logs": "Protokolle und Genehmigungen",

@@ -504,6 +504,7 @@
   },
   "nav": {
     "dashboard": "Tableau de bord",
+    "home": "Accueil",
     "automations": "Automatisations",
     "agents": "Agentes",
     "logs": "Journaux et approbations",

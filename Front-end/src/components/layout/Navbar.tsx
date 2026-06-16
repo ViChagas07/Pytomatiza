@@ -18,6 +18,7 @@ import {
   ChevronUp,
   Grid3X3,
   Settings,
+  Home,
   LogIn,
   LogOut,
 } from "lucide-react";
@@ -41,6 +42,12 @@ interface NavItemDef {
 }
 
 const primaryNavItems: NavItemDef[] = [
+  {
+    href: "/",
+    labelKey: "home",
+    icon: Home,
+    testId: "nav-home",
+  },
   {
     href: "/dashboard",
     labelKey: "dashboard",
@@ -104,6 +111,7 @@ export function Navbar() {
   }, [isMobileMenuOpen]);
 
   const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
     if (href === "/dashboard") return pathname === "/dashboard";
     return pathname.startsWith(href);
   };

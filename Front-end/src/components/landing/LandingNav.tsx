@@ -70,16 +70,26 @@ export function LandingNav() {
         <div className="hidden items-center gap-3 md:flex">
           {session?.user ? (
             <Link href="/dashboard">
-              <Button variant="secondary" size="sm">
-                {session.user.name?.charAt(0) ?? "U"}
-              </Button>
+              {session.user.image ? (
+                <Image
+                  src={session.user.image}
+                  alt={session.user.name || t("nav.dashboard")}
+                  width={32}
+                  height={32}
+                  className="h-8 w-8 rounded-full object-cover ring-2 ring-[var(--border-default)] hover:ring-[var(--brand-accent)]/50 transition-all"
+                />
+              ) : (
+                <Button variant="secondary" size="sm">
+                  {session.user.name?.charAt(0).toUpperCase() ?? "U"}
+                </Button>
+              )}
             </Link>
           ) : (
             <Button variant="ghost" size="sm" onClick={() => signIn()}>
               {t("nav.signIn")}
             </Button>
           )}
-          <Link href="/auth/signup">
+          <Link href="/login">
             <Button variant="primary" size="sm">
               {t("nav.getStarted")}
             </Button>
@@ -122,7 +132,7 @@ export function LandingNav() {
                 {t("nav.signIn")}
               </Button>
             )}
-            <Link href="/auth/signup" onClick={() => setMobileOpen(false)}>
+            <Link href="/login" onClick={() => setMobileOpen(false)}>
               <Button variant="primary" size="sm" className="w-full">
                 {t("nav.getStarted")}
               </Button>
