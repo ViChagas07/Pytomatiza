@@ -2,11 +2,13 @@
 
 import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
+import { useSession } from "next-auth/react";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
 
 export function CTASection() {
   const t = useTranslations("landing");
+  const { data: session } = useSession();
 
   return (
     <section aria-labelledby="cta-heading" className="py-16 md:py-24">
@@ -28,7 +30,7 @@ export function CTASection() {
               {t("cta.subtitle")}
             </p>
             <div className="mt-8 flex justify-center">
-              <Link href="/auth/signup">
+              <Link href={session?.user ? "/dashboard" : "/login"}>
                 <Button
                   variant="primary"
                   size="lg"
