@@ -361,6 +361,66 @@ export function DashboardContent({
   const showStats = section === "all" || section === "stats";
   const showAgents = section === "all" || section === "agents";
 
+  /* ── Agents block extracted for conditional overlay wrapping ─────── */
+  const agentsBlock = showAgents ? (
+    <section aria-labelledby="recent-activity-heading">
+      <h2
+        id="recent-activity-heading"
+        className="text-lg font-semibold text-[var(--text-primary)] mb-3"
+      >
+        {t("recentActivity")}
+      </h2>
+
+      {agents.length === 0 ? (
+        backendOffline ? (
+          <div className="rounded-[var(--radius-lg)] border border-dashed border-[var(--border-default)] bg-[var(--surface-0)] p-8 text-center">
+            <Bot
+              className="mx-auto h-10 w-10 text-[var(--text-tertiary)] mb-3"
+              aria-hidden="true"
+            />
+            <p className="text-sm font-medium text-[var(--text-primary)] mb-1">
+              {t("empty.offlineTitle")}
+            </p>
+            <p className="text-xs text-[var(--text-secondary)]">
+              {t("empty.offlineDescription")}
+            </p>
+          </div>
+        ) : (
+          <div
+            className="flex flex-col items-center justify-center py-12 text-center"
+            role="status"
+          >
+            <Sparkles
+              className="mx-auto h-10 w-10 text-[var(--text-tertiary)] mb-3"
+              aria-hidden="true"
+            />
+            <p className="text-sm text-[var(--text-secondary)]">
+              {t("recentActivityEmpty")}
+            </p>
+          </div>
+        )
+      ) : (
+        <div
+          className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3"
+          role="list"
+          aria-label={t("recentActivity")}
+        >
+          {agents.map((agent) => (
+            <div key={agent.id} role="listitem">
+              <AgentCard
+                agent={agent}
+                onRun={handleRun}
+                onPause={handlePause}
+                onConfigure={handleConfigure}
+                data-testid={`agent-card-${agent.id}`}
+              />
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+  ) : null;
+
   return (
     <div className="space-y-8">
       {section !== "agents" && showOfflineAlert && (
@@ -386,154 +446,99 @@ export function DashboardContent({
       )}
 
       {/* Blur-protected content: KPIs + Quick actions + Agents */}
-      <LoginOverlay label={t("loginPrompt")}>
-        {showStats && (
-          <>
-            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-              <StatsCard
-                label={t("stats.activeAgents")}
-                value={stats?.activeAgents ?? 0}
-                icon={Bot}
-                trend={
-                  (stats?.activeAgents ?? 0) > 0
-                    ? { value: `${stats?.activeAgents}`, positive: true }
-                    : undefined
-                }
-                data-testid="stat-active-agents"
-              />
-              <StatsCard
-                label={t("stats.automationsToday")}
-                value={stats?.automationsToday ?? 0}
-                icon={Workflow}
-                trend={
-                  (stats?.automationsToday ?? 0) > 0
-                    ? { value: `${stats?.automationsToday}`, positive: true }
-                    : undefined
-                }
-                data-testid="stat-automations"
-              />
-              <StatsCard
-                label={t("stats.successRate")}
-                value={
-                  stats?.successRate != null && stats.successRate > 0
-                    ? `${stats.successRate}%`
-                    : "---"
-                }
-                icon={TrendingUp}
-                trend={
-                  (stats?.successRate ?? 0) >= 90
-                    ? { value: `${stats?.successRate}%`, positive: true }
-                    : (stats?.successRate ?? 0) > 0
-                      ? { value: `${stats?.successRate}%`, positive: false }
-                      : undefined
-                }
-                data-testid="stat-success-rate"
-              />
-              <StatsCard
-                label={t("stats.pendingApprovals")}
-                value={stats?.pendingApprovals ?? 0}
-                icon={Clock}
-                trend={
-                  (stats?.pendingApprovals ?? 0) > 0
-                    ? { value: `${stats?.pendingApprovals}`, positive: false }
-                    : undefined
-                }
-                data-testid="stat-pending"
-              />
-            </div>
-
-            {/* Quick actions */}
-            <div className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] p-5 shadow-[var(--shadow-sm)]">
-              <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3">
-                {t("quickActions")}
-              </h2>
-              <p className="text-xs text-[var(--text-secondary)] mb-4">
-                {t("quickActionsDescription")}
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <QuickAction
-                  icon={Plus}
-                  label={t("createAutomation")}
-                  href="/automations"
-                  variant="primary"
-                />
-                <QuickAction
+      {section !== "agents" ? (
+        <LoginOverlay label={t("loginPrompt")}>
+          {showStats && (
+            <>
+              <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+                <StatsCard
+                  label={t("stats.activeAgents")}
+                  value={stats?.activeAgents ?? 0}
                   icon={Bot}
-                  label={t("viewAgents")}
-                  href="/agents"
-                  variant="secondary"
+                  trend={
+                    (stats?.activeAgents ?? 0) > 0
+                      ? { value: `${stats?.activeAgents}`, positive: true }
+                      : undefined
+                  }
+                  data-testid="stat-active-agents"
                 />
-                <QuickAction
-                  icon={BarChart3}
-                  label={t("viewReports")}
-                  href="/dashboard"
-                  variant="secondary"
+                <StatsCard
+                  label={t("stats.automationsToday")}
+                  value={stats?.automationsToday ?? 0}
+                  icon={Workflow}
+                  trend={
+                    (stats?.automationsToday ?? 0) > 0
+                      ? { value: `${stats?.automationsToday}`, positive: true }
+                      : undefined
+                  }
+                  data-testid="stat-automations"
+                />
+                <StatsCard
+                  label={t("stats.successRate")}
+                  value={
+                    stats?.successRate != null && stats.successRate > 0
+                      ? `${stats.successRate}%`
+                      : "---"
+                  }
+                  icon={TrendingUp}
+                  trend={
+                    (stats?.successRate ?? 0) >= 90
+                      ? { value: `${stats?.successRate}%`, positive: true }
+                      : (stats?.successRate ?? 0) > 0
+                        ? { value: `${stats?.successRate}%`, positive: false }
+                        : undefined
+                  }
+                  data-testid="stat-success-rate"
+                />
+                <StatsCard
+                  label={t("stats.pendingApprovals")}
+                  value={stats?.pendingApprovals ?? 0}
+                  icon={Clock}
+                  trend={
+                    (stats?.pendingApprovals ?? 0) > 0
+                      ? { value: `${stats?.pendingApprovals}`, positive: false }
+                      : undefined
+                  }
+                  data-testid="stat-pending"
                 />
               </div>
-            </div>
-          </>
-        )}
 
-        {/* "Atividades recentes" */}
-        {showAgents && (
-          <section aria-labelledby="recent-activity-heading">
-            <h2
-              id="recent-activity-heading"
-              className="text-lg font-semibold text-[var(--text-primary)] mb-3"
-            >
-              {t("recentActivity")}
-            </h2>
-
-            {agents.length === 0 ? (
-              backendOffline ? (
-                <div className="rounded-[var(--radius-lg)] border border-dashed border-[var(--border-default)] bg-[var(--surface-0)] p-8 text-center">
-                  <Bot
-                    className="mx-auto h-10 w-10 text-[var(--text-tertiary)] mb-3"
-                    aria-hidden="true"
+              {/* Quick actions */}
+              <div className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] p-5 shadow-[var(--shadow-sm)]">
+                <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3">
+                  {t("quickActions")}
+                </h2>
+                <p className="text-xs text-[var(--text-secondary)] mb-4">
+                  {t("quickActionsDescription")}
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <QuickAction
+                    icon={Plus}
+                    label={t("createAutomation")}
+                    href="/automations"
+                    variant="primary"
                   />
-                  <p className="text-sm font-medium text-[var(--text-primary)] mb-1">
-                    {t("empty.offlineTitle")}
-                  </p>
-                  <p className="text-xs text-[var(--text-secondary)]">
-                    {t("empty.offlineDescription")}
-                  </p>
-                </div>
-              ) : (
-                <div
-                  className="flex flex-col items-center justify-center py-12 text-center"
-                  role="status"
-                >
-                  <Sparkles
-                    className="mx-auto h-10 w-10 text-[var(--text-tertiary)] mb-3"
-                    aria-hidden="true"
+                  <QuickAction
+                    icon={Bot}
+                    label={t("viewAgents")}
+                    href="/agents"
+                    variant="secondary"
                   />
-                  <p className="text-sm text-[var(--text-secondary)]">
-                    {t("recentActivityEmpty")}
-                  </p>
+                  <QuickAction
+                    icon={BarChart3}
+                    label={t("viewReports")}
+                    href="/dashboard"
+                    variant="secondary"
+                  />
                 </div>
-              )
-            ) : (
-              <div
-                className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3"
-                role="list"
-                aria-label={t("recentActivity")}
-              >
-                {agents.map((agent) => (
-                  <div key={agent.id} role="listitem">
-                    <AgentCard
-                      agent={agent}
-                      onRun={handleRun}
-                      onPause={handlePause}
-                      onConfigure={handleConfigure}
-                      data-testid={`agent-card-${agent.id}`}
-                    />
-                  </div>
-                ))}
               </div>
-            )}
-          </section>
-        )}
-      </LoginOverlay>
+            </>
+          )}
+          {agentsBlock}
+        </LoginOverlay>
+      ) : (
+        agentsBlock
+      )}
     </div>
   );
 }

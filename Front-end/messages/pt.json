@@ -1080,6 +1080,173 @@
       "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!"
     }
   },
+  "landing": {
+    "nav": {
+      "features": "Recursos",
+      "howItWorks": "Como Funciona",
+      "signIn": "Entrar",
+      "getStarted": "Começar Agora",
+      "dashboard": "Painel"
+    },
+    "hero": {
+      "title": "Automatize tarefas repetitivas com Python em minutos",
+      "subtitle": "Crie automações poderosas, bots e fluxos de trabalho sem sair do navegador. O Pytomatiza+ transforma scripts Python complexos em processos visuais e gerenciáveis.",
+      "cta": "Começar a Automatizar",
+      "demo": "Ver Demonstração"
+    },
+    "socialProof": {
+      "title": "Confiado por inovadores",
+      "executions": "Execuções realizadas",
+      "companies": "Empresas que confiam",
+      "uptime": "Disponibilidade",
+      "integrations": "Integrações"
+    },
+    "howItWorks": {
+      "title": "Como Funciona",
+      "subtitle": "Três passos simples para automatizar qualquer coisa",
+      "step1": {
+        "title": "Crie Sua Automação",
+        "description": "Descreva o que você precisa em linguagem natural ou use nosso construtor visual. Nosso motor de IA interpreta seus requisitos e gera o script de automação perfeito."
+      },
+      "step2": {
+        "title": "Configure os Parâmetros",
+        "description": "Ajuste entradas, conecte APIs, defina agendamentos e condições. Cada parâmetro é personalizável para atender às necessidades exatas do seu fluxo de trabalho."
+      },
+      "step3": {
+        "title": "Execute e Monitore",
+        "description": "Execute sua automação instantaneamente ou agende-a. Monitore a execução em tempo real, revise logs e receba notificações instantâneas ao concluir."
+      }
+    },
+    "features": {
+      "title": "Tudo que Você Precisa para Automatizar",
+      "subtitle": "Uma plataforma completa para construir, executar e monitorar automações",
+      "feature1": {
+        "title": "Automações Python",
+        "description": "Escreva ou gere scripts Python para qualquer tarefa. Processamento de arquivos, transformação de dados, chamadas de API — tudo automatizado."
+      },
+      "feature2": {
+        "title": "Integrações",
+        "description": "Conecte-se com Google Drive, Gmail, Google Planilhas e centenas de APIs. Suas ferramentas, unificadas em uma plataforma."
+      },
+      "feature3": {
+        "title": "Agendamento Inteligente",
+        "description": "Defina agendamentos precisos, intervalos recorrentes ou execução baseada em gatilhos. Suas automações executam exatamente quando você precisa."
+      },
+      "feature4": {
+        "title": "Monitoramento em Tempo Real",
+        "description": "Assista execuções ao vivo, acompanhe métricas de desempenho e receba alertas. Visibilidade completa em cada automação."
+      },
+      "feature5": {
+        "title": "Logs de Auditoria Completos",
+        "description": "Cada execução é registrada com detalhes completos. Revise, depure e otimize suas automações com trilhas de auditoria abrangentes."
+      },
+      "feature6": {
+        "title": "Construído para Escalar",
+        "description": "De pequenas tarefas a fluxos empresariais. O Pytomatiza+ lida com aumento de carga sem comprometer o desempenho."
+      }
+    },
+    "demo": {
+      "title": "Veja em Ação",
+      "subtitle": "Uma plataforma visual projetada para produtividade",
+      "tabsLabel": "Escolha uma visualização",
+      "workflows": "Fluxos de Trabalho",
+      "dashboard": "Painel",
+      "editor": "Editor",
+      "automations": "Automações"
+    },
+    "benefits": {
+      "title": "Automação Sem Complexidade",
+      "subtitle": "Veja a diferença que o Pytomatiza+ faz",
+      "withoutTitle": "Sem Pytomatiza+",
+      "withTitle": "Com Pytomatiza+",
+      "without": {
+        "manual": "Tarefas manuais e repetitivas",
+        "errors": "Processos propensos a erros",
+        "delays": "Execução lenta",
+        "silos": "Ferramentas desconectadas",
+        "visibility": "Nenhuma visibilidade da execução"
+      },
+      "with": {
+        "automation": "Automação completa do trabalho repetitivo",
+        "accuracy": "Zero erros humanos",
+        "speed": "Execução extremamente rápida",
+        "integration": "Plataforma unificada",
+        "insights": "Visibilidade e controle completos"
+      }
+    },
+    "useCases": {
+      "title": "Automatize Qualquer Coisa",
+      "subtitle": "De tarefas simples a fluxos empresariais complexos",
+      "case1": {
+        "title": "Automação Financeira",
+        "description": "Automatize processamento de faturas, controle de despesas, conciliação bancária e geração de relatórios financeiros."
+      },
+      "case2": {
+        "title": "Automação de Relatórios",
+        "description": "Gere e distribua relatórios automatizados de qualquer fonte de dados. Agendados, formatados e entregues pontualmente."
+      },
+      "case3": {
+        "title": "Automação de E-mail",
+        "description": "Automatize campanhas de e-mail, sequências de notificação, processamento de anexos e gerenciamento inteligente de caixa de entrada."
+      },
+      "case4": {
+        "title": "Automação de APIs",
+        "description": "Orquestre fluxos de trabalho de API com múltiplas etapas. Conecte serviços, transforme dados e automatize integrações complexas."
+      },
+      "case5": {
+        "title": "Automação de Planilhas",
+        "description": "Processe, transforme e analise dados de planilhas automaticamente. Gere tabelas dinâmicas, gráficos e resumos."
+      },
+      "case6": {
+        "title": "Automação de Processos Empresariais",
+        "description": "Automatize fluxos de aprovação, entrada de dados, processamento de documentos e relatórios de conformidade para toda sua organização."
+      }
+    },
+    "cta": {
+      "title": "Comece a Automatizar Hoje",
+      "subtitle": "Junte-se a milhares de profissionais que transformaram seu fluxo de trabalho com o Pytomatiza+",
+      "button": "Entrar no Pytomatiza+"
+    },
+    "footer": {
+      "description": "A plataforma de automação inteligente que pensa, aprende e executa.",
+      "copyright": "© 2026 Pytomatiza+. Todos os direitos reservados.",
+      "product": {
+        "title": "Produto",
+        "features": "Recursos",
+        "pricing": "Preços",
+        "integrations": "Integrações",
+        "changelog": "Novidades"
+      },
+      "resources": {
+        "title": "Recursos",
+        "docs": "Documentação",
+        "api": "Referência da API",
+        "blog": "Blog",
+        "help": "Central de Ajuda"
+      },
+      "company": {
+        "title": "Empresa",
+        "about": "Sobre",
+        "careers": "Carreiras",
+        "blog": "Blog",
+        "contact": "Contato"
+      },
+      "legal": {
+        "title": "Legal",
+        "privacy": "Política de Privacidade",
+        "terms": "Termos de Serviço",
+        "cookies": "Política de Cookies",
+        "security": "Segurança"
+      }
+    },
+    "a11y": {
+      "mainNavigation": "Navegação principal",
+      "mobileNavigation": "Navegação mobile",
+      "openMenu": "Abrir menu",
+      "closeMenu": "Fechar menu",
+      "heroIllustration": "Ilustração da plataforma Pytomatiza+ mostrando fluxos de automação e painel de análises"
+    }
+  },
   "brand": {
     "tagline": "Automação com IA que pensa, aprende e executa — para que você não precise.",
     "feature1Title": "Fluxos em Linguagem Natural",

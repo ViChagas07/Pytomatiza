@@ -1074,6 +1074,173 @@
     "tableEmpty": "لم يتم العثور على سجلات التنفيذ.",
     "loginPrompt": "قم بتسجيل الدخول إلى حسابك للوصول إلى البيانات في الوقت الحقيقي!"
   },
+  "landing": {
+    "nav": {
+      "features": "Features",
+      "howItWorks": "How It Works",
+      "signIn": "Sign In",
+      "getStarted": "Get Started",
+      "dashboard": "Dashboard"
+    },
+    "hero": {
+      "title": "Automate repetitive tasks with Python in minutes",
+      "subtitle": "Create powerful automations, bots, and workflows without leaving your browser. Pytomatiza+ turns complex Python scripting into visual, manageable processes.",
+      "cta": "Start Automating",
+      "demo": "Watch Demo"
+    },
+    "socialProof": {
+      "title": "Trusted by innovators",
+      "executions": "Executions performed",
+      "companies": "Companies trusting us",
+      "uptime": "Uptime",
+      "integrations": "Integrations"
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "Three simple steps to automate anything",
+      "step1": {
+        "title": "Create Your Automation",
+        "description": "Describe what you need in natural language or use our visual builder. Our AI engine interprets your requirements and generates the perfect automation script."
+      },
+      "step2": {
+        "title": "Configure Parameters",
+        "description": "Fine-tune inputs, connect APIs, set schedules, and define conditions. Every parameter is customizable to match your exact workflow needs."
+      },
+      "step3": {
+        "title": "Execute & Monitor",
+        "description": "Run your automation instantly or schedule it. Monitor execution in real-time, review logs, and get instant notifications on completion."
+      }
+    },
+    "features": {
+      "title": "Everything You Need to Automate",
+      "subtitle": "A complete platform for building, running, and monitoring automations",
+      "feature1": {
+        "title": "Python Automations",
+        "description": "Write or generate Python scripts for any task. File processing, data transformation, API calls — all automated."
+      },
+      "feature2": {
+        "title": "Integrations",
+        "description": "Connect with Google Drive, Gmail, Google Sheets, and hundreds of APIs. Your tools, unified in one platform."
+      },
+      "feature3": {
+        "title": "Smart Scheduling",
+        "description": "Set precise schedules, recurring intervals, or trigger-based execution. Your automations run exactly when you need them."
+      },
+      "feature4": {
+        "title": "Real-time Monitoring",
+        "description": "Watch executions live, track performance metrics, and receive alerts. Complete visibility into every automation."
+      },
+      "feature5": {
+        "title": "Complete Audit Logs",
+        "description": "Every execution is logged with full details. Review, debug, and optimize your automations with comprehensive audit trails."
+      },
+      "feature6": {
+        "title": "Built to Scale",
+        "description": "From small tasks to enterprise workflows. Pytomatiza+ handles increased load without compromising performance."
+      }
+    },
+    "demo": {
+      "title": "See It in Action",
+      "subtitle": "A visual platform designed for productivity",
+      "tabsLabel": "Choose a view",
+      "workflows": "Workflows",
+      "dashboard": "Dashboard",
+      "editor": "Editor",
+      "automations": "Automations"
+    },
+    "benefits": {
+      "title": "Automation Without the Complexity",
+      "subtitle": "See the difference Pytomatiza+ makes",
+      "withoutTitle": "Without Pytomatiza+",
+      "withTitle": "With Pytomatiza+",
+      "without": {
+        "manual": "Manual, repetitive tasks",
+        "errors": "Error-prone processes",
+        "delays": "Slow execution times",
+        "silos": "Disconnected tools",
+        "visibility": "No visibility into execution"
+      },
+      "with": {
+        "automation": "Full automation of repetitive work",
+        "accuracy": "Zero human errors",
+        "speed": "Blazing fast execution",
+        "integration": "Unified platform",
+        "insights": "Complete visibility and control"
+      }
+    },
+    "useCases": {
+      "title": "Automate Anything",
+      "subtitle": "From simple tasks to complex enterprise workflows",
+      "case1": {
+        "title": "Financial Automation",
+        "description": "Automate invoice processing, expense tracking, bank reconciliation, and financial report generation."
+      },
+      "case2": {
+        "title": "Report Automation",
+        "description": "Generate and distribute automated reports from any data source. Scheduled, formatted, and delivered on time."
+      },
+      "case3": {
+        "title": "Email Automation",
+        "description": "Automate email campaigns, notification sequences, attachment processing, and intelligent inbox management."
+      },
+      "case4": {
+        "title": "API Automation",
+        "description": "Orchestrate multi-step API workflows. Connect services, transform data, and automate complex integrations."
+      },
+      "case5": {
+        "title": "Spreadsheet Automation",
+        "description": "Process, transform, and analyze spreadsheet data automatically. Generate pivot tables, charts, and summaries."
+      },
+      "case6": {
+        "title": "Business Process Automation",
+        "description": "Automate approval workflows, data entry, document processing, and compliance reporting for your entire organization."
+      }
+    },
+    "cta": {
+      "title": "Start Automating Today",
+      "subtitle": "Join thousands of professionals who have transformed their workflow with Pytomatiza+",
+      "button": "Enter Pytomatiza+"
+    },
+    "footer": {
+      "description": "The intelligent automation platform that thinks, learns, and executes.",
+      "copyright": "© 2026 Pytomatiza+. All rights reserved.",
+      "product": {
+        "title": "Product",
+        "features": "Features",
+        "pricing": "Pricing",
+        "integrations": "Integrations",
+        "changelog": "Changelog"
+      },
+      "resources": {
+        "title": "Resources",
+        "docs": "Documentation",
+        "api": "API Reference",
+        "blog": "Blog",
+        "help": "Help Center"
+      },
+      "company": {
+        "title": "Company",
+        "about": "About",
+        "careers": "Careers",
+        "blog": "Blog",
+        "contact": "Contact"
+      },
+      "legal": {
+        "title": "Legal",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "cookies": "Cookie Policy",
+        "security": "Security"
+      }
+    },
+    "a11y": {
+      "mainNavigation": "Main navigation",
+      "mobileNavigation": "Mobile navigation",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "heroIllustration": "Pytomatiza+ platform illustration showing automation workflows and analytics dashboard"
+    }
+  },
   "brand": {
     "tagline": "أتمتة مدعومة بالذكاء الاصطناعي تفكر وتتعلم وتنفذ، لذا لن تضطر إلى القيام بذلك.",
     "feature1Title": "سير عمل اللغة الطبيعية",
