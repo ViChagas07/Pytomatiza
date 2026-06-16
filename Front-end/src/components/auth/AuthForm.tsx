@@ -21,11 +21,29 @@ import {
   type LoginInput,
   type SignUpInput,
 } from "@/lib/validations/auth";
+import { api } from "@/lib/api";
 import { Input } from "@/components/ui/Input";
 import { PasswordInput } from "@/components/ui/PasswordInput";
 import { Button } from "@/components/ui/Button";
 import { GoogleButton } from "./GoogleButton";
 import { cn } from "@/lib/utils";
+
+/**
+ * Minimal JWT decoder — extracts the `sub` claim from the payload
+ * without verifying the signature.  Used only to get the user ID
+ * for the NextAuth session; the token is already validated by the
+ * backend before being returned to us.
+ */
+function decodeJwtSub(token: string): string | undefined {
+  try {
+    const payload = token.split(".")[1];
+    if (!payload) return undefined;
+    const decoded = JSON.parse(atob(payload));
+    return (decoded as Record<string, unknown>).sub as string | undefined;
+  } catch {
+    return undefined;
+  }
+}
 
 type AuthTab = "signin" | "signup";
 
@@ -72,9 +90,24 @@ export function AuthForm() {
   const onSignIn = async (data: LoginInput) => {
     setGlobalError(null);
     try {
+      // 1. Authenticate against the FastAPI backend
+      const backendRes = await api.login(data.email, data.password);
+      if (backendRes.error || !backendRes.data?.access_token) {
+        setGlobalError(
+          backendRes.error?.message || tAuth("errors.invalidCredentials")
+        );
+        return;
+      }
+
+      // Decode the JWT to extract the user ID (sub claim)
+      const userId = decodeJwtSub(backendRes.data.access_token);
+
+      // 2. Sign in with NextAuth, forwarding the backend JWT token
       const result = await signIn("credentials", {
         email: data.email,
         password: data.password,
+        backendToken: backendRes.data.access_token,
+        backendUserId: userId,
         redirect: false,
       });
 
@@ -103,10 +136,28 @@ export function AuthForm() {
   const onSignUp = async (data: SignUpInput) => {
     setGlobalError(null);
     try {
-      // TODO: Call backend registration API
+      // 1. Register against the FastAPI backend
+      const backendRes = await api.register({
+        name: data.name,
+        email: data.email,
+        password: data.password,
+      });
+      if (backendRes.error || !backendRes.data?.access_token) {
+        setGlobalError(
+          backendRes.error?.message || tAuth("errors.generic")
+        );
+        return;
+      }
+
+      // Decode the JWT to extract the user ID (sub claim)
+      const userId = decodeJwtSub(backendRes.data.access_token);
+
+      // 2. Sign in with NextAuth, forwarding the backend JWT token
       const result = await signIn("credentials", {
         email: data.email,
         password: data.password,
+        backendToken: backendRes.data.access_token,
+        backendUserId: userId,
         redirect: false,
       });
 

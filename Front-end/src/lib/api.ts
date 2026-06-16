@@ -300,6 +300,7 @@ interface ServerFetchOptions extends Omit<RequestInit, "body"> {
  * Server-side fetch helper.
  * Forwards cookies for auth. Adds cache tags for ISR revalidation.
  * Automatically retries once on transient network failures.
+ * Forwards the backend JWT token from NextAuth session as Bearer.
  */
 export async function serverFetch<T>(
   endpoint: string,
@@ -323,6 +324,18 @@ export async function serverFetch<T>(
           .map((c) => `${c.name}=${c.value}`)
           .join("; ");
         (headers as Record<string, string>)["Cookie"] = cookieHeader;
+      }
+
+      // Forward the backend JWT token from NextAuth session (server-side)
+      try {
+        const { auth } = await import("@/lib/auth");
+        const session = await auth();
+        if (session?.backendToken) {
+          (headers as Record<string, string>)["Authorization"] =
+            `Bearer ${session.backendToken}`;
+        }
+      } catch {
+        // auth() not available in this context — skip Bearer header
       }
 
       const response = await fetch(`${SERVER_API_BASE}${endpoint}`, {
@@ -373,7 +386,7 @@ export async function serverFetch<T>(
   return doFetch();
 }
 
-/* ── Client-side fetch (uses browser cookies automatically) ──────── */
+/* ── Client-side fetch (uses browser cookies + Bearer token) ──────── */
 
 interface ClientFetchOptions extends Omit<RequestInit, "body"> {
   body?: unknown;
@@ -384,6 +397,7 @@ interface ClientFetchOptions extends Omit<RequestInit, "body"> {
 /**
  * Client-side fetch helper.
  * Credentials included automatically via `credentials: "include"`.
+ * Bearer token from NextAuth session forwarded in Authorization header.
  * Auto-retries on transient network failures.
  */
 export async function clientFetch<T>(
@@ -394,13 +408,27 @@ export async function clientFetch<T>(
 
   async function doFetch(): Promise<ApiResponse<T>> {
     try {
+      const headers: HeadersInit = {
+        "Content-Type": "application/json",
+        ...((fetchOptions.headers as Record<string, string>) || {}),
+      };
+
+      // Forward the backend JWT token from NextAuth session
+      try {
+        const { getSession } = await import("next-auth/react");
+        const session = await getSession();
+        if (session?.backendToken) {
+          (headers as Record<string, string>)["Authorization"] =
+            `Bearer ${session.backendToken}`;
+        }
+      } catch {
+        // getSession not available (SSR context) — skip Bearer header
+      }
+
       const response = await fetch(`${API_BASE}${endpoint}`, {
         ...fetchOptions,
         credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-          ...((fetchOptions.headers as Record<string, string>) || {}),
-        },
+        headers,
         body: body ? JSON.stringify(body) : undefined,
       });
 
@@ -450,16 +478,18 @@ export async function clientFetch<T>(
 export const api = {
   /* Auth */
   login: (email: string, password: string) =>
-    clientFetch<{ token: string; user: { id: string; email: string; name: string } }>(
-      "/auth/login",
-      { method: "POST", body: { email, password } }
-    ),
+    clientFetch<{
+      access_token: string;
+      refresh_token: string;
+      token_type: string;
+    }>("/auth/login", { method: "POST", body: { email, password } }),
 
   register: (data: { name: string; email: string; password: string }) =>
-    clientFetch<{ token: string; user: { id: string; email: string; name: string } }>(
-      "/auth/register",
-      { method: "POST", body: data }
-    ),
+    clientFetch<{
+      access_token: string;
+      refresh_token: string;
+      token_type: string;
+    }>("/auth/register", { method: "POST", body: data }),
 
   /* Agents */
   getAgents: async (): Promise<ApiResponse<AgentListResult>> => {

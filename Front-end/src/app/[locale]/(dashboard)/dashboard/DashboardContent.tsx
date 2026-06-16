@@ -176,7 +176,10 @@ export function DashboardContent({
                 setStats(EMPTY_DASHBOARD_STATS);
                 setBackendOffline(true);
               } else {
-                throw new Error(res.error.message);
+                // Non-network API error (auth, 500, etc.) — fall back
+                // to zeroed stats instead of throwing. The normal render
+                // handles empty data gracefully.
+                setStats(EMPTY_DASHBOARD_STATS);
               }
             } else {
               setStats(res.data);
@@ -195,7 +198,8 @@ export function DashboardContent({
                 setAgents([]);
                 setBackendOffline(true);
               } else {
-                throw new Error(res.error.message);
+                // Non-network API error — fall back to empty agents list
+                setAgents([]);
               }
             } else {
               setAgents(res.data?.items ?? []);
@@ -207,6 +211,9 @@ export function DashboardContent({
 
       await Promise.all(promises);
     } catch (err) {
+      // Only JavaScript runtime exceptions reach here (bugs).
+      // API errors are handled inside the .then() callbacks above
+      // and gracefully degrade to zeroed data.
       const msg =
         err instanceof Error ? err.message : t("error.loadingFailed");
       setActionError(msg);
@@ -264,7 +271,8 @@ export function DashboardContent({
           setStats(EMPTY_DASHBOARD_STATS);
           setBackendOffline(true);
         } else {
-          setActionError(statsRes.error.message);
+          // Non-network API error — fall back to zeroed stats
+          setStats(EMPTY_DASHBOARD_STATS);
         }
       } else {
         setStats(statsRes.data);
@@ -275,8 +283,9 @@ export function DashboardContent({
         if (kind === "offline" || kind === "backend_down") {
           setAgents([]);
           setBackendOffline(true);
-        } else if (!actionError) {
-          setActionError(agentsRes.error.message);
+        } else {
+          // Non-network API error — fall back to empty agents
+          setAgents([]);
         }
       } else {
         setAgents(agentsRes.data?.items ?? []);

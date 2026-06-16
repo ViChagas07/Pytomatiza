@@ -27,12 +27,16 @@ console.log({
 declare module "next-auth" {
   interface User {
     id: string;
+    /** JWT token returned by the FastAPI backend */
+    backendToken?: string;
   }
 
   interface Session {
     user: {
       id: string;
     } & DefaultSession["user"];
+    /** JWT token to forward to the FastAPI backend as Bearer */
+    backendToken?: string;
   }
 }
 
@@ -71,11 +75,18 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         const { email } = parsed.data;
 
+        // Accept backend token & user ID forwarded from AuthForm
+        const backendToken = (credentials as Record<string, unknown>)
+          .backendToken as string | undefined;
+        const backendUserId = (credentials as Record<string, unknown>)
+          .backendUserId as string | undefined;
+
         try {
           return {
-            id: "dev-user-1",
+            id: backendUserId || "dev-user-1",
             email,
             name: email.split("@")[0],
+            backendToken,
           };
         } catch {
           return null;
@@ -93,6 +104,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (user?.id) {
         token.id = user.id;
       }
+      // Persist the backend JWT so it survives across requests
+      if (user?.backendToken) {
+        token.backendToken = user.backendToken;
+      }
 
       return token;
     },
@@ -100,6 +115,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async session({ session, token }) {
       if (session.user && token.id) {
         session.user.id = token.id as string;
+      }
+      // Expose the backend JWT on the session object
+      if (token.backendToken) {
+        session.backendToken = token.backendToken as string;
       }
 
       return session;
