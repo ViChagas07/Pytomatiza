@@ -35,6 +35,7 @@ import { GoogleDriveIcon } from "@/components/ui/GoogleIcons";
 import { cn } from "@/lib/utils";
 import { useGoogleIntegration } from "@/lib/useGoogleIntegration";
 import { LoginOverlay } from "@/components/ui/LoginOverlay";
+import { api } from "@/lib/api";
 
 /* ── Types ──────────────────────────────────────────────────────── */
 
@@ -74,7 +75,15 @@ export function DocumentsContent() {
   const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
   const [instruction, setInstruction] = React.useState("");
   const [isProcessing, setIsProcessing] = React.useState(false);
+  const [processingStage, setProcessingStage] = React.useState("");
   const [result, setResult] = React.useState<string | null>(null);
+  const [ocrResult, setOcrResult] = React.useState<{
+    text: string;
+    confidence: number;
+    processing_time: number;
+    pages: Array<{ page_number: number; confidence: number }>;
+    extracted_fields?: Record<string, unknown> | null;
+  } | null>(null);
   const [error, setError] = React.useState<string | null>(null);
   const drive = useGoogleIntegration("drive");
   const fileInputRef = React.useRef<HTMLInputElement>(null);
@@ -112,19 +121,55 @@ export function DocumentsContent() {
     return `${(bytes / 1048576).toFixed(1)} MB`;
   };
 
-  /* ── Process ─────────────────────────────────────────────────── */
+  /* ── Process (real OCR API) ──────────────────────────────────── */
   const handleProcess = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!instruction.trim() || !selectedFile) return;
+    if (!selectedFile) return;
 
     setIsProcessing(true);
     setError(null);
     setResult(null);
+    setOcrResult(null);
+
+    // ── Progress stages ─────────────────────────────────────────
+    const stages = [
+      t("processing.stage.uploading"),
+      t("processing.stage.ocr"),
+      t("processing.stage.extracting"),
+      t("processing.stage.analyzing"),
+    ];
+    let stageIdx = 0;
+    setProcessingStage(stages[stageIdx]);
+    const stageInterval = setInterval(() => {
+      stageIdx = Math.min(stageIdx + 1, stages.length - 1);
+      setProcessingStage(stages[stageIdx]);
+    }, 1200);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const res = await api.ocrExtract(selectedFile, undefined, true);
+
+      clearInterval(stageInterval);
+      setProcessingStage("");
+
+      if (res.error) {
+        setError(res.error.message);
+        return;
+      }
+
+      const data = res.data!;
+      setOcrResult({
+        text: data.text,
+        confidence: data.confidence,
+        processing_time: data.processing_time,
+        pages: data.pages.map((p) => ({
+          page_number: p.page_number,
+          confidence: p.confidence,
+        })),
+        extracted_fields: data.extracted_fields as Record<string, unknown> | null,
+      });
       setResult(t("processing.success"));
 
+      // Add to recent documents
       const newDoc: RecentDoc = {
         id: `d${Date.now()}`,
         name: selectedFile.name,
@@ -135,6 +180,8 @@ export function DocumentsContent() {
       };
       setRecentDocs((prev) => [newDoc, ...prev]);
     } catch {
+      clearInterval(stageInterval);
+      setProcessingStage("");
       setError(t("processing.error"));
     } finally {
       setIsProcessing(false);
@@ -143,6 +190,15 @@ export function DocumentsContent() {
 
   /* ── Quick action handler ────────────────────────────────────── */
   const handleQuickAction = (actionId: string) => {
+    if (actionId === "ocr" && selectedFile) {
+      // Auto‑trigger OCR processing when file is already selected
+      setInstruction(t("quickActions.presets.ocr") || "");
+      // Programmatically submit the form
+      const form = document.querySelector("form") as HTMLFormElement | null;
+      form?.requestSubmit();
+      return;
+    }
+
     const presetKeys: Record<string, string> = {
       extract: "quickActions.presets.extract",
       convert: "quickActions.presets.convert",
@@ -152,7 +208,6 @@ export function DocumentsContent() {
       translate: "quickActions.presets.translate",
     };
     setInstruction(t(presetKeys[actionId] || ""));
-    // Scroll to the instruction textarea
     const textarea = document.getElementById("doc-instruction");
     textarea?.focus();
     textarea?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -358,12 +413,21 @@ export function DocumentsContent() {
               <Button
                 type="submit"
                 loading={isProcessing}
-                disabled={!instruction.trim() || !selectedFile}
+                disabled={isProcessing || !selectedFile}
                 className="w-full mt-4"
                 data-testid="documents-process"
               >
-                <Send className="h-4 w-4" aria-hidden="true" />
-                {isProcessing ? t("processing.processing") : t("processing.button")}
+                {isProcessing ? (
+                  <>
+                    <Sparkles className="h-4 w-4 animate-pulse" aria-hidden="true" />
+                    {processingStage || t("processing.processing")}
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4" aria-hidden="true" />
+                    {t("processing.button")}
+                  </>
+                )}
               </Button>
             </form>
 
@@ -379,13 +443,60 @@ export function DocumentsContent() {
                   {error}
                 </div>
               )}
-              {result && (
-                <div
-                  className="mt-4 flex items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-success)]/10 border border-[var(--color-success)]/30 px-4 py-3 text-sm text-[var(--color-success)]"
-                  data-testid="documents-result"
-                >
-                  <CheckCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
-                  {result}
+              {result && ocrResult && (
+                <div className="mt-4 space-y-3">
+                  {/* Success banner */}
+                  <div
+                    className="flex items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-success)]/10 border border-[var(--color-success)]/30 px-4 py-3 text-sm text-[var(--color-success)]"
+                    data-testid="documents-result"
+                  >
+                    <CheckCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
+                    {result}
+                    <span className="text-xs text-[var(--text-tertiary)] ml-auto">
+                      {t("processing.confidence")}: {ocrResult.confidence}% —{" "}
+                      {ocrResult.processing_time.toFixed(1)}s
+                    </span>
+                  </div>
+
+                  {/* Extracted text preview */}
+                  <details className="rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--surface-0)]">
+                    <summary className="px-4 py-2.5 text-sm font-medium text-[var(--text-primary)] cursor-pointer hover:bg-[var(--surface-1)] select-none">
+                      {t("processing.extractedText")} ({ocrResult.pages.length}{" "}
+                      {ocrResult.pages.length === 1 ? "página" : "páginas"})
+                    </summary>
+                    <div className="px-4 pb-3">
+                      <pre className="text-xs text-[var(--text-secondary)] whitespace-pre-wrap font-mono max-h-48 overflow-y-auto bg-[var(--surface-1)] rounded p-3">
+                        {ocrResult.text.slice(0, 2000)}
+                        {ocrResult.text.length > 2000 && "\n\n[...]"}
+                      </pre>
+                    </div>
+                  </details>
+
+                  {/* Extracted fields */}
+                  {ocrResult.extracted_fields && (
+                    <details className="rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--surface-0)]" open>
+                      <summary className="px-4 py-2.5 text-sm font-medium text-[var(--text-primary)] cursor-pointer hover:bg-[var(--surface-1)] select-none">
+                        {t("processing.extractedFields")}
+                      </summary>
+                      <div className="px-4 pb-3 grid gap-2 sm:grid-cols-2">
+                        {Object.entries(ocrResult.extracted_fields).map(([key, value]) => {
+                          if (key === "raw_text") return null;
+                          const arr = Array.isArray(value) ? value : value ? [value] : [];
+                          if (arr.length === 0) return null;
+                          return (
+                            <div key={key} className="flex flex-col gap-0.5">
+                              <span className="text-[10px] uppercase tracking-wide text-[var(--text-tertiary)]">
+                                {key.replace(/_/g, " ")}
+                              </span>
+                              <span className="text-xs font-medium text-[var(--text-primary)]">
+                                {arr.join(", ")}
+                              </span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </details>
+                  )}
                 </div>
               )}
             </div>

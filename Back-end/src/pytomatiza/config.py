@@ -114,6 +114,27 @@ class Settings(BaseSettings):
         ".doc", ".docx", ".txt", ".csv", ".xlsx",
     }
 
+    # ── OCR ───────────────────────────────────────────────────────────────
+    OCR_PROVIDER: str = "tesseract"
+    """OCR engine: 'tesseract' | 'textract' | 'google_vision' | 'azure'."""
+    OCR_LANGUAGE: str = "por"
+    """Default OCR language (ISO 639-3). 'por' = Portuguese."""
+    OCR_TIMEOUT: int = 30
+    """Maximum seconds per page before the OCR call is aborted."""
+    OCR_ENABLED: bool = True
+    """Global kill‑switch for OCR endpoints."""
+    OCR_TESSERACT_CMD: str = "tesseract"
+    """Path or command name for the Tesseract binary."""
+    OCR_PREPROCESSING_ENABLED: bool = True
+    """Apply grayscale + contrast + denoise before OCR."""
+    OCR_MAX_FILE_SIZE_MB: int = 10
+    """Maximum file size accepted by OCR‑specific endpoints."""
+    OCR_ALLOWED_EXTENSIONS: set[str] = {
+        ".png", ".jpg", ".jpeg", ".webp", ".tiff", ".tif", ".pdf",
+    }
+    OCR_MAX_PAGES: int = 50
+    """Maximum PDF pages to process in a single request."""
+
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod
     def _parse_cors_origins(cls, v: Any) -> list[str]:

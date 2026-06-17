@@ -38,4 +38,37 @@ DB_QUERY_LATENCY = Histogram(
     buckets=[0.001, 0.005, 0.01, 0.05, 0.1, 0.5, 1.0],
 )
 
+# ── OCR metrics ──────────────────────────────────────────────────────
+
+OCR_REQUESTS_TOTAL = Counter(
+    "pytomatiza_ocr_requests_total",
+    "Total number of OCR requests",
+    ["provider", "file_type"],
+)
+
+OCR_FAILURES_TOTAL = Counter(
+    "pytomatiza_ocr_failures_total",
+    "Total number of OCR processing failures",
+    ["provider", "reason"],
+)
+
+OCR_PROCESSING_SECONDS = Histogram(
+    "pytomatiza_ocr_processing_seconds",
+    "OCR processing time in seconds",
+    ["provider"],
+    buckets=[0.1, 0.5, 1.0, 2.5, 5.0, 10.0, 30.0, 60.0],
+)
+
+OCR_PAGES_PROCESSED = Counter(
+    "pytomatiza_ocr_pages_processed_total",
+    "Total number of pages processed by OCR",
+    ["provider"],
+)
+
+OCR_PROVIDER_USAGE = Counter(
+    "pytomatiza_ocr_provider_usage_total",
+    "OCR provider selection count",
+    ["provider", "language"],
+)
+
 metrics_app = make_asgi_app()

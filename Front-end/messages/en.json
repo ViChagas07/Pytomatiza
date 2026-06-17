@@ -635,7 +635,16 @@
         "processing": "Processing…",
         "success": "Document processed successfully!",
         "error": "Failed to process document. Please try again.",
-        "reprocessInstruction": "Reprocess the document {name} applying the same previous transformations."
+        "reprocessInstruction": "Reprocess the document {name} applying the same previous transformations.",
+        "confidence": "Confidence",
+        "extractedText": "Extracted text",
+        "extractedFields": "Detected fields",
+        "stage": {
+          "uploading": "Uploading file…",
+          "ocr": "Running OCR…",
+          "extracting": "Extracting text…",
+          "analyzing": "Analyzing content…"
+        }
       },
       "dialogs": {
         "deleteConfirm": "Are you sure you want to delete this document? This action cannot be undone."

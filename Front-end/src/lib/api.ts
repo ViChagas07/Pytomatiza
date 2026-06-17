@@ -638,4 +638,102 @@ export const api = {
   /** Get Google OAuth authorization URL for Photos */
   getPhotosAuthUrl: () =>
     clientFetch<{ authorization_url: string }>("/auth/google/photos"),
+
+  /* ── OCR ──────────────────────────────────────────────────────── */
+
+  /** Upload a file and extract text via OCR. Uses FormData (multipart). */
+  ocrExtract: async (
+    file: File,
+    language?: string,
+    extractFields?: boolean,
+  ): Promise<
+    ApiResponse<{
+      text: string;
+      pages: Array<{
+        page_number: number;
+        text: string;
+        confidence: number;
+      }>;
+      language: string;
+      processing_time: number;
+      confidence: number;
+      provider: string;
+      metadata: Record<string, unknown>;
+      extracted_fields?: {
+        cpf?: string | null;
+        cnpj?: string | null;
+        emails: string[];
+        phones: string[];
+        dates: string[];
+        money_values: string[];
+        urls: string[];
+        license_plates: string[];
+        codes: string[];
+      } | null;
+    }>
+  > => {
+    const formData = new FormData();
+    formData.append("file", file);
+    if (language) formData.append("language", language);
+    if (extractFields !== undefined)
+      formData.append("extract", String(extractFields));
+
+    try {
+      // ── Inject Bearer token from NextAuth session ──────────────
+      const headers: Record<string, string> = {};
+      try {
+        const { getSession } = await import("next-auth/react");
+        const session = await getSession();
+        if (session?.backendToken) {
+          headers["Authorization"] = `Bearer ${session.backendToken}`;
+        }
+      } catch { /* skip */ }
+
+      const response = await fetch(`${API_BASE}/ocr`, {
+        method: "POST",
+        credentials: "include",
+        headers,
+        body: formData,
+      });
+
+      const status = response.status;
+
+      if (!response.ok) {
+        let errorBody: Record<string, unknown> = {};
+        try { errorBody = await response.json(); } catch { /* keep empty */ }
+        return {
+          data: null,
+          error: {
+            code: "SERVER_ERROR",
+            message:
+              (errorBody.detail as string) ||
+              `OCR request failed with status ${status}`,
+          },
+          status,
+        };
+      }
+
+      const data = await response.json();
+      return { data, error: null, status };
+    } catch (err) {
+      return {
+        data: null,
+        error: {
+          code: "NETWORK_ERROR",
+          message:
+            err instanceof Error ? err.message : "OCR network request failed",
+        },
+        status: 0,
+      };
+    }
+  },
+
+  /** Check OCR provider health */
+  ocrHealth: () =>
+    clientFetch<{
+      provider: string;
+      available: boolean;
+      language: string;
+      details: Record<string, unknown>;
+    }>("/ocr/health"),
 };

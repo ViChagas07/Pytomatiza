@@ -635,7 +635,16 @@
         "processing": "Processando…",
         "success": "Documento processado com sucesso!",
         "error": "Falha ao processar o documento. Tente novamente.",
-        "reprocessInstruction": "Reprocesse o documento {name} aplicando as mesmas transformações anteriores."
+        "reprocessInstruction": "Reprocesse o documento {name} aplicando as mesmas transformações anteriores.",
+        "confidence": "Confiança",
+        "extractedText": "Texto extraído",
+        "extractedFields": "Campos detectados",
+        "stage": {
+          "uploading": "Enviando arquivo…",
+          "ocr": "Executando OCR…",
+          "extracting": "Extraindo texto…",
+          "analyzing": "Analisando conteúdo…"
+        }
       },
       "dialogs": {
         "deleteConfirm": "Tem certeza que deseja excluir este documento? Esta ação não pode ser desfeita."

@@ -22,7 +22,7 @@ from pytomatiza.entrypoints.api.middleware import (
     domain_exception_handler,
     generic_exception_handler,
 )
-from pytomatiza.entrypoints.api.routers import agents, auth, automations, dashboard, health, integrations, storage, workflows
+from pytomatiza.entrypoints.api.routers import agents, auth, automations, dashboard, health, integrations, ocr_router, storage, workflows
 from pytomatiza.entrypoints.websocket.ws_handler import ws_router
 from pytomatiza.infrastructure.monitoring.sentry_setup import init_sentry
 
@@ -90,6 +90,7 @@ def create_app() -> FastAPI:
     app.include_router(dashboard.router, prefix="/api/v1/dashboard", tags=["Dashboard"])
     app.include_router(health.router, prefix="/api/v1/health", tags=["Health"])
     app.include_router(integrations.router, prefix="/api/v1/integrations", tags=["Integrations"])
+    app.include_router(ocr_router.router, prefix="/api/v1", tags=["OCR"])
     if settings.S3_BUCKET:
         app.include_router(storage.router, prefix="/api/v1/storage", tags=["Storage"])
     app.include_router(ws_router)
