@@ -550,14 +550,60 @@ export const api = {
   getDashboardStats: () => clientFetch<DashboardStats>("/dashboard/stats"),
 
   /* Workflows */
-  buildWorkflow: (instruction: string) =>
-    clientFetch<{ id: string; workflow: unknown }>("/workflows/nlp", {
+  buildWorkflow: (prompt: string, name?: string) =>
+    clientFetch<{
+      id: string;
+      name: string;
+      description: string;
+      natural_language_prompt: string;
+      steps: Array<{ tool: string; action: string; params: Record<string, unknown> }>;
+      status: string;
+      owner_id: string;
+      agent_id: string | null;
+      created_at: string;
+      updated_at: string;
+    }>("/workflows/nlp", {
       method: "POST",
-      body: { instruction },
+      body: { prompt, name: name ?? "" },
     }),
 
-  getWorkflows: () =>
-    clientFetch<PaginatedResponse<unknown>>("/workflows"),
+  getWorkflows: (page?: number, status?: string) =>
+    clientFetch<{
+      items: Array<{
+        id: string;
+        name: string;
+        description: string;
+        natural_language_prompt: string;
+        steps: Array<{ tool: string; action: string; params: Record<string, unknown> }>;
+        status: string;
+        owner_id: string;
+        agent_id: string | null;
+        created_at: string;
+        updated_at: string;
+      }>;
+      total: number;
+      page: number;
+      per_page: number;
+      pages: number;
+    }>(`/workflows?page=${page ?? 1}&per_page=20${status ? `&status=${status}` : ""}`),
+
+  executeWorkflow: (id: string) =>
+    clientFetch<{
+      status: string;
+      workflow_id: string;
+      run_id: string;
+      steps: Array<{ step: number; tool: string; action: string; status: string; output?: unknown; error?: string }>;
+      outputs: Record<string, unknown>;
+    }>(`/workflows/${id}/execute`, { method: "POST" }),
+
+  approveWorkflow: (id: string, approved: boolean) =>
+    clientFetch<{ id: string; name: string; status: string }>(
+      `/workflows/${id}/${approved ? "approve" : "deny"}`,
+      { method: "POST", body: { approved } }
+    ),
+
+  deleteWorkflow: (id: string) =>
+    clientFetch<null>(`/workflows/${id}`, { method: "DELETE" }),
 
   /* Automations */
   getAutomationRuns: (page = 1, perPage = 20) =>

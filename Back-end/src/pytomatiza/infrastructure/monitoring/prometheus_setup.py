@@ -71,4 +71,30 @@ OCR_PROVIDER_USAGE = Counter(
     ["provider", "language"],
 )
 
+# ── Workflow Execution metrics ──────────────────────────────────────
+
+WORKFLOW_EXECUTIONS_TOTAL = Counter(
+    "pytomatiza_workflow_executions_total",
+    "Total number of workflow executions",
+    ["status"],
+)
+
+WORKFLOW_EXECUTION_SECONDS = Histogram(
+    "pytomatiza_workflow_execution_seconds",
+    "Workflow execution duration in seconds",
+    buckets=[0.5, 1.0, 2.5, 5.0, 10.0, 30.0, 60.0, 120.0, 300.0],
+)
+
+AGENT_EXECUTIONS_TOTAL = Counter(
+    "pytomatiza_agent_executions_total",
+    "Total agent step executions",
+    ["tool", "status"],
+)
+
+AUTOMATION_RUNS_CREATED = Counter(
+    "pytomatiza_workflow_runs_total",
+    "Total workflow automation runs created",
+    ["status"],
+)
+
 metrics_app = make_asgi_app()

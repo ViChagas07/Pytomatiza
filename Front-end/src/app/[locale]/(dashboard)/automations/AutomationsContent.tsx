@@ -27,15 +27,21 @@ import {
 import { Button } from "@/components/ui/Button";
 import { LoginOverlay } from "@/components/ui/LoginOverlay";
 import { cn } from "@/lib/utils";
+import { api } from "@/lib/api";
 
-/* ── Mock workflow type ──────────────────────────────────────────── */
+/* ── Real workflow type (matches backend WorkflowResponse) ────────── */
 
 interface Workflow {
   id: string;
-  instruction: string;
-  status: "active" | "paused";
-  lastTriggered: string | null;
-  executions: number;
+  name: string;
+  description: string;
+  natural_language_prompt: string;
+  steps: Array<{ tool: string; action: string; params: Record<string, unknown> }>;
+  status: string;
+  owner_id: string;
+  agent_id: string | null;
+  created_at: string;
+  updated_at: string;
 }
 
 /* ── Example suggestions ─────────────────────────────────────────── */
@@ -50,6 +56,7 @@ export function AutomationsContent() {
   const [buildResult, setBuildResult] = React.useState<string | null>(null);
   const [buildError, setBuildError] = React.useState<string | null>(null);
   const [workflows, setWorkflows] = React.useState<Workflow[]>([]);
+  const [isLoadingWorkflows, setIsLoadingWorkflows] = React.useState(true);
 
   const {
     register,
@@ -69,42 +76,48 @@ export function AutomationsContent() {
   const requireApproval = watch("requireApproval") ?? true;
   const charCount = instruction?.length || 0;
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => setLoaded(true), 800);
-    return () => clearTimeout(timer);
+  /* ── Fetch workflows from real API ──────────────────────────── */
+  const fetchWorkflows = React.useCallback(async () => {
+    try {
+      const res = await api.getWorkflows();
+      if (res.data) {
+        setWorkflows(res.data.items);
+      }
+    } catch {
+      // gracefully handle
+    } finally {
+      setIsLoadingWorkflows(false);
+    }
   }, []);
 
-  /* Build workflow handler */
+  React.useEffect(() => {
+    const timer = setTimeout(() => setLoaded(true), 400);
+    fetchWorkflows();
+    return () => clearTimeout(timer);
+  }, [fetchWorkflows]);
+
+  /* Build workflow — calls real API ───────────────────────────── */
   const onBuild = async (data: NLPWorkflowInput) => {
     setIsBuilding(true);
     setBuildError(null);
     setBuildResult(null);
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const res = await api.buildWorkflow(data.instruction);
+      if (res.error) {
+        setBuildError(res.error.message);
+        return;
+      }
 
-      // Mock result
       setBuildResult(
         t("workflowList.created", {
           agentType: data.agentType || "auto-detected",
-          approval: data.requireApproval ? t("workflowList.required") : t("workflowList.notRequired"),
+          approval: requireApproval ? t("workflowList.required") : t("workflowList.notRequired"),
         })
       );
 
-      // Add to workflow list
-      setWorkflows((prev) => [
-        {
-          id: `wf-${Date.now()}`,
-          instruction: data.instruction,
-          status: "active",
-          lastTriggered: null,
-          executions: 0,
-        },
-        ...prev,
-      ]);
-
-      // Reset form
+      // Refresh the list
+      await fetchWorkflows();
       setValue("instruction", "");
     } catch {
       setBuildError(t("errors.buildFailed"));
@@ -113,20 +126,37 @@ export function AutomationsContent() {
     }
   };
 
-  /* Toggle workflow status */
-  const toggleWorkflow = (id: string) => {
-    setWorkflows((prev) =>
-      prev.map((wf) =>
-        wf.id === id
-          ? { ...wf, status: wf.status === "active" ? "paused" : "active" } as Workflow
-          : wf
-      )
-    );
+  /* Execute workflow ──────────────────────────────────────────── */
+  const executeWorkflow = async (id: string) => {
+    try {
+      const res = await api.executeWorkflow(id);
+      if (res.error) {
+        return;
+      }
+      await fetchWorkflows();
+    } catch {
+      // gracefully handle
+    }
   };
 
-  /* Delete workflow */
-  const deleteWorkflow = (id: string) => {
-    setWorkflows((prev) => prev.filter((wf) => wf.id !== id));
+  /* Approve / Deny ────────────────────────────────────────────── */
+  const approveWorkflow = async (id: string, approved: boolean) => {
+    try {
+      await api.approveWorkflow(id, approved);
+      await fetchWorkflows();
+    } catch {
+      // gracefully handle
+    }
+  };
+
+  /* Delete workflow — calls real API ──────────────────────────── */
+  const deleteWorkflow = async (id: string) => {
+    try {
+      await api.deleteWorkflow(id);
+      setWorkflows((prev) => prev.filter((wf) => wf.id !== id));
+    } catch {
+      // gracefully handle
+    }
   };
 
   /* Use suggestion */
@@ -368,7 +398,11 @@ export function AutomationsContent() {
           {t("workflowList.title")}
         </h2>
 
-        {workflows.length === 0 ? (
+        {isLoadingWorkflows ? (
+          <div className="flex items-center justify-center py-12">
+            <Sparkles className="h-6 w-6 animate-pulse text-[var(--text-tertiary)]" />
+          </div>
+        ) : workflows.length === 0 ? (
           <div
             className="flex flex-col items-center justify-center py-12 text-center"
             role="status"
@@ -395,9 +429,13 @@ export function AutomationsContent() {
                   <span
                     className={cn(
                       "inline-block h-2.5 w-2.5 rounded-full",
-                      wf.status === "active"
-                        ? "bg-[var(--brand-accent)]"
-                        : "bg-[var(--text-tertiary)]"
+                      wf.status === "approved" && "bg-[var(--brand-accent)]",
+                      wf.status === "running" && "bg-[var(--brand-accent)] animate-pulse",
+                      wf.status === "completed" && "bg-[var(--color-success)]",
+                      wf.status === "failed" && "bg-[var(--color-danger)]",
+                      wf.status === "pending_approval" && "bg-[var(--color-warning)]",
+                      wf.status === "denied" && "bg-[var(--text-tertiary)]",
+                      wf.status === "draft" && "bg-[var(--text-tertiary)]"
                     )}
                     aria-hidden="true"
                   />
@@ -408,46 +446,54 @@ export function AutomationsContent() {
 
                 {/* Content */}
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm text-[var(--text-primary)] leading-relaxed line-clamp-2">
-                    {wf.instruction}
+                  <p className="text-sm font-medium text-[var(--text-primary)]">
+                    {wf.name || wf.natural_language_prompt.slice(0, 80)}
+                  </p>
+                  <p className="text-xs text-[var(--text-secondary)] line-clamp-2 mt-0.5">
+                    {wf.natural_language_prompt}
                   </p>
                   <div className="mt-2 flex items-center gap-4 text-xs text-[var(--text-tertiary)]">
-                    <span className="flex items-center gap-1">
-                      <Clock className="h-3 w-3" aria-hidden="true" />
-                      {wf.lastTriggered
-                        ? `${t("workflowList.lastTriggered")}: ${new Date(wf.lastTriggered).toLocaleDateString()}`
-                        : t("workflowList.neverTriggered")}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Play className="h-3 w-3" aria-hidden="true" />
-                      {wf.executions} {t("workflowList.executions")}
-                    </span>
+                    <span>{t("workflowList.status")}: {wf.status}</span>
+                    <span>{wf.steps.length} step{wf.steps.length !== 1 ? "s" : ""}</span>
+                    <span>{new Date(wf.created_at).toLocaleDateString()}</span>
                   </div>
                 </div>
 
                 {/* Actions */}
                 <div className="flex items-center gap-1 shrink-0">
-                  <button
-                    type="button"
-                    onClick={() => toggleWorkflow(wf.id)}
-                    aria-label={t("workflowList.toggle")}
-                    data-testid={`workflow-toggle-${wf.id}`}
-                    className={cn(
-                      "inline-flex h-8 w-8 items-center justify-center rounded-[var(--radius-sm)]",
-                      "transition-colors",
-                      wf.status === "active"
-                        ? "text-[var(--brand-accent)] hover:bg-[var(--brand-accent-light)]"
-                        : "text-[var(--text-tertiary)] hover:bg-[var(--surface-2)]",
-                      "focus-visible:outline-2 focus-visible:outline-offset-1",
-                      "focus-visible:outline-[var(--brand-accent)]"
-                    )}
-                  >
-                    {wf.status === "active" ? (
-                      <ToggleRight className="h-5 w-5" aria-hidden="true" />
-                    ) : (
-                      <ToggleLeft className="h-5 w-5" aria-hidden="true" />
-                    )}
-                  </button>
+                  {wf.status === "pending_approval" && (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => approveWorkflow(wf.id, true)}
+                        className="inline-flex h-8 items-center gap-1 rounded-[var(--radius-sm)] bg-[var(--color-success)]/10 px-2.5 text-xs font-medium text-[var(--color-success)] hover:bg-[var(--color-success)]/20"
+                      >
+                        ✓ {t("workflowList.approve") || "Aprovar"}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => approveWorkflow(wf.id, false)}
+                        className="inline-flex h-8 items-center gap-1 rounded-[var(--radius-sm)] bg-[var(--color-danger)]/10 px-2.5 text-xs font-medium text-[var(--color-danger)] hover:bg-[var(--color-danger)]/20"
+                      >
+                        ✕ {t("workflowList.deny") || "Negar"}
+                      </button>
+                    </>
+                  )}
+                  {wf.status === "approved" && (
+                    <button
+                      type="button"
+                      onClick={() => executeWorkflow(wf.id)}
+                      className="inline-flex h-8 items-center gap-1 rounded-[var(--radius-sm)] bg-[var(--brand-accent)]/10 px-2.5 text-xs font-medium text-[var(--brand-accent)] hover:bg-[var(--brand-accent)]/20"
+                    >
+                      <Play className="h-3 w-3" />
+                      {t("workflowList.execute") || "Executar"}
+                    </button>
+                  )}
+                  {wf.status === "running" && (
+                    <span className="text-xs text-[var(--brand-accent)] animate-pulse">
+                      ⏳ Executando...
+                    </span>
+                  )}
                   <button
                     type="button"
                     onClick={() => {
@@ -456,14 +502,7 @@ export function AutomationsContent() {
                       }
                     }}
                     aria-label={t("workflowList.delete")}
-                    data-testid={`workflow-delete-${wf.id}`}
-                    className={cn(
-                      "inline-flex h-8 w-8 items-center justify-center rounded-[var(--radius-sm)]",
-                      "text-[var(--text-tertiary)] hover:bg-[var(--surface-2)]",
-                      "hover:text-[var(--color-danger)] transition-colors",
-                      "focus-visible:outline-2 focus-visible:outline-offset-1",
-                      "focus-visible:outline-[var(--brand-accent)]"
-                    )}
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-[var(--radius-sm)] text-[var(--text-tertiary)] hover:bg-[var(--surface-2)] hover:text-[var(--color-danger)] transition-colors"
                   >
                     <Trash2 className="h-4 w-4" aria-hidden="true" />
                   </button>
