@@ -17,6 +17,15 @@ import {
 } from "react-icons/si";
 import { FaInstagram, FaLinkedin, FaMicrosoft } from "react-icons/fa6";
 import { GoogleDriveIcon, GmailIcon } from "@/components/ui/GoogleIcons";
+
+/* ── Adapters — Google SVG icons to react‑icons interface ──────── */
+
+function GoogleDriveIconAdapter({ size = 24 }: { size?: number | string; className?: string; color?: string }) {
+  return <GoogleDriveIcon className={`h-[${typeof size === 'number' ? size : 24}px] w-[${typeof size === 'number' ? size : 24}px]`} />;
+}
+function GmailIconAdapter({ size = 24 }: { size?: number | string; className?: string; color?: string }) {
+  return <GmailIcon className={`h-[${typeof size === 'number' ? size : 24}px] w-[${typeof size === 'number' ? size : 24}px]`} />;
+}
 import {
   CheckCircle,
   AlertTriangle,
@@ -74,12 +83,12 @@ const INTEGRATIONS: IntegrationMeta[] = [
     capabilities: ["Criar issues / bugs / tasks", "Atualizar tickets", "Comentar em issues"],
   },
   {
-    service: "google_drive", label: "Google Drive", icon: GoogleDriveIcon, color: "#4285F4",
+    service: "google_drive", label: "Google Drive", icon: GoogleDriveIconAdapter, color: "#4285F4",
     category: "Armazenamento",
     capabilities: ["Upload de arquivos", "Criar pastas", "Buscar arquivos", "Listar arquivos"],
   },
   {
-    service: "gmail", label: "Gmail", icon: GmailIcon, color: "#EA4335",
+    service: "gmail", label: "Gmail", icon: GmailIconAdapter, color: "#EA4335",
     category: "Comunicação",
     capabilities: ["Enviar e-mails", "Listar mensagens", "Ler e-mails", "Buscar por remetente"],
   },
