@@ -16,6 +16,7 @@ import {
   SiJira,
 } from "react-icons/si";
 import { FaInstagram, FaLinkedin, FaMicrosoft } from "react-icons/fa6";
+import { GoogleDriveIcon, GmailIcon } from "@/components/ui/GoogleIcons";
 import {
   CheckCircle,
   AlertTriangle,
@@ -71,6 +72,16 @@ const INTEGRATIONS: IntegrationMeta[] = [
     service: "jira", label: "Jira", icon: SiJira, color: "#0052CC",
     category: "Gestão de Projetos",
     capabilities: ["Criar issues / bugs / tasks", "Atualizar tickets", "Comentar em issues"],
+  },
+  {
+    service: "google_drive", label: "Google Drive", icon: GoogleDriveIcon, color: "#4285F4",
+    category: "Armazenamento",
+    capabilities: ["Upload de arquivos", "Criar pastas", "Buscar arquivos", "Listar arquivos"],
+  },
+  {
+    service: "gmail", label: "Gmail", icon: GmailIcon, color: "#EA4335",
+    category: "Comunicação",
+    capabilities: ["Enviar e-mails", "Listar mensagens", "Ler e-mails", "Buscar por remetente"],
   },
 ];
 

@@ -15,6 +15,8 @@ from pytomatiza.domain.entities.oauth_token import OAuthToken
 
 _GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token"
 _GOOGLE_DRIVE_API = "https://www.googleapis.com/drive/v3/files"
+_GOOGLE_DRIVE_UPLOAD_API = "https://www.googleapis.com/upload/drive/v3/files"
+_GOOGLE_GMAIL_API = "https://gmail.googleapis.com/gmail/v1/users/me"
 _GOOGLE_PHOTOS_API = "https://photoslibrary.googleapis.com/v1"
 
 
@@ -137,3 +139,180 @@ class GoogleOAuthService:
                     f"Google Photos API error ({response.status_code}): {error_text}"
                 )
             return response.json()
+
+    # ── Google Drive — Write Operations ───────────────────────────────
+
+    @staticmethod
+    async def upload_file(
+        access_token: str,
+        file_name: str,
+        content: bytes,
+        mime_type: str = "application/octet-stream",
+        folder_id: str | None = None,
+    ) -> dict[str, Any]:
+        """Upload a file to Google Drive (multipart).
+
+        Args:
+            access_token: Valid Google OAuth access token.
+            file_name: Name of the file in Drive.
+            content: Raw file bytes.
+            mime_type: MIME type of the file.
+            folder_id: Optional parent folder ID.
+
+        Returns:
+            JSON response with file metadata (id, name, webViewLink).
+        """
+        metadata: dict[str, Any] = {"name": file_name}
+        if folder_id:
+            metadata["parents"] = [folder_id]
+
+        boundary = "pytomatiza_boundary_001"
+        body = (
+            f"--{boundary}\r\n"
+            f"Content-Type: application/json; charset=UTF-8\r\n\r\n"
+            f"{__import__('json').dumps(metadata)}\r\n"
+            f"--{boundary}\r\n"
+            f"Content-Type: {mime_type}\r\n\r\n"
+        ).encode("utf-8") + content + f"\r\n--{boundary}--\r\n".encode("utf-8")
+
+        async with httpx.AsyncClient(timeout=60) as client:
+            resp = await client.post(
+                f"{_GOOGLE_DRIVE_UPLOAD_API}?uploadType=multipart",
+                headers={
+                    "Authorization": f"Bearer {access_token}",
+                    "Content-Type": f"multipart/related; boundary={boundary}",
+                },
+                content=body,
+            )
+            if resp.status_code not in (200, 201):
+                raise RuntimeError(f"Drive upload failed ({resp.status_code}): {resp.text[:200]}")
+            return resp.json()
+
+    @staticmethod
+    async def create_folder(
+        access_token: str,
+        folder_name: str,
+        parent_id: str | None = None,
+    ) -> dict[str, Any]:
+        """Create a folder in Google Drive."""
+        metadata: dict[str, Any] = {
+            "name": folder_name,
+            "mimeType": "application/vnd.google-apps.folder",
+        }
+        if parent_id:
+            metadata["parents"] = [parent_id]
+
+        async with httpx.AsyncClient(timeout=15) as client:
+            resp = await client.post(
+                _GOOGLE_DRIVE_API,
+                json=metadata,
+                headers={"Authorization": f"Bearer {access_token}"},
+            )
+            if resp.status_code not in (200, 201):
+                raise RuntimeError(f"Drive folder creation failed ({resp.status_code})")
+            return resp.json()
+
+    @staticmethod
+    async def search_files(
+        access_token: str,
+        query: str,
+        page_size: int = 20,
+    ) -> dict[str, Any]:
+        """Search files in Google Drive with a query string."""
+        return await GoogleOAuthService.list_drive_files(
+            access_token, query=query, page_size=page_size
+        )
+
+    # ── Gmail Operations ───────────────────────────────────────────────
+
+    @staticmethod
+    async def list_messages(
+        access_token: str,
+        query: str = "",
+        max_results: int = 20,
+    ) -> dict[str, Any]:
+        """List messages from Gmail, optionally filtered by query."""
+        params: dict[str, str | int] = {"maxResults": min(max_results, 100)}
+        if query:
+            params["q"] = query
+
+        async with httpx.AsyncClient(timeout=15) as client:
+            resp = await client.get(
+                f"{_GOOGLE_GMAIL_API}/messages",
+                params=params,
+                headers={"Authorization": f"Bearer {access_token}"},
+            )
+            if resp.status_code != 200:
+                raise RuntimeError(f"Gmail list failed ({resp.status_code}): {resp.text[:200]}")
+            return resp.json()
+
+    @staticmethod
+    async def get_message(
+        access_token: str,
+        message_id: str,
+    ) -> dict[str, Any]:
+        """Get a full Gmail message by ID (with decoded body)."""
+        async with httpx.AsyncClient(timeout=15) as client:
+            resp = await client.get(
+                f"{_GOOGLE_GMAIL_API}/messages/{message_id}?format=full",
+                headers={"Authorization": f"Bearer {access_token}"},
+            )
+            if resp.status_code != 200:
+                raise RuntimeError(f"Gmail get failed ({resp.status_code}): {resp.text[:200]}")
+            return resp.json()
+
+    @staticmethod
+    async def send_email(
+        access_token: str,
+        to: str,
+        subject: str,
+        body: str,
+        cc: str = "",
+        bcc: str = "",
+    ) -> dict[str, Any]:
+        """Send an email via Gmail API.
+
+        The email is encoded in RFC 2822 format and base64url-encoded.
+        """
+        import base64
+        from email.mime.text import MIMEText
+
+        msg = MIMEText(body, _subtype="plain", _charset="UTF-8")
+        msg["to"] = to
+        msg["subject"] = subject
+        if cc:
+            msg["cc"] = cc
+        if bcc:
+            msg["bcc"] = bcc
+
+        raw = base64.urlsafe_b64encode(msg.as_bytes()).decode("utf-8")
+
+        async with httpx.AsyncClient(timeout=15) as client:
+            resp = await client.post(
+                f"{_GOOGLE_GMAIL_API}/messages/send",
+                json={"raw": raw},
+                headers={"Authorization": f"Bearer {access_token}"},
+            )
+            if resp.status_code != 200:
+                raise RuntimeError(f"Gmail send failed ({resp.status_code}): {resp.text[:200]}")
+            return resp.json()
+
+    @staticmethod
+    async def watch_messages(
+        access_token: str,
+        topic_name: str,
+        label_ids: list[str] | None = None,
+    ) -> dict[str, Any]:
+        """Set up Gmail push notifications for new messages."""
+        payload: dict[str, Any] = {"topicName": topic_name}
+        if label_ids:
+            payload["labelIds"] = label_ids
+        async with httpx.AsyncClient(timeout=15) as client:
+            resp = await client.post(
+                f"{_GOOGLE_GMAIL_API}/watch",
+                json=payload,
+                headers={"Authorization": f"Bearer {access_token}"},
+            )
+            if resp.status_code != 200:
+                raise RuntimeError(f"Gmail watch failed ({resp.status_code})")
+            return resp.json()

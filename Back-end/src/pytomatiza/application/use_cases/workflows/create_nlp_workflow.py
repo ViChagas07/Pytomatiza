@@ -51,6 +51,8 @@ Available tools and their actions:
   - "facebook"            → create_post, publish
   - "trello"              → create_card, move_card, update_card
   - "jira"                → create_issue, create_bug, create_task, update_issue
+  - "google_drive"        → upload_file, create_folder, search_files, list_files
+  - "gmail"               → send_email, list_messages, get_message
 
 Return ONLY the JSON array (no markdown, no explanation). Example:
 [{"tool": "email_sender", "action": "send", "params": {"to": "team@acme.com", "subject": "Daily report", "body": "..."}}]"""

@@ -12,6 +12,8 @@ from pytomatiza.domain.services.integrations.provider import (
 from pytomatiza.infrastructure.integrations import (
     DiscordProvider,
     FacebookProvider,
+    GmailProvider,
+    GoogleDriveProvider,
     JiraProvider,
     TelegramProvider,
     TrelloProvider,
@@ -43,6 +45,8 @@ class IntegrationService:
             FacebookProvider(),
             TrelloProvider(),
             JiraProvider(),
+            GoogleDriveProvider(),
+            GmailProvider(),
         ]
         for p in providers:
             self._providers[p.service_name] = p
@@ -78,6 +82,8 @@ class IntegrationService:
             "facebook": {"label": "Facebook Pages", "icon": "facebook", "color": "#1877F2", "category": "social"},
             "trello": {"label": "Trello", "icon": "trello", "color": "#0052CC", "category": "project_management"},
             "jira": {"label": "Jira", "icon": "jira", "color": "#0052CC", "category": "project_management"},
+            "google_drive": {"label": "Google Drive", "icon": "googledrive", "color": "#4285F4", "category": "storage"},
+            "gmail": {"label": "Gmail", "icon": "gmail", "color": "#EA4335", "category": "communication"},
         }
         result = []
         for name in self.list_all():

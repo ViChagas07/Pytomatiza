@@ -46,3 +46,21 @@ class GooglePhotosAlbumsResponse(BaseModel):
 
     albums: list[GooglePhotosAlbum]
     next_page_token: str | None = None
+
+
+class GmailMessage(BaseModel):
+    """Minimal representation of a Gmail message."""
+
+    id: str
+    thread_id: str = ""
+    snippet: str = ""
+    subject: str = ""
+    sender: str = ""
+    received_at: str = ""
+
+
+class GmailMessagesResponse(BaseModel):
+    """Paginated list of Gmail messages."""
+
+    messages: list[GmailMessage]
+    result_size_estimate: int = 0

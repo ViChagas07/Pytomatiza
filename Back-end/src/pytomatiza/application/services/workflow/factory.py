@@ -36,6 +36,8 @@ def get_agent_registry() -> AgentRegistry:
         facebook_step,
         trello_step,
         jira_step,
+        google_drive_step,
+        gmail_step,
     )
     _registry.register(discord_step)
     _registry.register(telegram_step)
@@ -43,6 +45,8 @@ def get_agent_registry() -> AgentRegistry:
     _registry.register(facebook_step)
     _registry.register(trello_step)
     _registry.register(jira_step)
+    _registry.register(google_drive_step)
+    _registry.register(gmail_step)
     # Future registrations:
     # _registry.register(GoogleDriveStepExecutor())
     # _registry.register(SlackStepExecutor())

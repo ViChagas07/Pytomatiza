@@ -8,6 +8,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from pytomatiza.application.dtos.integration_dtos import (
+    GmailMessagesResponse,
     GoogleDriveFile,
     GoogleDriveFilesResponse,
     GooglePhotosAlbum,
@@ -231,3 +232,56 @@ async def list_photos_albums(
         albums=albums,
         next_page_token=str(data["nextPageToken"]) if data.get("nextPageToken") else None,
     )
+
+
+# ── Gmail ────────────────────────────────────────────────────────────────
+
+
+@router.get("/google-gmail/status", response_model=OAuthConnectionStatus)
+async def get_gmail_connection_status(
+    current_user: Annotated[User, Depends(get_current_user)],
+    db: Annotated[AsyncSession, Depends(get_db)],
+) -> OAuthConnectionStatus:
+    """Check if the authenticated user has a valid Gmail connection."""
+    token_repo = SQLAlchemyOAuthTokenRepository(db)
+    token = await token_repo.find_by_user_and_service(current_user.id, "google", "gmail")
+    if token is None:
+        return OAuthConnectionStatus(connected=False, service="gmail", email=str(current_user.email))
+    valid_token = await GoogleOAuthService.get_valid_token(token)
+    if valid_token is None:
+        return OAuthConnectionStatus(connected=False, service="gmail", email=str(current_user.email))
+    return OAuthConnectionStatus(connected=True, service="gmail", email=str(current_user.email))
+
+
+@router.delete("/google-gmail/disconnect", response_model=dict)
+async def disconnect_gmail(
+    current_user: Annotated[User, Depends(get_current_user)],
+    db: Annotated[AsyncSession, Depends(get_db)],
+) -> dict:
+    """Disconnect Gmail by removing the stored OAuth token."""
+    token_repo = SQLAlchemyOAuthTokenRepository(db)
+    await token_repo.delete_by_user_and_service(current_user.id, "google", "gmail")
+    return {"message": "Gmail disconnected", "disconnected": True}
+
+
+@router.get("/google-gmail/messages", response_model=GmailMessagesResponse)
+async def list_gmail_messages(
+    current_user: Annotated[User, Depends(get_current_user)],
+    db: Annotated[AsyncSession, Depends(get_db)],
+    query: str = Query(default=""),
+    max_results: int = Query(default=20, ge=1, le=100),
+) -> GmailMessagesResponse:
+    """List recent Gmail messages, optionally filtered by query."""
+    token_repo = SQLAlchemyOAuthTokenRepository(db)
+    token = await token_repo.find_by_user_and_service(current_user.id, "google", "gmail")
+    if token is None:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Gmail not connected")
+    valid_token = await GoogleOAuthService.get_valid_token(token)
+    if valid_token is None:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Gmail token expired")
+    try:
+        data = await GoogleOAuthService.list_messages(valid_token.access_token, query=query, max_results=max_results)
+        messages = data.get("messages", [])
+        return GmailMessagesResponse(messages=[{"id": m.get("id", ""), "thread_id": m.get("threadId", ""), "snippet": "", "subject": "", "sender": "", "received_at": ""} for m in messages], result_size_estimate=data.get("resultSizeEstimate", 0))
+    except RuntimeError as exc:
+        raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail=str(exc)) from exc

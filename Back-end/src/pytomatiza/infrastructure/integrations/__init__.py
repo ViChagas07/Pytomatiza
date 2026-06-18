@@ -6,6 +6,8 @@ from pytomatiza.infrastructure.integrations.whatsapp_provider import WhatsAppPro
 from pytomatiza.infrastructure.integrations.facebook_provider import FacebookProvider
 from pytomatiza.infrastructure.integrations.trello_provider import TrelloProvider
 from pytomatiza.infrastructure.integrations.jira_provider import JiraProvider
+from pytomatiza.infrastructure.integrations.google_drive_provider import GoogleDriveProvider
+from pytomatiza.infrastructure.integrations.gmail_provider import GmailProvider
 
 __all__ = [
     "DiscordProvider",
@@ -14,4 +16,6 @@ __all__ = [
     "FacebookProvider",
     "TrelloProvider",
     "JiraProvider",
+    "GoogleDriveProvider",
+    "GmailProvider",
 ]

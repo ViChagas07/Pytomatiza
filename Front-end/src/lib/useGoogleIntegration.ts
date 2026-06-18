@@ -9,7 +9,7 @@
 import * as React from "react";
 import { api } from "@/lib/api";
 
-export type GoogleService = "drive" | "photos";
+export type GoogleService = "drive" | "photos" | "gmail";
 
 interface UseGoogleIntegrationReturn {
   /** Whether the service is currently connected via OAuth */

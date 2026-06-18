@@ -41,3 +41,20 @@ export function GooglePhotosIcon({ className = "h-5 w-5" }: IconProps) {
     </svg>
   );
 }
+
+/** Gmail — envelope "M" logo (red) */
+export function GmailIcon({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M24 5.457V18.543C24 19.354 23.329 20 22.5 20H1.5C0.671 20 0 19.354 0 18.543V5.457L12 13.5L24 5.457Z" fill="#EA4335" />
+      <path d="M24 5.457L12 13.5L0 5.457C0.256 3.527 1.893 2 3.857 2H20.143C22.107 2 23.744 3.527 24 5.457Z" fill="#BB001B" />
+      <path d="M12 13.5L0 5.457V4.5C0 3.119 1.119 2 2.5 2H21.5C22.881 2 24 3.119 24 4.5V5.457L12 13.5Z" fill="#F4F4F4" opacity="0.3" />
+    </svg>
+  );
+}

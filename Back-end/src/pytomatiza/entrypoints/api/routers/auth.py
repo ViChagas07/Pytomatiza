@@ -258,6 +258,14 @@ async def google_photos_oauth_redirect() -> dict[str, str]:
     return {"authorization_url": authorization_url}
 
 
+@router.get("/google/gmail", response_model=None)
+async def google_gmail_oauth_redirect() -> dict[str, str]:
+    """Return the Google OAuth authorization URL with Gmail scopes."""
+    scopes = f"{settings.GOOGLE_OIDC_SCOPES} {settings.GOOGLE_GMAIL_SCOPES}"
+    authorization_url = _build_google_auth_url(scopes, state="service:gmail")
+    return {"authorization_url": authorization_url}
+
+
 @router.get("/google/callback", response_model=None)
 async def google_oauth_callback(
     db: Annotated[AsyncSession, Depends(get_db)],
@@ -345,6 +353,7 @@ async def google_oauth_callback(
         granted_scope_set = set(granted_scopes.split())
         drive_scope_set = set(settings.GOOGLE_DRIVE_SCOPES.split())
         photos_scope_set = set(settings.GOOGLE_PHOTOS_SCOPES.split())
+        gmail_scope_set = set(settings.GOOGLE_GMAIL_SCOPES.split())
 
         if granted_scope_set & drive_scope_set:
             await token_repo.upsert(
@@ -370,6 +379,23 @@ async def google_oauth_callback(
                     user_id=stored_user_id,
                     provider="google",
                     service="photos",
+                    access_token=access_token,
+                    refresh_token=refresh_token,
+                    token_type=str(tokens.get("token_type", "Bearer")),
+                    scopes=granted_scopes,
+                    expires_at=expires_at,
+                    created_at=datetime.now(timezone.utc),
+                    updated_at=datetime.now(timezone.utc),
+                )
+            )
+
+        if granted_scope_set & gmail_scope_set:
+            await token_repo.upsert(
+                OAuthToken(
+                    id=uuid4(),
+                    user_id=stored_user_id,
+                    provider="google",
+                    service="gmail",
                     access_token=access_token,
                     refresh_token=refresh_token,
                     token_type=str(tokens.get("token_type", "Bearer")),

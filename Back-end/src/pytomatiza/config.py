@@ -54,7 +54,10 @@ class Settings(BaseSettings):
 
     # ── Google API Scopes ──────────────────────────────────────────────────
     GOOGLE_DRIVE_SCOPES: str = (
-        "https://www.googleapis.com/auth/drive.readonly"
+        "https://www.googleapis.com/auth/drive.file"
+    )
+    GOOGLE_GMAIL_SCOPES: str = (
+        "https://www.googleapis.com/auth/gmail.modify"
     )
     GOOGLE_PHOTOS_SCOPES: str = (
         "https://www.googleapis.com/auth/photoslibrary.readonly"
