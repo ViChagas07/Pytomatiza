@@ -38,6 +38,9 @@ from pytomatiza.infrastructure.email.resend_email_service import ResendEmailServ
 from pytomatiza.infrastructure.repositories.sqlalchemy_user_repository import (
     SQLAlchemyUserRepository,
 )
+from pytomatiza.infrastructure.repositories.sqlalchemy_oauth_token_repository import (
+    SQLAlchemyOAuthTokenRepository,
+)
 from pytomatiza.infrastructure.security.jwt_token_service import JWTTokenService
 from pytomatiza.infrastructure.security.password_hasher import PasswordHasher
 
@@ -427,3 +430,92 @@ async def get_current_user_profile(
         is_verified=current_user.is_verified,
         created_at=current_user.created_at,
     )
+
+
+@router.patch("/me", response_model=UserResponse)
+async def update_current_user_profile(
+    name: str | None = None,
+    email: str | None = None,
+    current_user: Annotated[User, Depends(get_current_user)] = None,
+    db: Annotated[AsyncSession, Depends(get_db)] = None,
+) -> UserResponse:
+    """Update the authenticated user's profile (name and/or email)."""
+    from pytomatiza.domain.value_objects.email import Email
+
+    repo = SQLAlchemyUserRepository(db)
+    if name is not None and name.strip():
+        current_user.name = name.strip()
+    if email is not None and email.strip():
+        current_user.email = Email(email.strip())
+    updated = await repo.save(current_user)
+    return UserResponse(
+        id=updated.id, name=updated.name, email=str(updated.email),
+        is_verified=updated.is_verified, created_at=updated.created_at,
+    )
+
+
+@router.delete("/me", status_code=200)
+async def delete_current_user_account(
+    current_user: Annotated[User, Depends(get_current_user)],
+    db: Annotated[AsyncSession, Depends(get_db)],
+    redis: Any = Depends(get_redis_client),
+) -> dict:
+    """Permanently delete the authenticated user's account and all associated data."""
+    user_id = current_user.id
+
+    # Deactivate first (prevents new logins)
+    current_user.deactivate()
+    repo = SQLAlchemyUserRepository(db)
+    await repo.save(current_user)
+
+    # Delete OAuth tokens
+    token_repo = SQLAlchemyOAuthTokenRepository(db)
+    for service in ("google", "drive", "photos", "gmail"):
+        try:
+            await token_repo.delete_by_user_and_service(user_id, "google", service)  # type: ignore[arg-type]
+        except Exception:
+            pass
+
+    # Blacklist all tokens for this user
+    from pytomatiza.infrastructure.security.jwt_token_service import JWTTokenService
+    token_service = JWTTokenService()
+    access_token, _ = token_service.generate_tokens(str(user_id))
+    payload = token_service.decode_token(access_token)
+    jti = str(payload.get("jti", ""))
+    if jti:
+        await redis.setex(f"blacklist:token:{jti}", 3600, "account_deleted")
+
+    # Delete user from database
+    await repo.delete(user_id)
+
+    return {"message": "Account permanently deleted", "user_id": str(user_id)}
+
+
+@router.get("/me/export", response_model=dict)
+async def export_user_data(
+    current_user: Annotated[User, Depends(get_current_user)],
+    db: Annotated[AsyncSession, Depends(get_db)],
+) -> dict:
+    """Export all user data in a portable format (GDPR/LGPD portability right)."""
+    from sqlalchemy import select
+    from pytomatiza.infrastructure.db.models.agent_model import AgentModel
+    from pytomatiza.infrastructure.db.models.automation_run_model import AutomationRunModel
+    from pytomatiza.infrastructure.db.models.workflow_model import WorkflowModel
+
+    agents = (await db.execute(select(AgentModel).where(AgentModel.owner_id == current_user.id))).scalars().all()
+    workflows = (await db.execute(select(WorkflowModel).where(WorkflowModel.owner_id == current_user.id))).scalars().all()
+    runs = (await db.execute(select(AutomationRunModel).where(AutomationRunModel.user_id == current_user.id).limit(100))).scalars().all()
+
+    return {
+        "user": {
+            "id": str(current_user.id),
+            "name": current_user.name,
+            "email": str(current_user.email),
+            "is_verified": current_user.is_verified,
+            "created_at": current_user.created_at.isoformat() if current_user.created_at else None,
+        },
+        "agents": [{"id": str(a.id), "name": a.name, "agent_type": a.agent_type, "status": a.status} for a in agents],
+        "workflows": [{"id": str(w.id), "name": w.name, "status": str(w.status), "steps": len(w.steps)} for w in workflows],
+        "automation_runs": [{"id": str(r.id), "workflow_id": str(r.workflow_id) if r.workflow_id else None, "status": str(r.status), "created_at": r.created_at.isoformat() if r.created_at else None} for r in runs],
+        "exported_at": datetime.now(timezone.utc).isoformat(),
+    }

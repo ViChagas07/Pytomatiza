@@ -144,7 +144,7 @@ class S3Service:
 
         try:
             client = self._client_factory.s3
-            extra_args: dict[str, Any] = {"ContentType": content_type}
+            extra_args: dict[str, Any] = {"ContentType": content_type, "ServerSideEncryption": "AES256"}
             if metadata:
                 extra_args["Metadata"] = metadata
 
@@ -410,7 +410,7 @@ class S3Service:
 
         try:
             client = self._client_factory.s3
-            extra_args: dict[str, Any] = {"ContentType": content_type}
+            extra_args: dict[str, Any] = {"ContentType": content_type, "ServerSideEncryption": "AES256"}
             if metadata:
                 extra_args["Metadata"] = metadata
 

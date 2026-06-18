@@ -316,3 +316,31 @@ class GoogleOAuthService:
             if resp.status_code != 200:
                 raise RuntimeError(f"Gmail watch failed ({resp.status_code})")
             return resp.json()
+
+    # ── Token Revocation (OAuth server‑side) ─────────────────────────
+
+    _GOOGLE_REVOKE_URL = "https://oauth2.googleapis.com/revoke"
+
+    @staticmethod
+    async def revoke_token(access_token: str) -> bool:
+        """Revoke a Google OAuth token server‑side.
+
+        Per RFC 7009 and Google's OAuth 2.0 docs, this tells Google to
+        invalidate the token so it cannot be used again, even if we
+        still have a copy.  Always call this before deleting the stored
+        token from the database.
+
+        Returns True if revocation succeeded (or token was already
+        invalid), False only on a transport error.
+        """
+        try:
+            async with httpx.AsyncClient(timeout=10) as client:
+                resp = await client.post(
+                    "https://oauth2.googleapis.com/revoke",
+                    params={"token": access_token},
+                    headers={"Content-Type": "application/x-www-form-urlencoded"},
+                )
+                # Google returns 200 on success OR if the token was already revoked
+                return resp.status_code == 200
+        except Exception:
+            return False

@@ -58,8 +58,11 @@ async def disconnect_google_drive(
     current_user: Annotated[User, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(get_db)],
 ) -> dict[str, str | bool]:
-    """Disconnect Google Drive integration (remove stored token)."""
+    """Disconnect Google Drive integration (revoke + remove stored token)."""
     token_repo = SQLAlchemyOAuthTokenRepository(db)
+    token = await token_repo.find_by_user_and_service(current_user.id, "google", "drive")
+    if token and token.access_token:
+        await GoogleOAuthService.revoke_token(token.access_token)
     deleted: bool = await token_repo.delete(current_user.id, "google", "drive")
     return {
         "message": (
@@ -163,8 +166,11 @@ async def disconnect_google_photos(
     current_user: Annotated[User, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(get_db)],
 ) -> dict[str, str | bool]:
-    """Disconnect Google Photos integration (remove stored token)."""
+    """Disconnect Google Photos integration (revoke + remove stored token)."""
     token_repo = SQLAlchemyOAuthTokenRepository(db)
+    token = await token_repo.find_by_user_and_service(current_user.id, "google", "photos")
+    if token and token.access_token:
+        await GoogleOAuthService.revoke_token(token.access_token)
     deleted: bool = await token_repo.delete(current_user.id, "google", "photos")
     return {
         "message": (
@@ -258,8 +264,11 @@ async def disconnect_gmail(
     current_user: Annotated[User, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(get_db)],
 ) -> dict:
-    """Disconnect Gmail by removing the stored OAuth token."""
+    """Disconnect Gmail by revoking and removing the stored OAuth token."""
     token_repo = SQLAlchemyOAuthTokenRepository(db)
+    token = await token_repo.find_by_user_and_service(current_user.id, "google", "gmail")
+    if token and token.access_token:
+        await GoogleOAuthService.revoke_token(token.access_token)
     await token_repo.delete_by_user_and_service(current_user.id, "google", "gmail")
     return {"message": "Gmail disconnected", "disconnected": True}
 

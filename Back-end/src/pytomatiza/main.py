@@ -18,6 +18,7 @@ from pytomatiza.domain.exceptions.base import DomainException
 from pytomatiza.entrypoints.api.middleware import (
     RateLimitMiddleware,
     RequestIDMiddleware,
+    SecurityHeadersMiddleware,
     TimingMiddleware,
     domain_exception_handler,
     generic_exception_handler,
@@ -61,6 +62,9 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+
+    # ── Security headers ───────────────────────────────────────────────
+    app.add_middleware(SecurityHeadersMiddleware)
 
     # ── Custom middleware (order matters!) ────────────────────────────────
     app.add_middleware(RequestIDMiddleware)
