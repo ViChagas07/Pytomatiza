@@ -24,14 +24,14 @@ FROM python:3.11-slim
 # ── System dependencies ─────────────────────────────────────────────
 # poppler-utils: required by pdf2image (PDF → images)
 # tesseract-ocr: OCR engine
-# libgl1-mesa-glx + libglib2.0-0: required by OpenCV headless
+# libgl1 + libglib2.0-0: required by OpenCV headless runtime
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         curl \
         poppler-utils \
         tesseract-ocr \
         tesseract-ocr-por \
-        libgl1-mesa-glx \
+        libgl1 \
         libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
