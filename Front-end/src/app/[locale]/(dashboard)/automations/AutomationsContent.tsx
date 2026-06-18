@@ -26,6 +26,7 @@ import {
 } from "@/lib/validations/workflow";
 import { Button } from "@/components/ui/Button";
 import { LoginOverlay } from "@/components/ui/LoginOverlay";
+import { IntegrationPanel } from "@/components/dashboard/IntegrationPanel";
 import { cn } from "@/lib/utils";
 import { api } from "@/lib/api";
 
@@ -512,6 +513,10 @@ export function AutomationsContent() {
           </div>
         )}
       </section>
+
+      {/* ── Integration Panel ──────────────────────────────────── */}
+      <IntegrationPanel />
+
       </LoginOverlay>
     </>
   );

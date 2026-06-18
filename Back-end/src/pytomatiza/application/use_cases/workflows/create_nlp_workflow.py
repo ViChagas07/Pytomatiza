@@ -31,12 +31,29 @@ class CreateNLPWorkflowUseCase:
     _SYSTEM_PROMPT = """You are a workflow automation parser for Pytomatiza+.
 Given a natural language description, generate a list of automation steps.
 Each step must be a JSON object with these keys:
-  - "tool": the automation tool name (e.g., "email_sender", "report_generator", "data_transformer", "web_scraper", "notion_sync", "google_sheets", "slack_notifier")
-  - "action": the specific action (e.g., "send", "generate", "transform", "scrape", "sync", "notify")
+  - "tool": the automation tool name
+  - "action": the specific action
   - "params": a dict of parameters for that action
 
+Available tools and their actions:
+  - "email_sender"        → send, reply, forward
+  - "report_generator"    → generate, schedule
+  - "data_transformer"    → transform, filter, merge
+  - "web_scraper"         → scrape, extract
+  - "notion_sync"         → sync, create_page
+  - "google_sheets"       → read, write, append, sync
+  - "slack_notifier"      → send_message, send_file, notify
+  - "ocr_processor"       → extract, extract_text
+  - "openai"              → summarize, extract, classify, generate
+  - "discord"             → send_message, send_webhook, send_alert
+  - "telegram"            → send_message, send_document, send_alert
+  - "whatsapp"            → send_message, notify
+  - "facebook"            → create_post, publish
+  - "trello"              → create_card, move_card, update_card
+  - "jira"                → create_issue, create_bug, create_task, update_issue
+
 Return ONLY the JSON array (no markdown, no explanation). Example:
-[{{"tool": "email_sender", "action": "send", "params": {{"to": "team@acme.com", "subject": "Daily report", "body": "..."}}}}]"""
+[{"tool": "email_sender", "action": "send", "params": {"to": "team@acme.com", "subject": "Daily report", "body": "..."}}]"""
 
     def __init__(
         self,

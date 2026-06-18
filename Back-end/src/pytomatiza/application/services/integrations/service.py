@@ -1,0 +1,98 @@
+"""Integration Service — registry and health checks for all providers."""
+
+from __future__ import annotations
+
+import logging
+from typing import Any
+
+from pytomatiza.domain.services.integrations.provider import (
+    IntegrationHealth,
+    IntegrationProvider,
+)
+from pytomatiza.infrastructure.integrations import (
+    DiscordProvider,
+    FacebookProvider,
+    JiraProvider,
+    TelegramProvider,
+    TrelloProvider,
+    WhatsAppProvider,
+)
+
+logger = logging.getLogger(__name__)
+
+# Future providers (show as "coming_soon")
+_FUTURE_PROVIDERS: list[dict[str, Any]] = [
+    {"service": "instagram", "label": "Instagram", "icon": "instagram"},
+    {"service": "linkedin", "label": "LinkedIn", "icon": "linkedin"},
+    {"service": "teams", "label": "Microsoft Teams", "icon": "teams"},
+]
+
+
+class IntegrationService:
+    """Central registry for all third‑party integration providers."""
+
+    def __init__(self) -> None:
+        self._providers: dict[str, IntegrationProvider] = {}
+        self._register_defaults()
+
+    def _register_defaults(self) -> None:
+        providers = [
+            DiscordProvider(),
+            TelegramProvider(),
+            WhatsAppProvider(),
+            FacebookProvider(),
+            TrelloProvider(),
+            JiraProvider(),
+        ]
+        for p in providers:
+            self._providers[p.service_name] = p
+
+    def get(self, service: str) -> IntegrationProvider | None:
+        return self._providers.get(service)
+
+    def list_all(self) -> list[str]:
+        return list(self._providers.keys())
+
+    async def health_check_all(self) -> dict[str, Any]:
+        """Run health checks against ALL providers and return a summary."""
+        results: dict[str, Any] = {}
+        for name, provider in self._providers.items():
+            try:
+                health = await provider.health_check()
+                results[name] = {
+                    "connected": health.connected,
+                    "status": health.status,
+                    "message": health.message,
+                    "details": health.details,
+                }
+            except Exception as exc:
+                results[name] = {"connected": False, "status": "error", "message": str(exc), "details": {}}
+        return results
+
+    def list_available_integrations(self) -> list[dict[str, Any]]:
+        """Return all integrations with metadata for the frontend."""
+        meta_map: dict[str, dict[str, Any]] = {
+            "discord": {"label": "Discord", "icon": "discord", "color": "#5865F2", "category": "communication"},
+            "telegram": {"label": "Telegram", "icon": "telegram", "color": "#26A5E4", "category": "communication"},
+            "whatsapp": {"label": "WhatsApp Business", "icon": "whatsapp", "color": "#25D366", "category": "communication"},
+            "facebook": {"label": "Facebook Pages", "icon": "facebook", "color": "#1877F2", "category": "social"},
+            "trello": {"label": "Trello", "icon": "trello", "color": "#0052CC", "category": "project_management"},
+            "jira": {"label": "Jira", "icon": "jira", "color": "#0052CC", "category": "project_management"},
+        }
+        result = []
+        for name in self.list_all():
+            meta = meta_map.get(name, {"label": name, "icon": name, "color": "#666", "category": "other"})
+            result.append({"service": name, **meta, "available": True})
+        for future in _FUTURE_PROVIDERS:
+            result.append({**future, "available": False, "color": "#999", "category": "coming_soon"})
+        return result
+
+
+_integration_service: IntegrationService | None = None
+
+
+def get_integration_service() -> IntegrationService:
+    global _integration_service
+    if _integration_service is None:
+        _integration_service = IntegrationService()
+    return _integration_service

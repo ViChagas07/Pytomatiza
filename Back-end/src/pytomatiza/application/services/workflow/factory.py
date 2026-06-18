@@ -28,6 +28,21 @@ def get_agent_registry() -> AgentRegistry:
     _registry = AgentRegistry()
     _registry.register(OCRStepExecutor())
     _registry.register(OpenAIStepExecutor())
+    # Integration step executors
+    from pytomatiza.infrastructure.workflow.integration_steps import (
+        discord_step,
+        telegram_step,
+        whatsapp_step,
+        facebook_step,
+        trello_step,
+        jira_step,
+    )
+    _registry.register(discord_step)
+    _registry.register(telegram_step)
+    _registry.register(whatsapp_step)
+    _registry.register(facebook_step)
+    _registry.register(trello_step)
+    _registry.register(jira_step)
     # Future registrations:
     # _registry.register(GoogleDriveStepExecutor())
     # _registry.register(SlackStepExecutor())

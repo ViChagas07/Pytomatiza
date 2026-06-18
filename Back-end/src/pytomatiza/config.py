@@ -134,6 +134,19 @@ class Settings(BaseSettings):
     }
     OCR_MAX_PAGES: int = 50
     """Maximum PDF pages to process in a single request."""
+    
+    # ── Integration Tokens ────────────────────────────────────────────────
+    DISCORD_BOT_TOKEN: str = ""
+    TELEGRAM_BOT_TOKEN: str = ""
+    WHATSAPP_ACCESS_TOKEN: str = ""
+    WHATSAPP_PHONE_NUMBER_ID: str = ""
+    FACEBOOK_ACCESS_TOKEN: str = ""
+    FACEBOOK_PAGE_ID: str = ""
+    TRELLO_API_KEY: str = ""
+    TRELLO_API_TOKEN: str = ""
+    JIRA_DOMAIN: str = ""
+    JIRA_EMAIL: str = ""
+    JIRA_API_TOKEN: str = ""
 
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod

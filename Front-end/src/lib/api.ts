@@ -605,6 +605,47 @@ export const api = {
   deleteWorkflow: (id: string) =>
     clientFetch<null>(`/workflows/${id}`, { method: "DELETE" }),
 
+  /* ── Integrations (third‑party connectors) ────────────────────── */
+
+  /** List all integrations with metadata and status */
+  listIntegrations: () =>
+    clientFetch<{
+      integrations: Array<{
+        service: string;
+        label: string;
+        icon: string;
+        color: string;
+        category: string;
+        available: boolean;
+      }>;
+    }>("/integrations"),
+
+  /** Health check all integrations */
+  integrationsHealth: () =>
+    clientFetch<{
+      integrations: Record<
+        string,
+        {
+          connected: boolean;
+          status: "connected" | "disconnected" | "error";
+          message: string;
+          details: Record<string, unknown>;
+        }
+      >;
+    }>("/integrations/health"),
+
+  /** Execute an action on a specific integration */
+  integrationExecute: (service: string, action: string, params?: Record<string, unknown>) =>
+    clientFetch<{
+      success: boolean;
+      action: string;
+      result: Record<string, unknown>;
+      error: string | null;
+    }>(`/integrations/${service}/execute?action=${encodeURIComponent(action)}`, {
+      method: "POST",
+      body: params ?? {},
+    }),
+
   /* Automations */
   getAutomationRuns: (page = 1, perPage = 20) =>
     clientFetch<PaginatedResponse<unknown>>(
