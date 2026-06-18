@@ -1,19 +1,17 @@
 /* ═══════════════════════════════════════════════════════════════════
-   Pytomatiza+ Architecture — ArchitectureContent (Client)
-   AI-powered diagram generator: description input, template
-   selector, export format picker, and recent diagrams.
+   Pytomatiza+ Architecture — AI‑powered diagram generator (Gemini)
    ═══════════════════════════════════════════════════════════════════ */
 
 "use client";
 
 import * as React from "react";
 import { useTranslations } from "next-intl";
+import mermaid from "mermaid";
 import {
   Layers,
   Sparkles,
   Send,
   Cloud,
-  Monitor,
   Container,
   Box,
   Zap,
@@ -31,8 +29,12 @@ import {
   AlertTriangle,
   GitGraph,
   Cpu,
+  Maximize2,
+  Minimize2,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { LoginOverlay } from "@/components/ui/LoginOverlay";
+import { api } from "@/lib/api";
 import { cn } from "@/lib/utils";
 
 /* ── Types ──────────────────────────────────────────────────────── */
@@ -54,9 +56,11 @@ interface ExportFormat {
 interface DiagramEntry {
   id: string;
   name: string;
+  mermaid: string;
   template: string;
   components: number;
   format: string;
+  description: string;
   createdAt: Date;
 }
 
@@ -84,25 +88,46 @@ const exportFormats: ExportFormat[] = [
   { id: "terraform", labelKey: "export.terraform", icon: Cpu, extension: ".tf" },
 ];
 
+// Init mermaid once
+mermaid.initialize({ startOnLoad: false, theme: "default", securityLevel: "loose" });
+
 /* ── Component ───────────────────────────────────────────────────── */
 
 export function ArchitectureContent() {
   const t = useTranslations("modules.architecture");
   const [loaded, setLoaded] = React.useState(false);
   const [instruction, setInstruction] = React.useState("");
-  const [selectedTemplate, setSelectedTemplate] = React.useState<string | null>(null);
-  const [selectedExport, setSelectedExport] = React.useState<string>("png");
+  const [selectedTemplate, setSelectedTemplate] = React.useState<string>("aws");
+  const [selectedExport, setSelectedExport] = React.useState<string>("mermaid");
   const [isGenerating, setIsGenerating] = React.useState(false);
-  const [result, setResult] = React.useState<string | null>(null);
+  const [result, setResult] = React.useState<DiagramEntry | null>(null);
   const [error, setError] = React.useState<string | null>(null);
+  const [expandedDiagram, setExpandedDiagram] = React.useState<string | null>(null);
 
   const [diagrams, setDiagrams] = React.useState<DiagramEntry[]>([]);
+  const mermaidRefs = React.useRef<Map<string, HTMLDivElement>>(new Map());
 
   React.useEffect(() => {
-    const timer = setTimeout(() => setLoaded(true), 600);
+    const timer = setTimeout(() => setLoaded(true), 400);
     return () => clearTimeout(timer);
   }, []);
 
+  /* ── Render mermaid diagrams after they mount ────────────────── */
+  React.useEffect(() => {
+    diagrams.forEach(async (d) => {
+      const el = mermaidRefs.current.get(d.id);
+      if (el && d.mermaid) {
+        try {
+          const { svg } = await mermaid.render(`mermaid-${d.id}`, d.mermaid);
+          el.innerHTML = svg;
+        } catch {
+          el.innerHTML = `<p class="text-xs text-[var(--text-tertiary)] p-4">Diagrama não pôde ser renderizado.</p>`;
+        }
+      }
+    });
+  }, [diagrams]);
+
+  /* ── Generate via Gemini ─────────────────────────────────────── */
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!instruction.trim()) return;
@@ -110,27 +135,32 @@ export function ArchitectureContent() {
     setIsGenerating(true);
     setError(null);
     setResult(null);
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2500));
-
-      const templateName = selectedTemplate
-        ? t(templates.find((tmpl) => tmpl.id === selectedTemplate)?.labelKey || "")
-        : "Personalizado";
-      const fmt = exportFormats.find((f) => f.id === selectedExport);
-
-      setResult(
-        `Diagrama de arquitetura "${templateName}" gerado com sucesso em formato ${fmt?.extension || ".png"}!`
+      const res = await api.generateArchitecture(
+        instruction,
+        selectedTemplate || "aws",
+        selectedExport || "mermaid"
       );
 
-      const newDiagram: DiagramEntry = {
-        id: `d${Date.now()}`,
-        name: instruction.slice(0, 40) + (instruction.length > 40 ? "..." : ""),
-        template: selectedTemplate || "custom",
-        components: Math.floor(Math.random() * 15) + 3,
-        format: fmt?.extension?.toUpperCase().replace(".", "") || "PNG",
+      if (res.error || !res.data?.mermaid) {
+        setError(res.error?.message || t("errors.generateFailed"));
+        return;
+      }
+
+      const entry: DiagramEntry = {
+        id: `arch-${Date.now()}`,
+        name: res.data.title || instruction.slice(0, 60),
+        mermaid: res.data.mermaid,
+        template: selectedTemplate || "aws",
+        components: res.data.component_count,
+        format: selectedExport || "mermaid",
+        description: res.data.description || "",
         createdAt: new Date(),
       };
-      setDiagrams((prev) => [newDiagram, ...prev]);
+
+      setResult(entry);
+      setDiagrams((prev) => [entry, ...prev]);
     } catch {
       setError(t("errors.generateFailed"));
     } finally {
@@ -138,359 +168,239 @@ export function ArchitectureContent() {
     }
   };
 
-  /* ── Diagram actions ─────────────────────────────────────────── */
-  const handleDownloadDiagram = (diagram: DiagramEntry) => {
-    const content = `Diagrama: ${diagram.name}\nTemplate: ${diagram.template}\nComponentes: ${diagram.components}\nFormato: ${diagram.format}\nCriado: ${diagram.createdAt.toLocaleString()}`;
-    const blob = new Blob([content], { type: "application/octet-stream" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    const ext = diagram.format.toLowerCase();
-    a.download = `${diagram.name.replace(/\s+/g, "_").toLowerCase()}.${ext === "draw.io" ? "drawio" : ext}`;
-    a.click();
-    URL.revokeObjectURL(url);
-  };
+  /* ── Export ──────────────────────────────────────────────────── */
+  const handleDownload = (diagram: DiagramEntry) => {
+    if (diagram.format === "mermaid" || diagram.format === "terraform") {
+      // Text-based export
+      const content = diagram.format === "terraform"
+        ? `# Terraform generated by Pytomatiza+ Architecture\n# ${diagram.name}\n\n${diagram.mermaid}`
+        : diagram.mermaid;
+      const blob = new Blob([content], { type: "text/plain" });
+      downloadBlob(blob, diagram.name + (diagram.format === "terraform" ? ".tf" : ".mmd"));
+      return;
+    }
 
-  const handleEditDiagram = (diagram: DiagramEntry) => {
-    setInstruction(diagram.name);
-    setSelectedTemplate(diagram.template !== "custom" ? diagram.template : null);
-    const textarea = document.getElementById("arch-instruction");
-    textarea?.focus();
-    textarea?.scrollIntoView({ behavior: "smooth", block: "center" });
-  };
+    // SVG/PNG: extract from rendered mermaid
+    const el = mermaidRefs.current.get(diagram.id);
+    if (!el) return;
+    const svgEl = el.querySelector("svg");
+    if (!svgEl) return;
 
-  const handleDeleteDiagram = (id: string) => {
-    if (window.confirm(t("dialogs.deleteConfirm"))) {
-      setDiagrams((prev) => prev.filter((d) => d.id !== id));
+    if (diagram.format === "svg") {
+      const blob = new Blob([svgEl.outerHTML], { type: "image/svg+xml" });
+      downloadBlob(blob, diagram.name + ".svg");
+    } else {
+      // PNG via canvas
+      const svgData = new XMLSerializer().serializeToString(svgEl);
+      const canvas = document.createElement("canvas");
+      const rect = svgEl.getBoundingClientRect();
+      canvas.width = rect.width * 2;
+      canvas.height = rect.height * 2;
+      const ctx = canvas.getContext("2d")!;
+      const img = new Image();
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        canvas.toBlob((blob) => {
+          if (blob) downloadBlob(blob, diagram.name + ".png");
+        });
+      };
+      img.src = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData)));
     }
   };
 
-  const handleShare = () => {
-    if (diagrams.length === 0) return;
-    alert(t("dialogs.shareLink"));
+  const handleEdit = (diagram: DiagramEntry) => {
+    setInstruction(diagram.name);
+    setSelectedTemplate(diagram.template);
+    setResult(null);
+    setError(null);
+    document.getElementById("arch-instruction")?.focus();
+    document.getElementById("arch-instruction")?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  const handleDelete = (id: string) => {
+    setDiagrams((prev) => prev.filter((d) => d.id !== id));
+    if (result?.id === id) setResult(null);
+  };
+
+  const handleShare = (diagram: DiagramEntry) => {
+    const text = `Diagrama de Arquitetura: ${diagram.name}\n${diagram.description}\nGerado pelo Pytomatiza+`;
+    navigator.clipboard.writeText(text).then(() => alert(t("actions.copied") || "Copiado!"));
   };
 
   if (!loaded) return null;
 
   return (
-    <>
+    <LoginOverlay label={t("loginPrompt")}>
+    <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-[var(--text-primary)]">
-          {t("title")}
-        </h1>
-        <p className="text-sm text-[var(--text-secondary)] mt-1">
-          {t("subtitle")}
-        </p>
+        <h1 className="text-2xl font-bold tracking-tight text-[var(--text-primary)]">{t("title")}</h1>
+        <p className="text-sm text-[var(--text-secondary)] mt-1">{t("subtitle")}</p>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-[1fr_360px]">
-        {/* Main — diagram builder */}
-        <div className="space-y-6">
-          <section
-            aria-labelledby="diagram-heading"
-            className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] shadow-[var(--shadow-sm)] p-5"
-          >
-            <div className="flex items-center gap-2 mb-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--brand-accent-light)]">
-                <Layers className="h-4 w-4 text-[var(--brand-accent)]" aria-hidden="true" />
-              </div>
-              <h2 id="diagram-heading" className="text-sm font-semibold text-[var(--text-primary)]">
-                {t("diagramBuilder.title")}
-              </h2>
+      <div className="grid gap-6 lg:grid-cols-[1fr_300px]">
+        {/* Main */}
+        <section className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] p-5 shadow-[var(--shadow-sm)]">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="flex h-8 w-8 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--brand-accent-light)]">
+              <Sparkles className="h-4 w-4 text-[var(--brand-accent)]" />
             </div>
-            <p className="text-xs text-[var(--text-secondary)] mb-4">{t("diagramBuilder.description")}</p>
+            <h2 className="text-sm font-semibold text-[var(--text-primary)]">{t("diagramBuilder.title")}</h2>
+          </div>
+          <p className="text-xs text-[var(--text-secondary)] mb-4">{t("diagramBuilder.description")}</p>
 
-            <form onSubmit={handleGenerate} noValidate>
-              <label htmlFor="arch-instruction" className="block text-sm font-medium text-[var(--text-primary)] mb-1.5">
-                {t("diagramBuilder.instructionLabel")}
-              </label>
-              <textarea
-                id="arch-instruction"
-                rows={5}
-                value={instruction}
-                onChange={(e) => setInstruction(e.target.value)}
-                placeholder={t("diagramBuilder.instructionPlaceholder")}
-                aria-describedby="arch-helper arch-char-count"
-                data-testid="arch-instruction"
-                className={cn(
-                  "w-full rounded-[var(--radius-md)] border px-3 py-2.5 text-sm",
-                  "bg-[var(--surface-0)] resize-y min-h-[120px]",
-                  "placeholder:text-[var(--text-tertiary)]",
-                  "focus-visible:outline-2 focus-visible:outline-offset-1",
-                  "focus-visible:outline-[var(--brand-accent)]",
-                  "border-[var(--border-default)] hover:border-[var(--border-strong)]"
-                )}
-              />
-              <div className="mt-1.5 flex items-center justify-between">
-                <p id="arch-helper" className="text-xs text-[var(--text-tertiary)]">{t("diagramBuilder.instructionHelper")}</p>
-                <p
-                  id="arch-char-count"
-                  aria-live="polite"
-                  className={cn("text-xs", instruction.length > 900 ? "text-[var(--color-danger)] font-medium" : "text-[var(--text-tertiary)]")}
-                >
-                  {t("diagramBuilder.charCount", { current: instruction.length, max: 1000 })}
-                </p>
-              </div>
-
-              <Button
-                type="submit"
-                loading={isGenerating}
-                disabled={!instruction.trim()}
-                className="w-full mt-4"
-                size="lg"
-                data-testid="arch-generate"
-              >
-                <Sparkles className="h-4 w-4" aria-hidden="true" />
-                {isGenerating ? t("actions.generating") : t("actions.generate")}
-              </Button>
-            </form>
-
-            {/* Result */}
-            <div aria-live="polite">
-              {error && (
-                <div role="alert" className="mt-4 flex items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-danger)]/10 border border-[var(--color-danger)]/30 px-4 py-3 text-sm text-[var(--color-danger)]">
-                  <AlertTriangle className="h-4 w-4 shrink-0" aria-hidden="true" />{error}
-                </div>
-              )}
-              {result && (
-                <div className="mt-4 flex items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-success)]/10 border border-[var(--color-success)]/30 px-4 py-3 text-sm text-[var(--color-success)]">
-                  <CheckCircle className="h-4 w-4 shrink-0" aria-hidden="true" />{result}
-                </div>
-              )}
+          <form onSubmit={handleGenerate} noValidate>
+            <label htmlFor="arch-instruction" className="block text-sm font-medium text-[var(--text-primary)] mb-1.5">
+              {t("diagramBuilder.instructionLabel")}
+            </label>
+            <textarea
+              id="arch-instruction"
+              rows={5}
+              value={instruction}
+              onChange={(e) => setInstruction(e.target.value)}
+              placeholder={t("diagramBuilder.instructionPlaceholder")}
+              maxLength={1000}
+              className="w-full rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--surface-0)] px-3 py-2.5 text-sm resize-y min-h-[100px] placeholder:text-[var(--text-tertiary)] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[var(--brand-accent)]"
+            />
+            <div className="mt-1.5 flex items-center justify-between">
+              <p className="text-xs text-[var(--text-tertiary)]">{t("diagramBuilder.instructionHelper")}</p>
+              <p className={cn("text-xs", instruction.length > 900 ? "text-[var(--color-danger)]" : "text-[var(--text-tertiary)]")}>
+                {t("diagramBuilder.charCount", { current: instruction.length, max: 1000 })}
+              </p>
             </div>
-          </section>
-        </div>
 
-        {/* Sidebar — templates + export */}
-        <aside className="space-y-6">
-          {/* Templates */}
-          <section
-            aria-labelledby="templates-heading"
-            className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] shadow-[var(--shadow-sm)] p-5"
-          >
-            <h2 id="templates-heading" className="text-sm font-semibold text-[var(--text-primary)] mb-1">{t("templates.title")}</h2>
-            <p className="text-xs text-[var(--text-secondary)] mb-4">{t("templates.description")}</p>
-            <div className="space-y-1.5" role="radiogroup" aria-label={t("templates.title")}>
-              {templates.map((tmpl) => {
-                const isSelected = selectedTemplate === tmpl.id;
-                return (
-                  <button
-                    key={tmpl.id}
-                    type="button"
-                    role="radio"
-                    aria-checked={isSelected}
-                    onClick={() => setSelectedTemplate(isSelected ? null : tmpl.id)}
-                    data-testid={`template-${tmpl.id}`}
-                    className={cn(
-                      "flex w-full items-center gap-3 rounded-[var(--radius-md)] px-3 py-2.5 text-left transition-all",
-                      "focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[var(--brand-accent)]",
-                      isSelected
-                        ? "border border-[var(--brand-accent)] bg-[var(--brand-accent-light)]"
-                        : "border border-transparent hover:bg-[var(--surface-1)]"
-                    )}
-                  >
-                    <div
-                      className="flex h-7 w-7 shrink-0 items-center justify-center rounded-[var(--radius-sm)]"
-                      style={{ backgroundColor: `${tmpl.color}18` }}
-                    >
-                      <span style={{ color: tmpl.color }}><tmpl.icon className="h-3.5 w-3.5" aria-hidden="true" /></span>
-                    </div>
-                    <span className="text-xs text-[var(--text-primary)] flex-1">{t(tmpl.labelKey)}</span>
-                    {isSelected && <CheckCircle className="h-3.5 w-3.5 text-[var(--brand-accent)] shrink-0" aria-hidden="true" />}
-                  </button>
-                );
-              })}
-            </div>
-          </section>
+            <Button type="submit" loading={isGenerating} disabled={!instruction.trim()} className="w-full mt-4">
+              <Send className="h-4 w-4" />
+              {isGenerating ? "Gerando com Gemini..." : t("diagramBuilder.generate") || "Gerar diagrama"}
+            </Button>
+          </form>
 
-          {/* Export format */}
-          <section
-            aria-labelledby="export-heading"
-            className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] shadow-[var(--shadow-sm)] p-5"
-          >
-            <h2 id="export-heading" className="text-sm font-semibold text-[var(--text-primary)] mb-1">{t("export.title")}</h2>
-            <p className="text-xs text-[var(--text-secondary)] mb-4">{t("export.description")}</p>
-            <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label={t("export.title")}>
-              {exportFormats.map((fmt) => {
-                const isSelected = selectedExport === fmt.id;
-                return (
-                  <button
-                    key={fmt.id}
-                    type="button"
-                    role="radio"
-                    aria-checked={isSelected}
-                    onClick={() => setSelectedExport(fmt.id)}
-                    className={cn(
-                      "flex flex-col items-center gap-1.5 rounded-[var(--radius-md)] border p-3 text-center transition-all",
-                      "focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[var(--brand-accent)]",
-                      isSelected
-                        ? "border-[var(--brand-accent)] bg-[var(--brand-accent-light)]"
-                        : "border-[var(--border-default)] hover:border-[var(--border-strong)] hover:bg-[var(--surface-1)]"
-                    )}
-                    data-testid={`export-${fmt.id}`}
-                  >
-                    <fmt.icon
-                      className={cn("h-5 w-5", isSelected ? "text-[var(--brand-accent)]" : "text-[var(--text-tertiary)]")}
-                      aria-hidden="true"
-                    />
-                    <span className="text-[10px] font-medium text-[var(--text-secondary)]">{t(fmt.labelKey)}</span>
-                    <span className="text-[10px] text-[var(--text-tertiary)] font-mono">{fmt.extension}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </section>
-
-          {/* Additional actions — Share */}
-          <div className="space-y-2">
-            <button
-              type="button"
-              onClick={handleShare}
-              aria-disabled={diagrams.length === 0}
-              tabIndex={diagrams.length === 0 ? -1 : 0}
-              className={cn(
-                "flex w-full items-center gap-3 rounded-[var(--radius-lg)] border border-dashed p-4 text-left transition-all",
-                diagrams.length > 0
-                  ? "border-[var(--border-default)] bg-[var(--surface-1)] hover:bg-[var(--surface-2)] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[var(--brand-accent)]"
-                  : "border-[var(--border-default)]/60 bg-[var(--surface-1)]/70 opacity-60 cursor-not-allowed"
-              )}
-            >
-              <div
-                className={cn(
-                  "flex h-10 w-10 shrink-0 items-center justify-center rounded-full",
-                  diagrams.length > 0
-                    ? "bg-[var(--brand-accent-light)]"
-                    : "bg-[var(--surface-2)]"
-                )}
-              >
-                <Share2
-                  className={cn(
-                    "h-5 w-5",
-                    diagrams.length > 0
-                      ? "text-[var(--brand-accent)]"
-                      : "text-[var(--text-tertiary)]"
-                  )}
-                  aria-hidden="true"
-                />
-              </div>
-              <div>
-                <p
-                  className={cn(
-                    "text-sm font-medium",
-                    diagrams.length > 0
-                      ? "text-[var(--text-primary)]"
-                      : "text-[var(--text-tertiary)]"
-                  )}
-                >
-                  {t("actions.share")}
-                </p>
-                <p
-                  className={cn(
-                    "text-xs mt-0.5",
-                    diagrams.length > 0
-                      ? "text-[var(--text-tertiary)]"
-                      : "text-[var(--text-tertiary)]/60"
-                  )}
-                >
-                  {t("actions.shareDescription")}
-                </p>
-              </div>
-            </button>
-
-            {/* Warning when no diagrams exist yet */}
-            {diagrams.length === 0 && (
-              <div
-                role="alert"
-                className="flex items-start gap-2 rounded-[var(--radius-md)] bg-[var(--color-warning)]/10 border border-[var(--color-warning)]/25 px-3 py-2.5"
-              >
-                <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5 text-[var(--color-warning)]" aria-hidden="true" />
-                <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                  {t("dialogs.shareEmptyWarning")}
-                </p>
+          {/* Result */}
+          <div aria-live="polite">
+            {error && (
+              <div role="alert" className="mt-4 flex items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-danger)]/10 border border-[var(--color-danger)]/30 px-4 py-3 text-sm text-[var(--color-danger)]">
+                <AlertTriangle className="h-4 w-4 shrink-0" /> {error}
               </div>
             )}
+            {result && (
+              <div className="mt-4 space-y-3">
+                <div className="flex items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-success)]/10 border border-[var(--color-success)]/30 px-4 py-3 text-sm text-[var(--color-success)]">
+                  <CheckCircle className="h-4 w-4 shrink-0" />
+                  {result.description || t("diagramBuilder.success") || "Diagrama gerado!"}
+                  <span className="text-xs text-[var(--text-tertiary)] ml-auto">{result.components} componentes</span>
+                </div>
+                {/* Mermaid preview */}
+                <div className="rounded-[var(--radius-md)] border border-[var(--border-default)] bg-white overflow-auto p-4">
+                  <div ref={(el) => { if (el && result) mermaidRefs.current.set(result.id, el); }} className="flex justify-center" />
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Sidebar */}
+        <aside className="space-y-5">
+          {/* Templates */}
+          <div className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] p-4 shadow-[var(--shadow-sm)]">
+            <h3 className="text-xs font-semibold text-[var(--text-primary)] mb-3">{t("templates.title") || "Templates"}</h3>
+            <div className="grid grid-cols-2 gap-2">
+              {templates.map((tmpl) => (
+                <button
+                  key={tmpl.id}
+                  type="button"
+                  onClick={() => setSelectedTemplate(tmpl.id)}
+                  className={cn(
+                    "flex items-center gap-2 rounded-[var(--radius-md)] border px-3 py-2 text-xs transition-all",
+                    selectedTemplate === tmpl.id
+                      ? "border-[var(--brand-accent)] bg-[var(--brand-accent-light)] text-[var(--brand-accent)]"
+                      : "border-[var(--border-default)] text-[var(--text-secondary)] hover:border-[var(--border-strong)]"
+                  )}
+                >
+                  <span className={selectedTemplate === tmpl.id ? "text-[var(--brand-accent)]" : ""} style={{ color: selectedTemplate !== tmpl.id ? tmpl.color : undefined }}>
+                    <tmpl.icon className="h-3.5 w-3.5 shrink-0" />
+                  </span>
+                  <span className="truncate">{t(tmpl.labelKey)}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Export format */}
+          <div className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] p-4 shadow-[var(--shadow-sm)]">
+            <h3 className="text-xs font-semibold text-[var(--text-primary)] mb-3">{t("export.title") || "Exportar como"}</h3>
+            <div className="grid grid-cols-2 gap-2">
+              {exportFormats.map((fmt) => (
+                <button
+                  key={fmt.id}
+                  type="button"
+                  onClick={() => setSelectedExport(fmt.id)}
+                  className={cn(
+                    "flex items-center gap-2 rounded-[var(--radius-md)] border px-3 py-2 text-xs transition-all",
+                    selectedExport === fmt.id
+                      ? "border-[var(--brand-accent)] bg-[var(--brand-accent-light)] text-[var(--brand-accent)]"
+                      : "border-[var(--border-default)] text-[var(--text-secondary)] hover:border-[var(--border-strong)]"
+                  )}
+                >
+                  <fmt.icon className="h-3.5 w-3.5 shrink-0" />
+                  <span>{t(fmt.labelKey)}</span>
+                  <span className="text-[var(--text-tertiary)] text-[10px]">{fmt.extension}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </aside>
       </div>
 
       {/* Recent diagrams */}
-      <section aria-labelledby="recent-diagrams-heading">
-        <h2 id="recent-diagrams-heading" className="text-lg font-semibold text-[var(--text-primary)] mb-3">{t("recentDiagrams.title")}</h2>
+      <section>
+        <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-3">{t("recentDiagrams.title") || "Diagramas recentes"}</h3>
         {diagrams.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-12 text-center rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)]" role="status">
-            <Layers className="h-10 w-10 text-[var(--text-tertiary)] mb-3" aria-hidden="true" />
+            <Layers className="h-10 w-10 text-[var(--text-tertiary)] mb-3" />
             <p className="text-sm text-[var(--text-secondary)]">{t("recentDiagrams.empty")}</p>
           </div>
         ) : (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" role="list">
-            {diagrams.map((diagram) => {
-              const tmpl = templates.find((t) => t.id === diagram.template);
-              const TemplateIcon = tmpl?.icon || Monitor;
-              const tmplColor = tmpl?.color || "var(--text-tertiary)";
-              return (
-                <div
-                  key={diagram.id}
-                  role="listitem"
-                  className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] shadow-[var(--shadow-sm)] overflow-hidden group"
-                >
-                  {/* Preview */}
-                  <div className="h-32 bg-[var(--surface-1)] flex items-center justify-center relative">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Layers className="h-12 w-12 text-[var(--border-default)]" aria-hidden="true" />
-                    </div>
-                    <div
-                      className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10px] font-medium bg-[var(--surface-0)]/90 border border-[var(--border-default)]"
-                    >
-                      <span style={{ color: tmplColor }}><TemplateIcon className="h-3 w-3" aria-hidden="true" /></span>
-                      <span className="text-[var(--text-secondary)]">
-                        {tmpl ? t(tmpl.labelKey) : "Custom"}
-                      </span>
-                    </div>
-                    <div className="absolute top-3 right-3 inline-flex items-center rounded-full bg-[var(--surface-0)]/90 border border-[var(--border-default)] px-2 py-0.5 text-[10px] font-medium text-[var(--text-tertiary)]">
-                      {diagram.format}
-                    </div>
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {diagrams.map((d) => (
+              <div key={d.id} className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] shadow-[var(--shadow-sm)] overflow-hidden group">
+                <div className="bg-white p-3 border-b border-[var(--border-default)] min-h-[120px] flex items-center justify-center overflow-hidden">
+                  <div
+                    ref={(el) => { if (el) mermaidRefs.current.set(d.id, el); }}
+                    className="w-full flex justify-center scale-75"
+                  />
+                </div>
+                <div className="p-3">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs font-medium text-[var(--text-primary)] truncate">{d.name}</span>
+                    <span className="text-[10px] text-[var(--text-tertiary)]">{d.components} comp.</span>
                   </div>
-                  <div className="p-4">
-                    <p className="text-sm font-medium text-[var(--text-primary)] truncate">{diagram.name}</p>
-                    <div className="mt-1.5 flex items-center justify-between">
-                      <span className="text-xs text-[var(--text-tertiary)]">
-                        {t("recentDiagrams.components", { count: diagram.components })} · {t("recentDiagrams.createdAt")}: {diagram.createdAt.toLocaleDateString()}
-                      </span>
-                    </div>
-                    <div className="mt-3 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button
-                        type="button"
-                        onClick={() => handleDownloadDiagram(diagram)}
-                        aria-label={t("recentDiagrams.download")}
-                        className="flex-1 inline-flex items-center justify-center gap-1 rounded-[var(--radius-sm)] bg-[var(--surface-1)] px-3 py-1.5 text-xs text-[var(--text-secondary)] hover:bg-[var(--surface-2)] hover:text-[var(--text-primary)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[var(--brand-accent)]"
-                      >
-                        <Download className="h-3.5 w-3.5" aria-hidden="true" />{t("recentDiagrams.download")}
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => handleEditDiagram(diagram)}
-                        aria-label={t("recentDiagrams.edit")}
-                        className="inline-flex items-center justify-center rounded-[var(--radius-sm)] bg-[var(--surface-1)] p-1.5 text-xs text-[var(--text-tertiary)] hover:bg-[var(--surface-2)] hover:text-[var(--text-primary)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[var(--brand-accent)]"
-                      >
-                        <Pencil className="h-3.5 w-3.5" aria-hidden="true" />
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => handleDeleteDiagram(diagram.id)}
-                        aria-label={t("recentDiagrams.delete")}
-                        className="inline-flex items-center justify-center rounded-[var(--radius-sm)] bg-[var(--surface-1)] p-1.5 text-xs text-[var(--text-tertiary)] hover:bg-[var(--surface-2)] hover:text-[var(--color-danger)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[var(--brand-accent)]"
-                      >
-                        <Trash2 className="h-3.5 w-3.5" aria-hidden="true" />
-                      </button>
-                    </div>
+                  <p className="text-[10px] text-[var(--text-tertiary)] mb-2">{d.createdAt.toLocaleDateString()}</p>
+                  <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button onClick={() => handleDownload(d)} className="inline-flex h-7 w-7 items-center justify-center rounded-[var(--radius-sm)] text-[var(--text-tertiary)] hover:bg-[var(--surface-2)]" aria-label="Download"><Download className="h-3.5 w-3.5" /></button>
+                    <button onClick={() => handleEdit(d)} className="inline-flex h-7 w-7 items-center justify-center rounded-[var(--radius-sm)] text-[var(--text-tertiary)] hover:bg-[var(--surface-2)]" aria-label="Edit"><Pencil className="h-3.5 w-3.5" /></button>
+                    <button onClick={() => handleShare(d)} className="inline-flex h-7 w-7 items-center justify-center rounded-[var(--radius-sm)] text-[var(--text-tertiary)] hover:bg-[var(--surface-2)]" aria-label="Share"><Share2 className="h-3.5 w-3.5" /></button>
+                    <button onClick={() => handleDelete(d.id)} className="inline-flex h-7 w-7 items-center justify-center rounded-[var(--radius-sm)] text-[var(--text-tertiary)] hover:bg-[var(--surface-2)] hover:text-[var(--color-danger)] ml-auto" aria-label="Delete"><Trash2 className="h-3.5 w-3.5" /></button>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         )}
       </section>
-    </>
+    </div>
+    </LoginOverlay>
   );
+}
+
+/* ── Helpers ────────────────────────────────────────────────────── */
+
+function downloadBlob(blob: Blob, filename: string) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }

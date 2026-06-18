@@ -647,6 +647,21 @@ export const api = {
       body: params ?? {},
     }),
 
+  /* ── Architecture Diagram Generation ──────────────────────────── */
+
+  /** Generate an architecture diagram from natural language via Gemini */
+  generateArchitecture: (prompt: string, template?: string, format?: string) =>
+    clientFetch<{
+      mermaid: string;
+      title: string;
+      description: string;
+      component_count: number;
+      metadata: Record<string, string>;
+    }>("/architecture/generate", {
+      method: "POST",
+      body: { prompt, template: template ?? "aws", format: format ?? "mermaid" },
+    }),
+
   /* Automations */
   getAutomationRuns: (page = 1, perPage = 20) =>
     clientFetch<PaginatedResponse<unknown>>(
