@@ -6,8 +6,6 @@ import logging
 from pathlib import Path
 from typing import Any
 
-import cv2
-import numpy as np
 from PIL import Image, ImageEnhance, ImageFilter
 
 logger = logging.getLogger(__name__)
@@ -25,6 +23,8 @@ def preprocess_image(
     """Apply a pipeline of preprocessing steps to improve OCR accuracy.
 
     Returns the path to the preprocessed image (a temporary PNG alongside the original).
+    cv2 (OpenCV) is imported lazily — it will only be loaded if denoise is enabled.
+    On headless servers (Railway, Docker slim) use ``opencv-python-headless``.
     """
     path = Path(image_path)
     pil_img = Image.open(path)
@@ -38,11 +38,17 @@ def preprocess_image(
         enhancer = ImageEnhance.Contrast(pil_img)
         pil_img = enhancer.enhance(2.0)
 
-    # ── 3. Denoise via OpenCV ────────────────────────────────────
+    # ── 3. Denoise via OpenCV (lazy import) ──────────────────────
     if denoise:
-        cv_img = _pil_to_cv2(pil_img)
-        cv_img = cv2.fastNlMeansDenoising(cv_img, None, h=10, templateWindowSize=7, searchWindowSize=21)
-        pil_img = _cv2_to_pil(cv_img)
+        try:
+            import cv2
+            import numpy as np
+        except ImportError as exc:
+            logger.warning("OpenCV not available, skipping denoise: %s", exc)
+        else:
+            cv_img = _pil_to_cv2(pil_img, np)
+            cv_img = cv2.fastNlMeansDenoising(cv_img, None, h=10, templateWindowSize=7, searchWindowSize=21)
+            pil_img = _cv2_to_pil(cv_img)
 
     # ── 4. Sharpen ───────────────────────────────────────────────
     pil_img = pil_img.filter(ImageFilter.SHARPEN)
@@ -64,19 +70,19 @@ def preprocess_image(
     return str(out_path)
 
 
-# ── OpenCV ↔ Pillow helpers ──────────────────────────────────────
+# ── OpenCV ↔ Pillow helpers (only used when cv2 is available) ────
 
 
-def _pil_to_cv2(pil_img: Image.Image) -> Any:  # np.ndarray
-    """Convert a PIL Image to an OpenCV BGR/Grayscale array."""
+def _pil_to_cv2(pil_img: Image.Image, np: Any) -> Any:
     arr = np.array(pil_img)
-    if len(arr.shape) == 2:  # grayscale
+    if len(arr.shape) == 2:
         return arr
+    import cv2
     return cv2.cvtColor(arr, cv2.COLOR_RGB2BGR)
 
 
-def _cv2_to_pil(cv_img: Any) -> Image.Image:  # np.ndarray
-    """Convert an OpenCV array back to a PIL Image."""
+def _cv2_to_pil(cv_img: Any) -> Image.Image:
     if len(cv_img.shape) == 2:
         return Image.fromarray(cv_img, mode="L")
+    import cv2
     return Image.fromarray(cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB))
