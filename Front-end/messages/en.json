@@ -162,7 +162,8 @@
       "account": "Account",
       "security": "Security",
       "notifications": "Notifications",
-      "advanced": "Advanced"
+      "advanced": "Advanced",
+      "privacy": "Privacy & Data"
     },
     "appearance": {
       "title": "Appearance",
@@ -279,6 +280,24 @@
       "resetSettingsButton": "Reset to default",
       "resetSettingsConfirm": "Are you sure? All your preferences will be lost.",
       "appVersion": "App version"
+    },
+    "privacy": {
+      "policy": {
+        "title": "Privacy Policy & Terms of Use"
+      },
+      "consent": {
+        "title": "Your Consent"
+      },
+      "account": {
+        "title": "Your Data"
+      },
+      "actions": {
+        "title": "Privacy Actions",
+        "exportTitle": "Export my data",
+        "export": "Export",
+        "deleteTitle": "Delete my account",
+        "delete": "Delete account"
+      }
     }
   },
   "help": {

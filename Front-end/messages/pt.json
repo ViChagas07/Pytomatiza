@@ -162,7 +162,8 @@
       "account": "Conta",
       "security": "Segurança",
       "notifications": "Notificações",
-      "advanced": "Avançado"
+      "advanced": "Avançado",
+      "privacy": "Privacidade & Dados"
     },
     "appearance": {
       "title": "Aparência",
@@ -279,6 +280,24 @@
       "resetSettingsButton": "Redefinir para o padrão",
       "resetSettingsConfirm": "Tem certeza? Todas as suas preferências serão perdidas.",
       "appVersion": "Versão do aplicativo"
+    },
+    "privacy": {
+      "policy": {
+        "title": "Política de Privacidade & Termos de Uso"
+      },
+      "consent": {
+        "title": "Seu Consentimento"
+      },
+      "account": {
+        "title": "Seus Dados"
+      },
+      "actions": {
+        "title": "Ações de Privacidade",
+        "exportTitle": "Exportar meus dados",
+        "export": "Exportar",
+        "deleteTitle": "Excluir minha conta",
+        "delete": "Excluir conta"
+      }
     }
   },
   "help": {

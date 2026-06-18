@@ -15,6 +15,7 @@ import {
   Shield,
   Bell,
   SlidersHorizontal,
+  Lock,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import * as Tabs from "@radix-ui/react-tabs";
@@ -26,6 +27,7 @@ import {
   SecurityPanel,
   NotificationsPanel,
   AdvancedPanel,
+  PrivacyPanel,
 } from "./";
 
 interface TabDef {
@@ -42,6 +44,7 @@ const tabs: TabDef[] = [
   { value: "security", icon: Shield, labelKey: "tabs.security" },
   { value: "notifications", icon: Bell, labelKey: "tabs.notifications" },
   { value: "advanced", icon: SlidersHorizontal, labelKey: "tabs.advanced" },
+  { value: "privacy", icon: Lock, labelKey: "tabs.privacy" },
 ];
 
 export function SettingsTabs() {
@@ -99,6 +102,10 @@ export function SettingsTabs() {
 
       <Tabs.Content value="advanced" className="space-y-6 outline-none">
         <AdvancedPanel />
+      </Tabs.Content>
+
+      <Tabs.Content value="privacy" className="space-y-6 outline-none">
+        <PrivacyPanel />
       </Tabs.Content>
     </Tabs.Root>
   );
