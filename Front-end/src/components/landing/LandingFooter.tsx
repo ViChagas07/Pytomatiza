@@ -48,16 +48,21 @@ export function LandingFooter() {
             <div key={col.title}>
               <h3 className="text-sm font-semibold text-[var(--text-primary)]">{t(col.title)}</h3>
               <ul className="mt-4 space-y-3">
-                {col.links.map((key) => (
-                  <li key={key}>
-                    <Link
-                      href="#"
-                      className="text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
-                    >
-                      {t(key)}
-                    </Link>
-                  </li>
-                ))}
+                {col.links.map((key) => {
+                  const href = key.includes("privacy") || key.includes("terms") || key.includes("cookies") || key.includes("security")
+                    ? "/privacy-policy"
+                    : "#";
+                  return (
+                    <li key={key}>
+                      <Link
+                        href={href}
+                        className="text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                      >
+                        {t(key)}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}

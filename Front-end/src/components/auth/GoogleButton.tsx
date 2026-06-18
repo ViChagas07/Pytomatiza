@@ -12,12 +12,16 @@ import { cn } from "@/lib/utils";
 interface GoogleButtonProps {
   onClick: () => void;
   loading?: boolean;
+  disabled?: boolean;
+  title?: string;
   className?: string;
 }
 
 export function GoogleButton({
   onClick,
   loading = false,
+  disabled = false,
+  title,
   className,
 }: GoogleButtonProps) {
   const t = useTranslations("auth");
@@ -26,7 +30,8 @@ export function GoogleButton({
     <button
       type="button"
       onClick={onClick}
-      disabled={loading}
+      disabled={loading || disabled}
+      title={title}
       aria-busy={loading ? true : undefined}
       data-testid="google-signin-button"
       className={cn(

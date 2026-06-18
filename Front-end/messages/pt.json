@@ -134,6 +134,10 @@
     "architecture": {
       "title": "Arquitetura — Pytomatiza+",
       "description": "Gere diagramas de arquitetura, documentação técnica e fluxos de sistema com IA."
+    },
+    "privacy": {
+      "title": "Política de Privacidade & Termos de Uso — Pytomatiza+",
+      "description": "Política de Privacidade, Termos de Uso e direitos LGPD do Pytomatiza+. Saiba como protegemos seus dados."
     }
   },
   "navigation": {

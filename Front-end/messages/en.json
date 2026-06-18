@@ -134,6 +134,10 @@
     "architecture": {
       "title": "Architecture — Pytomatiza+",
       "description": "Generate architecture diagrams, technical documentation, and system flows with AI."
+    },
+    "privacy": {
+      "title": "Privacy Policy & Terms of Use — Pytomatiza+",
+      "description": "Privacy Policy, Terms of Use, and data protection rights for Pytomatiza+. Learn how we protect your data."
     }
   },
   "navigation": {

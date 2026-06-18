@@ -56,6 +56,7 @@ export function AuthForm() {
   const [activeTab, setActiveTab] = React.useState<AuthTab>("signin");
   const [globalError, setGlobalError] = React.useState<string | null>(null);
   const [isGoogleLoading, setIsGoogleLoading] = React.useState(false);
+  const [consentChecked, setConsentChecked] = React.useState(false);
   const tabListRef = React.useRef<HTMLDivElement>(null);
 
   /* ── Tab keyboard navigation (Arrow keys) ──────────────────── */
@@ -174,6 +175,10 @@ export function AuthForm() {
 
   /* ── Google Sign-In ────────────────────────────────────────── */
   const handleGoogleSignIn = async () => {
+    if (!consentChecked) {
+      setGlobalError(tAuth("errors.consentRequired") || "Você precisa aceitar os Termos de Uso e Política de Privacidade.");
+      return;
+    }
     setIsGoogleLoading(true);
     setGlobalError(null);
     try {
@@ -331,10 +336,34 @@ export function AuthForm() {
                   </div>
                 </div>
 
+                {/* ── Consent checkbox ────────────────────────────── */}
+                <div className="mt-4 flex items-start gap-3 rounded-[var(--radius-md)] bg-white/5 p-3">
+                  <input
+                    type="checkbox"
+                    id="consent-checkbox"
+                    checked={consentChecked}
+                    onChange={(e) => setConsentChecked(e.target.checked)}
+                    className="mt-0.5 h-4 w-4 shrink-0 rounded border-white/30 bg-transparent text-[var(--brand-accent)] focus:ring-2 focus:ring-[var(--brand-accent)] focus:ring-offset-0 cursor-pointer"
+                    aria-required="true"
+                  />
+                  <label htmlFor="consent-checkbox" className="text-xs text-white/80 leading-relaxed cursor-pointer">
+                    Li e concordo com os{" "}
+                    <a href="/privacy-policy" target="_blank" className="text-[var(--brand-accent-light)] hover:underline font-medium">
+                      Termos de Uso
+                    </a>{" "}
+                    e a{" "}
+                    <a href="/privacy-policy" target="_blank" className="text-[var(--brand-accent-light)] hover:underline font-medium">
+                      Política de Privacidade
+                    </a>{" "}
+                    do Pytomatiza+.
+                  </label>
+                </div>
+
                 <Button
                   type="submit"
                   loading={signInForm.formState.isSubmitting}
-                  className="w-full mt-1"
+                  disabled={!consentChecked}
+                  className="w-full mt-3"
                   data-testid="signin-submit"
                 >
                   {tSignIn("submit")}
@@ -425,10 +454,34 @@ export function AuthForm() {
                   data-testid="signup-confirm-password"
                 />
 
+                {/* ── Consent checkbox ────────────────────────────── */}
+                <div className="mt-4 flex items-start gap-3 rounded-[var(--radius-md)] bg-white/5 p-3">
+                  <input
+                    type="checkbox"
+                    id="consent-checkbox-signup"
+                    checked={consentChecked}
+                    onChange={(e) => setConsentChecked(e.target.checked)}
+                    className="mt-0.5 h-4 w-4 shrink-0 rounded border-white/30 bg-transparent text-[var(--brand-accent)] focus:ring-2 focus:ring-[var(--brand-accent)] focus:ring-offset-0 cursor-pointer"
+                    aria-required="true"
+                  />
+                  <label htmlFor="consent-checkbox-signup" className="text-xs text-white/80 leading-relaxed cursor-pointer">
+                    Li e concordo com os{" "}
+                    <a href="/privacy-policy" target="_blank" className="text-[var(--brand-accent-light)] hover:underline font-medium">
+                      Termos de Uso
+                    </a>{" "}
+                    e a{" "}
+                    <a href="/privacy-policy" target="_blank" className="text-[var(--brand-accent-light)] hover:underline font-medium">
+                      Política de Privacidade
+                    </a>{" "}
+                    do Pytomatiza+.
+                  </label>
+                </div>
+
                 <Button
                   type="submit"
                   loading={signUpForm.formState.isSubmitting}
-                  className="w-full mt-1"
+                  disabled={!consentChecked}
+                  className="w-full mt-3"
                   data-testid="signup-submit"
                 >
                   {tSignUp("submit")}
@@ -454,6 +507,8 @@ export function AuthForm() {
         <GoogleButton
           onClick={handleGoogleSignIn}
           loading={isGoogleLoading}
+          disabled={!consentChecked}
+          title={!consentChecked ? "Aceite os Termos de Uso e Política de Privacidade para continuar" : undefined}
         />
 
         {/* ── Footer text ────────────────────────────────────────── */}
