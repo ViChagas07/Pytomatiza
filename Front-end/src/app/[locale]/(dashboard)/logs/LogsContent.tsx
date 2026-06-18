@@ -16,23 +16,38 @@ import {
   Clock,
 } from "lucide-react";
 import { LoginOverlay } from "@/components/ui/LoginOverlay";
+import { api } from "@/lib/api";
+import { cn } from "@/lib/utils";
 
 /* ── Component ────────────────────────────────────────────────────── */
 
 export function LogsContent() {
   const t = useTranslations("logs");
   const [loaded, setLoaded] = React.useState(false);
+  const [stats, setStats] = React.useState({ total_executions: 0, success_rate: 0, errors_24h: 0, pending_approvals: 0 });
+  const [logs, setLogs] = React.useState<Array<{ id: string; workflow_name: string; status: string; started_at: string | null; duration_ms: number; error_message: string | null }>>([]);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
-    const timer = setTimeout(() => setLoaded(true), 600);
+    const timer = setTimeout(() => setLoaded(true), 300);
+    fetchData();
     return () => clearTimeout(timer);
   }, []);
 
-  const stats = [
-    { key: "totalExecutions", value: "0", icon: ClipboardList },
-    { key: "successRate", value: "---", icon: CheckCircle },
-    { key: "pendingApprovals", value: "0", icon: Hourglass },
-    { key: "errors24h", value: "0", icon: XCircle },
+  const fetchData = async () => {
+    try {
+      const [sRes, lRes] = await Promise.all([api.getLogsStats(), api.getLogs(1)]);
+      if (sRes.data) setStats(sRes.data);
+      if (lRes.data?.items) setLogs(lRes.data.items);
+    } catch { /* gracefully handle */ }
+    finally { setIsLoading(false); }
+  };
+
+  const statCards = [
+    { key: "totalExecutions", value: String(stats.total_executions), icon: ClipboardList },
+    { key: "successRate", value: stats.success_rate > 0 ? `${stats.success_rate}%` : "---", icon: CheckCircle },
+    { key: "pendingApprovals", value: String(stats.pending_approvals), icon: Hourglass },
+    { key: "errors24h", value: String(stats.errors_24h), icon: XCircle },
   ];
 
   if (!loaded) {
@@ -54,7 +69,7 @@ export function LogsContent() {
       <LoginOverlay label={t("loginPrompt")}>
         {/* ── Stats row ───────────────────────────────────────────── */}
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {stats.map(({ key, value, icon: Icon }) => (
+          {statCards.map(({ key, value, icon: Icon }) => (
             <div
               key={key}
               className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] p-5 shadow-[var(--shadow-sm)]"
@@ -72,18 +87,56 @@ export function LogsContent() {
           ))}
         </div>
 
-        {/* ── Logs table (empty — mock data removed) ────────────────── */}
+        {/* ── Logs table ──────────────────────────────────────────── */}
         <div className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] shadow-[var(--shadow-sm)] overflow-hidden">
           <div className="flex items-center gap-4 border-b border-[var(--border-default)] px-5 py-3">
             <Clock className="h-4 w-4 text-[var(--text-tertiary)]" aria-hidden="true" />
             <span className="text-sm font-semibold text-[var(--text-primary)]">{t("tableHeader")}</span>
+            {isLoading && <span className="text-[10px] text-[var(--text-tertiary)] animate-pulse ml-auto">Carregando...</span>}
           </div>
-          <div className="flex flex-col items-center justify-center py-12 text-center">
-            <Clock className="h-10 w-10 text-[var(--text-tertiary)] mb-3" aria-hidden="true" />
-            <p className="text-sm text-[var(--text-secondary)]">
-              {t("tableEmpty")}
-            </p>
-          </div>
+          {logs.length === 0 && !isLoading ? (
+            <div className="flex flex-col items-center justify-center py-12 text-center">
+              <Clock className="h-10 w-10 text-[var(--text-tertiary)] mb-3" aria-hidden="true" />
+              <p className="text-sm text-[var(--text-secondary)]">{t("tableEmpty")}</p>
+            </div>
+          ) : (
+            <div className="divide-y divide-[var(--border-default)]">
+              {logs.map((log) => (
+                <div key={log.id} className="flex items-center gap-4 px-5 py-3 hover:bg-[var(--surface-1)] transition-colors">
+                  <span className={cn(
+                    "h-2 w-2 rounded-full shrink-0",
+                    log.status === "success" && "bg-[var(--color-success)]",
+                    log.status === "failed" && "bg-[var(--color-danger)]",
+                    log.status === "running" && "bg-[var(--brand-accent)] animate-pulse",
+                    log.status === "pending_approval" && "bg-[var(--color-warning)]",
+                  )} />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs font-medium text-[var(--text-primary)] truncate">
+                      {log.workflow_name || `Execução ${log.id.slice(0, 8)}`}
+                    </p>
+                    {log.error_message && (
+                      <p className="text-[10px] text-[var(--color-danger)] truncate mt-0.5">{log.error_message}</p>
+                    )}
+                  </div>
+                  <span className={cn(
+                    "text-[10px] font-medium uppercase shrink-0",
+                    log.status === "success" && "text-[var(--color-success)]",
+                    log.status === "failed" && "text-[var(--color-danger)]",
+                    log.status === "running" && "text-[var(--brand-accent)]",
+                    log.status === "pending_approval" && "text-[var(--color-warning)]",
+                  )}>
+                    {log.status}
+                  </span>
+                  <span className="text-[10px] text-[var(--text-tertiary)] shrink-0 w-16 text-right">
+                    {log.duration_ms > 0 ? `${(log.duration_ms / 1000).toFixed(1)}s` : "—"}
+                  </span>
+                  <span className="text-[10px] text-[var(--text-tertiary)] shrink-0 w-20 text-right">
+                    {log.started_at ? new Date(log.started_at).toLocaleDateString() : "—"}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </LoginOverlay>
     </div>

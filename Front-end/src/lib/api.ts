@@ -662,6 +662,130 @@ export const api = {
       body: { prompt, template: template ?? "aws", format: format ?? "mermaid" },
     }),
 
+  /* ── Logs ─────────────────────────────────────────────────────── */
+
+  getLogs: (page?: number, status?: string) =>
+    clientFetch<{
+      items: Array<{
+        id: string;
+        workflow_name: string;
+        workflow_id: string;
+        agent_type: string;
+        status: string;
+        started_at: string | null;
+        finished_at: string | null;
+        error_message: string | null;
+        duration_ms: number;
+      }>;
+      total: number;
+      page: number;
+      per_page: number;
+      pages: number;
+    }>(`/logs?page=${page ?? 1}&per_page=20${status ? `&status=${status}` : ""}`),
+
+  getLogsStats: () =>
+    clientFetch<{
+      total_executions: number;
+      success_rate: number;
+      errors_24h: number;
+      pending_approvals: number;
+      avg_duration_ms: number;
+    }>("/logs/stats"),
+
+  getPendingApprovals: () =>
+    clientFetch<{
+      items: Array<{ id: string; workflow_name: string; workflow_id: string }>;
+      total: number;
+    }>("/logs/approvals"),
+
+  /* ── Communication ─────────────────────────────────────────────── */
+
+  sendMessage: (service: string, action: string, params?: Record<string, unknown>) =>
+    clientFetch<{ success: boolean; action: string; result: Record<string, unknown>; error: string | null }>(
+      `/communication/send?service=${service}&action=${action}`,
+      { method: "POST", body: params ?? {} }
+    ),
+
+  getCommunicationChannels: () =>
+    clientFetch<{
+      channels: Record<string, { connected: boolean; status: string; message: string }>;
+    }>("/communication/channels"),
+
+  /* ── Data Analysis ─────────────────────────────────────────────── */
+
+  analyzeData: (prompt: string) =>
+    clientFetch<{ result: string; status: string }>("/data/analyze", {
+      method: "POST",
+      body: { prompt },
+    }),
+
+  /* ── Media Transform ───────────────────────────────────────────── */
+
+  transformMedia: async (file: File, action: string, options?: { width?: number; height?: number; quality?: number; format?: string }) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("action", action);
+    if (options?.width) formData.append("width", String(options.width));
+    if (options?.height) formData.append("height", String(options.height));
+    if (options?.quality) formData.append("quality", String(options.quality));
+    if (options?.format) formData.append("format", options.format);
+
+    try {
+      const headers: Record<string, string> = {};
+      try {
+        const { getSession } = await import("next-auth/react");
+        const session = await getSession();
+        if (session?.backendToken) headers["Authorization"] = `Bearer ${session.backendToken}`;
+      } catch { /* skip */ }
+
+      const response = await fetch(`${API_BASE}/media/transform`, {
+        method: "POST", credentials: "include", headers, body: formData,
+      });
+      if (!response.ok) {
+        const err = await response.json().catch(() => ({}));
+        return { data: null, error: { code: "SERVER_ERROR" as const, message: (err as Record<string,unknown>).detail as string || "Transform failed" }, status: response.status };
+      }
+      const blob = await response.blob();
+      return { data: { blob, url: URL.createObjectURL(blob) }, error: null, status: response.status };
+    } catch (err) {
+      return { data: null, error: { code: "NETWORK_ERROR" as const, message: err instanceof Error ? err.message : "Network error" }, status: 0 };
+    }
+  },
+
+  /* ── Files / Storage (wire to existing storage.py) ─────────────── */
+
+  uploadFile: async (file: File) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    try {
+      const headers: Record<string, string> = {};
+      try {
+        const { getSession } = await import("next-auth/react");
+        const session = await getSession();
+        if (session?.backendToken) headers["Authorization"] = `Bearer ${session.backendToken}`;
+      } catch { /* skip */ }
+      const response = await fetch(`${API_BASE}/storage/upload`, {
+        method: "POST", credentials: "include", headers, body: formData,
+      });
+      if (!response.ok) {
+        const err = await response.json().catch(() => ({}));
+        return { data: null, error: { code: "SERVER_ERROR" as const, message: (err as Record<string,unknown>).detail as string || "Upload failed" }, status: response.status };
+      }
+      const data = await response.json();
+      return { data, error: null, status: response.status };
+    } catch (err) {
+      return { data: null, error: { code: "NETWORK_ERROR" as const, message: err instanceof Error ? err.message : "Network error" }, status: 0 };
+    }
+  },
+
+  listFiles: (prefix?: string) =>
+    clientFetch<{
+      items: Array<{ key: string; size: number; last_modified: string }>;
+    }>(`/storage/list${prefix ? `?prefix=${encodeURIComponent(prefix)}` : ""}`),
+
+  deleteFile: (key: string) =>
+    clientFetch<{ message: string }>(`/storage/files?key=${encodeURIComponent(key)}`, { method: "DELETE" }),
+
   /* Automations */
   getAutomationRuns: (page = 1, perPage = 20) =>
     clientFetch<PaginatedResponse<unknown>>(

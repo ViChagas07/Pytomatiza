@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { api } from "@/lib/api";
 import { LoginOverlay } from "@/components/ui/LoginOverlay";
 
 /* ── Types ──────────────────────────────────────────────────────── */
@@ -105,16 +106,25 @@ export function CommunicationContent() {
     setError(null);
     setResult(null);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1800));
-      const channelLabels = Array.from(selectedChannels).join(", ");
-      setResult(t("results.sent", { channels: channelLabels }));
+      // Send via real integration API
+      const channels = Array.from(selectedChannels);
+      let allSent = true;
+      for (const channel of channels) {
+        const res = await api.sendMessage(channel, "send_message", {
+          content: instruction,
+          subject: subject || instruction.slice(0, 50),
+        });
+        if (!res.data?.success) allSent = false;
+      }
+      const channelLabels = channels.join(", ");
+      setResult(allSent ? t("results.sent", { channels: channelLabels }) : t("errors.sendFailed"));
 
       const newMsg: RecentMessage = {
         id: `m${Date.now()}`,
-        channel: Array.from(selectedChannels)[0],
+        channel: channels[0],
         subject: subject || instruction.slice(0, 50) + "...",
         sentAt: new Date(),
-        status: "sent",
+        status: allSent ? "sent" : "failed",
         recipients: 1,
       };
       setRecentMessages((prev) => [newMsg, ...prev]);

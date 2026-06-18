@@ -31,6 +31,7 @@ import { GoogleDriveIcon } from "@/components/ui/GoogleIcons";
 import { cn } from "@/lib/utils";
 import { useGoogleIntegration } from "@/lib/useGoogleIntegration";
 import { LoginOverlay } from "@/components/ui/LoginOverlay";
+import { api } from "@/lib/api";
 
 /* ── Types ──────────────────────────────────────────────────────── */
 
@@ -117,8 +118,12 @@ export function DataContent() {
     setError(null);
     setResult(null);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      setResult(t("results.transformComplete", { count: 3240 }));
+      const res = await api.analyzeData(instruction);
+      if (res.data) {
+        setResult(res.data.result || t("results.transformComplete", { count: 0 }));
+      } else {
+        setError(res.error?.message || t("errors.processFailed"));
+      }
     } catch {
       setError(t("errors.processFailed"));
     } finally {
