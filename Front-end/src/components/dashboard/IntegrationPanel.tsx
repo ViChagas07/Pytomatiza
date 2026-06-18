@@ -20,11 +20,21 @@ import { GoogleDriveIcon, GmailIcon } from "@/components/ui/GoogleIcons";
 
 /* ── Adapters — Google SVG icons to react‑icons interface ──────── */
 
-function GoogleDriveIconAdapter({ size = 24 }: { size?: number | string; className?: string; color?: string }) {
-  return <GoogleDriveIcon className={`h-[${typeof size === 'number' ? size : 24}px] w-[${typeof size === 'number' ? size : 24}px]`} />;
+function GoogleDriveIconAdapter({ size = 24, className = "" }: { size?: number | string; className?: string; color?: string }) {
+  const s = typeof size === "number" ? size : 24;
+  return (
+    <span className={className} style={{ width: s, height: s, display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+      <GoogleDriveIcon className="h-full w-full" />
+    </span>
+  );
 }
-function GmailIconAdapter({ size = 24 }: { size?: number | string; className?: string; color?: string }) {
-  return <GmailIcon className={`h-[${typeof size === 'number' ? size : 24}px] w-[${typeof size === 'number' ? size : 24}px]`} />;
+function GmailIconAdapter({ size = 24, className = "" }: { size?: number | string; className?: string; color?: string }) {
+  const s = typeof size === "number" ? size : 24;
+  return (
+    <span className={className} style={{ width: s, height: s, display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+      <GmailIcon className="h-full w-full" />
+    </span>
+  );
 }
 import {
   CheckCircle,
