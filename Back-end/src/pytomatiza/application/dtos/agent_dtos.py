@@ -39,6 +39,8 @@ class AgentResponse(BaseModel):
     """Human‑readable explanation when *accepted* is False."""
     recommendation: AgentRecommendation | None = None
     """Suggested alternative agent when the request is out of scope."""
+    response_text: str | None = None
+    """AI‑generated response (Gemini) when the agent processes the prompt."""
 
     model_config = {"from_attributes": True}
 

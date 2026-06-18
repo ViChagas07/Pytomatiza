@@ -94,6 +94,7 @@ export function AgentCard({
     reason: string;
     recommendation: { agent_type: string; label: string; reason: string } | null;
   } | null>(null);
+  const [aiResponse, setAiResponse] = React.useState<string | null>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   // Focus the input when prompt dialog appears
@@ -121,6 +122,7 @@ export function AgentCard({
 
     setIsRunning(true);
     setRefusal(null);
+    setAiResponse(null);
     try {
       const res = await api.runAgent(agent.id, prompt);
       if (res.error) {
@@ -139,6 +141,11 @@ export function AgentCard({
           recommendation: data.recommendation ?? null,
         });
         // Do NOT call onRun — agent didn't execute
+      } else if (data?.response_text) {
+        // Agent accepted + Gemini returned an intelligent response
+        setShowPrompt(false);
+        setAiResponse(data.response_text);
+        onRun?.(agent.id, true);
       } else {
         // Agent accepted → tell parent to update status (skip duplicate API call)
         setShowPrompt(false);
@@ -341,6 +348,34 @@ export function AgentCard({
           >
             <X className="h-3.5 w-3.5" />
           </button>
+        </div>
+      )}
+
+      {/* ── AI Response banner (Gemini‑powered) ──────────────────── */}
+      {aiResponse && (
+        <div
+          className="flex flex-col gap-2 rounded-[var(--radius-md)] border border-[var(--brand-accent)]/30 bg-[var(--brand-accent-light)] p-3 animate-in fade-in slide-in-from-bottom-1"
+          role="status"
+        >
+          <div className="flex items-start gap-2">
+            <Sparkles className="h-4 w-4 shrink-0 text-[var(--brand-accent)] mt-0.5" aria-hidden="true" />
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-medium text-[var(--brand-accent)] mb-1">
+                Resposta do agente (Gemini AI)
+              </p>
+              <p className="text-xs text-[var(--text-primary)] leading-relaxed whitespace-pre-wrap">
+                {aiResponse}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setAiResponse(null)}
+              className="shrink-0 text-[var(--text-tertiary)] hover:text-[var(--text-primary)]"
+              aria-label="Fechar resposta"
+            >
+              <X className="h-3.5 w-3.5" />
+            </button>
+          </div>
         </div>
       )}
 

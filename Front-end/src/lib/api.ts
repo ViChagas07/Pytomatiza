@@ -77,6 +77,7 @@ export interface BackendAgentResponse {
   // ── Run‑result metadata (populated by POST /agents/{id}/run) ─────
   accepted?: boolean | null;
   refusal_reason?: string | null;
+  response_text?: string | null;
   recommendation?: {
     agent_type: string;
     label: string;
