@@ -25,6 +25,7 @@ import {
   LogOut,
   Settings,
   LogIn,
+  Home,
 } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
@@ -40,6 +41,12 @@ interface NavItemDef {
 }
 
 const primaryNavItems: NavItemDef[] = [
+  {
+    href: "/",
+    labelKey: "home",
+    icon: Home,
+    testId: "nav-home",
+  },
   {
     href: "/dashboard",
     labelKey: "dashboard",
@@ -177,15 +184,15 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[60] flex flex-col md:hidden" aria-hidden="false">
+    <div className="fixed inset-0 z-[60] flex md:hidden" aria-hidden="false">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/40"
+        className="absolute inset-0 bg-black/40 animate-in fade-in duration-200"
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Bottom sheet */}
+      {/* Side panel — slides from left */}
       <div
         ref={panelRef}
         id="mobile-menu-panel"
@@ -194,9 +201,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         aria-label={t("openMenu")}
         data-testid="mobile-menu-panel"
         className={cn(
-          "relative mt-auto w-full max-h-[85vh] overflow-y-auto",
-          "rounded-t-[var(--radius-lg)] border-t border-[var(--border-default)]",
-          "bg-[var(--surface-0)] shadow-[var(--shadow-md)]"
+          "relative w-72 h-full overflow-y-auto animate-in slide-in-from-left duration-200",
+          "border-r border-[var(--border-default)]",
+          "bg-[var(--surface-0)] shadow-[var(--shadow-lg)]"
         )}
       >
         {/* Header */}

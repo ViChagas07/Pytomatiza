@@ -136,7 +136,7 @@ export function Navbar() {
         <div className="flex h-full items-center justify-between px-4 lg:px-6">
           {/* ── Left: Logo ─────────────────────────────────────────── */}
           <Link
-            href="/dashboard"
+            href="/"
             className="flex items-center gap-2 text-lg font-bold tracking-tight"
           >
             <Image
