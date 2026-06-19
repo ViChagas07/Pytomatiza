@@ -39,11 +39,46 @@ export function AuraBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isMounted, setIsMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [motionOffset, setMotionOffset] = useState({ x: 0, y: 0 });
+
+  /* Detect mobile */
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   /* Delay initial render so CSS variables from AccentColorScript settle */
   useEffect(() => {
     const timer = setTimeout(() => setIsMounted(true), 80);
     return () => clearTimeout(timer);
+  }, []);
+
+  /* ── Device motion (shake → sway effect) ───────────────────── */
+  useEffect(() => {
+    let lastX = 0, lastY = 0;
+    const handleMotion = (e: DeviceMotionEvent) => {
+      const ax = e.accelerationIncludingGravity?.x ?? 0;
+      const ay = e.accelerationIncludingGravity?.y ?? 0;
+      // Smooth the motion
+      const smoothX = lastX + (ax - lastX) * 0.3;
+      const smoothY = lastY + (ay - lastY) * 0.3;
+      lastX = smoothX;
+      lastY = smoothY;
+      setMotionOffset({ x: smoothX * 3, y: smoothY * 3 });
+    };
+
+    if (typeof DeviceMotionEvent !== "undefined") {
+      // Request permission for iOS
+      if (typeof (DeviceMotionEvent as any).requestPermission === "function") {
+        // Needs user gesture to request — skip for now, use mouse/touch instead
+      } else {
+        window.addEventListener("devicemotion", handleMotion);
+      }
+    }
+    return () => window.removeEventListener("devicemotion", handleMotion);
   }, []);
 
   /* ── Mouse parallax ──────────────────────────────────────────── */
@@ -57,7 +92,6 @@ export function AuraBackground() {
       const clientY =
         "touches" in e ? e.touches[0].clientY : e.clientY;
 
-      /* Normalise to [-1, 1] */
       const x = ((clientX - rect.left) / rect.width - 0.5) * 2;
       const y = ((clientY - rect.top) / rect.height - 0.5) * 2;
       setMousePos({ x, y });
@@ -66,24 +100,18 @@ export function AuraBackground() {
   );
 
   useEffect(() => {
-    window.addEventListener("mousemove", handlePointerMove, {
-      passive: true,
-    });
-    window.addEventListener("touchmove", handlePointerMove, {
-      passive: true,
-    });
+    window.addEventListener("mousemove", handlePointerMove, { passive: true });
+    window.addEventListener("touchmove", handlePointerMove, { passive: true });
     return () => {
       window.removeEventListener("mousemove", handlePointerMove);
       window.removeEventListener("touchmove", handlePointerMove);
     };
   }, [handlePointerMove]);
 
-  const parallaxX = mousePos.x * 10;
-  const parallaxY = mousePos.y * 10;
-
-  /* ── Aura cloud parallax (moves opposite for depth) ──────────── */
-  const cloudOffsetX = mousePos.x * -5;
-  const cloudOffsetY = mousePos.y * -5;
+  const parallaxX = mousePos.x * 10 + motionOffset.x;
+  const parallaxY = mousePos.y * 10 + motionOffset.y;
+  const cloudOffsetX = mousePos.x * -5 + motionOffset.x * 0.5;
+  const cloudOffsetY = mousePos.y * -5 + motionOffset.y * 0.5;
 
   return (
     <div
@@ -102,6 +130,7 @@ export function AuraBackground() {
         style={{
           transform: `translate(${parallaxX}px, ${parallaxY}px)`,
           transition: "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+          filter: isMobile ? "brightness(2.5) saturate(1.5)" : undefined,
         }}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
