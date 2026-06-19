@@ -97,13 +97,13 @@ export function LandingNav() {
           </Link>
         </div>
 
-        {/* Mobile right side: CTA text + hamburger */}
+        {/* Mobile right side: CTA button + hamburger */}
         <div className="flex items-center gap-2 md:hidden">
           <Link
             href={session?.user ? "/dashboard" : "/login"}
-            className="text-xs font-semibold text-[var(--brand-accent)] hover:underline whitespace-nowrap"
+            className="text-[11px] font-semibold rounded-[var(--radius-md)] bg-[var(--brand-accent)] text-white px-3 py-1.5 hover:bg-[var(--brand-accent-hover)] transition-colors whitespace-nowrap"
           >
-            {t("hero.cta") || "Começar a automatizar"}
+            {t("nav.getStarted") || "Começar agora"}
           </Link>
           <button
             type="button"
@@ -138,15 +138,15 @@ export function LandingNav() {
                 </Button>
               </Link>
             ) : (
-              <Button variant="ghost" size="sm" className="w-full" onClick={() => { signIn(); setMobileOpen(false); }}>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="w-full bg-[var(--brand-accent)]/10 text-[var(--brand-accent)] font-semibold hover:bg-[var(--brand-accent)]/20"
+                onClick={() => { signIn(); setMobileOpen(false); }}
+              >
                 {t("nav.signIn")}
               </Button>
             )}
-            <Link href={session?.user ? "/dashboard" : "/login"} onClick={() => setMobileOpen(false)}>
-              <Button variant="primary" size="sm" className="w-full">
-                {t("nav.getStarted")}
-              </Button>
-            </Link>
           </nav>
         </div>
       )}
