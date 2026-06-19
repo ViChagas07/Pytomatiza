@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 export function LandingNav() {
   const t = useTranslations("landing");
   const { data: session } = useSession();
+  const isLoggedIn = !!session?.user;
   const [scrolled, setScrolled] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -41,7 +42,7 @@ export function LandingNav() {
     >
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 lg:px-6">
         {/* Logo — compact on mobile, full on desktop */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
+        <Link href={isLoggedIn ? "/dashboard" : "/"} className="flex items-center gap-2 shrink-0">
           <Image
             src="/Pytomatiza_Logo_Supremo.png"
             alt=""
@@ -69,7 +70,7 @@ export function LandingNav() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          {session?.user ? (
+          {isLoggedIn ? (
             <Link href="/dashboard">
               {session.user.image ? (
                 <Image
@@ -90,9 +91,9 @@ export function LandingNav() {
               {t("nav.signIn")}
             </Button>
           )}
-          <Link href={session?.user ? "/dashboard" : "/login"}>
-            <Button variant="primary" size="sm">
-              {t("nav.getStarted")}
+          <Link href={isLoggedIn ? "/dashboard" : "/login"}>
+            <Button variant="primary" size="sm" className="!text-[var(--text-primary)]">
+              {isLoggedIn ? t("nav.dashboard") : t("nav.getStarted")}
             </Button>
           </Link>
         </div>
@@ -100,10 +101,10 @@ export function LandingNav() {
         {/* Mobile right side: CTA button + hamburger */}
         <div className="flex items-center gap-2 md:hidden">
           <Link
-            href={session?.user ? "/dashboard" : "/login"}
-            className="text-[11px] font-semibold rounded-[var(--radius-md)] bg-[var(--brand-accent)] text-white px-3 py-1.5 hover:bg-[var(--brand-accent-hover)] transition-colors whitespace-nowrap"
+            href={isLoggedIn ? "/dashboard" : "/login"}
+            className="text-[11px] font-semibold rounded-[var(--radius-md)] bg-[var(--brand-accent)] text-black px-3 py-1.5 hover:bg-[var(--brand-accent-hover)] transition-colors whitespace-nowrap"
           >
-            {t("nav.getStarted") || "Começar agora"}
+            {isLoggedIn ? t("nav.dashboard") : t("nav.getStarted") || "Começar agora"}
           </Link>
           <button
             type="button"
@@ -131,7 +132,7 @@ export function LandingNav() {
               </Link>
             ))}
             <hr className="my-2 border-[var(--border-default)]" />
-            {session?.user ? (
+            {isLoggedIn ? (
               <Link href="/dashboard" onClick={() => setMobileOpen(false)}>
                 <Button variant="secondary" size="sm" className="w-full">
                   {t("nav.dashboard")}
