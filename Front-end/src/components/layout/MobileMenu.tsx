@@ -192,7 +192,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         aria-hidden="true"
       />
 
-      {/* Side panel — slides from left */}
+      {/* Side panel — slides from right */}
       <div
         ref={panelRef}
         id="mobile-menu-panel"
@@ -201,8 +201,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         aria-label={t("openMenu")}
         data-testid="mobile-menu-panel"
         className={cn(
-          "relative w-72 h-full overflow-y-auto animate-in slide-in-from-left duration-200",
-          "border-r border-[var(--border-default)]",
+          "relative ml-auto w-72 h-full overflow-y-auto animate-in slide-in-from-right duration-200",
+          "border-l border-[var(--border-default)]",
           "bg-[var(--surface-0)] shadow-[var(--shadow-lg)]"
         )}
       >
