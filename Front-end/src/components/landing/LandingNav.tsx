@@ -40,7 +40,8 @@ export function LandingNav() {
       role="banner"
     >
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 lg:px-6">
-        <Link href="/" className="flex items-center gap-2 text-lg font-bold tracking-tight">
+        {/* Logo — full on desktop, compact on mobile */}
+        <Link href="/" className="flex items-center gap-2">
           <Image
             src="/Pytomatiza_Logo_Supremo.png"
             alt=""
@@ -49,10 +50,14 @@ export function LandingNav() {
             className="rounded-[var(--radius-sm)]"
             aria-hidden="true"
           />
-          <span className="text-[var(--brand-python-blue)]" style={{ fontFamily: "var(--font-aref-ruqaa)" }}>
+          <span className="hidden sm:inline text-lg font-bold tracking-tight text-[var(--brand-python-blue)]" style={{ fontFamily: "var(--font-aref-ruqaa)" }}>
             Pytomatiza
           </span>
-          <span className="-ml-2 text-[var(--brand-accent-dynamic)]">+</span>
+          <span className="hidden sm:inline -ml-2 text-lg font-bold text-[var(--brand-accent-dynamic)]">+</span>
+          {/* Mobile CTA text */}
+          <span className="sm:hidden text-xs font-semibold text-[var(--text-primary)] leading-tight">
+            {t("hero.cta") || "Comece a automatizar"}
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex" aria-label={t("a11y.mainNavigation")}>

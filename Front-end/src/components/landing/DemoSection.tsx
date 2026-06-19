@@ -30,7 +30,7 @@ export function DemoSection() {
   const [activeTab, setActiveTab] = React.useState<string>(tabs[0]);
 
   return (
-    <section aria-labelledby="demo-heading" className="py-16 md:py-24 bg-[var(--surface-1)]/50">
+    <section aria-labelledby="demo-heading" id="demo-section" className="py-16 md:py-24 bg-[var(--surface-1)]/50">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="text-center">
           <h2

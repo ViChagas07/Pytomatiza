@@ -37,7 +37,14 @@ export function HeroSection() {
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Button>
               </Link>
-              <Button variant="outline" size="lg">
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => {
+                  const el = document.getElementById("demo-section");
+                  el?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
+              >
                 <Play className="h-4 w-4" aria-hidden="true" />
                 {t("hero.demo")}
               </Button>
