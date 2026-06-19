@@ -3,7 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LayoutDashboard } from "lucide-react";
 import { useSession, signIn } from "next-auth/react";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
@@ -92,7 +92,8 @@ export function LandingNav() {
             </Button>
           )}
           <Link href={isLoggedIn ? "/dashboard" : "/login"}>
-            <Button variant="primary" size="sm" className="!text-[var(--text-primary)]">
+            <Button variant="primary" size="sm" className="!text-[var(--text-primary)] inline-flex items-center gap-1">
+              {isLoggedIn && <LayoutDashboard className="h-3.5 w-3.5" />}
               {isLoggedIn ? t("nav.dashboard") : t("nav.getStarted")}
             </Button>
           </Link>
@@ -102,8 +103,9 @@ export function LandingNav() {
         <div className="flex items-center gap-2 md:hidden">
           <Link
             href={isLoggedIn ? "/dashboard" : "/login"}
-            className="text-[11px] font-semibold rounded-[var(--radius-md)] bg-[var(--brand-accent)] text-black px-3 py-1.5 hover:bg-[var(--brand-accent-hover)] transition-colors whitespace-nowrap"
+            className="text-[11px] font-semibold rounded-[var(--radius-md)] bg-[var(--brand-accent)] text-black px-3 py-1.5 hover:bg-[var(--brand-accent-hover)] transition-colors whitespace-nowrap inline-flex items-center gap-1"
           >
+            {isLoggedIn && <LayoutDashboard className="h-3.5 w-3.5" />}
             {isLoggedIn ? t("nav.dashboard") : t("nav.getStarted") || "Começar agora"}
           </Link>
           <button

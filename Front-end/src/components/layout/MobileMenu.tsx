@@ -260,7 +260,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <h2 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--text-tertiary)]">
             {t("modules")}
           </h2>
-          <ul className="grid grid-cols-2 gap-2" role="list">
+          <ul className="flex flex-col gap-2" role="list">
             {moduleItems.map(({ id, nameKey, icon: Icon, href }) => {
               const active = isModuleActive(href);
               return (
