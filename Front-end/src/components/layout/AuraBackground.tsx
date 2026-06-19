@@ -41,6 +41,21 @@ export function AuraBackground() {
   const [isMounted, setIsMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [motionOffset, setMotionOffset] = useState({ x: 0, y: 0 });
+  const [autoSway, setAutoSway] = useState(0);
+
+  /* ── Autonomous sway animation ──────────────────────────────── */
+  useEffect(() => {
+    let frame: number;
+    const start = Date.now();
+    const animate = () => {
+      const elapsed = (Date.now() - start) / 1000;
+      // Gentle sine wave: one full cycle every 8 seconds
+      setAutoSway(Math.sin(elapsed * 0.8) * (isMobile ? 8 : 5));
+      frame = requestAnimationFrame(animate);
+    };
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
+  }, [isMobile]);
 
   /* Detect mobile */
   useEffect(() => {
@@ -67,7 +82,7 @@ export function AuraBackground() {
       const smoothY = lastY + (ay - lastY) * 0.3;
       lastX = smoothX;
       lastY = smoothY;
-      setMotionOffset({ x: smoothX * 3, y: smoothY * 3 });
+      setMotionOffset({ x: smoothX * (isMobile ? 8 : 5), y: smoothY * (isMobile ? 8 : 5) });
     };
 
     if (typeof DeviceMotionEvent !== "undefined") {
@@ -108,10 +123,10 @@ export function AuraBackground() {
     };
   }, [handlePointerMove]);
 
-  const parallaxX = mousePos.x * 10 + motionOffset.x;
-  const parallaxY = mousePos.y * 10 + motionOffset.y;
-  const cloudOffsetX = mousePos.x * -5 + motionOffset.x * 0.5;
-  const cloudOffsetY = mousePos.y * -5 + motionOffset.y * 0.5;
+  const parallaxX = mousePos.x * (isMobile ? 20 : 15) + motionOffset.x + autoSway;
+  const parallaxY = mousePos.y * (isMobile ? 20 : 15) + motionOffset.y + autoSway * 0.6;
+  const cloudOffsetX = mousePos.x * (isMobile ? -12 : -8) + motionOffset.x * 0.7 + autoSway * 0.4;
+  const cloudOffsetY = mousePos.y * (isMobile ? -12 : -8) + motionOffset.y * 0.7 + autoSway * -0.4;
 
   return (
     <div
@@ -129,7 +144,9 @@ export function AuraBackground() {
         preserveAspectRatio="xMidYMid slice"
         style={{
           transform: `translate(${parallaxX}px, ${parallaxY}px)`,
-          transition: "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+          transition: isMobile
+            ? "transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)"
+            : "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
           filter: isMobile ? "brightness(2.5) saturate(1.5)" : undefined,
         }}
         fill="none"
@@ -193,7 +210,9 @@ export function AuraBackground() {
         <g
           style={{
             transform: `translate(${cloudOffsetX}px, ${cloudOffsetY}px)`,
-            transition: "transform 1.2s cubic-bezier(0.22, 1, 0.36, 1)",
+            transition: isMobile
+              ? "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)"
+              : "transform 1.2s cubic-bezier(0.22, 1, 0.36, 1)",
           }}
         >
           {/* Cloud 1 — near head */}
