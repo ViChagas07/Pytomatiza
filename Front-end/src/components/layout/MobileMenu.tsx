@@ -160,13 +160,15 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   useFocusTrap(panelRef, isOpen);
 
   const isActive = (href: string) => {
-    if (href === "/dashboard") return pathname === "/dashboard";
-    return pathname.startsWith(href);
+    const path = pathname.replace(/^\/[a-z]{2}(?=\/|$)/, "") || "/";
+    if (href === "/") return path === "/" || path === "";
+    return path === href || path.startsWith(href + "/");
   };
 
   /* Module active detection */
   const modulePaths = ["/documents", "/data", "/communication", "/media", "/files", "/architecture"];
-  const isModuleActive = (href: string) => pathname.startsWith(href);
+  const modPath = pathname.replace(/^\/[a-z]{2}(?=\/|$)/, "") || "/";
+  const isModuleActive = (href: string) => modPath.startsWith(href);
 
   /* Escape key */
   React.useEffect(() => {

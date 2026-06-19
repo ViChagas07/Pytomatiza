@@ -111,15 +111,17 @@ export function Navbar() {
   }, [isMobileMenuOpen]);
 
   const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
-    if (href === "/dashboard") return pathname === "/dashboard";
-    return pathname.startsWith(href);
+    // Strip locale prefix (e.g. /pt/dashboard → /dashboard)
+    const path = pathname.replace(/^\/[a-z]{2}(?=\/|$)/, "") || "/";
+    if (href === "/") return path === "/" || path === "";
+    return path === href || path.startsWith(href + "/");
   };
 
   /* Module pages — for active state on the Modules toggle */
   const modulePaths = ["/documents", "/data", "/communication", "/media", "/files", "/architecture"];
-  const isOnModulePage = modulePaths.some((p) => pathname.startsWith(p));
-  const activeModulePath = modulePaths.find((p) => pathname.startsWith(p)) || null;
+  const path = pathname.replace(/^\/[a-z]{2}(?=\/|$)/, "") || "/";
+  const isOnModulePage = modulePaths.some((p) => path.startsWith(p));
+  const activeModulePath = modulePaths.find((p) => path.startsWith(p)) || null;
 
   return (
     <>
