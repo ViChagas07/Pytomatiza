@@ -46,9 +46,10 @@ export function GooglePhotosIcon({ className = "h-5 w-5" }: IconProps) {
 export function GmailIcon({ className = "h-5 w-5" }: IconProps) {
   return (
     <img
-      src="/gmail-logo.jpg"
+      src="/gmail-logo.png"
       alt="Gmail"
       className={className}
+      style={{ objectFit: "contain" }}
       aria-hidden="true"
     />
   );
