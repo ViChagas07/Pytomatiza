@@ -1,8 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { ArrowRight, Play } from "lucide-react";
-import { Link } from "@/i18n/navigation";
+import { Play } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 export function HeroSection() {
@@ -31,14 +30,8 @@ export function HeroSection() {
               {t("hero.subtitle")}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/login">
-                <Button variant="primary" size="lg">
-                  {t("hero.cta")}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Button>
-              </Link>
               <Button
-                variant="outline"
+                variant="primary"
                 size="lg"
                 onClick={() => {
                   const el = document.getElementById("demo-section");
@@ -66,7 +59,7 @@ export function HeroSection() {
 
 function DashboardMockup() {
   return (
-    <div className="relative mx-auto aspect-[4/3] w-full max-w-lg">
+    <div className="relative mx-auto w-full max-w-lg min-h-[220px] sm:aspect-[4/3]">
       <div className="absolute inset-0 rounded-[var(--radius-lg)] bg-gradient-to-br from-[var(--brand-python-blue)]/10 to-[var(--brand-accent)]/10 shadow-[var(--shadow-md)] backdrop-blur-sm border border-[var(--border-default)] overflow-hidden">
         <div className="flex h-full flex-col">
           <div className="flex items-center justify-between border-b border-[var(--border-default)] px-4 py-2">

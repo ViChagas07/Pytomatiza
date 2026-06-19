@@ -40,8 +40,8 @@ export function LandingNav() {
       role="banner"
     >
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 lg:px-6">
-        {/* Logo — full on desktop, compact on mobile */}
-        <Link href="/" className="flex items-center gap-2">
+        {/* Logo — compact on mobile, full on desktop */}
+        <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image
             src="/Pytomatiza_Logo_Supremo.png"
             alt=""
@@ -54,10 +54,6 @@ export function LandingNav() {
             Pytomatiza
           </span>
           <span className="hidden sm:inline -ml-2 text-lg font-bold text-[var(--brand-accent-dynamic)]">+</span>
-          {/* Mobile CTA text */}
-          <span className="sm:hidden text-xs font-semibold text-[var(--text-primary)] leading-tight">
-            {t("hero.cta") || "Comece a automatizar"}
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex" aria-label={t("a11y.mainNavigation")}>
@@ -101,15 +97,24 @@ export function LandingNav() {
           </Link>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setMobileOpen((p) => !p)}
-          aria-expanded={mobileOpen}
-          aria-label={mobileOpen ? t("a11y.closeMenu") : t("a11y.openMenu")}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-[var(--radius-md)] text-[var(--text-secondary)] hover:bg-[var(--surface-1)] md:hidden"
-        >
-          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        {/* Mobile right side: CTA text + hamburger */}
+        <div className="flex items-center gap-2 md:hidden">
+          <Link
+            href={session?.user ? "/dashboard" : "/login"}
+            className="text-xs font-semibold text-[var(--brand-accent)] hover:underline whitespace-nowrap"
+          >
+            {t("hero.cta") || "Começar a automatizar"}
+          </Link>
+          <button
+            type="button"
+            onClick={() => setMobileOpen((p) => !p)}
+            aria-expanded={mobileOpen}
+            aria-label={mobileOpen ? t("a11y.closeMenu") : t("a11y.openMenu")}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-[var(--radius-md)] text-[var(--text-secondary)] hover:bg-[var(--surface-1)]"
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (
