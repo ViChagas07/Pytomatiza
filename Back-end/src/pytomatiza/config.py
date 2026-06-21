@@ -151,6 +151,20 @@ class Settings(BaseSettings):
     JIRA_EMAIL: str = ""
     JIRA_API_TOKEN: str = ""
 
+    @field_validator("DATABASE_URL", mode="before")
+    @classmethod
+    def _ensure_async_driver(cls, v: Any) -> str:
+        """Railway provides DATABASE_URL as 'postgresql://...' without the asyncpg
+        driver suffix.  Automatically convert to 'postgresql+asyncpg://' so that
+        create_async_engine does not fail."""
+        if v is None:
+            return ""
+        if isinstance(v, str):
+            if v.startswith("postgresql://"):
+                return v.replace("postgresql://", "postgresql+asyncpg://", 1)
+            return v
+        return str(v)
+
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod
     def _parse_cors_origins(cls, v: Any) -> list[str]:
