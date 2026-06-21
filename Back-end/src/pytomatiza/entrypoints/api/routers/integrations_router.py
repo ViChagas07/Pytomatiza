@@ -7,7 +7,6 @@ from typing import Annotated, Any
 from fastapi import APIRouter, Depends, HTTPException, status
 
 from pytomatiza.application.services.integrations import get_integration_service
-from pytomatiza.config import settings
 from pytomatiza.domain.entities.user import User
 from pytomatiza.entrypoints.api.deps import get_current_user
 
@@ -61,14 +60,3 @@ async def integration_execute(
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Integration '{service}' not found")
     result = await provider.execute_action(action, params)
     return {"success": result.success, "action": result.action, "result": result.result, "error": result.error}
-
-
-@router.get("/debug/env-check")
-async def debug_env_check() -> dict[str, bool]:
-    """TEMPORÁRIO — sem auth, só para diagnóstico rápido."""
-    return {
-        "discord_token_present": bool(settings.DISCORD_BOT_TOKEN),
-        "trello_key_present": bool(settings.TRELLO_API_KEY),
-        "trello_token_present": bool(settings.TRELLO_API_TOKEN),
-        "jira_domain_present": bool(settings.JIRA_DOMAIN),
-    }
