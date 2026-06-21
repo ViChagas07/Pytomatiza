@@ -29,6 +29,8 @@ declare module "next-auth" {
     id: string;
     /** JWT token returned by the FastAPI backend */
     backendToken?: string;
+    /** Refresh token used to obtain a new backendToken when it expires */
+    refreshToken?: string;
   }
 
   interface Session {
@@ -37,6 +39,8 @@ declare module "next-auth" {
     } & DefaultSession["user"];
     /** JWT token to forward to the FastAPI backend as Bearer */
     backendToken?: string;
+    /** Refresh token used to obtain a new backendToken when it expires */
+    refreshToken?: string;
   }
 }
 
@@ -76,10 +80,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const { email } = parsed.data;
 
         // Accept backend token & user ID forwarded from AuthForm
-        const backendToken = (credentials as Record<string, unknown>)
-          .backendToken as string | undefined;
-        const backendUserId = (credentials as Record<string, unknown>)
-          .backendUserId as string | undefined;
+        const rawCreds = credentials as Record<string, unknown>;
+        const backendToken = rawCreds.backendToken as string | undefined;
+        const backendUserId = rawCreds.backendUserId as string | undefined;
+        const refreshToken = rawCreds.refreshToken as string | undefined;
 
         try {
           return {
@@ -87,6 +91,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             email,
             name: email.split("@")[0],
             backendToken,
+            refreshToken,
           };
         } catch {
           return null;
@@ -104,9 +109,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (user?.id) {
         token.id = user.id;
       }
-      // Persist the backend JWT so it survives across requests
+      // Persist the backend JWT + refresh token so they survive across requests
       if (user?.backendToken) {
         token.backendToken = user.backendToken;
+      }
+      if (user?.refreshToken) {
+        token.refreshToken = user.refreshToken;
       }
 
       return token;
@@ -116,9 +124,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (session.user && token.id) {
         session.user.id = token.id as string;
       }
-      // Expose the backend JWT on the session object
+      // Expose the backend JWT + refresh token on the session object
       if (token.backendToken) {
         session.backendToken = token.backendToken as string;
+      }
+      if (token.refreshToken) {
+        session.refreshToken = token.refreshToken as string;
       }
 
       return session;

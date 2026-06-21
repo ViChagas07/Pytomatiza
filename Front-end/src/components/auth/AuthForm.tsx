@@ -103,12 +103,13 @@ export function AuthForm() {
       // Decode the JWT to extract the user ID (sub claim)
       const userId = decodeJwtSub(backendRes.data.access_token);
 
-      // 2. Sign in with NextAuth, forwarding the backend JWT token
+      // 2. Sign in with NextAuth, forwarding the backend JWT token + refresh token
       const result = await signIn("credentials", {
         email: data.email,
         password: data.password,
         backendToken: backendRes.data.access_token,
         backendUserId: userId,
+        refreshToken: backendRes.data.refresh_token,
         redirect: false,
       });
 
@@ -153,12 +154,13 @@ export function AuthForm() {
       // Decode the JWT to extract the user ID (sub claim)
       const userId = decodeJwtSub(backendRes.data.access_token);
 
-      // 2. Sign in with NextAuth, forwarding the backend JWT token
+      // 2. Sign in with NextAuth, forwarding the backend JWT token + refresh token
       const result = await signIn("credentials", {
         email: data.email,
         password: data.password,
         backendToken: backendRes.data.access_token,
         backendUserId: userId,
+        refreshToken: backendRes.data.refresh_token,
         redirect: false,
       });
 
