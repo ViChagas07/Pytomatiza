@@ -64,10 +64,8 @@ async def integration_execute(
 
 
 @router.get("/debug/env-check")
-async def debug_env_check(
-    current_user: Annotated[User, Depends(get_current_user)],
-) -> dict[str, bool]:
-    """TEMPORÁRIO: confirma se as env vars foram carregadas (não expõe valores)."""
+async def debug_env_check() -> dict[str, bool]:
+    """TEMPORÁRIO — sem auth, só para diagnóstico rápido."""
     return {
         "discord_token_present": bool(settings.DISCORD_BOT_TOKEN),
         "trello_key_present": bool(settings.TRELLO_API_KEY),
