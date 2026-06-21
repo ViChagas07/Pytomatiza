@@ -31,7 +31,7 @@ class JiraProvider:
         auth = b64encode(f"{self._email}:{self._token}".encode()).decode()
         return {"Authorization": f"Basic {auth}", "Content-Type": "application/json", "Accept": "application/json"}
 
-    async def health_check(self) -> IntegrationHealth:
+    async def health_check(self, **kwargs: Any) -> IntegrationHealth:
         if not self._domain or not self._email or not self._token:
             return IntegrationHealth(service=self.service_name, connected=False, status="disconnected", message="Missing domain, email, or API token")
         try:
@@ -44,7 +44,7 @@ class JiraProvider:
         except Exception as exc:
             return IntegrationHealth(service=self.service_name, connected=False, status="error", message=str(exc))
 
-    async def execute_action(self, action: str, params: dict[str, Any]) -> IntegrationAction:
+    async def execute_action(self, action: str, params: dict[str, Any], **kwargs: Any) -> IntegrationAction:
         try:
             if action in ("create_issue", "create_bug", "create_task"):
                 return await self._create_issue(action, params)

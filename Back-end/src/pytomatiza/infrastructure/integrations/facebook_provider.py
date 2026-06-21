@@ -24,7 +24,7 @@ class FacebookProvider:
         self._page_id = page_id or getattr(settings, "FACEBOOK_PAGE_ID", "")
         self._base = "https://graph.facebook.com/v20.0"
 
-    async def health_check(self) -> IntegrationHealth:
+    async def health_check(self, **kwargs: Any) -> IntegrationHealth:
         if not self._token:
             return IntegrationHealth(service=self.service_name, connected=False, status="disconnected", message="No token configured")
         try:
@@ -38,7 +38,7 @@ class FacebookProvider:
         except Exception as exc:
             return IntegrationHealth(service=self.service_name, connected=False, status="error", message=str(exc))
 
-    async def execute_action(self, action: str, params: dict[str, Any]) -> IntegrationAction:
+    async def execute_action(self, action: str, params: dict[str, Any], **kwargs: Any) -> IntegrationAction:
         try:
             if action == "create_post":
                 return await self._create_post(params)

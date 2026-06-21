@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import logging
 from typing import Any
+from uuid import UUID
 
 from pytomatiza.application.services.google_oauth_service import GoogleOAuthService
 from pytomatiza.domain.entities.oauth_token import OAuthToken
@@ -23,16 +24,20 @@ class GmailProvider:
     service_name = "gmail"
     _oauth = GoogleOAuthService()
 
-    async def _get_token(self) -> OAuthToken | None:
+    async def _get_token(self, user_id: UUID | None = None) -> OAuthToken | None:
+        if user_id is None:
+            return None
         async with AsyncSessionLocal() as session:
             repo = SQLAlchemyOAuthTokenRepository(session)
-            token = await repo.find_by_user_and_service(provider="google", service="gmail")
+            token = await repo.find_by_user_and_service(
+                user_id=user_id, provider="google", service="gmail"
+            )
             if token is None:
                 return None
             return await self._oauth.get_valid_token(token)
 
-    async def health_check(self) -> IntegrationHealth:
-        token = await self._get_token()
+    async def health_check(self, user_id: UUID | None = None) -> IntegrationHealth:
+        token = await self._get_token(user_id)
         if token is None:
             return IntegrationHealth(service=self.service_name, connected=False, status="disconnected", message="No Gmail token — connect via OAuth")
         try:
@@ -41,9 +46,9 @@ class GmailProvider:
         except Exception as exc:
             return IntegrationHealth(service=self.service_name, connected=False, status="error", message=str(exc))
 
-    async def execute_action(self, action: str, params: dict[str, Any]) -> IntegrationAction:
+    async def execute_action(self, action: str, params: dict[str, Any], user_id: UUID | None = None) -> IntegrationAction:
         try:
-            token = await self._get_token()
+            token = await self._get_token(user_id)
             if token is None:
                 return IntegrationAction(success=False, action=action, error="Not connected to Gmail")
 

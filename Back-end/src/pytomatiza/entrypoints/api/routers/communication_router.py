@@ -25,7 +25,7 @@ async def send_message(
     provider = svc.get(service)
     if provider is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Service '{service}' not found")
-    result = await provider.execute_action(action, params)
+    result = await provider.execute_action(action, params, user_id=current_user.id)
     return {"success": result.success, "action": result.action, "result": result.result, "error": result.error}
 
 
@@ -35,7 +35,7 @@ async def list_channels(
 ) -> dict:
     """List all available communication channels with status."""
     svc = get_integration_service()
-    health = await svc.health_check_all()
+    health = await svc.health_check_all(user_id=current_user.id)
     channels = ["discord", "telegram", "whatsapp", "gmail"]
     result = {}
     for ch in channels:

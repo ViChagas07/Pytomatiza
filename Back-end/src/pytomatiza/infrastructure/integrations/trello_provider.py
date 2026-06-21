@@ -28,7 +28,7 @@ class TrelloProvider:
     def _auth_params(self) -> dict[str, str]:
         return {"key": self._key, "token": self._token}
 
-    async def health_check(self) -> IntegrationHealth:
+    async def health_check(self, **kwargs: Any) -> IntegrationHealth:
         if not self._key or not self._token:
             return IntegrationHealth(service=self.service_name, connected=False, status="disconnected", message="Missing API key or token")
         try:
@@ -41,7 +41,7 @@ class TrelloProvider:
         except Exception as exc:
             return IntegrationHealth(service=self.service_name, connected=False, status="error", message=str(exc))
 
-    async def execute_action(self, action: str, params: dict[str, Any]) -> IntegrationAction:
+    async def execute_action(self, action: str, params: dict[str, Any], **kwargs: Any) -> IntegrationAction:
         try:
             if action == "create_card":
                 return await self._create_card(params)

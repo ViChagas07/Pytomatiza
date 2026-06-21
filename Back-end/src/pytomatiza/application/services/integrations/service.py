@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import logging
 from typing import Any
+from uuid import UUID
 
 from pytomatiza.domain.services.integrations.provider import (
     IntegrationHealth,
@@ -57,12 +58,12 @@ class IntegrationService:
     def list_all(self) -> list[str]:
         return list(self._providers.keys())
 
-    async def health_check_all(self) -> dict[str, Any]:
+    async def health_check_all(self, user_id: UUID | None = None) -> dict[str, Any]:
         """Run health checks against ALL providers and return a summary."""
         results: dict[str, Any] = {}
         for name, provider in self._providers.items():
             try:
-                health = await provider.health_check()
+                health = await provider.health_check(user_id=user_id)
                 results[name] = {
                     "connected": health.connected,
                     "status": health.status,

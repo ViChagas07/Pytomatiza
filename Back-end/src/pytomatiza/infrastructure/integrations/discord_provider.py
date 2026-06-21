@@ -27,7 +27,7 @@ class DiscordProvider:
     def _headers(self) -> dict[str, str]:
         return {"Authorization": f"Bot {self._token}", "Content-Type": "application/json"}
 
-    async def health_check(self) -> IntegrationHealth:
+    async def health_check(self, **kwargs: Any) -> IntegrationHealth:
         if not self._token:
             return IntegrationHealth(service=self.service_name, connected=False, status="disconnected", message="No token configured")
         try:
@@ -40,7 +40,7 @@ class DiscordProvider:
         except Exception as exc:
             return IntegrationHealth(service=self.service_name, connected=False, status="error", message=str(exc))
 
-    async def execute_action(self, action: str, params: dict[str, Any]) -> IntegrationAction:
+    async def execute_action(self, action: str, params: dict[str, Any], **kwargs: Any) -> IntegrationAction:
         try:
             if action == "send_message":
                 return await self._send_message(params)
