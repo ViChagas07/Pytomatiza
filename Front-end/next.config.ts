@@ -29,7 +29,8 @@ const nextConfig: NextConfig = {
   /* API Proxy — forwards /api/v1/* requests to the FastAPI backend.
      Eliminates CORS issues for client-side fetches while keeping
      server-side fetches direct.
-     In production (Vercel), NEXT_PUBLIC_BACKEND_URL must point to Railway. */
+     In production (Vercel), NEXT_PUBLIC_BACKEND_URL must point to Railway.
+     Example: https://pytomatiza-production.up.railway.app */
   rewrites: async () => [
     {
       source: "/api/v1/:path*",
