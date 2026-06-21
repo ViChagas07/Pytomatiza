@@ -28,11 +28,12 @@ const nextConfig: NextConfig = {
 
   /* API Proxy — forwards /api/v1/* requests to the FastAPI backend.
      Eliminates CORS issues for client-side fetches while keeping
-     server-side fetches direct. */
+     server-side fetches direct.
+     In production (Vercel), NEXT_PUBLIC_BACKEND_URL must point to Railway. */
   rewrites: async () => [
     {
       source: "/api/v1/:path*",
-      destination: "http://localhost:8000/api/v1/:path*",
+      destination: `${process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000"}/api/v1/:path*`,
     },
   ],
 

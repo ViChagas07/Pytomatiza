@@ -73,16 +73,6 @@ const INTEGRATIONS: IntegrationMeta[] = [
     capabilities: ["Enviar mensagens", "Enviar documentos", "Enviar fotos", "Notificar usuários"],
   },
   {
-    service: "whatsapp", label: "WhatsApp Business", icon: SiWhatsapp, color: "#25D366",
-    category: "Comunicação",
-    capabilities: ["Enviar mensagens", "Notificar usuários", "Disparar alertas"],
-  },
-  {
-    service: "facebook", label: "Facebook Pages", icon: SiFacebook, color: "#1877F2",
-    category: "Redes Sociais",
-    capabilities: ["Publicar posts", "Responder eventos", "Agendar conteúdo"],
-  },
-  {
     service: "trello", label: "Trello", icon: SiTrello, color: "#0052CC",
     category: "Gestão de Projetos",
     capabilities: ["Criar cards", "Mover cards entre listas", "Atualizar cards"],
@@ -105,6 +95,8 @@ const INTEGRATIONS: IntegrationMeta[] = [
 ];
 
 const FUTURE_INTEGRATIONS = [
+  { service: "facebook", label: "Facebook Pages", icon: SiFacebook, color: "#1877F2" as const },
+  { service: "whatsapp", label: "WhatsApp Business", icon: SiWhatsapp, color: "#25D366" as const },
   { service: "instagram", label: "Instagram", icon: FaInstagram, color: "#E4405F" as const },
   { service: "linkedin", label: "LinkedIn", icon: FaLinkedin, color: "#0A66C2" as const },
   { service: "teams", label: "Microsoft Teams", icon: FaMicrosoft, color: "#6264A7" as const },
