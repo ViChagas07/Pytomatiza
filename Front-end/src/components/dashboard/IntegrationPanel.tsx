@@ -15,7 +15,7 @@ import {
   SiTrello,
   SiJira,
 } from "react-icons/si";
-import { FaInstagram, FaLinkedin, FaMicrosoft } from "react-icons/fa6";
+import { FaInstagram, FaLinkedin, FaMicrosoft, FaCalendar, FaTable, FaMapLocation } from "react-icons/fa6";
 import { GoogleDriveIcon, GmailIcon } from "@/components/ui/GoogleIcons";
 
 /* ── Adapters — Google SVG icons to react‑icons interface ──────── */
@@ -100,6 +100,9 @@ const FUTURE_INTEGRATIONS = [
   { service: "instagram", label: "Instagram", icon: FaInstagram, color: "#E4405F" as const },
   { service: "linkedin", label: "LinkedIn", icon: FaLinkedin, color: "#0A66C2" as const },
   { service: "teams", label: "Microsoft Teams", icon: FaMicrosoft, color: "#6264A7" as const },
+  { service: "google_calendar", label: "Google Calendar", icon: FaCalendar, color: "#4285F4" as const },
+  { service: "google_sheets", label: "Google Sheets", icon: FaTable, color: "#0F9D58" as const },
+  { service: "google_maps", label: "Google Maps", icon: FaMapLocation, color: "#EA4335" as const },
 ];
 
 type HealthMap = Record<string, { connected: boolean; status: string; message: string }>;
