@@ -16,7 +16,6 @@ import {
   SiJira,
   SiSlack,
   SiZoom,
-  SiGooglemeet,
 } from "react-icons/si";
 import { FaInstagram, FaLinkedin, FaMicrosoft, FaCalendar, FaTable, FaMapLocation, FaVideo } from "react-icons/fa6";
 import { GoogleDriveIcon, GmailIcon } from "@/components/ui/GoogleIcons";
@@ -40,19 +39,13 @@ function GmailIconAdapter({ size = 24, className = "" }: { size?: number | strin
   );
 }
 import {
-  CheckCircle,
-  AlertTriangle,
-  XCircle,
   Clock,
   Sparkles,
   Zap,
   ArrowRight,
-  RefreshCw,
   Globe,
 } from "lucide-react";
-import { api } from "@/lib/api";
 import { cn } from "@/lib/utils";
-import { useSession, signOut } from "next-auth/react";
 
 /* ── Static integration metadata ────────────────────────────────── */
 
@@ -136,50 +129,9 @@ const FUTURE_INTEGRATIONS = [
   { service: "teams", label: "Microsoft Teams", icon: FaMicrosoft, color: "#6264A7" as const },
 ];
 
-type HealthMap = Record<string, { connected: boolean; status: string; message: string }>;
-
 /* ── Component ───────────────────────────────────────────────────── */
 
 export function IntegrationPanel() {
-  const { status: sessionStatus } = useSession();
-  const [health, setHealth] = React.useState<HealthMap>({});
-  const [isLoading, setIsLoading] = React.useState(true);
-  const [loaded, setLoaded] = React.useState(false);
-  const [error, setError] = React.useState<string | null>(null);
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => setLoaded(true), 300);
-    // Only fetch once the session is known — avoids racing with getSession()
-    if (sessionStatus !== "loading") {
-      fetchHealth();
-    }
-    return () => clearTimeout(timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sessionStatus]);
-
-  const fetchHealth = async () => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      const res = await api.integrationsHealth();
-      if (res.data?.integrations) {
-        setHealth(res.data.integrations);
-      } else if (res.status === 401) {
-        // Token expirado após login válido — redireciona para renovar sessão
-        await signOut({ callbackUrl: "/login" });
-      } else {
-        setError("Não foi possível carregar o status das integrações.");
-      }
-    } catch (err) {
-      console.error("[IntegrationPanel] fetchHealth:", err);
-      setError("Erro inesperado. Tente novamente.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  if (!loaded) return null;
-
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-2 duration-500">
       {/* ── Header ──────────────────────────────────────────────── */}
@@ -196,23 +148,7 @@ export function IntegrationPanel() {
           Conecte o Pytomatiza+ aos seus serviços favoritos.
           Workflows podem utilizar qualquer integração conectada.
         </p>
-        <button
-          type="button"
-          onClick={fetchHealth}
-          disabled={isLoading}
-          className="inline-flex items-center gap-1.5 mt-2 text-xs text-[var(--text-tertiary)] hover:text-[var(--text-primary)] transition-colors"
-        >
-          <RefreshCw className={cn("h-3 w-3", isLoading && "animate-spin")} />
-          {isLoading ? "Verificando..." : "Atualizar status"}
-        </button>
       </div>
-
-      {/* ── Error Banner ────────────────────────────────────────── */}
-      {error && (
-        <div className="mb-4 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-          {error}
-        </div>
-      )}
 
       {/* ── Active Integration Cards ─────────────────────────────── */}
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
@@ -220,8 +156,6 @@ export function IntegrationPanel() {
           <IntegrationCard
             key={int.service}
             integration={int}
-            health={health[int.service]}
-            isParentLoading={isLoading}
             index={i}
           />
         ))}
@@ -270,58 +204,24 @@ export function IntegrationPanel() {
 
 function IntegrationCard({
   integration,
-  health,
-  isParentLoading,
   index,
 }: {
   integration: IntegrationMeta;
-  health: { connected: boolean; status: string; message: string } | undefined;
-  isParentLoading: boolean;
   index: number;
 }) {
-  const isConnected = health?.connected ?? false;
-
-  // "Carregando..." only during initial isLoading; after that, undefined health = "Desconectado"
-  const statusLabel =
-    isParentLoading
-      ? "Verificando..."
-      : health?.status === "connected"
-      ? "Conectado"
-      : health?.status === "error"
-      ? "Erro"
-      : "Desconectado";
-
-  const badgeClass =
-    isParentLoading
-      ? "bg-[var(--surface-2)] text-[var(--text-tertiary)] animate-pulse"
-      : isConnected
-      ? "bg-[var(--color-success)]/10 text-[var(--color-success)]"
-      : health?.status === "error"
-      ? "bg-[var(--color-danger)]/10 text-[var(--color-danger)]"
-      : "bg-[var(--surface-2)] text-[var(--text-tertiary)]";
-
   return (
     <div
       className={cn(
-        "group relative rounded-[var(--radius-lg)] border bg-[var(--surface-0)] p-5 shadow-[var(--shadow-sm)] transition-all duration-300",
-        "hover:shadow-[var(--shadow-md)] hover:border-[var(--border-strong)]",
-        isConnected ? "border-[var(--border-default)]" : "border-[var(--border-default)]"
+        "group relative rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] p-5 shadow-[var(--shadow-sm)] transition-all duration-300",
+        "hover:shadow-[var(--shadow-md)] hover:border-[var(--border-strong)]"
       )}
       style={{ animationDelay: `${index * 80}ms` }}
     >
-      {/* Status badge */}
+      {/* "Em breve" badge estático */}
       <div className="absolute -top-2 -right-2">
-        {isParentLoading ? (
-          <span className="inline-flex items-center rounded-full bg-[var(--surface-2)] px-2 py-0.5 text-[10px] text-[var(--text-tertiary)]">
-            <RefreshCw className="h-2.5 w-2.5 animate-spin mr-1" />
-            Verificando
-          </span>
-        ) : (
-          <span className={cn("inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-medium", badgeClass)}>
-            {isConnected ? <CheckCircle className="h-2.5 w-2.5" /> : health?.status === "error" ? <AlertTriangle className="h-2.5 w-2.5" /> : <XCircle className="h-2.5 w-2.5" />}
-            {statusLabel}
-          </span>
-        )}
+        <span className="inline-flex items-center rounded-full bg-white/10 text-white/50 text-xs px-2 py-0.5 rounded-full">
+          Em breve
+        </span>
       </div>
 
       {/* Icon + Name */}
@@ -347,14 +247,6 @@ function IntegrationCard({
           </li>
         ))}
       </ul>
-
-      {/* Status message */}
-      {health?.message && (
-        <p className="text-[10px] text-[var(--text-tertiary)] mt-2 border-t border-[var(--border-default)] pt-2 truncate">
-          {isConnected ? "✅ " : health.status === "error" ? "⚠️ " : "⏳ "}
-          {health.message}
-        </p>
-      )}
     </div>
   );
 }

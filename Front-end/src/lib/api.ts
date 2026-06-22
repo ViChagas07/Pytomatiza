@@ -652,20 +652,6 @@ export const api = {
       }>;
     }>("/integrations"),
 
-  /** Health check all integrations */
-  integrationsHealth: () =>
-    clientFetch<{
-      integrations: Record<
-        string,
-        {
-          connected: boolean;
-          status: "connected" | "disconnected" | "error";
-          message: string;
-          details: Record<string, unknown>;
-        }
-      >;
-    }>("/integrations/health"),
-
   /** Execute an action on a specific integration */
   integrationExecute: (service: string, action: string, params?: Record<string, unknown>) =>
     clientFetch<{
