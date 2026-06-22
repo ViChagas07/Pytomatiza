@@ -14,8 +14,11 @@ import {
   SiFacebook,
   SiTrello,
   SiJira,
+  SiSlack,
+  SiZoom,
+  SiGooglemeet,
 } from "react-icons/si";
-import { FaInstagram, FaLinkedin, FaMicrosoft, FaCalendar, FaTable, FaMapLocation } from "react-icons/fa6";
+import { FaInstagram, FaLinkedin, FaMicrosoft, FaCalendar, FaTable, FaMapLocation, FaVideo } from "react-icons/fa6";
 import { GoogleDriveIcon, GmailIcon } from "@/components/ui/GoogleIcons";
 
 /* ── Adapters — Google SVG icons to react‑icons interface ──────── */
@@ -93,6 +96,36 @@ const INTEGRATIONS: IntegrationMeta[] = [
     category: "Comunicação",
     capabilities: ["Enviar e-mails", "Listar mensagens", "Ler e-mails", "Buscar por remetente"],
   },
+  {
+    service: "google_calendar", label: "Google Calendar", icon: FaCalendar, color: "#4285F4",
+    category: "Produtividade",
+    capabilities: ["Listar eventos", "Criar eventos", "Gerenciar calendários"],
+  },
+  {
+    service: "google_sheets", label: "Google Sheets", icon: FaTable, color: "#0F9D58",
+    category: "Produtividade",
+    capabilities: ["Criar planilhas", "Ler células", "Atualizar células"],
+  },
+  {
+    service: "google_maps", label: "Google Maps", icon: FaMapLocation, color: "#EA4335",
+    category: "Utilitários",
+    capabilities: ["Geocodificar endereços", "Geocodificação reversa", "Calcular rotas"],
+  },
+  {
+    service: "slack", label: "Slack", icon: SiSlack, color: "#4A154B",
+    category: "Comunicação",
+    capabilities: ["Enviar mensagens em canais", "Listar canais", "Notificar equipes"],
+  },
+  {
+    service: "zoom", label: "Zoom", icon: SiZoom, color: "#2D8CFF",
+    category: "Comunicação",
+    capabilities: ["Criar reuniões", "Listar reuniões", "Agendar webinars"],
+  },
+  {
+    service: "google_meet", label: "Google Meet", icon: FaVideo, color: "#00897B",
+    category: "Comunicação",
+    capabilities: ["Criar videochamadas", "Listar reuniões", "Agendar com Google Meet"],
+  },
 ];
 
 const FUTURE_INTEGRATIONS = [
@@ -101,9 +134,6 @@ const FUTURE_INTEGRATIONS = [
   { service: "instagram", label: "Instagram", icon: FaInstagram, color: "#E4405F" as const },
   { service: "linkedin", label: "LinkedIn", icon: FaLinkedin, color: "#0A66C2" as const },
   { service: "teams", label: "Microsoft Teams", icon: FaMicrosoft, color: "#6264A7" as const },
-  { service: "google_calendar", label: "Google Calendar", icon: FaCalendar, color: "#4285F4" as const },
-  { service: "google_sheets", label: "Google Sheets", icon: FaTable, color: "#0F9D58" as const },
-  { service: "google_maps", label: "Google Maps", icon: FaMapLocation, color: "#EA4335" as const },
 ];
 
 type HealthMap = Record<string, { connected: boolean; status: string; message: string }>;

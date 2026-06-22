@@ -62,6 +62,15 @@ class Settings(BaseSettings):
     GOOGLE_PHOTOS_SCOPES: str = (
         "https://www.googleapis.com/auth/photoslibrary.readonly"
     )
+    GOOGLE_CALENDAR_SCOPES: str = (
+        "https://www.googleapis.com/auth/calendar"
+    )
+    GOOGLE_SHEETS_SCOPES: str = (
+        "https://www.googleapis.com/auth/spreadsheets"
+    )
+    GOOGLE_MEET_SCOPES: str = (
+        "https://www.googleapis.com/auth/calendar"
+    )
     # Base OIDC scopes used for authentication login
     GOOGLE_OIDC_SCOPES: str = "openid email profile"
 
@@ -150,6 +159,13 @@ class Settings(BaseSettings):
     JIRA_DOMAIN: str = ""
     JIRA_EMAIL: str = ""
     JIRA_API_TOKEN: str = ""
+
+    # ── New Integration Tokens ──────────────────────────────────────────
+    GOOGLE_MAPS_API_KEY: str = ""
+    SLACK_BOT_TOKEN: str = ""
+    ZOOM_ACCOUNT_ID: str = ""
+    ZOOM_CLIENT_ID: str = ""
+    ZOOM_CLIENT_SECRET: str = ""
 
     @field_validator("DATABASE_URL", mode="before")
     @classmethod

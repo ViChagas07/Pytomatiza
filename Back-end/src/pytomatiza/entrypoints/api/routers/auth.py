@@ -357,6 +357,9 @@ async def google_oauth_callback(
         drive_scope_set = set(settings.GOOGLE_DRIVE_SCOPES.split())
         photos_scope_set = set(settings.GOOGLE_PHOTOS_SCOPES.split())
         gmail_scope_set = set(settings.GOOGLE_GMAIL_SCOPES.split())
+        calendar_scope_set = set(settings.GOOGLE_CALENDAR_SCOPES.split())
+        sheets_scope_set = set(settings.GOOGLE_SHEETS_SCOPES.split())
+        meet_scope_set = set(settings.GOOGLE_MEET_SCOPES.split())
 
         if granted_scope_set & drive_scope_set:
             await token_repo.upsert(
@@ -399,6 +402,57 @@ async def google_oauth_callback(
                     user_id=stored_user_id,
                     provider="google",
                     service="gmail",
+                    access_token=access_token,
+                    refresh_token=refresh_token,
+                    token_type=str(tokens.get("token_type", "Bearer")),
+                    scopes=granted_scopes,
+                    expires_at=expires_at,
+                    created_at=datetime.now(timezone.utc),
+                    updated_at=datetime.now(timezone.utc),
+                )
+            )
+
+        if granted_scope_set & calendar_scope_set:
+            await token_repo.upsert(
+                OAuthToken(
+                    id=uuid4(),
+                    user_id=stored_user_id,
+                    provider="google",
+                    service="calendar",
+                    access_token=access_token,
+                    refresh_token=refresh_token,
+                    token_type=str(tokens.get("token_type", "Bearer")),
+                    scopes=granted_scopes,
+                    expires_at=expires_at,
+                    created_at=datetime.now(timezone.utc),
+                    updated_at=datetime.now(timezone.utc),
+                )
+            )
+
+        if granted_scope_set & sheets_scope_set:
+            await token_repo.upsert(
+                OAuthToken(
+                    id=uuid4(),
+                    user_id=stored_user_id,
+                    provider="google",
+                    service="sheets",
+                    access_token=access_token,
+                    refresh_token=refresh_token,
+                    token_type=str(tokens.get("token_type", "Bearer")),
+                    scopes=granted_scopes,
+                    expires_at=expires_at,
+                    created_at=datetime.now(timezone.utc),
+                    updated_at=datetime.now(timezone.utc),
+                )
+            )
+
+        if granted_scope_set & meet_scope_set:
+            await token_repo.upsert(
+                OAuthToken(
+                    id=uuid4(),
+                    user_id=stored_user_id,
+                    provider="google",
+                    service="meet",
                     access_token=access_token,
                     refresh_token=refresh_token,
                     token_type=str(tokens.get("token_type", "Bearer")),

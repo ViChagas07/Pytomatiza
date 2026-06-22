@@ -14,11 +14,17 @@ from pytomatiza.infrastructure.integrations import (
     DiscordProvider,
     FacebookProvider,
     GmailProvider,
+    GoogleCalendarProvider,
     GoogleDriveProvider,
+    GoogleMeetProvider,
+    GoogleMapsProvider,
+    GoogleSheetsProvider,
     JiraProvider,
+    SlackProvider,
     TelegramProvider,
     TrelloProvider,
     WhatsAppProvider,
+    ZoomProvider,
 )
 
 logger = logging.getLogger(__name__)
@@ -48,6 +54,12 @@ class IntegrationService:
             JiraProvider(),
             GoogleDriveProvider(),
             GmailProvider(),
+            GoogleCalendarProvider(),
+            GoogleSheetsProvider(),
+            GoogleMeetProvider(),
+            GoogleMapsProvider(),
+            SlackProvider(),
+            ZoomProvider(),
         ]
         for p in providers:
             self._providers[p.service_name] = p
@@ -102,6 +114,12 @@ class IntegrationService:
             "jira": {"label": "Jira", "icon": "jira", "color": "#0052CC", "category": "project_management"},
             "google_drive": {"label": "Google Drive", "icon": "googledrive", "color": "#4285F4", "category": "storage"},
             "gmail": {"label": "Gmail", "icon": "gmail", "color": "#EA4335", "category": "communication"},
+            "google_calendar": {"label": "Google Calendar", "icon": "google_calendar", "color": "#4285F4", "category": "productivity"},
+            "google_sheets": {"label": "Google Sheets", "icon": "google_sheets", "color": "#0F9D58", "category": "productivity"},
+            "google_meet": {"label": "Google Meet", "icon": "google_meet", "color": "#00897B", "category": "communication"},
+            "google_maps": {"label": "Google Maps", "icon": "google_maps", "color": "#EA4335", "category": "utilities"},
+            "slack": {"label": "Slack", "icon": "slack", "color": "#4A154B", "category": "communication"},
+            "zoom": {"label": "Zoom", "icon": "zoom", "color": "#2D8CFF", "category": "communication"},
         }
         result = []
         for name in self.list_all():

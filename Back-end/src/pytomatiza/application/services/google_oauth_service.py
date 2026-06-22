@@ -18,6 +18,8 @@ _GOOGLE_DRIVE_API = "https://www.googleapis.com/drive/v3/files"
 _GOOGLE_DRIVE_UPLOAD_API = "https://www.googleapis.com/upload/drive/v3/files"
 _GOOGLE_GMAIL_API = "https://gmail.googleapis.com/gmail/v1/users/me"
 _GOOGLE_PHOTOS_API = "https://photoslibrary.googleapis.com/v1"
+_GOOGLE_CALENDAR_API = "https://www.googleapis.com/calendar/v3"
+_GOOGLE_SHEETS_API = "https://sheets.googleapis.com/v4/spreadsheets"
 
 
 class GoogleOAuthService:
@@ -315,6 +317,177 @@ class GoogleOAuthService:
             )
             if resp.status_code != 200:
                 raise RuntimeError(f"Gmail watch failed ({resp.status_code})")
+            return resp.json()
+
+    # ── Calendar Operations ──────────────────────────────────────────
+
+    @staticmethod
+    async def check_calendar_access(access_token: str) -> bool:
+        """Verify Calendar API access by fetching the primary calendar."""
+        try:
+            async with httpx.AsyncClient(timeout=10) as client:
+                resp = await client.get(
+                    f"{_GOOGLE_CALENDAR_API}/calendars/primary/events",
+                    params={"maxResults": 1},
+                    headers={"Authorization": f"Bearer {access_token}"},
+                )
+                return resp.status_code == 200
+        except Exception:
+            return False
+
+    @staticmethod
+    async def list_calendar_events(
+        access_token: str,
+        calendar_id: str = "primary",
+        max_results: int = 10,
+        page_token: str | None = None,
+    ) -> dict[str, Any]:
+        """List upcoming events from a Google Calendar."""
+        params: dict[str, str | int] = {
+            "maxResults": min(max_results, 250),
+            "orderBy": "startTime",
+            "singleEvents": "true",
+        }
+        if page_token:
+            params["pageToken"] = page_token
+
+        async with httpx.AsyncClient(timeout=15) as client:
+            resp = await client.get(
+                f"{_GOOGLE_CALENDAR_API}/calendars/{calendar_id}/events",
+                params=params,
+                headers={"Authorization": f"Bearer {access_token}"},
+            )
+            if resp.status_code != 200:
+                raise RuntimeError(
+                    f"Calendar API error ({resp.status_code}): {resp.text[:200]}"
+                )
+            return resp.json()
+
+    @staticmethod
+    async def create_calendar_event(
+        access_token: str,
+        calendar_id: str = "primary",
+        summary: str = "Event",
+        description: str = "",
+        start_time: str | None = None,
+        end_time: str | None = None,
+        attendees: list[str] | None = None,
+        conference: bool = False,
+    ) -> dict[str, Any]:
+        """Create an event on a Google Calendar.  If ``conference`` is ``True``
+        the event will include a Google Meet link."""
+        from datetime import datetime, timedelta, timezone
+
+        start_dt = start_time or datetime.now(timezone.utc).isoformat()
+        end_dt = end_time or (
+            datetime.now(timezone.utc) + timedelta(hours=1)
+        ).isoformat()
+
+        body: dict[str, Any] = {
+            "summary": summary,
+            "description": description,
+            "start": {"dateTime": start_dt, "timeZone": "UTC"},
+            "end": {"dateTime": end_dt, "timeZone": "UTC"},
+        }
+        if attendees:
+            body["attendees"] = [{"email": a} for a in attendees]
+        if conference:
+            body["conferenceData"] = {
+                "createRequest": {
+                    "requestId": str(uuid4()),
+                    "conferenceSolutionKey": {"type": "hangoutsMeet"},
+                }
+            }
+
+        params = {"conferenceDataVersion": "1"} if conference else {}
+
+        async with httpx.AsyncClient(timeout=15) as client:
+            resp = await client.post(
+                f"{_GOOGLE_CALENDAR_API}/calendars/{calendar_id}/events",
+                params=params,
+                json=body,
+                headers={"Authorization": f"Bearer {access_token}"},
+            )
+            if resp.status_code not in (200, 201):
+                raise RuntimeError(
+                    f"Calendar create failed ({resp.status_code}): {resp.text[:200]}"
+                )
+            return resp.json()
+
+    # ── Sheets Operations ────────────────────────────────────────────
+
+    @staticmethod
+    async def check_sheets_access(access_token: str) -> bool:
+        """Verify Sheets API access by listing spreadsheet files via Drive API."""
+        try:
+            async with httpx.AsyncClient(timeout=10) as client:
+                resp = await client.get(
+                    _GOOGLE_DRIVE_API,
+                    params={
+                        "q": "mimeType='application/vnd.google-apps.spreadsheet'",
+                        "pageSize": 1,
+                        "fields": "files(id)",
+                    },
+                    headers={"Authorization": f"Bearer {access_token}"},
+                )
+                return resp.status_code == 200
+        except Exception:
+            return False
+
+    @staticmethod
+    async def create_spreadsheet(
+        access_token: str,
+        title: str = "New Spreadsheet",
+    ) -> dict[str, Any]:
+        """Create a new empty Google Spreadsheet."""
+        async with httpx.AsyncClient(timeout=15) as client:
+            resp = await client.post(
+                _GOOGLE_SHEETS_API,
+                json={"properties": {"title": title}},
+                headers={"Authorization": f"Bearer {access_token}"},
+            )
+            if resp.status_code not in (200, 201):
+                raise RuntimeError(
+                    f"Sheets create failed ({resp.status_code}): {resp.text[:200]}"
+                )
+            return resp.json()
+
+    @staticmethod
+    async def get_sheet_values(
+        access_token: str,
+        spreadsheet_id: str,
+        range_name: str = "A1:Z1000",
+    ) -> dict[str, Any]:
+        """Read values from a Google Spreadsheet range."""
+        async with httpx.AsyncClient(timeout=15) as client:
+            resp = await client.get(
+                f"{_GOOGLE_SHEETS_API}/{spreadsheet_id}/values/{range_name}",
+                headers={"Authorization": f"Bearer {access_token}"},
+            )
+            if resp.status_code != 200:
+                raise RuntimeError(
+                    f"Sheets read failed ({resp.status_code}): {resp.text[:200]}"
+                )
+            return resp.json()
+
+    @staticmethod
+    async def update_sheet_values(
+        access_token: str,
+        spreadsheet_id: str,
+        range_name: str,
+        values: list[list[str]],
+    ) -> dict[str, Any]:
+        """Write values to a Google Spreadsheet range (overwrites)."""
+        async with httpx.AsyncClient(timeout=15) as client:
+            resp = await client.put(
+                f"{_GOOGLE_SHEETS_API}/{spreadsheet_id}/values/{range_name}?valueInputOption=USER_ENTERED",
+                json={"values": values, "majorDimension": "ROWS"},
+                headers={"Authorization": f"Bearer {access_token}"},
+            )
+            if resp.status_code != 200:
+                raise RuntimeError(
+                    f"Sheets update failed ({resp.status_code}): {resp.text[:200]}"
+                )
             return resp.json()
 
     # ── Token Revocation (OAuth server‑side) ─────────────────────────
