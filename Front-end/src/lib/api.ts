@@ -11,7 +11,6 @@
    ═══════════════════════════════════════════════════════════════════ */
 
 import type { Agent, AgentStatus } from "@/store";
-import { signOut } from "next-auth/react";
 
 /* ── API Response Types ──────────────────────────────────────────── */
 
@@ -412,7 +411,13 @@ interface ClientFetchOptions extends Omit<RequestInit, "body"> {
  * Credentials included automatically via `credentials: "include"`.
  * Bearer token from NextAuth session forwarded in Authorization header.
  * Auto-retries on transient network failures.
- * On 401, automatically calls signOut() to redirect to login.
+ *
+ * ═══ REGRA CRÍTICA ═══════════════════════════════════════════════════
+ * Este método NUNCA chama signOut() ou redirect(). Ele apenas retorna
+ * o erro 401 para o chamador. Quem decide redirecionar para /login é:
+ *   - middleware.ts         → bloqueia rotas protegidas sem sessão
+ *   - componente/página     → trata 401 específico (ex: IntegrationPanel)
+ * ═══════════════════════════════════════════════════════════════════════
  */
 export async function clientFetch<T>(
   endpoint: string,
@@ -443,15 +448,13 @@ export async function clientFetch<T>(
         // getSession not available (SSR context) — skip Bearer header
       }
 
-      // No token at all — session is gone, force re-login
+      // ── Sem token → retorna 401 silenciosamente, SEM signOut ──────
       if (!backendToken) {
-        console.error("[clientFetch] No backendToken in session — forcing signOut");
-        try {
-          await signOut({ callbackUrl: "/login", redirect: true });
-        } catch {
-          // signOut may fail in SSR — ignore
-        }
-        return { data: null, error: { code: "AUTH_ERROR", message: "No session" }, status: 401 };
+        return {
+          data: null,
+          error: { code: "AUTH_ERROR", message: "No session" },
+          status: 401,
+        };
       }
 
       const response = await fetch(`${API_BASE}${endpoint}`, {
@@ -464,15 +467,13 @@ export async function clientFetch<T>(
       const status = response.status;
 
       if (!response.ok) {
-        // ── 401: Token expired or invalid — force re-login ──────
+        // ── 401 → retorna silenciosamente, SEM signOut ────────────
         if (status === 401) {
-          console.error("[clientFetch] 401 on", endpoint, "— session may be stale, forcing signOut");
-          try {
-            await signOut({ callbackUrl: "/login", redirect: true });
-          } catch {
-            // signOut may fail in SSR — ignore
-          }
-          return { data: null, error: { code: "AUTH_ERROR", message: "Session expired" }, status: 401 };
+          return {
+            data: null,
+            error: { code: "AUTH_ERROR", message: "Session expired" },
+            status: 401,
+          };
         }
 
         let error: ApiError;

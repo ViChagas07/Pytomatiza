@@ -52,7 +52,7 @@ import {
 } from "lucide-react";
 import { api } from "@/lib/api";
 import { cn } from "@/lib/utils";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 
 /* ── Static integration metadata ────────────────────────────────── */
 
@@ -164,12 +164,11 @@ export function IntegrationPanel() {
       const res = await api.integrationsHealth();
       if (res.data?.integrations) {
         setHealth(res.data.integrations);
+      } else if (res.status === 401) {
+        // Token expirado após login válido — redireciona para renovar sessão
+        await signOut({ callbackUrl: "/login" });
       } else {
-        // clientFetch já redirecionou se for 401
-        // se chegou aqui com data null, é erro de servidor
-        if (res.status !== 401) {
-          setError("Não foi possível carregar o status das integrações.");
-        }
+        setError("Não foi possível carregar o status das integrações.");
       }
     } catch (err) {
       console.error("[IntegrationPanel] fetchHealth:", err);
