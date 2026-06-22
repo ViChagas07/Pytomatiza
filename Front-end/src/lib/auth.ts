@@ -96,32 +96,46 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       name: "credentials",
 
       credentials: {
-        email: {
-          label: "Email",
-          type: "email",
-        },
-
-        password: {
-          label: "Password",
-          type: "password",
-        },
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" },
+        backendToken: { label: "Backend Token", type: "text" },
+        backendUserId: { label: "Backend User ID", type: "text" },
+        refreshToken: { label: "Refresh Token", type: "text" },
       },
 
       async authorize(credentials) {
-        const parsed = loginSchema.safeParse(credentials);
-
-        if (!parsed.success) {
-          console.error("[auth] Invalid credentials schema");
+        // ── Valida apenas email (schema mínimo) ──────────────────────
+        if (!credentials?.email) {
+          console.error("[auth] No email in credentials");
           return null;
         }
 
-        const { email, password } = parsed.data;
+        const email = credentials.email as string;
+        const backendToken = credentials.backendToken as string | undefined;
+        const backendUserId = credentials.backendUserId as string | undefined;
+        const refreshToken = credentials.refreshToken as string | undefined;
 
+        // ═══ Caminho 1: AuthForm já autenticou e passou o token ══════
+        if (backendToken) {
+          console.log("[auth] Using pre-authenticated backendToken for:", email);
+          return {
+            id: backendUserId ?? email,
+            email,
+            name: email.split("@")[0],
+            backendToken,
+            refreshToken,
+          };
+        }
+
+        // ═══ Caminho 2: fallback — autentica diretamente com o backend
+        const password = credentials.password as string | undefined;
+        if (!password) {
+          console.error("[auth] No backendToken and no password — cannot authenticate");
+          return null;
+        }
+
+        console.log("[auth] Fallback: authenticating directly with backend for:", email);
         try {
-          // ═══ Chama o backend REAL para autenticar ═══════════════════
-          // Antes, o authorize() apenas passava adiante o backendToken
-          // que o frontend enviava — se o frontend não enviava, o token
-          // ficava undefined e nunca entrava na sessão.
           const res = await fetch(`${getBackendUrl()}/api/v1/auth/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -135,8 +149,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
           const data = (await res.json()) as {
             access_token: string;
-            refresh_token: string;
-            token_type?: string;
+            refresh_token?: string;
           };
 
           if (!data.access_token) {
@@ -144,21 +157,22 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             return null;
           }
 
-          console.log("[auth] Login successful for:", email);
-
-          // Extrai o user_id do JWT (campo "sub") para usar como ID
           let userId = email;
           try {
-            const payloadBase64 = data.access_token
-              .split(".")[1]
-              .replace(/-/g, "+")
-              .replace(/_/g, "/");
-            const payload = JSON.parse(atob(payloadBase64));
-            if (payload.sub) userId = payload.sub;
+            const payload = JSON.parse(
+              atob(
+                data.access_token
+                  .split(".")[1]
+                  .replace(/-/g, "+")
+                  .replace(/_/g, "/"),
+              ),
+            );
+            if (payload.sub) userId = payload.sub as string;
           } catch {
-            // fallback: usa o email como ID
+            /* fallback to email */
           }
 
+          console.log("[auth] Fallback login successful for:", email);
           return {
             id: userId,
             email,
