@@ -11,6 +11,7 @@
    ═══════════════════════════════════════════════════════════════════ */
 
 import type { Agent, AgentStatus } from "@/store";
+import { signOut } from "next-auth/react";
 
 /* ── API Response Types ──────────────────────────────────────────── */
 
@@ -411,6 +412,7 @@ interface ClientFetchOptions extends Omit<RequestInit, "body"> {
  * Credentials included automatically via `credentials: "include"`.
  * Bearer token from NextAuth session forwarded in Authorization header.
  * Auto-retries on transient network failures.
+ * On 401, automatically calls signOut() to redirect to login.
  */
 export async function clientFetch<T>(
   endpoint: string,
@@ -425,16 +427,31 @@ export async function clientFetch<T>(
         ...((fetchOptions.headers as Record<string, string>) || {}),
       };
 
-      // Forward the backend JWT token from NextAuth session
+      // ── Inject Bearer token from NextAuth session ────────────────
+      let backendToken: string | undefined;
       try {
         const { getSession } = await import("next-auth/react");
         const session = await getSession();
-        if (session?.backendToken) {
+        backendToken = (session as { backendToken?: string } | null)?.backendToken;
+        console.log("[clientFetch] endpoint:", endpoint, "backendToken:", backendToken ? `${backendToken.slice(0, 12)}...` : "NULL/UNDEFINED");
+        console.log("[clientFetch] session expires:", session?.expires);
+        if (backendToken) {
           (headers as Record<string, string>)["Authorization"] =
-            `Bearer ${session.backendToken}`;
+            `Bearer ${backendToken}`;
         }
       } catch {
         // getSession not available (SSR context) — skip Bearer header
+      }
+
+      // No token at all — session is gone, force re-login
+      if (!backendToken) {
+        console.error("[clientFetch] No backendToken in session — forcing signOut");
+        try {
+          await signOut({ callbackUrl: "/login", redirect: true });
+        } catch {
+          // signOut may fail in SSR — ignore
+        }
+        return { data: null, error: { code: "AUTH_ERROR", message: "No session" }, status: 401 };
       }
 
       const response = await fetch(`${API_BASE}${endpoint}`, {
@@ -447,6 +464,17 @@ export async function clientFetch<T>(
       const status = response.status;
 
       if (!response.ok) {
+        // ── 401: Token expired or invalid — force re-login ──────
+        if (status === 401) {
+          console.error("[clientFetch] 401 on", endpoint, "— session may be stale, forcing signOut");
+          try {
+            await signOut({ callbackUrl: "/login", redirect: true });
+          } catch {
+            // signOut may fail in SSR — ignore
+          }
+          return { data: null, error: { code: "AUTH_ERROR", message: "Session expired" }, status: 401 };
+        }
+
         let error: ApiError;
         try {
           const body = await response.json();
@@ -467,6 +495,7 @@ export async function clientFetch<T>(
       return { data, error: null, status };
     } catch (err) {
       // Genuine network failure (DNS, connection refused, timeout, CORS, etc.)
+      console.error("[clientFetch] Network error on", endpoint, ":", err);
       return {
         data: null,
         error: {

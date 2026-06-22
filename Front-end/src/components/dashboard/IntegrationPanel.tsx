@@ -50,7 +50,7 @@ import {
   RefreshCw,
   Globe,
 } from "lucide-react";
-import { api, API_BASE } from "@/lib/api";
+import { api } from "@/lib/api";
 import { cn } from "@/lib/utils";
 import { useSession } from "next-auth/react";
 
@@ -141,7 +141,7 @@ type HealthMap = Record<string, { connected: boolean; status: string; message: s
 /* ── Component ───────────────────────────────────────────────────── */
 
 export function IntegrationPanel() {
-  const { data: session, status: sessionStatus } = useSession();
+  const { status: sessionStatus } = useSession();
   const [health, setHealth] = React.useState<HealthMap>({});
   const [isLoading, setIsLoading] = React.useState(true);
   const [loaded, setLoaded] = React.useState(false);
@@ -160,53 +160,20 @@ export function IntegrationPanel() {
   const fetchHealth = async () => {
     setIsLoading(true);
     setError(null);
-
-    // Use the session token DIRECTLY from useSession() — this is more
-    // reliable than relying on clientFetch's internal dynamic getSession()
-    const token = session?.backendToken;
-    if (!token) {
-      if (sessionStatus === "unauthenticated") {
-        setError("Faça login para ver o status das integrações.");
-      }
-      // If session is loading, just wait
-      setIsLoading(false);
-      return;
-    }
-
     try {
-      const response = await fetch(`${API_BASE}/integrations/health`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (response.ok) {
-        const body = (await response.json()) as {
-          integrations: Record<string, { connected: boolean; status: string; message: string }>;
-        };
-        if (body?.integrations) {
-          setHealth(body.integrations);
-        } else {
-          setError("Resposta inesperada do servidor.");
-        }
-      } else if (response.status === 401) {
-        // Even the direct token failed — this means the token is truly
-        // invalid (refresh token also expired, or backend key changed).
-        setError(
-          "Sua sessão expirou. Por favor, faça login novamente clicando no seu avatar e selecione \"Sair\"."
-        );
+      const res = await api.integrationsHealth();
+      if (res.data?.integrations) {
+        setHealth(res.data.integrations);
       } else {
-        const errBody = await response.json().catch(() => null);
-        setError(
-          `Erro do servidor (${response.status}): ${
-            (errBody as { detail?: string })?.detail || "tente novamente mais tarde."
-          }`
-        );
+        // clientFetch já redirecionou se for 401
+        // se chegou aqui com data null, é erro de servidor
+        if (res.status !== 401) {
+          setError("Não foi possível carregar o status das integrações.");
+        }
       }
-    } catch (err: unknown) {
-      setError("Erro ao conectar com o servidor. Tente novamente.");
-      console.error("[IntegrationPanel] fetchHealth error:", err);
+    } catch (err) {
+      console.error("[IntegrationPanel] fetchHealth:", err);
+      setError("Erro inesperado. Tente novamente.");
     } finally {
       setIsLoading(false);
     }
@@ -255,7 +222,7 @@ export function IntegrationPanel() {
             key={int.service}
             integration={int}
             health={health[int.service]}
-            isLoading={isLoading}
+            isParentLoading={isLoading}
             index={i}
           />
         ))}
@@ -305,26 +272,34 @@ export function IntegrationPanel() {
 function IntegrationCard({
   integration,
   health,
-  isLoading,
+  isParentLoading,
   index,
 }: {
   integration: IntegrationMeta;
   health: { connected: boolean; status: string; message: string } | undefined;
-  isLoading: boolean;
+  isParentLoading: boolean;
   index: number;
 }) {
   const isConnected = health?.connected ?? false;
-  const statusLabel = health === undefined
-    ? "Carregando..."
-    : health?.status === "connected" ? "Conectado"
-    : health?.status === "error" ? "Erro"
-    : "Desconectado";
 
-  const badgeVariant = health === undefined
-    ? "secondary"
-    : isConnected ? "success"
-    : health?.status === "error" ? "destructive"
-    : "outline";
+  // "Carregando..." only during initial isLoading; after that, undefined health = "Desconectado"
+  const statusLabel =
+    isParentLoading
+      ? "Verificando..."
+      : health?.status === "connected"
+      ? "Conectado"
+      : health?.status === "error"
+      ? "Erro"
+      : "Desconectado";
+
+  const badgeClass =
+    isParentLoading
+      ? "bg-[var(--surface-2)] text-[var(--text-tertiary)] animate-pulse"
+      : isConnected
+      ? "bg-[var(--color-success)]/10 text-[var(--color-success)]"
+      : health?.status === "error"
+      ? "bg-[var(--color-danger)]/10 text-[var(--color-danger)]"
+      : "bg-[var(--surface-2)] text-[var(--text-tertiary)]";
 
   return (
     <div
@@ -337,20 +312,13 @@ function IntegrationCard({
     >
       {/* Status badge */}
       <div className="absolute -top-2 -right-2">
-        {isLoading ? (
+        {isParentLoading ? (
           <span className="inline-flex items-center rounded-full bg-[var(--surface-2)] px-2 py-0.5 text-[10px] text-[var(--text-tertiary)]">
             <RefreshCw className="h-2.5 w-2.5 animate-spin mr-1" />
             Verificando
           </span>
         ) : (
-          <span
-            className={cn(
-              "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-medium",
-              isConnected && "bg-[var(--color-success)]/10 text-[var(--color-success)]",
-              !isConnected && health?.status !== "error" && "bg-[var(--surface-2)] text-[var(--text-tertiary)]",
-              health?.status === "error" && "bg-[var(--color-danger)]/10 text-[var(--color-danger)]"
-            )}
-          >
+          <span className={cn("inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-medium", badgeClass)}>
             {isConnected ? <CheckCircle className="h-2.5 w-2.5" /> : health?.status === "error" ? <AlertTriangle className="h-2.5 w-2.5" /> : <XCircle className="h-2.5 w-2.5" />}
             {statusLabel}
           </span>
