@@ -31,12 +31,19 @@ const nextConfig: NextConfig = {
      server-side fetches direct.
      In production (Vercel), NEXT_PUBLIC_BACKEND_URL must point to Railway.
      Example: https://pytomatiza-production.up.railway.app */
-  rewrites: async () => [
-    {
-      source: "/api/v1/:path*",
-      destination: `${process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000"}/api/v1/:path*`,
-    },
-  ],
+  rewrites: async () => {
+    const backendUrl =
+      process.env.NEXT_PUBLIC_BACKEND_URL ||
+      process.env.BACKEND_URL ||
+      "http://localhost:8000";
+
+    return [
+      {
+        source: "/api/v1/:path*",
+        destination: `${backendUrl}/api/v1/:path*`,
+      },
+    ];
+  },
 
   /* Security Headers */
   headers: async () => [
