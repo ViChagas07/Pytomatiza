@@ -59,10 +59,21 @@ class IntegrationService:
         return list(self._providers.keys())
 
     async def health_check_all(self, user_id: UUID | None = None) -> dict[str, Any]:
-        """Run health checks against ALL providers and return a summary."""
+        """Run health checks against ALL providers and return a summary.
+
+        Providers that read credentials from ``settings`` (Discord, Telegram,
+        Trello, Jira, WhatsApp, Facebook) accept ``user_id`` via ``**kwargs``
+        and silently ignore it — their health does NOT depend on which user
+        is making the request.
+
+        Providers that rely on per‑user OAuth tokens (Google Drive, Gmail)
+        use ``user_id`` to look up the correct token row in PostgreSQL.
+        """
         results: dict[str, Any] = {}
         for name, provider in self._providers.items():
             try:
+                # `.env` providers ignore user_id via **kwargs — correct
+                # OAuth providers use it to find per‑user tokens
                 health = await provider.health_check(user_id=user_id)
                 results[name] = {
                     "connected": health.connected,
@@ -71,7 +82,13 @@ class IntegrationService:
                     "details": health.details,
                 }
             except Exception as exc:
-                results[name] = {"connected": False, "status": "error", "message": str(exc), "details": {}}
+                logger.warning("Provider %s health check failed: %s", name, exc)
+                results[name] = {
+                    "connected": False,
+                    "status": "error",
+                    "message": str(exc),
+                    "details": {},
+                }
         return results
 
     def list_available_integrations(self) -> list[dict[str, Any]]:

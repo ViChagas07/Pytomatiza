@@ -49,6 +49,7 @@ import {
 } from "lucide-react";
 import { api } from "@/lib/api";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 /* ── Static integration metadata ────────────────────────────────── */
 
@@ -110,9 +111,11 @@ type HealthMap = Record<string, { connected: boolean; status: string; message: s
 /* ── Component ───────────────────────────────────────────────────── */
 
 export function IntegrationPanel() {
+  const router = useRouter();
   const [health, setHealth] = React.useState<HealthMap>({});
   const [isLoading, setIsLoading] = React.useState(true);
   const [loaded, setLoaded] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 300);
@@ -122,13 +125,29 @@ export function IntegrationPanel() {
 
   const fetchHealth = async () => {
     setIsLoading(true);
+    setError(null);
     try {
       const res = await api.integrationsHealth();
       if (res.data?.integrations) {
         setHealth(res.data.integrations);
+      } else if (res.status === 401) {
+        // Token expirado — redireciona para login
+        router.push("/login");
+        return;
+      } else {
+        setError("Não foi possível carregar o status das integrações.");
       }
-    } catch { /* gracefully handle */ }
-    finally { setIsLoading(false); }
+    } catch (err: unknown) {
+      const status = (err as { response?: { status?: number } })?.response?.status;
+      if (status === 401) {
+        router.push("/login");
+        return;
+      }
+      setError("Erro ao conectar com o servidor. Tente novamente.");
+      console.error("[IntegrationPanel] fetchHealth error:", err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (!loaded) return null;
@@ -159,6 +178,13 @@ export function IntegrationPanel() {
           {isLoading ? "Verificando..." : "Atualizar status"}
         </button>
       </div>
+
+      {/* ── Error Banner ────────────────────────────────────────── */}
+      {error && (
+        <div className="mb-4 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          {error}
+        </div>
+      )}
 
       {/* ── Active Integration Cards ─────────────────────────────── */}
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
@@ -226,7 +252,17 @@ function IntegrationCard({
   index: number;
 }) {
   const isConnected = health?.connected ?? false;
-  const statusLabel = health?.status === "connected" ? "Conectado" : health?.status === "error" ? "Erro" : "Desconectado";
+  const statusLabel = health === undefined
+    ? "Carregando..."
+    : health?.status === "connected" ? "Conectado"
+    : health?.status === "error" ? "Erro"
+    : "Desconectado";
+
+  const badgeVariant = health === undefined
+    ? "secondary"
+    : isConnected ? "success"
+    : health?.status === "error" ? "destructive"
+    : "outline";
 
   return (
     <div

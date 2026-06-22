@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 from typing import Annotated, Any
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -9,6 +10,8 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pytomatiza.application.services.integrations import get_integration_service
 from pytomatiza.domain.entities.user import User
 from pytomatiza.entrypoints.api.deps import get_current_user
+
+logger = logging.getLogger("pytomatiza.api.integrations")
 
 router = APIRouter()
 
@@ -27,9 +30,16 @@ async def integrations_health(
     current_user: Annotated[User, Depends(get_current_user)],
 ) -> dict[str, Any]:
     """Run health checks on all integrations."""
-    svc = get_integration_service()
-    results = await svc.health_check_all(user_id=current_user.id)
-    return {"integrations": results}
+    try:
+        svc = get_integration_service()
+        results = await svc.health_check_all(user_id=current_user.id)
+        return {"integrations": results, "user_id": str(current_user.id)}
+    except Exception as exc:
+        logger.error("health_check_all failed for user %s: %s", current_user.id, exc)
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            detail="Failed to retrieve integration health.",
+        ) from exc
 
 
 @router.get("/integrations/{service}/health")
