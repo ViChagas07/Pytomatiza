@@ -47,8 +47,9 @@ import {
   RefreshCw,
   Globe,
 } from "lucide-react";
-import { api } from "@/lib/api";
+import { api, API_BASE } from "@/lib/api";
 import { cn } from "@/lib/utils";
+import { useSession } from "next-auth/react";
 
 /* ── Static integration metadata ────────────────────────────────── */
 
@@ -110,6 +111,7 @@ type HealthMap = Record<string, { connected: boolean; status: string; message: s
 /* ── Component ───────────────────────────────────────────────────── */
 
 export function IntegrationPanel() {
+  const { data: session, status: sessionStatus } = useSession();
   const [health, setHealth] = React.useState<HealthMap>({});
   const [isLoading, setIsLoading] = React.useState(true);
   const [loaded, setLoaded] = React.useState(false);
@@ -117,26 +119,60 @@ export function IntegrationPanel() {
 
   React.useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 300);
-    fetchHealth();
+    // Only fetch once the session is known — avoids racing with getSession()
+    if (sessionStatus !== "loading") {
+      fetchHealth();
+    }
     return () => clearTimeout(timer);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sessionStatus]);
 
   const fetchHealth = async () => {
     setIsLoading(true);
     setError(null);
+
+    // Use the session token DIRECTLY from useSession() — this is more
+    // reliable than relying on clientFetch's internal dynamic getSession()
+    const token = session?.backendToken;
+    if (!token) {
+      if (sessionStatus === "unauthenticated") {
+        setError("Faça login para ver o status das integrações.");
+      }
+      // If session is loading, just wait
+      setIsLoading(false);
+      return;
+    }
+
     try {
-      const res = await api.integrationsHealth();
-      if (res.data?.integrations) {
-        setHealth(res.data.integrations);
-      } else if (res.status === 401) {
-        // Token expirado — o callback jwt() do NextAuth já tentou renová-lo
-        // silenciosamente. Se chegou aqui, a renovação falhou (refresh token
-        // também expirou ou o backend está fora do ar).
+      const response = await fetch(`${API_BASE}/integrations/health`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const body = (await response.json()) as {
+          integrations: Record<string, { connected: boolean; status: string; message: string }>;
+        };
+        if (body?.integrations) {
+          setHealth(body.integrations);
+        } else {
+          setError("Resposta inesperada do servidor.");
+        }
+      } else if (response.status === 401) {
+        // Even the direct token failed — this means the token is truly
+        // invalid (refresh token also expired, or backend key changed).
         setError(
           "Sua sessão expirou. Por favor, faça login novamente clicando no seu avatar e selecione \"Sair\"."
         );
       } else {
-        setError("Não foi possível carregar o status das integrações.");
+        const errBody = await response.json().catch(() => null);
+        setError(
+          `Erro do servidor (${response.status}): ${
+            (errBody as { detail?: string })?.detail || "tente novamente mais tarde."
+          }`
+        );
       }
     } catch (err: unknown) {
       setError("Erro ao conectar com o servidor. Tente novamente.");

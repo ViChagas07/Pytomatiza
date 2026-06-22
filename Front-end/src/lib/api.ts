@@ -140,7 +140,7 @@ export function mapAgentToFrontend(raw: BackendAgentResponse): Agent {
    ═══════════════════════════════════════════════════════════════════ */
 
 /** Relative URL for browser fetches (goes through Next.js rewrite → no CORS). */
-const API_BASE = "/api/v1";
+export const API_BASE = "/api/v1";
 
 /** Absolute URL for server-side fetches (Node.js requires absolute URLs).
  *  In production (Vercel), NEXT_PUBLIC_BACKEND_URL must point to Railway. */
