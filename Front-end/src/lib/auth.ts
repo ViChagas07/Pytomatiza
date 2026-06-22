@@ -111,26 +111,63 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const parsed = loginSchema.safeParse(credentials);
 
         if (!parsed.success) {
+          console.error("[auth] Invalid credentials schema");
           return null;
         }
 
-        const { email } = parsed.data;
-
-        // Accept backend token & user ID forwarded from AuthForm
-        const rawCreds = credentials as Record<string, unknown>;
-        const backendToken = rawCreds.backendToken as string | undefined;
-        const backendUserId = rawCreds.backendUserId as string | undefined;
-        const refreshToken = rawCreds.refreshToken as string | undefined;
+        const { email, password } = parsed.data;
 
         try {
+          // ═══ Chama o backend REAL para autenticar ═══════════════════
+          // Antes, o authorize() apenas passava adiante o backendToken
+          // que o frontend enviava — se o frontend não enviava, o token
+          // ficava undefined e nunca entrava na sessão.
+          const res = await fetch(`${getBackendUrl()}/api/v1/auth/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+          });
+
+          if (!res.ok) {
+            console.error("[auth] Backend login failed:", res.status);
+            return null;
+          }
+
+          const data = (await res.json()) as {
+            access_token: string;
+            refresh_token: string;
+            token_type?: string;
+          };
+
+          if (!data.access_token) {
+            console.error("[auth] Backend returned no access_token");
+            return null;
+          }
+
+          console.log("[auth] Login successful for:", email);
+
+          // Extrai o user_id do JWT (campo "sub") para usar como ID
+          let userId = email;
+          try {
+            const payloadBase64 = data.access_token
+              .split(".")[1]
+              .replace(/-/g, "+")
+              .replace(/_/g, "/");
+            const payload = JSON.parse(atob(payloadBase64));
+            if (payload.sub) userId = payload.sub;
+          } catch {
+            // fallback: usa o email como ID
+          }
+
           return {
-            id: backendUserId || "dev-user-1",
+            id: userId,
             email,
             name: email.split("@")[0],
-            backendToken,
-            refreshToken,
+            backendToken: data.access_token,
+            refreshToken: data.refresh_token,
           };
-        } catch {
+        } catch (err) {
+          console.error("[auth] authorize() network error:", err);
           return null;
         }
       },
