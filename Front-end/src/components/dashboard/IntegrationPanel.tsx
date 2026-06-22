@@ -49,7 +49,6 @@ import {
 } from "lucide-react";
 import { api } from "@/lib/api";
 import { cn } from "@/lib/utils";
-import { useRouter } from "next/navigation";
 
 /* ── Static integration metadata ────────────────────────────────── */
 
@@ -111,7 +110,6 @@ type HealthMap = Record<string, { connected: boolean; status: string; message: s
 /* ── Component ───────────────────────────────────────────────────── */
 
 export function IntegrationPanel() {
-  const router = useRouter();
   const [health, setHealth] = React.useState<HealthMap>({});
   const [isLoading, setIsLoading] = React.useState(true);
   const [loaded, setLoaded] = React.useState(false);
@@ -131,18 +129,16 @@ export function IntegrationPanel() {
       if (res.data?.integrations) {
         setHealth(res.data.integrations);
       } else if (res.status === 401) {
-        // Token expirado — redireciona para login
-        router.push("/login");
-        return;
+        // Token expirado — o callback jwt() do NextAuth já tentou renová-lo
+        // silenciosamente. Se chegou aqui, a renovação falhou (refresh token
+        // também expirou ou o backend está fora do ar).
+        setError(
+          "Sua sessão expirou. Por favor, faça login novamente clicando no seu avatar e selecione \"Sair\"."
+        );
       } else {
         setError("Não foi possível carregar o status das integrações.");
       }
     } catch (err: unknown) {
-      const status = (err as { response?: { status?: number } })?.response?.status;
-      if (status === 401) {
-        router.push("/login");
-        return;
-      }
       setError("Erro ao conectar com o servidor. Tente novamente.");
       console.error("[IntegrationPanel] fetchHealth error:", err);
     } finally {

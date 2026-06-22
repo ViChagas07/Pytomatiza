@@ -109,12 +109,64 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (user?.id) {
         token.id = user.id;
       }
-      // Persist the backend JWT + refresh token so they survive across requests
+      // On initial sign-in, store the fresh backend token + refresh token
       if (user?.backendToken) {
         token.backendToken = user.backendToken;
       }
       if (user?.refreshToken) {
         token.refreshToken = user.refreshToken;
+      }
+
+      // ── Auto‑refresh the backend token if it is expired ────────────
+      // This runs server‑side every time getSession() is called.
+      // The refresh is transparent to the client — no redirect needed.
+      if (
+        !user &&                                  // not during initial sign‑in
+        token.backendToken &&
+        token.refreshToken
+      ) {
+        try {
+          const payloadBase64 = (token.backendToken as string)
+            .split(".")[1]
+            .replace(/-/g, "+")
+            .replace(/_/g, "/");
+          const payload = JSON.parse(atob(payloadBase64));
+          const expMs = (payload.exp as number) * 1000;
+          const fiveMinutes = 5 * 60 * 1000;
+
+          // Only call the refresh endpoint if the token is expired
+          // or will expire within the next 5 minutes.
+          if (Date.now() >= expMs - fiveMinutes) {
+            const BACKEND_URL =
+              process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
+            const response = await fetch(
+              `${BACKEND_URL}/api/v1/auth/refresh`,
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  refresh_token: token.refreshToken as string,
+                }),
+              }
+            );
+            if (response.ok) {
+              const data = (await response.json()) as {
+                access_token: string;
+                refresh_token?: string;
+              };
+              token.backendToken = data.access_token;
+              // Google may rotate the refresh token
+              if (data.refresh_token) {
+                token.refreshToken = data.refresh_token;
+              }
+            }
+            // If refresh fails, keep the current (expired) token.
+            // The next API call will get a 401 and the UI will show an
+            // error banner asking the user to log in again.
+          }
+        } catch {
+          // Ignore decode / network errors — the old token stays in place
+        }
       }
 
       return token;
