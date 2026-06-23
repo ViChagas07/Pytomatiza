@@ -20,7 +20,15 @@ export function AccountPanel() {
   const isAuthenticated = status === "authenticated";
   const [name, setName] = React.useState(session?.user?.name ?? "");
   const [birthDate, setBirthDate] = React.useState("");
-  const [photoPreview, setPhotoPreview] = React.useState<string | null>(null);
+  const [photoPreview, setPhotoPreview] = React.useState<string | null>(
+    session?.user?.image ?? null
+  );
+  const birthDateRef = React.useRef<HTMLInputElement>(null);
+
+  const handleBirthDateClick = () => {
+    // Abre o date picker ao clicar em qualquer lugar do campo
+    birthDateRef.current?.showPicker();
+  };
 
   const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -153,9 +161,11 @@ export function AccountPanel() {
             </label>
             <input
               id="account-birthdate"
+              ref={birthDateRef}
               type="date"
               value={birthDate}
               onChange={(e) => setBirthDate(e.target.value)}
+              onClick={handleBirthDateClick}
               disabled={!isAuthenticated}
               className={cn(
                 "w-full rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--surface-0)] px-3 py-2 text-sm text-[var(--text-primary)]",
