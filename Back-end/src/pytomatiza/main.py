@@ -23,7 +23,7 @@ from pytomatiza.entrypoints.api.middleware import (
     domain_exception_handler,
     generic_exception_handler,
 )
-from pytomatiza.entrypoints.api.routers import agents, architecture_router, auth, automations, communication_router, dashboard, data_router, health, integrations, integrations_router, logs_router, media_router, ocr_router, status_router, storage, workflows
+from pytomatiza.entrypoints.api.routers import agents, architecture_router, auth, automations, communication_router, dashboard, data_router, health, integrations, integrations_router, logs_router, media_router, ocr_router, oauth_router, status_router, storage, workflows
 from pytomatiza.entrypoints.websocket.ws_handler import ws_router
 from pytomatiza.infrastructure.monitoring.sentry_setup import init_sentry
 
@@ -88,6 +88,7 @@ def create_app() -> FastAPI:
 
     # ── Routers ─────────────────────────────────────────────────────────
     app.include_router(auth.router, prefix="/api/v1/auth", tags=["Auth"])
+    app.include_router(oauth_router.router, prefix="/api/v1", tags=["OAuth"])
     app.include_router(agents.router, prefix="/api/v1/agents", tags=["Agents"])
     app.include_router(workflows.router, prefix="/api/v1/workflows", tags=["Workflows"])
     app.include_router(automations.router, prefix="/api/v1/automations", tags=["Automations"])
