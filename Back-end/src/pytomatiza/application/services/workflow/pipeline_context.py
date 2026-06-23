@@ -41,7 +41,9 @@ class PipelineContext:
 
     @property
     def all_outputs(self) -> dict[str, Any]:
-        return dict(self._data)
+        result = dict(self._data)
+        result["__user_id__"] = self.user_id  # metadata key for step executors
+        return result
 
     @property
     def last_output(self) -> Any:

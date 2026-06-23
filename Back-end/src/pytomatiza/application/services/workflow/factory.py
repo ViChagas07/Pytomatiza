@@ -6,6 +6,7 @@ import logging
 
 from pytomatiza.application.services.workflow.agent_registry import AgentRegistry
 from pytomatiza.application.services.workflow.engine import WorkflowExecutionEngine
+from pytomatiza.application.services.workflow.pipeline_context import PipelineContext
 from pytomatiza.domain.repositories.automation_run_repository import (
     AutomationRunRepository,
 )
@@ -28,29 +29,36 @@ def get_agent_registry() -> AgentRegistry:
     _registry = AgentRegistry()
     _registry.register(OCRStepExecutor())
     _registry.register(OpenAIStepExecutor())
+
     # Integration step executors
     from pytomatiza.infrastructure.workflow.integration_steps import (
         discord_step,
-        telegram_step,
-        whatsapp_step,
         facebook_step,
-        trello_step,
-        jira_step,
-        google_drive_step,
         gmail_step,
+        google_calendar_step,
+        google_drive_step,
+        google_meet_step,
+        google_sheets_step,
+        jira_step,
+        slack_step,
+        telegram_step,
+        trello_step,
+        whatsapp_step,
+        zoom_step,
     )
     _registry.register(discord_step)
-    _registry.register(telegram_step)
-    _registry.register(whatsapp_step)
     _registry.register(facebook_step)
-    _registry.register(trello_step)
-    _registry.register(jira_step)
-    _registry.register(google_drive_step)
     _registry.register(gmail_step)
-    # Future registrations:
-    # _registry.register(GoogleDriveStepExecutor())
-    # _registry.register(SlackStepExecutor())
-    # _registry.register(GmailStepExecutor())
+    _registry.register(google_calendar_step)
+    _registry.register(google_drive_step)
+    _registry.register(google_meet_step)
+    _registry.register(google_sheets_step)
+    _registry.register(jira_step)
+    _registry.register(slack_step)
+    _registry.register(telegram_step)
+    _registry.register(trello_step)
+    _registry.register(whatsapp_step)
+    _registry.register(zoom_step)
 
     logger.info("AgentRegistry initialised with %d executors", len(_registry.list_tools()))
     return _registry
