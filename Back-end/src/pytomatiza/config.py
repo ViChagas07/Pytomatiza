@@ -40,6 +40,12 @@ class Settings(BaseSettings):
     REFRESH_TOKEN_EXPIRE_DAYS: int = 30
     PASSWORD_RESET_TOKEN_EXPIRE_MINUTES: int = 60
 
+    # ── Token Encryption (AES-256-GCM) ──────────────────────────────────
+    ENCRYPTION_KEY: str = ""
+    """64-char hex string (32 bytes) for AES-256-GCM symmetric encryption
+    of integration tokens at rest.  If empty a development-only derived key
+    is used (with a loud warning)."""
+
     # ── Database ─────────────────────────────────────────────────────────
     DATABASE_URL: str
     DB_ECHO: bool = False
