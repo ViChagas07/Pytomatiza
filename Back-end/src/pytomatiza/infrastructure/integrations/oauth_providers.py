@@ -104,9 +104,10 @@ def register_all_oauth_providers() -> None:
                 expires_in_key="expires_in",
                 scope_key="scope",
                 token_type_key="token_type",
-                userinfo_url="https://api.atlassian.com/me",
-                userinfo_id_path=["account_id"],
-                userinfo_name_path=["name"],
+                # Fetch accessible resources to get cloud_id
+                userinfo_url="https://api.atlassian.com/oauth/token/accessible-resources",
+                userinfo_id_path=["0", "id"],  # first resource's id = cloud_id
+                userinfo_name_path=["0", "name"],  # first resource's name = site name
             )
         )
         logger.info("Jira OAuth provider registered.")

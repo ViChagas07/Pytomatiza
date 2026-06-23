@@ -288,17 +288,28 @@ class OAuthFlowService:
 
     @staticmethod
     def _follow_json_path(
-        data: dict[str, Any],
+        data: Any,
         path: list[str],
     ) -> str:
-        """Traverse a nested dict following ``path``, return value or ``""``."""
+        """Traverse a nested dict/list following ``path``, return value or ``""``.
+
+        Supports both dict keys and list indices (e.g. ``["0", "id"]`` for
+        Jira's accessible-resources array response).
+        """
         current: Any = data
         for key in path:
             if isinstance(current, dict):
-                current = current.get(key, {})
+                current = current.get(key)
+            elif isinstance(current, (list, tuple)):
+                try:
+                    current = current[int(key)]
+                except (IndexError, ValueError, TypeError):
+                    return ""
             else:
                 return ""
-        return str(current) if current else ""
+            if current is None:
+                return ""
+        return str(current) if current is not None else ""
 
     @staticmethod
     def _sanitize_raw(raw: dict[str, Any]) -> dict[str, Any]:
