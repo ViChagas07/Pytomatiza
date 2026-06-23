@@ -18,6 +18,7 @@ from pytomatiza.application.services.google_oauth_service import GoogleOAuthServ
 from pytomatiza.domain.services.integrations.provider import (
     IntegrationAction,
     IntegrationHealth,
+    IntegrationProvider,
 )
 from pytomatiza.infrastructure.db.session import AsyncSessionLocal
 from pytomatiza.infrastructure.repositories.integration_token_repository import (
@@ -37,7 +38,7 @@ _SERVICE_SCOPES: dict[str, str] = {
 }
 
 
-class GoogleProvider:
+class GoogleProvider(IntegrationProvider):
     """Unified provider for all Google OAuth services.
 
     Usage::

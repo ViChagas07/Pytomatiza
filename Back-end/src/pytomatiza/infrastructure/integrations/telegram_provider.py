@@ -19,6 +19,7 @@ from pytomatiza.domain.entities.integration_token import IntegrationToken
 from pytomatiza.domain.services.integrations.provider import (
     IntegrationAction,
     IntegrationHealth,
+    IntegrationProvider,
 )
 from pytomatiza.infrastructure.db.session import AsyncSessionLocal
 from pytomatiza.infrastructure.repositories.integration_token_repository import (
@@ -28,7 +29,7 @@ from pytomatiza.infrastructure.repositories.integration_token_repository import 
 logger = logging.getLogger(__name__)
 
 
-class TelegramProvider:
+class TelegramProvider(IntegrationProvider):
     service_name = "telegram"
 
     async def _get_token(self, user_id: UUID | None = None) -> IntegrationToken | None:
