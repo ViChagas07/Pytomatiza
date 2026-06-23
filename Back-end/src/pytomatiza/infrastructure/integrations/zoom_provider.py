@@ -1,4 +1,11 @@
-"""Zoom Integration Provider — meetings, webinars via Server-to-Server OAuth."""
+"""Zoom Integration Provider — OAuth 3LO per-user, meetings, webinars.
+
+Each user connects their own Zoom account via OAuth. The token is stored
+encrypted in ``integration_tokens`` and used for all API calls.
+
+Replaces the previous Server-to-Server OAuth (account_credentials) which
+acted as a single global account.
+"""
 
 from __future__ import annotations
 
@@ -8,85 +15,74 @@ from uuid import UUID
 
 import httpx
 
-from pytomatiza.config import settings
+from pytomatiza.domain.entities.integration_token import IntegrationToken
 from pytomatiza.domain.services.integrations.provider import (
     IntegrationAction,
     IntegrationHealth,
 )
+from pytomatiza.infrastructure.db.session import AsyncSessionLocal
+from pytomatiza.infrastructure.repositories.integration_token_repository import (
+    IntegrationTokenRepository,
+)
+from pytomatiza.infrastructure.security.token_encryption import (
+    TokenEncryptionService,
+)
 
 logger = logging.getLogger(__name__)
 
-_ZOOM_OAUTH_URL = "https://zoom.us/oauth/token"
 _ZOOM_API_BASE = "https://api.zoom.us/v2"
 
 
 class ZoomProvider:
     service_name = "zoom"
-    _account_id: str = ""
-    _client_id: str = ""
-    _client_secret: str = ""
 
-    def __init__(self) -> None:
-        self._account_id = settings.ZOOM_ACCOUNT_ID
-        self._client_id = settings.ZOOM_CLIENT_ID
-        self._client_secret = settings.ZOOM_CLIENT_SECRET
-
-    async def _get_access_token(self) -> str | None:
-        """Obtain a server-to-server OAuth access token from Zoom."""
-        if not self._account_id or not self._client_id or not self._client_secret:
+    async def _get_token(self, user_id: UUID | None = None) -> IntegrationToken | None:
+        """Load the Zoom OAuth token for a user from the database."""
+        if user_id is None:
             return None
-        try:
-            async with httpx.AsyncClient(timeout=10) as client:
-                resp = await client.post(
-                    _ZOOM_OAUTH_URL,
-                    params={
-                        "grant_type": "account_credentials",
-                        "account_id": self._account_id,
-                    },
-                    auth=(self._client_id, self._client_secret),
-                )
-                if resp.status_code == 200:
-                    data = resp.json()
-                    return data.get("access_token")
-                logger.warning(
-                    "Zoom OAuth failed (%s): %s", resp.status_code, resp.text[:200]
-                )
-                return None
-        except Exception as exc:
-            logger.warning("Zoom OAuth exception: %s", exc)
-            return None
+        async with AsyncSessionLocal() as session:
+            repo = IntegrationTokenRepository(session)
+            return await repo.find_by_user_and_service(
+                user_id=user_id,
+                provider="zoom",
+                service="meetings",
+            )
 
     async def health_check(self, user_id: UUID | None = None) -> IntegrationHealth:
-        access_token = await self._get_access_token()
-        if access_token is None:
+        token = await self._get_token(user_id)
+        if token is None:
             return IntegrationHealth(
                 service=self.service_name, connected=False,
                 status="disconnected",
-                message="Zoom credentials not configured or invalid in .env"
+                message="Zoom não conectado — autorize sua conta",
             )
         try:
             async with httpx.AsyncClient(timeout=10) as client:
                 resp = await client.get(
                     f"{_ZOOM_API_BASE}/users/me",
-                    headers={"Authorization": f"Bearer {access_token}"},
+                    headers={"Authorization": f"Bearer {token.access_token}"},
                 )
                 if resp.status_code == 200:
                     data = resp.json()
-                    email = data.get("email", "")
+                    email = data.get("email", token.external_account_name)
                     return IntegrationHealth(
                         service=self.service_name, connected=True,
                         status="connected",
-                        message=f"Autenticado como {email}"
+                        message=f"Autenticado como {email}",
+                        details={
+                            "email": email,
+                            "account_id": token.external_account_id,
+                        },
                     )
                 return IntegrationHealth(
                     service=self.service_name, connected=False,
                     status="error",
-                    message=f"Zoom API error ({resp.status_code})"
+                    message=f"Zoom API error ({resp.status_code})",
                 )
         except Exception as exc:
             return IntegrationHealth(
                 service=self.service_name, connected=False,
-                status="error", message=str(exc)
+                status="error", message=str(exc),
             )
 
     async def execute_action(
@@ -94,12 +90,13 @@ class ZoomProvider:
         user_id: UUID | None = None,
     ) -> IntegrationAction:
         try:
-            access_token = await self._get_access_token()
-            if access_token is None:
+            token = await self._get_token(user_id)
+            if token is None:
                 return IntegrationAction(
                     success=False, action=action,
-                    error="Zoom credentials not configured"
+                    error="Zoom não conectado. Conecte sua conta primeiro.",
                 )
+            access_token = token.access_token
 
             if action == "create_meeting":
                 topic = params.get("topic", "Meeting")
@@ -128,10 +125,10 @@ class ZoomProvider:
                     if resp.status_code not in (200, 201):
                         return IntegrationAction(
                             success=False, action=action,
-                            error=f"Zoom API error ({resp.status_code}): {resp.text[:200]}"
+                            error=f"Zoom API error ({resp.status_code}): {resp.text[:200]}",
                         )
                     return IntegrationAction(
-                        success=True, action=action, result=resp.json()
+                        success=True, action=action, result=resp.json(),
                     )
 
             if action == "list_meetings":
@@ -144,21 +141,20 @@ class ZoomProvider:
                     if resp.status_code != 200:
                         return IntegrationAction(
                             success=False, action=action,
-                            error=f"Zoom API error ({resp.status_code})"
+                            error=f"Zoom API error ({resp.status_code})",
                         )
                     return IntegrationAction(
-                        success=True, action=action, result=resp.json()
+                        success=True, action=action, result=resp.json(),
                     )
 
             return IntegrationAction(
                 success=False, action=action,
-                error=f"Unknown action: {action}"
+                error=f"Ação desconhecida: {action}",
             )
         except Exception as exc:
             return IntegrationAction(
-                success=False, action=action, error=str(exc)
+                success=False, action=action, error=str(exc),
             )
 
     async def validate_credentials(self) -> bool:
-        health = await self.health_check()
-        return health.connected
+        return False  # requires user_id
