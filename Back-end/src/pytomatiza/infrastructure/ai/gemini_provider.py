@@ -1,6 +1,6 @@
 """GeminiProvider — Google Gemini integration for production LLM inference.
 
-Uses the google-generativeai SDK under the hood. All configuration flows
+Uses the google-genai SDK (google.genai). All configuration flows
 from the central Settings object — never hard-code API keys or model names.
 """
 
@@ -8,7 +8,8 @@ from __future__ import annotations
 
 import logging
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types as genai_types
 
 from pytomatiza.config import settings
 
@@ -18,20 +19,14 @@ logger = logging.getLogger("pytomatiza.ai.gemini")
 class GeminiProvider:
     """LLM provider backed by Google Gemini models (gemini-2.5-flash, etc.).
 
-    Thread-safe after initialisation. The GenerativeModel is long-lived
+    Thread-safe after initialisation. The client is long-lived
     and should be reused across requests to avoid re-authentication.
     """
 
     def __init__(self) -> None:
-        genai.configure(api_key=settings.GOOGLE_GEMINI_API_KEY)
+        self._client = genai.Client(api_key=settings.GOOGLE_GEMINI_API_KEY)
+        self._model = settings.GOOGLE_GEMINI_MODEL
 
-        self._model = genai.GenerativeModel(
-            model_name=settings.GOOGLE_GEMINI_MODEL,
-            generation_config=genai.types.GenerationConfig(
-                temperature=settings.AI_TEMPERATURE,
-                max_output_tokens=settings.AI_MAX_TOKENS,
-            ),
-        )
         logger.info(
             "Gemini provider initialised (model=%s, temperature=%s, max_tokens=%s)",
             settings.GOOGLE_GEMINI_MODEL,
@@ -54,7 +49,7 @@ class GeminiProvider:
             system_prompt: System-level context / role instructions.
             user_prompt:   The user's actual request.
             **kwargs:      Optional overrides for temperature, max_tokens,
-                          or model name at call time.
+                           or model name at call time.
 
         Returns:
             The generated text content.
@@ -67,24 +62,18 @@ class GeminiProvider:
             parts.append(user_prompt)
         combined_prompt = "\n\n".join(parts)
 
-        # ── Generation overrides from kwargs ────────────────────────────
-        generation_kwargs: dict[str, object] = {}
-        temp = kwargs.get("temperature")
-        if temp is not None:
-            generation_kwargs["temperature"] = temp
-        max_tokens = kwargs.get("max_tokens")
-        if max_tokens is not None:
-            generation_kwargs["max_output_tokens"] = max_tokens
-        model_override = kwargs.get("model")
-        if model_override is not None:
-            generation_kwargs["model_name"] = str(model_override)
+        # ── Generation config (overrides from kwargs) ──────────────────
+        generation_config = genai_types.GenerateContentConfig(
+            temperature=kwargs.get("temperature", settings.AI_TEMPERATURE),
+            max_output_tokens=kwargs.get("max_tokens", settings.AI_MAX_TOKENS),
+        )
+        model_override = str(kwargs.get("model", self._model))
 
         try:
-            response = await self._model.generate_content_async(
-                combined_prompt,
-                generation_config=genai.types.GenerationConfig(
-                    **generation_kwargs,  # type: ignore[arg-type]
-                ) if generation_kwargs else None,
+            response = await self._client.aio.models.generate_content(
+                model=model_override,
+                contents=combined_prompt,
+                config=generation_config,
             )
             return response.text
         except Exception as exc:

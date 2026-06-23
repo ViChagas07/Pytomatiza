@@ -50,8 +50,8 @@ FUTURE_SERVICES: list[dict[str, Any]] = [
 ]
 
 
-@router.get("/system/status")
-async def system_status(request: Request) -> JSONResponse | HTMLResponse:
+@router.get("/system/status", response_model=None)
+async def system_status(request: Request):
     """Return the operational status of all app services.
 
     No authentication required — accessible directly via URL.
