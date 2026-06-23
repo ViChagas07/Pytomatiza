@@ -31,6 +31,7 @@ import {
   HardDrive,
   Images,
 } from "lucide-react";
+import { IntegrationChips } from "@/components/dashboard/IntegrationChips";
 import { Button } from "@/components/ui/Button";
 import { GoogleDriveIcon, GooglePhotosIcon } from "@/components/ui/GoogleIcons";
 import { cn } from "@/lib/utils";
@@ -716,6 +717,7 @@ export function MediaContent() {
           </Button>
         </div>
       )}
+      <IntegrationChips />
     </LoginOverlay>
     </>
   );

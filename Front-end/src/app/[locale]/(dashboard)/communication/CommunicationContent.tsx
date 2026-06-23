@@ -32,8 +32,7 @@ import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { api } from "@/lib/api";
 import { LoginOverlay } from "@/components/ui/LoginOverlay";
-import { SiDiscord, SiTelegram, SiSlack, SiZoom, SiGooglemeet, SiWhatsapp } from "react-icons/si";
-import { FaVideo } from "react-icons/fa6";
+import { IntegrationChips } from "@/components/dashboard/IntegrationChips";
 
 /* ── Types ──────────────────────────────────────────────────────── */
 
@@ -521,42 +520,7 @@ export function CommunicationContent() {
         )}
       </section>
 
-      {/* ── Integrações disponíveis ───────────────────────────────── */}
-      <section className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] p-5 shadow-[var(--shadow-sm)]">
-        <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-3">Integrações disponíveis</h3>
-        <div className="flex flex-wrap gap-2">
-          <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 cursor-not-allowed">
-            <SiDiscord size={14} color="#5865F2" />
-            <span className="text-xs text-white/70">Discord</span>
-            <span className="text-[10px] text-white/40 ml-1">Em breve</span>
-          </div>
-          <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 cursor-not-allowed">
-            <SiTelegram size={14} color="#26A5E4" />
-            <span className="text-xs text-white/70">Telegram</span>
-            <span className="text-[10px] text-white/40 ml-1">Em breve</span>
-          </div>
-          <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 cursor-not-allowed">
-            <SiSlack size={14} color="#4A154B" />
-            <span className="text-xs text-white/70">Slack</span>
-            <span className="text-[10px] text-white/40 ml-1">Em breve</span>
-          </div>
-          <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 cursor-not-allowed">
-            <SiZoom size={14} color="#2D8CFF" />
-            <span className="text-xs text-white/70">Zoom</span>
-            <span className="text-[10px] text-white/40 ml-1">Em breve</span>
-          </div>
-          <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 cursor-not-allowed">
-            <FaVideo size={14} color="#00897B" />
-            <span className="text-xs text-white/70">Google Meet</span>
-            <span className="text-[10px] text-white/40 ml-1">Em breve</span>
-          </div>
-          <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 opacity-40 grayscale cursor-not-allowed">
-            <SiWhatsapp size={14} color="#25D366" />
-            <span className="text-xs text-white/50">WhatsApp Business</span>
-            <span className="text-[10px] text-white/30 ml-1">Em breve</span>
-          </div>
-        </div>
-      </section>
+      <IntegrationChips />
     </LoginOverlay>
     </>
   );
