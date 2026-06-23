@@ -161,10 +161,6 @@ class Settings(BaseSettings):
     FACEBOOK_ACCESS_TOKEN: str = ""
     FACEBOOK_PAGE_ID: str = ""
     TRELLO_API_KEY: str = ""
-    TRELLO_API_TOKEN: str = ""
-    JIRA_DOMAIN: str = ""
-    JIRA_EMAIL: str = ""
-    JIRA_API_TOKEN: str = ""
 
     # ── OAuth Client Credentials ─────────────────────────────────────────
     # These identify OUR application to each provider's OAuth flow.
@@ -174,8 +170,8 @@ class Settings(BaseSettings):
     SLACK_SIGNING_SECRET: str = ""
     DISCORD_CLIENT_ID: str = ""
     DISCORD_CLIENT_SECRET: str = ""
-    JIRA_CLIENT_ID: str = ""
-    JIRA_CLIENT_SECRET: str = ""
+    JIRA_CLIENT_ID: str = ""           # Atlassian OAuth 2.0 (3LO)
+    JIRA_CLIENT_SECRET: str = ""       # Atlassian OAuth 2.0 (3LO)
     ZOOM_CLIENT_ID: str = ""
     ZOOM_CLIENT_SECRET: str = ""
 

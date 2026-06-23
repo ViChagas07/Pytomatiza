@@ -82,19 +82,21 @@ def register_all_oauth_providers() -> None:
     else:
         logger.info("Discord OAuth not configured (missing DISCORD_CLIENT_ID / SECRET).")
 
-    # ── Jira (Atlassian) ───────────────────────────────────────────────
+    # ── Jira (Atlassian) 3LO ───────────────────────────────────────────
+    # Scopes: read:jira-user (profile), read:jira-work (issues),
+    #         write:jira-work (create/update issues), offline_access (refresh)
     if settings.JIRA_CLIENT_ID and settings.JIRA_CLIENT_SECRET:
         register_oauth_provider(
             OAuthProviderConfig(
                 provider="jira",
-                service="site",
+                service="jira",
                 authorize_url="https://auth.atlassian.com/authorize",
                 token_url="https://auth.atlassian.com/oauth/token",
                 revoke_url="https://auth.atlassian.com/oauth/revoke",
                 client_id=settings.JIRA_CLIENT_ID,
                 client_secret=settings.JIRA_CLIENT_SECRET,
                 scopes="read:jira-user read:jira-work write:jira-work "
-                       "manage:jira-project offline_access",
+                       "offline_access",
                 extra_authorize_params={
                     "audience": "api.atlassian.com",
                     "prompt": "consent",
@@ -106,8 +108,8 @@ def register_all_oauth_providers() -> None:
                 token_type_key="token_type",
                 # Fetch accessible resources to get cloud_id
                 userinfo_url="https://api.atlassian.com/oauth/token/accessible-resources",
-                userinfo_id_path=["0", "id"],  # first resource's id = cloud_id
-                userinfo_name_path=["0", "name"],  # first resource's name = site name
+                userinfo_id_path=["0", "id"],   # first resource's id = cloud_id
+                userinfo_name_path=["0", "name"],  # first resource's name
             )
         )
         logger.info("Jira OAuth provider registered.")
