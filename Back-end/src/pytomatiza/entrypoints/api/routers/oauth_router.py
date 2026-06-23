@@ -83,7 +83,7 @@ async def oauth_connect(
 
 # ── Callback endpoint ────────────────────────────────────────────────
 
-@router.get("/auth/{provider}/callback")
+@router.get("/auth/{provider}/callback", response_model=None)
 async def oauth_callback(
     provider: str,
     code: str = Query(...),
