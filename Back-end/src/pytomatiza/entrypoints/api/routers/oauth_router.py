@@ -11,6 +11,7 @@ import logging
 from typing import Annotated, Any
 from uuid import UUID
 
+import httpx
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from fastapi.responses import RedirectResponse
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -153,3 +154,170 @@ async def oauth_callback(
         f"{settings.FRONTEND_URL}/api/integrations/callback?"
         f"success=true&provider={provider}&service={config.service}"
     )
+
+
+# ── Trello (non-standard auth) ──────────────────────────────────────
+
+@router.get("/auth/trello/connect")
+async def trello_connect(
+    current_user: Annotated[User, Depends(get_current_user)],
+) -> dict[str, str]:
+    """Return Trello's authorization URL.
+
+    Trello uses API Key + User Token (not standard OAuth 2.0).
+    The user must authorize via Trello's page, then the frontend
+    captures the token from the URL fragment and calls
+    ``POST /auth/trello/token`` to save it.
+    """
+    from pytomatiza.config import settings as app_settings
+
+    api_key = app_settings.TRELLO_API_KEY
+    if not api_key:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="TRELLO_API_KEY não configurada no servidor.",
+        )
+
+    redirect_uri = (
+        f"{app_settings.FRONTEND_URL}/api/integrations/trello/callback"
+    )
+    authorize_url = (
+        f"https://trello.com/1/authorize"
+        f"?expiration=never"
+        f"&scope=read,write"
+        f"&response_type=token"
+        f"&key={api_key}"
+        f"&return_url={redirect_uri}"
+        f"&name=Pytomatiza%2B"
+    )
+    return {"authorization_url": authorize_url}
+
+
+@router.post("/auth/trello/token")
+async def trello_save_token(
+    token: str = Query(...),
+    current_user: Annotated[User, Depends(get_current_user)] = None,
+    db: Annotated[AsyncSession, Depends(get_db)] = None,
+) -> dict[str, Any]:
+    """Save a Trello user token after authorization.
+
+    Called by the frontend after extracting the token from the URL
+    fragment returned by Trello's authorization page.
+    """
+    from datetime import datetime, timezone, timedelta
+    from uuid import uuid4
+
+    from pytomatiza.domain.entities.integration_token import (
+        IntegrationToken,
+        IntegrationTokenStatus,
+    )
+
+    repo = IntegrationTokenRepository(db)
+
+    # Fetch account info to validate the token
+    from pytomatiza.config import settings as app_settings
+    api_key = app_settings.TRELLO_API_KEY
+    if not api_key:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="TRELLO_API_KEY não configurada",
+        )
+
+    try:
+        async with httpx.AsyncClient(timeout=10) as client:
+            resp = await client.get(
+                "https://api.trello.com/1/members/me",
+                params={"key": api_key, "token": token},
+            )
+            if resp.status_code != 200:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Token Trello inválido — não foi possível autenticar.",
+                )
+            user_data = resp.json()
+            username = user_data.get("username", "")
+
+            domain_token = IntegrationToken(
+                id=uuid4(),
+                user_id=current_user.id,
+                provider="trello",
+                service="token",
+                access_token=token,
+                token_type="Bearer",
+                external_account_id=user_data.get("id", ""),
+                external_account_name=username,
+                status=IntegrationTokenStatus.ACTIVE,
+            )
+            await repo.upsert(domain_token)
+
+            return {
+                "success": True,
+                "account_name": username,
+                "account_id": user_data.get("id", ""),
+            }
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            detail=str(exc),
+        ) from exc
+
+
+# ── Telegram (Bot Token per-user) ───────────────────────────────────
+
+@router.post("/auth/telegram/token")
+async def telegram_save_token(
+    bot_token: str = Query(...),
+    current_user: Annotated[User, Depends(get_current_user)] = None,
+    db: Annotated[AsyncSession, Depends(get_db)] = None,
+) -> dict[str, Any]:
+    """Validate and save a Telegram Bot Token for the authenticated user."""
+    from datetime import datetime, timezone
+    from uuid import uuid4
+
+    from pytomatiza.domain.entities.integration_token import (
+        IntegrationToken,
+        IntegrationTokenStatus,
+    )
+
+    # Validate the token with Telegram API
+    try:
+        async with httpx.AsyncClient(timeout=10) as client:
+            resp = await client.get(
+                f"https://api.telegram.org/bot{bot_token}/getMe"
+            )
+            if resp.status_code != 200 or not resp.json().get("ok"):
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Token do Telegram inválido. Verifique o token do bot no @BotFather.",
+                )
+            bot_info = resp.json().get("result", {})
+            bot_username = bot_info.get("username", "")
+            bot_id = str(bot_info.get("id", ""))
+
+    except httpx.RequestError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            detail=f"Não foi possível validar o token: {exc}",
+        ) from exc
+
+    repo = IntegrationTokenRepository(db)
+    domain_token = IntegrationToken(
+        id=uuid4(),
+        user_id=current_user.id,
+        provider="telegram",
+        service="bot",
+        access_token=bot_token,
+        token_type="Bearer",
+        external_account_id=bot_id,
+        external_account_name=bot_username,
+        status=IntegrationTokenStatus.ACTIVE,
+    )
+    await repo.upsert(domain_token)
+
+    return {
+        "success": True,
+        "account_name": bot_username,
+        "account_id": bot_id,
+    }
