@@ -394,12 +394,12 @@ export function ArchitectureContent() {
       <section className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] p-5 shadow-[var(--shadow-sm)]">
         <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-3">Integrações disponíveis</h3>
         <div className="flex flex-wrap gap-2">
-          <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 opacity-40 grayscale">
+          <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 opacity-40 grayscale cursor-not-allowed">
             <SiJira size={14} color="#0052CC" />
             <span className="text-xs text-white/50">Jira</span>
             <span className="text-[10px] text-white/30 ml-1">Em breve</span>
           </div>
-          <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 opacity-40 grayscale">
+          <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 opacity-40 grayscale cursor-not-allowed">
             <SiTrello size={14} color="#0052CC" />
             <span className="text-xs text-white/50">Trello</span>
             <span className="text-[10px] text-white/30 ml-1">Em breve</span>

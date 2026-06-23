@@ -16,8 +16,9 @@ import {
   SiJira,
   SiSlack,
   SiZoom,
+  SiGooglephotos,
 } from "react-icons/si";
-import { FaInstagram, FaLinkedin, FaMicrosoft, FaCalendar, FaTable, FaMapLocation, FaVideo } from "react-icons/fa6";
+import { FaInstagram, FaLinkedin, FaMicrosoft, FaCalendar, FaMapLocation, FaVideo } from "react-icons/fa6";
 import { GoogleDriveIcon, GmailIcon } from "@/components/ui/GoogleIcons";
 
 /* ── Adapters — Google SVG icons to react‑icons interface ──────── */
@@ -44,6 +45,7 @@ import {
   Zap,
   ArrowRight,
   Globe,
+  CheckCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -95,9 +97,9 @@ const INTEGRATIONS: IntegrationMeta[] = [
     capabilities: ["Listar eventos", "Criar eventos", "Gerenciar calendários"],
   },
   {
-    service: "google_sheets", label: "Google Sheets", icon: FaTable, color: "#0F9D58",
-    category: "Produtividade",
-    capabilities: ["Criar planilhas", "Ler células", "Atualizar células"],
+    service: "google_photos", label: "Google Photos", icon: SiGooglephotos, color: "#4285F4",
+    category: "Armazenamento",
+    capabilities: ["Armazenar fotos", "Criar álbuns", "Buscar por data", "Compartilhar mídia"],
   },
   {
     service: "google_maps", label: "Google Maps", icon: FaMapLocation, color: "#EA4335",
@@ -164,19 +166,19 @@ export function IntegrationPanel() {
       {/* ── Capability Catalog ───────────────────────────────────── */}
       <CapabilityCatalog integrations={INTEGRATIONS} />
 
-      {/* ── Future Integrations ──────────────────────────────────── */}
+      {/* ── Serviços Futuros ──────────────────────────────────────── */}
       <div>
         <div className="flex items-center gap-2 mb-4">
           <Clock className="h-4 w-4 text-[var(--text-tertiary)]" />
           <h3 className="text-sm font-semibold text-[var(--text-primary)]">
-            Em breve
+            Serviços Futuros
           </h3>
         </div>
         <div className="grid gap-4 sm:grid-cols-3">
           {FUTURE_INTEGRATIONS.map((int) => (
             <div
               key={int.service}
-              className="relative group rounded-[var(--radius-lg)] border border-dashed border-[var(--border-default)] bg-[var(--surface-0)]/60 p-5 opacity-50 hover:opacity-70 transition-all duration-300 cursor-default select-none"
+              className="relative group rounded-[var(--radius-lg)] border border-dashed border-[var(--border-default)] bg-[var(--surface-0)]/60 p-5 opacity-50 hover:opacity-70 transition-all duration-300 cursor-not-allowed select-none"
             >
               <div className="absolute -top-2 -right-2">
                 <span className="inline-flex items-center rounded-full bg-[var(--surface-2)] border border-[var(--border-default)] px-2 py-0.5 text-[10px] font-medium text-[var(--text-tertiary)]">
@@ -217,10 +219,11 @@ function IntegrationCard({
       )}
       style={{ animationDelay: `${index * 80}ms` }}
     >
-      {/* "Em breve" badge estático */}
+      {/* Badge "Disponível" */}
       <div className="absolute -top-2 -right-2">
-        <span className="inline-flex items-center rounded-full bg-white/10 text-white/50 text-xs px-2 py-0.5 rounded-full">
-          Em breve
+        <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-success)]/10 text-[var(--color-success)] text-xs px-2 py-0.5 rounded-full font-medium">
+          <CheckCircle className="h-2.5 w-2.5" />
+          Disponível
         </span>
       </div>
 
