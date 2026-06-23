@@ -88,6 +88,7 @@ async def oauth_callback(
     provider: str,
     code: str = Query(...),
     state: str = Query(...),
+    guild_id: str = Query(None),  # Discord-specific: guild where bot was installed
     current_user: Annotated[User, Depends(get_current_user)] = None,  # may not be authenticated yet
     db: Annotated[AsyncSession, Depends(get_db)] = None,
     redis: Annotated[Any, Depends(get_redis_client)] = None,
@@ -128,6 +129,40 @@ async def oauth_callback(
         userinfo = await flow.fetch_account_info(token_response.access_token)
         account_id = flow.extract_account_id(userinfo)
         account_name = flow.extract_account_name(userinfo)
+        extra_metadata: dict[str, Any] | None = {"userinfo": userinfo} if userinfo else None
+
+        # ── Discord guild override ──────────────────────────────────
+        # Discord's OAuth callback includes guild_id as a query param
+        # when bot scope is used. We MUST save the guild (not the user)
+        # as the external account, because health_check and
+        # execute_action operate on guilds via the global bot token.
+        if provider == "discord" and guild_id:
+            extra_metadata = {"userinfo": userinfo, "guild_id": guild_id}
+            account_id = guild_id
+            account_name = f"Guild {guild_id}"
+
+            if settings.DISCORD_BOT_TOKEN:
+                try:
+                    async with httpx.AsyncClient(timeout=10) as client:
+                        gresp = await client.get(
+                            f"https://discord.com/api/v10/guilds/{guild_id}",
+                            headers={
+                                "Authorization": f"Bot {settings.DISCORD_BOT_TOKEN}",
+                            },
+                        )
+                        if gresp.status_code == 200:
+                            guild_data = gresp.json()
+                            account_name = guild_data.get("name", account_name)
+                            extra_metadata["guild_name"] = account_name
+                        else:
+                            logger.warning(
+                                "Failed to fetch Discord guild %s: HTTP %d",
+                                guild_id, gresp.status_code,
+                            )
+                except Exception as exc:
+                    logger.warning(
+                        "Failed to fetch Discord guild %s: %s", guild_id, exc,
+                    )
 
         # Persist
         repo = IntegrationTokenRepository(db)
@@ -137,7 +172,7 @@ async def oauth_callback(
             repo=repo,
             external_account_id=account_id,
             external_account_name=account_name,
-            extra_metadata={"userinfo": userinfo} if userinfo else None,
+            extra_metadata=extra_metadata,
         )
 
     except ValueError as exc:

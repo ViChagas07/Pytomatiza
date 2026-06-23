@@ -52,6 +52,9 @@ def register_all_oauth_providers() -> None:
         logger.info("Slack OAuth not configured (missing SLACK_CLIENT_ID / SECRET).")
 
     # ── Discord ────────────────────────────────────────────────────────
+    # Scopes: bot (install bot in guild), identify (user info),
+    #         guilds (list guilds for verification).
+    # The guild_id is received as a query param in the OAuth callback.
     if settings.DISCORD_CLIENT_ID and settings.DISCORD_CLIENT_SECRET:
         register_oauth_provider(
             OAuthProviderConfig(
@@ -62,17 +65,22 @@ def register_all_oauth_providers() -> None:
                 revoke_url="https://discord.com/api/v10/oauth2/token/revoke",
                 client_id=settings.DISCORD_CLIENT_ID,
                 client_secret=settings.DISCORD_CLIENT_SECRET,
-                scopes="bot identify guilds guilds.members.read messages.read",
+                scopes="bot identify guilds",
                 extra_authorize_params={
-                    "permissions": "0",  # bot permissions bitfield (computed later)
+                    # Bot permissions bitfield:
+                    # View Channels (1024) + Send Messages (2048) +
+                    # Read Message History (65536) + Embed Links (16384) +
+                    # Attach Files (32768) = 117760
+                    "permissions": "117760",
                 },
                 access_token_key="access_token",
                 refresh_token_key="refresh_token",
                 expires_in_key="expires_in",
                 scope_key="scope",
                 token_type_key="token_type",
-                # Discord bot tokens don't have a userinfo endpoint
-                # The guild info comes from the webhook/session
+                # userinfo is overridden in the callback for Discord —
+                # the guild_id from the query param takes precedence.
+                # This endpoint provides a fallback user identity.
                 userinfo_url="https://discord.com/api/v10/users/@me",
                 userinfo_id_path=["id"],
                 userinfo_name_path=["username"],
