@@ -19,10 +19,11 @@ from pytomatiza.infrastructure.db.base import Base
 from pytomatiza.infrastructure.db.models import (  # noqa: F401
     agent_model,
     automation_run_model,
+    integration_token_model,
     user_model,
     workflow_model,
 )
-__all__ = ["agent_model", "automation_run_model", "user_model", "workflow_model"]
+__all__ = ["agent_model", "automation_run_model", "integration_token_model", "user_model", "workflow_model"]
 config = context.config
 
 if config.config_file_name is not None:
