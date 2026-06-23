@@ -13,11 +13,7 @@ import {
   Sparkles,
   Send,
   Mail,
-  MessageCircle,
-  Hash,
   Smartphone,
-  Zap,
-  Users,
   Clock,
   Calendar,
   RefreshCw,
@@ -28,6 +24,8 @@ import {
   TestTube,
   ArrowRight,
 } from "lucide-react";
+import { SiDiscord, SiSlack, SiWhatsapp } from "react-icons/si";
+import { FaMicrosoft } from "react-icons/fa6";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { api } from "@/lib/api";
@@ -54,13 +52,15 @@ interface RecentMessage {
 
 /* ── Channels ───────────────────────────────────────────────────── */
 
+const UNAVAILABLE_CHANNELS = new Set(["whatsapp", "teams", "sms"]);
+
 const channels: ChannelDef[] = [
   { id: "email", labelKey: "channels.email", icon: Mail, color: "var(--brand-python-blue)" },
-  { id: "slack", labelKey: "channels.slack", icon: Hash, color: "var(--color-success)" },
-  { id: "whatsapp", labelKey: "channels.whatsapp", icon: MessageCircle, color: "var(--color-info)" },
-  { id: "teams", labelKey: "channels.teams", icon: Users, color: "var(--brand-accent)" },
+  { id: "slack", labelKey: "channels.slack", icon: SiSlack, color: "#4A154B" },
+  { id: "whatsapp", labelKey: "channels.whatsapp", icon: SiWhatsapp, color: "#25D366" },
+  { id: "teams", labelKey: "channels.teams", icon: FaMicrosoft, color: "#6264A7" },
   { id: "sms", labelKey: "channels.sms", icon: Smartphone, color: "var(--color-warning)" },
-  { id: "discord", labelKey: "channels.discord", icon: Zap, color: "var(--color-danger)" },
+  { id: "discord", labelKey: "channels.discord", icon: SiDiscord, color: "#5865F2" },
 ];
 
 /* ── Send mode options ──────────────────────────────────────────── */
@@ -88,6 +88,7 @@ export function CommunicationContent() {
   }, []);
 
   const toggleChannel = (id: string) => {
+    if (UNAVAILABLE_CHANNELS.has(id)) return; // ❌ indisponível
     setSelectedChannels((prev) => {
       const next = new Set(prev);
       if (next.has(id)) {
@@ -212,6 +213,7 @@ export function CommunicationContent() {
               aria-label={t("channels.title")}
             >
               {channels.map((ch) => {
+                const isUnavailable = UNAVAILABLE_CHANNELS.has(ch.id);
                 const isSelected = selectedChannels.has(ch.id);
                 return (
                   <button
@@ -219,19 +221,25 @@ export function CommunicationContent() {
                     type="button"
                     role="checkbox"
                     aria-checked={isSelected}
+                    disabled={isUnavailable}
                     onClick={() => toggleChannel(ch.id)}
                     data-testid={`channel-${ch.id}`}
                     className={cn(
-                      "flex items-center gap-3 rounded-[var(--radius-md)] border px-3 py-2.5 text-left transition-all min-h-[44px]",
+                      "flex items-center gap-3 rounded-[var(--radius-md)] border px-3 py-2.5 text-left transition-all min-h-[44px] relative overflow-hidden",
                       "focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[var(--brand-accent)]",
-                      isSelected
+                      isUnavailable && "opacity-50 cursor-not-allowed select-none grayscale",
+                      !isUnavailable && isSelected
                         ? "border-[var(--brand-accent)] bg-[var(--brand-accent-light)]"
                         : "border-[var(--border-default)] hover:border-[var(--border-strong)] hover:bg-[var(--surface-1)]"
                     )}
                   >
+                    {/* Dark overlay for unavailable channels */}
+                    {isUnavailable && (
+                      <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+                    )}
                     <div
                       className={cn(
-                        "flex h-8 w-8 shrink-0 items-center justify-center rounded-[var(--radius-sm)] transition-colors",
+                        "flex h-8 w-8 shrink-0 items-center justify-center rounded-[var(--radius-sm)] transition-colors relative z-[1]",
                         isSelected ? "bg-white" : "bg-[var(--surface-1)]"
                       )}
                     >
@@ -242,9 +250,15 @@ export function CommunicationContent() {
                         />
                       </span>
                     </div>
-                    <span className={cn("text-sm font-medium", isSelected ? "text-[var(--text-primary)]" : "text-[var(--text-secondary)]")}>
+                    <span className={cn("text-sm font-medium relative z-[1]", isSelected ? "text-[var(--text-primary)]" : "text-[var(--text-secondary)]")}>
                       {t(ch.labelKey)}
                     </span>
+                    {/* "Em breve" badge for unavailable */}
+                    {isUnavailable && (
+                      <span className="absolute top-1 right-1 z-[1] inline-flex items-center rounded-full bg-black/60 px-1.5 py-0.5 text-[8px] text-white/70 font-medium">
+                        Em breve
+                      </span>
+                    )}
                   </button>
                 );
               })}
