@@ -54,6 +54,12 @@ def create_app() -> FastAPI:
         lifespan=lifespan,
     )
 
+    # ── Register OAuth providers ────────────────────────────────────────
+    from pytomatiza.infrastructure.integrations.oauth_providers import (
+        register_all_oauth_providers,
+    )
+    register_all_oauth_providers()
+
     # ── CORS ────────────────────────────────────────────────────────────
     app.add_middleware(
         CORSMiddleware,

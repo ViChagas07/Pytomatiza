@@ -166,12 +166,23 @@ class Settings(BaseSettings):
     JIRA_EMAIL: str = ""
     JIRA_API_TOKEN: str = ""
 
-    # ── New Integration Tokens ──────────────────────────────────────────
+    # ── OAuth Client Credentials ─────────────────────────────────────────
+    # These identify OUR application to each provider's OAuth flow.
+    # Per-user tokens are stored in the `integration_tokens` table.
+    SLACK_CLIENT_ID: str = ""
+    SLACK_CLIENT_SECRET: str = ""
+    SLACK_SIGNING_SECRET: str = ""
+    DISCORD_CLIENT_ID: str = ""
+    DISCORD_CLIENT_SECRET: str = ""
+    JIRA_CLIENT_ID: str = ""
+    JIRA_CLIENT_SECRET: str = ""
+    ZOOM_CLIENT_ID: str = ""
+    ZOOM_CLIENT_SECRET: str = ""
+
+    # ── Legacy Integration Tokens (being replaced by per-tenant OAuth) ───
     GOOGLE_MAPS_API_KEY: str = ""
     SLACK_BOT_TOKEN: str = ""
     ZOOM_ACCOUNT_ID: str = ""
-    ZOOM_CLIENT_ID: str = ""
-    ZOOM_CLIENT_SECRET: str = ""
 
     @model_validator(mode="before")
     @classmethod
