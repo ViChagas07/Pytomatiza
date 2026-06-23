@@ -163,7 +163,8 @@
       "security": "Segurança",
       "notifications": "Notificações",
       "advanced": "Avançado",
-      "privacy": "Privacidade & Dados"
+      "privacy": "Privacidade & Dados",
+"integrations": "Integrações"
     },
     "appearance": {
       "title": "Aparência",

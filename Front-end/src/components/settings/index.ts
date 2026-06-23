@@ -11,3 +11,4 @@ export { SecurityPanel } from "./SecurityPanel";
 export { NotificationsPanel } from "./NotificationsPanel";
 export { AdvancedPanel } from "./AdvancedPanel";
 export { PrivacyPanel } from "./PrivacyPanel";
+export { IntegrationsPanel } from "./IntegrationsPanel";

@@ -154,6 +154,24 @@ class IntegrationTokenRepository:
         await self._session.flush()
         return result.rowcount > 0  # type: ignore[union-attr]
 
+    async def delete_by_user_and_provider(
+        self,
+        user_id: UUID,
+        provider: str,
+    ) -> bool:
+        """Remove ALL tokens for a user + provider combination.
+
+        Returns True if at least one row was deleted.
+        """
+        result = await self._session.execute(
+            delete(IntegrationTokenModel).where(
+                IntegrationTokenModel.user_id == user_id,
+                IntegrationTokenModel.provider == provider,
+            )
+        )
+        await self._session.flush()
+        return result.rowcount > 0  # type: ignore[union-attr]
+
     async def update_status(
         self,
         user_id: UUID,
