@@ -114,6 +114,45 @@ def register_all_oauth_providers() -> None:
         logger.info("Jira OAuth not configured (missing JIRA_CLIENT_ID / SECRET).")
 
     # ── Zoom ───────────────────────────────────────────────────────────
+    # ── Google ──────────────────────────────────────────────────────────
+    if settings.GOOGLE_CLIENT_ID and settings.GOOGLE_CLIENT_SECRET:
+        # Register once for Google (service will be determined by scopes)
+        register_oauth_provider(
+            OAuthProviderConfig(
+                provider="google",
+                service="drive",  # default; callback saves all granted scopes
+                authorize_url="https://accounts.google.com/o/oauth2/v2/auth",
+                token_url="https://oauth2.googleapis.com/token",
+                revoke_url="https://oauth2.googleapis.com/revoke",
+                client_id=settings.GOOGLE_CLIENT_ID,
+                client_secret=settings.GOOGLE_CLIENT_SECRET,
+                scopes=" ".join([
+                    "openid", "email", "profile",
+                    settings.GOOGLE_DRIVE_SCOPES,
+                    settings.GOOGLE_GMAIL_SCOPES,
+                    settings.GOOGLE_CALENDAR_SCOPES,
+                    settings.GOOGLE_SHEETS_SCOPES,
+                    settings.GOOGLE_MEET_SCOPES,
+                    settings.GOOGLE_PHOTOS_SCOPES,
+                ]),
+                extra_authorize_params={
+                    "access_type": "offline",
+                    "prompt": "consent",
+                },
+                access_token_key="access_token",
+                refresh_token_key="refresh_token",
+                expires_in_key="expires_in",
+                scope_key="scope",
+                token_type_key="token_type",
+                userinfo_url="https://www.googleapis.com/oauth2/v2/userinfo",
+                userinfo_id_path=["id"],
+                userinfo_name_path=["email"],
+            )
+        )
+        logger.info("Google OAuth provider registered.")
+    else:
+        logger.info("Google OAuth not configured (missing GOOGLE_CLIENT_ID / SECRET).")
+
     if settings.ZOOM_CLIENT_ID and settings.ZOOM_CLIENT_SECRET:
         register_oauth_provider(
             OAuthProviderConfig(
