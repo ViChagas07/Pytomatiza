@@ -10,7 +10,7 @@ from functools import lru_cache #lru_cache is used to cache the settings instanc
 from pathlib import Path
 from typing import Any
 
-from pydantic import field_validator
+from pydantic import field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 # Resolve .env path absolutely so the app works regardless of the CWD.
@@ -166,6 +166,16 @@ class Settings(BaseSettings):
     ZOOM_ACCOUNT_ID: str = ""
     ZOOM_CLIENT_ID: str = ""
     ZOOM_CLIENT_SECRET: str = ""
+
+    @model_validator(mode="before")
+    @classmethod
+    def _resolve_maps_api_key(cls, values: dict[str, object]) -> dict[str, object]:
+        """Fallback: if GOOGLE_MAPS_API_KEY is empty, try NEXT_PUBLIC_GOOGLE_API_KEY."""
+        if not values.get("GOOGLE_MAPS_API_KEY"):
+            alt = values.get("NEXT_PUBLIC_GOOGLE_API_KEY")
+            if alt:
+                values["GOOGLE_MAPS_API_KEY"] = alt
+        return values
 
     @field_validator("DATABASE_URL", mode="before")
     @classmethod
