@@ -76,10 +76,8 @@ export function useGoogleIntegration(
     setIsLoading(true);
 
     try {
-      // 1. Get the authorization URL from backend
-      const authUrlFn =
-        service === "drive" ? api.getDriveAuthUrl : api.getPhotosAuthUrl;
-      const authResult = await authUrlFn();
+      // 1. Get the authorization URL from backend (unified Google OAuth)
+      const authResult = await api.getGoogleAuthUrl();
 
       if (authResult.error || !authResult.data?.authorization_url) {
         throw new Error(

@@ -875,13 +875,9 @@ export const api = {
       }).toString()}`
     ),
 
-  /** Get Google OAuth authorization URL for Drive */
-  getDriveAuthUrl: () =>
-    clientFetch<{ authorization_url: string }>("/auth/google/drive"),
-
-  /** Get Google OAuth authorization URL for Photos */
-  getPhotosAuthUrl: () =>
-    clientFetch<{ authorization_url: string }>("/auth/google/photos"),
+  /** Get Google OAuth authorization URL (unified — all Google services) */
+  getGoogleAuthUrl: () =>
+    clientFetch<{ authorization_url: string }>("/auth/google/connect"),
 
   /* ── OCR ──────────────────────────────────────────────────────── */
 
