@@ -548,8 +548,6 @@
     "mediaDesc": "Image and media asset management.",
     "files": "Files",
     "filesDesc": "General file storage and management.",
-    "architecture": "Architecture",
-    "architectureDesc": "System diagrams and architecture docs.",
     "settings": "Settings",
     "signOut": "Sign Out",
     "signIn": "Sign In",

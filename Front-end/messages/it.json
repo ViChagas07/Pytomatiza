@@ -524,8 +524,6 @@
                 "mediaDesc":  "Gestione delle immagini e delle risorse multimediali.",
                 "files":  "File",
                 "filesDesc":  "Archiviazione e gestione generale dei file.",
-                "architecture":  "Architettura",
-                "architectureDesc":  "Diagrammi di sistema e documenti di architettura.",
                 "settings":  "Impostazioni",
                 "signOut":  "Disconnessione",
                 "signIn":  "Registrazione",

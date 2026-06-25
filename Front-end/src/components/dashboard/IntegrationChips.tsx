@@ -4,7 +4,7 @@
      1. Integrações Disponíveis (badge verde)
      2. Serviços Futuros (badge "Em breve" + cursor-not-allowed)
    Usado em todas as páginas de atividade (Comunicação, Documentos,
-   Dados, Arquivos, Mídia, Arquitetura).
+   Dados, Arquivos, Mídia).
    ═══════════════════════════════════════════════════════════════════ */
 
 "use client";

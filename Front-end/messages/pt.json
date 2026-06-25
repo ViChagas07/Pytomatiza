@@ -548,8 +548,6 @@
     "mediaDesc": "Gerenciamento de imagens e mídia.",
     "files": "Arquivos",
     "filesDesc": "Armazenamento e gestão de arquivos.",
-    "architecture": "Arquitetura",
-    "architectureDesc": "Diagramas e documentação de arquitetura.",
     "settings": "Configurações",
     "signOut": "Sair",
     "signIn": "Fazer Login",

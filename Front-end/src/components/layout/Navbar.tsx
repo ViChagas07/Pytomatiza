@@ -118,7 +118,7 @@ export function Navbar() {
   };
 
   /* Module pages — for active state on the Modules toggle */
-  const modulePaths = ["/documents", "/data", "/communication", "/media", "/files", "/architecture"];
+  const modulePaths = ["/documents", "/data", "/communication", "/media", "/files"];
   const path = pathname.replace(/^\/[a-z]{2}(?=\/|$)/, "") || "/";
   const isOnModulePage = modulePaths.some((p) => path.startsWith(p));
   const activeModulePath = modulePaths.find((p) => path.startsWith(p)) || null;

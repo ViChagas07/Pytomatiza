@@ -524,8 +524,6 @@
                 "mediaDesc":  "Bild- und Medien-Asset-Management.",
                 "files":  "Dateien",
                 "filesDesc":  "Allgemeine Dateispeicherung und -verwaltung.",
-                "architecture":  "Architektur",
-                "architectureDesc":  "Systemdiagramme und Architekturdokumente.",
                 "settings":  "Einstellungen",
                 "signOut":  "Abmelden",
                 "signIn":  "Anmelden",

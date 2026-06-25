@@ -21,7 +21,6 @@ import {
   MessageSquare,
   Image as ImageIcon,
   FolderOpen,
-  Layers,
   LogOut,
   Settings,
   LogIn,
@@ -88,7 +87,6 @@ const moduleItems: ModuleDef[] = [
   { id: "communication", nameKey: "communication", icon: MessageSquare, href: "/communication" },
   { id: "media", nameKey: "media", icon: ImageIcon, href: "/media" },
   { id: "files", nameKey: "files", icon: FolderOpen, href: "/files" },
-  { id: "architecture", nameKey: "architecture", icon: Layers, href: "/architecture" },
 ];
 
 /* ── Focus trap hook ────────────────────────────────────────────── */
@@ -166,7 +164,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   };
 
   /* Module active detection */
-  const modulePaths = ["/documents", "/data", "/communication", "/media", "/files", "/architecture"];
+  const modulePaths = ["/documents", "/data", "/communication", "/media", "/files"];
   const modPath = pathname.replace(/^\/[a-z]{2}(?=\/|$)/, "") || "/";
   const isModuleActive = (href: string) => modPath.startsWith(href);
 

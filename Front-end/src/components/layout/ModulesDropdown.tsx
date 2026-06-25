@@ -15,7 +15,6 @@ import {
   MessageSquare,
   Image,
   FolderOpen,
-  Layers,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -70,14 +69,6 @@ const modules: ModuleDef[] = [
     icon: FolderOpen,
     href: "/files",
     tags: ["Storage"],
-  },
-  {
-    id: "architecture",
-    nameKey: "architecture",
-    descKey: "architectureDesc",
-    icon: Layers,
-    href: "/architecture",
-    tags: ["Diagrams"],
   },
 ];
 
