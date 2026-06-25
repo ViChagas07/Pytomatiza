@@ -2,9 +2,13 @@
 
 from __future__ import annotations
 
+import logging
 import time
+import traceback
 from datetime import datetime, timedelta, timezone
 from typing import Annotated, Any
+
+logger = logging.getLogger(__name__)
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -231,21 +235,23 @@ async def google_token_exchange(
 
     This is NOT a browser-facing redirect — it is a server-to-server call.
     """
-    use_case = OAuthGoogleLoginUseCase(
-        user_repo=SQLAlchemyUserRepository(db),
-        token_service=JWTTokenService(),
-    )
     try:
+        use_case = OAuthGoogleLoginUseCase(
+            user_repo=SQLAlchemyUserRepository(db),
+            token_service=JWTTokenService(),
+        )
         return await use_case.execute(id_token=command.id_token)
-    except ValueError as exc:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=str(exc),
-        ) from exc
+    except HTTPException:
+        raise
     except Exception as exc:
+        logger.error(
+            "google_token_exchange FAILED: %s\n%s",
+            exc,
+            traceback.format_exc(),
+        )
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Failed to exchange Google token.",
+            detail=f"Internal error: {exc}",
         ) from exc
 
 
