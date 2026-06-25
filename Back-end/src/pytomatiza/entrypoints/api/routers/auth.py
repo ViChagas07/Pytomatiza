@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import time
-import uuid
 from datetime import datetime, timedelta, timezone
 from typing import Annotated, Any
 
@@ -11,6 +10,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from pytomatiza.application.dtos.auth_dtos import (
+    GoogleIDTokenCommand,
     LoginCommand,
     LogoutCommand,
     PasswordResetConfirmCommand,
@@ -21,6 +21,7 @@ from pytomatiza.application.dtos.auth_dtos import (
     UserResponse,
 )
 from pytomatiza.application.use_cases.auth.login_user import LoginUserUseCase
+from pytomatiza.application.use_cases.auth.oauth_google_login import OAuthGoogleLoginUseCase
 from pytomatiza.application.use_cases.auth.register_user import RegisterUserUseCase
 from pytomatiza.application.use_cases.auth.reset_password import ResetPasswordUseCase
 from pytomatiza.config import settings
@@ -216,83 +217,36 @@ async def confirm_password_reset(
     return result.model_dump()
 
 
-_GOOGLE_TOKENINFO_URL = "https://oauth2.googleapis.com/tokeninfo"
-
-
-@router.post("/google", response_model=None)
-async def google_auth(
-    body: dict[str, str],
+@router.post("/google/token", response_model=TokenResponse)
+async def google_token_exchange(
+    command: GoogleIDTokenCommand,
     db: Annotated[AsyncSession, Depends(get_db)],
-) -> dict[str, str]:
-    """Exchange a Google id_token for a backend JWT access token.
+) -> TokenResponse:
+    """Exchange a Google id_token (from NextAuth) for a Pytomatiza+ JWT pair.
 
-    Validates the id_token with Google's tokeninfo endpoint, then
-    looks up or creates a user by email. Returns backend JWT tokens
-    that the frontend can use to authenticate subsequent API calls.
+    This endpoint is called server-side by the NextAuth jwt() callback
+    immediately after the user completes Google OAuth. It validates the
+    Google id_token, creates the user account if it does not exist,
+    and returns { access_token, refresh_token } for the backend.
+
+    This is NOT a browser-facing redirect — it is a server-to-server call.
     """
-    import httpx
-
-    from pytomatiza.domain.entities.user import User
-    from pytomatiza.domain.value_objects.email import Email
-
-    id_token: str | None = body.get("id_token")
-    if not id_token:
+    use_case = OAuthGoogleLoginUseCase(
+        user_repo=SQLAlchemyUserRepository(db),
+        token_service=JWTTokenService(),
+    )
+    try:
+        return await use_case.execute(id_token=command.id_token)
+    except ValueError as exc:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="id_token is required",
-        )
-
-    # ── Validate id_token via Google's tokeninfo endpoint ────────
-    async with httpx.AsyncClient() as client:
-        resp = await client.get(
-            _GOOGLE_TOKENINFO_URL,
-            params={"id_token": id_token},
-        )
-        if resp.status_code != 200:
-            raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Invalid Google id_token",
-            )
-        claims: dict[str, Any] = resp.json()
-
-    if claims.get("aud") != settings.GOOGLE_CLIENT_ID:
+            detail=str(exc),
+        ) from exc
+    except Exception as exc:
         raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Google id_token audience mismatch",
-        )
-    if not claims.get("email_verified", False):
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Google account email is not verified",
-        )
-
-    email_str: str = claims["email"]
-    name: str = claims.get("name", email_str.split("@")[0])
-
-    # ── Find or create user ─────────────────────────────────────
-    repo = SQLAlchemyUserRepository(db)
-    user: User | None = await repo.find_by_email(email_str)
-    if user is None:
-        user = User(
-            id=uuid.uuid4(),
-            email=Email(email_str),
-            hashed_password=None,
-            name=name,
-            is_active=True,
-            is_verified=True,
-            oauth_provider="google",
-            created_at=datetime.now(timezone.utc),
-        )
-        await repo.save(user)
-
-    # ── Generate backend JWT tokens ─────────────────────────────
-    token_service = JWTTokenService()
-    tokens: TokenResponse = token_service.generate_tokens(str(user.id))
-    return {
-        "access_token": tokens.access_token,
-        "refresh_token": tokens.refresh_token,
-        "token_type": "bearer",
-    }
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Failed to exchange Google token.",
+        ) from exc
 
 
 @router.get("/me", response_model=UserResponse)

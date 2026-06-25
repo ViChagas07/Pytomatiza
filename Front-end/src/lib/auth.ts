@@ -199,7 +199,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         token.id = user.id ?? token.id;
         try {
           // Troca o Google id_token por um JWT do backend FastAPI
-          const res = await fetch(`${getBackendUrl()}/api/v1/auth/google`, {
+          const res = await fetch(`${getBackendUrl()}/api/v1/auth/google/token`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ id_token: account.id_token }),
@@ -214,7 +214,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             token.backendTokenExpires = Date.now() + 25 * 60 * 1000;
             console.log("[auth] Google OAuth: backendToken obtained");
           } else {
-            console.error("[auth] Google OAuth: backend exchange failed", res.status);
+            let errorBody = "";
+            try { errorBody = await res.text(); } catch { /* ignore */ }
+            console.error(
+              "[auth] Google OAuth: backend exchange failed",
+              res.status,
+              errorBody,
+            );
             token.error = "GoogleBackendExchangeFailed";
           }
         } catch (err) {

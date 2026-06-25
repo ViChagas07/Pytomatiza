@@ -78,3 +78,16 @@ class MessageResponse(BaseModel):
     """Generic message response for non-data endpoints."""
 
     message: str
+
+
+class GoogleIDTokenCommand(BaseModel):
+    """Command for exchanging a Google id_token for a backend JWT.
+
+    Used by the NextAuth jwt() callback to obtain a Pytomatiza+ JWT
+    after the user completes Google OAuth in the browser.
+    """
+
+    id_token: str = Field(
+        ...,
+        description="Google OIDC id_token obtained by NextAuth after user consent.",
+    )
