@@ -155,7 +155,12 @@ export function DocumentsContent() {
       setProcessingStage("");
 
       if (res.error) {
-        setError(res.error.message);
+        const msg = res.error.message || "";
+        if (msg.includes("-9") || msg.includes("encerrado pelo sistema") || msg.includes("Tesseract")) {
+          setError(t("processing.ocrMemoryError"));
+        } else {
+          setError(msg);
+        }
         return;
       }
 

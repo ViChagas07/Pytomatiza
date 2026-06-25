@@ -661,6 +661,7 @@
         "success": "Document processed successfully!",
         "error": "Failed to process document. Please try again.",
         "unsupportedFormat": "File format not supported by OCR. Use PDF, PNG, JPG or WebP.",
+        "ocrMemoryError": "OCR process was killed due to insufficient memory. Try with a smaller file or fewer pages.",
         "reprocessInstruction": "Reprocess the document {name} applying the same previous transformations.",
         "confidence": "Confidence",
         "extractedText": "Extracted text",

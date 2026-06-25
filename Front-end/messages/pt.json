@@ -661,6 +661,7 @@
         "success": "Documento processado com sucesso!",
         "error": "Falha ao processar o documento. Tente novamente.",
         "unsupportedFormat": "Formato de arquivo não suportado pelo OCR. Use PDF, PNG, JPG ou WebP.",
+        "ocrMemoryError": "O processo de OCR foi encerrado por falta de memória. Tente com um arquivo menor ou com menos páginas.",
         "reprocessInstruction": "Reprocesse o documento {name} aplicando as mesmas transformações anteriores.",
         "confidence": "Confiança",
         "extractedText": "Texto extraído",

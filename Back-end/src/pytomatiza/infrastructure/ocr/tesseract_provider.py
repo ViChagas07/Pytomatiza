@@ -105,7 +105,15 @@ class TesseractProvider:
         except RuntimeError as exc:
             if "timeout" in str(exc).lower():
                 raise OCRTimeout(timeout_s, provider=self.provider_name) from exc
-            raise OCRProcessingError(str(exc), provider=self.provider_name) from exc
+            # TesseractError stores (status, message) in self.args.
+            # A negative status means the process was killed by a signal (e.g. -9 = SIGKILL = OOM).
+            exc_msg = str(exc)
+            if hasattr(exc, "status") and isinstance(exc.status, int) and exc.status < 0:
+                exc_msg = (
+                    f"Tesseract foi encerrado pelo sistema (sinal {abs(exc.status)}). "
+                    "O arquivo pode ser grande demais para a memória disponível."
+                )
+            raise OCRProcessingError(exc_msg, provider=self.provider_name) from exc
         except Exception as exc:
             raise OCRProcessingError(str(exc), provider=self.provider_name) from exc
 
