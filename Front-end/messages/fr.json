@@ -80,8 +80,9 @@
                                 "generic":  "Une erreur inattendue s\u0027est produite. Veuillez rÃ©essayer.",
                                 "rateLimited":  "Trop de tentatives. Veuillez patienter un instant."
                             },
-                 "authenticationForm":  "Formulaire d\u0027authentification"
-             },
+                  "authenticationForm":  "Formulaire d\u0027authentification",
+                  "rememberMe":  "Se souvenir de moi"
+              },
     "meta":  {
                  "login":  {
                                "title":  "Se connecter â€” Pytomatiza+",

@@ -69,6 +69,7 @@
     "google": "Continuar com Google",
     "divider": "ou",
     "authenticationForm": "Formulário de autenticação",
+    "rememberMe": "Lembrar de mim",
     "errors": {
       "invalidCredentials": "E-mail ou senha inválidos",
       "emailExists": "Já existe uma conta com este e-mail",

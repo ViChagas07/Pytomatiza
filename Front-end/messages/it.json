@@ -80,8 +80,9 @@
                                 "generic":  "Si Ã¨ verificato un errore imprevisto. Per favore riprova.",
                                 "rateLimited":  "Troppi tentativi. Per favore aspetta un momento."
                             },
-                 "authenticationForm":  "Modulo di autenticazione"
-             },
+                  "authenticationForm":  "Modulo di autenticazione",
+                  "rememberMe":  "Ricordami"
+              },
     "meta":  {
                  "login":  {
                                "title":  "Accedi â€” Pytomatiza+",

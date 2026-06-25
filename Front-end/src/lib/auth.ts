@@ -21,6 +21,8 @@ declare module "next-auth" {
     backendToken?: string;
     /** Refresh token used to obtain a new backendToken when it expires */
     refreshToken?: string;
+    /** "true" / "false" string from credentials form */
+    rememberMe?: string;
   }
 
   interface Session {
@@ -32,6 +34,20 @@ declare module "next-auth" {
     /** Refresh token used to obtain a new backendToken when it expires */
     refreshToken?: string;
     /** Error flag set when refresh fails repeatedly */
+    error?: string;
+  }
+}
+
+/* JWT augmentation — module is @auth/core/jwt, re-exported by next-auth/jwt */
+declare module "@auth/core/jwt" {
+  interface JWT {
+    backendToken?: string;
+    refreshToken?: string;
+    backendTokenExpires?: number;
+    /** Timestamp after which an un-remembered session is invalidated */
+    sessionExpiry?: number;
+    /** Whether the user checked "Lembrar de mim" */
+    rememberMe?: boolean;
     error?: string;
   }
 }
@@ -101,6 +117,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         backendToken: { label: "Backend Token", type: "text" },
         backendUserId: { label: "Backend User ID", type: "text" },
         refreshToken: { label: "Refresh Token", type: "text" },
+        rememberMe: { label: "Remember Me", type: "text" },
       },
 
       async authorize(credentials) {
@@ -114,6 +131,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const backendToken = credentials.backendToken as string | undefined;
         const backendUserId = credentials.backendUserId as string | undefined;
         const refreshToken = credentials.refreshToken as string | undefined;
+        const rememberMe = credentials.rememberMe as string | undefined;
 
         // ═══ Caminho 1: AuthForm já autenticou e passou o token ══════
         if (backendToken) {
@@ -124,6 +142,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             name: email.split("@")[0],
             backendToken,
             refreshToken,
+            rememberMe,
           };
         }
 
@@ -179,6 +198,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             name: email.split("@")[0],
             backendToken: data.access_token,
             refreshToken: data.refresh_token,
+            rememberMe,
           };
         } catch (err) {
           console.error("[auth] authorize() network error:", err);
@@ -212,6 +232,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             token.backendToken = data.access_token;
             token.refreshToken = data.refresh_token;
             token.backendTokenExpires = Date.now() + 25 * 60 * 1000;
+            // Google OAuth: padrão é "lembrar" (consentimento já foi dado)
+            token.rememberMe = true;
             console.log("[auth] Google OAuth: backendToken obtained");
           } else {
             let errorBody = "";
@@ -240,7 +262,26 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         if (user.refreshToken) {
           token.refreshToken = user.refreshToken;
         }
+        // Remember-me: default true; se false, sessão expira em 24h
+        if (user.rememberMe === "false") {
+          token.rememberMe = false;
+          token.sessionExpiry = Date.now() + 24 * 60 * 60 * 1000; // 24 h
+        } else {
+          token.rememberMe = true;
+          delete token.sessionExpiry;
+        }
         return token;
+      }
+
+      // ── Sessão sem "Lembrar de mim" — verifica expiração forçada ─
+      if (token.rememberMe === false && token.sessionExpiry) {
+        if (Date.now() > (token.sessionExpiry as number)) {
+          console.log("[auth] Session expired (rememberMe=false), forcing re-login");
+          token.error = "SessionExpired";
+          token.backendToken = undefined;
+          token.refreshToken = undefined;
+          return token;
+        }
       }
 
       // ── Chamadas subsequentes — verifica expiração ───────────────

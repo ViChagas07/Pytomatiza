@@ -69,6 +69,7 @@
     "google": "Continue with Google",
     "divider": "or",
     "authenticationForm": "Authentication form",
+    "rememberMe": "Remember me",
     "errors": {
       "invalidCredentials": "Invalid email or password",
       "emailExists": "An account with this email already exists",

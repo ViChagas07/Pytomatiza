@@ -80,8 +80,9 @@
                                 "generic":  "å‘ç”Ÿæ„å¤–é”™è¯¯ã€‚ è¯·å†è¯•ä¸€æ¬¡ã€‚",
                                 "rateLimited":  "å°è¯•æ¬¡æ•°å¤ªå¤šã€‚ è¯·ç¨ç­‰ã€‚"
                             },
-                 "authenticationForm":  "è®¤è¯è¡¨æ ¼"
-             },
+                  "authenticationForm":  "è®¤è¯è¡¨æ ¼",
+                  "rememberMe":  "è®°ä½æˆ‘"
+              },
     "meta":  {
                  "login":  {
                                "title":  "ç™»å½• â€” Pytomatiza+",

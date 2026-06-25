@@ -80,8 +80,9 @@
                                 "generic":  "Es ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es erneut.",
                                 "rateLimited":  "Zu viele Versuche. Bitte warten Sie einen Moment."
                             },
-                 "authenticationForm":  "Authentifizierungsformular"
-             },
+                  "authenticationForm":  "Authentifizierungsformular",
+                  "rememberMe":  "Angemeldet bleiben"
+              },
     "meta":  {
                  "login":  {
                                "title":  "Anmelden â€“ Pytomatiza+",

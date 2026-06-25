@@ -57,6 +57,7 @@ export function AuthForm() {
   const [globalError, setGlobalError] = React.useState<string | null>(null);
   const [isGoogleLoading, setIsGoogleLoading] = React.useState(false);
   const [consentChecked, setConsentChecked] = React.useState(false);
+  const [rememberMe, setRememberMe] = React.useState(true);
   const tabListRef = React.useRef<HTMLDivElement>(null);
 
   /* ── Tab keyboard navigation (Arrow keys) ──────────────────── */
@@ -110,6 +111,7 @@ export function AuthForm() {
         backendToken: backendRes.data.access_token,
         backendUserId: userId,
         refreshToken: backendRes.data.refresh_token,
+        rememberMe: rememberMe ? "true" : "false",
         redirect: false,
       });
 
@@ -161,6 +163,7 @@ export function AuthForm() {
         backendToken: backendRes.data.access_token,
         backendUserId: userId,
         refreshToken: backendRes.data.refresh_token,
+        rememberMe: rememberMe ? "true" : "false",
         redirect: false,
       });
 
@@ -338,6 +341,20 @@ export function AuthForm() {
                   </div>
                 </div>
 
+                {/* ── Remember-me checkbox ──────────────────────────── */}
+                <div className="mt-3 flex items-center gap-2.5">
+                  <input
+                    type="checkbox"
+                    id="remember-me-signin"
+                    checked={rememberMe}
+                    onChange={(e) => setRememberMe(e.target.checked)}
+                    className="h-4 w-4 shrink-0 rounded border-white/30 bg-transparent text-[var(--brand-accent)] focus:ring-2 focus:ring-[var(--brand-accent)] focus:ring-offset-0 cursor-pointer"
+                  />
+                  <label htmlFor="remember-me-signin" className="text-sm text-white/80 cursor-pointer select-none">
+                    {tAuth("rememberMe")}
+                  </label>
+                </div>
+
                 {/* ── Consent checkbox ────────────────────────────── */}
                 <div className="mt-4 flex items-start gap-3 rounded-[var(--radius-md)] bg-white/5 p-3">
                   <input
@@ -455,6 +472,20 @@ export function AuthForm() {
                   {...signUpForm.register("confirmPassword")}
                   data-testid="signup-confirm-password"
                 />
+
+                {/* ── Remember-me checkbox ──────────────────────────── */}
+                <div className="mt-3 flex items-center gap-2.5">
+                  <input
+                    type="checkbox"
+                    id="remember-me-signup"
+                    checked={rememberMe}
+                    onChange={(e) => setRememberMe(e.target.checked)}
+                    className="h-4 w-4 shrink-0 rounded border-white/30 bg-transparent text-[var(--brand-accent)] focus:ring-2 focus:ring-[var(--brand-accent)] focus:ring-offset-0 cursor-pointer"
+                  />
+                  <label htmlFor="remember-me-signup" className="text-sm text-white/80 cursor-pointer select-none">
+                    {tAuth("rememberMe")}
+                  </label>
+                </div>
 
                 {/* ── Consent checkbox ────────────────────────────── */}
                 <div className="mt-4 flex items-start gap-3 rounded-[var(--radius-md)] bg-white/5 p-3">
