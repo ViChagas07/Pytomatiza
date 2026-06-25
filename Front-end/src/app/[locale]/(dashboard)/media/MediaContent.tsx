@@ -34,6 +34,7 @@ import {
 import { IntegrationChips } from "@/components/dashboard/IntegrationChips";
 import { Button } from "@/components/ui/Button";
 import { GoogleDriveIcon, GooglePhotosIcon } from "@/components/ui/GoogleIcons";
+import { api } from "@/lib/api";
 import { cn } from "@/lib/utils";
 import { useGoogleIntegration } from "@/lib/useGoogleIntegration";
 import { LoginOverlay } from "@/components/ui/LoginOverlay";
@@ -46,6 +47,13 @@ interface MediaFile {
   type: "image" | "video";
   size: string;
   previewUrl: string;
+  file: File;
+}
+
+interface ProcessedResult {
+  id: string;
+  name: string;
+  blobUrl: string;
 }
 
 interface TransformationState {
@@ -106,7 +114,8 @@ export function MediaContent() {
   const [aiResult, setAiResult] = React.useState<string | null>(null);
 
   /* ── Recent media — empty until user performs operations ──────── */
-  const [recentMedia, setRecentMedia] = React.useState<Array<{ id: string; name: string; type: string; size: string; processedAt: Date }>>([]);
+  const [recentMedia, setRecentMedia] = React.useState<Array<{ id: string; name: string; type: string; size: string; processedAt: Date; blobUrl?: string }>>([]);
+  const [processedResults, setProcessedResults] = React.useState<ProcessedResult[]>([]);
 
   React.useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 600);
@@ -122,10 +131,12 @@ export function MediaContent() {
       type: file.type.startsWith("video/") ? "video" : "image",
       size: formatSize(file.size),
       previewUrl: URL.createObjectURL(file),
+      file,
     }));
     setFiles((prev) => [...prev, ...newFiles]);
     setResult(null);
     setError(null);
+    setProcessedResults([]);
   };
 
   const handleDrop = (e: React.DragEvent) => {
@@ -154,26 +165,53 @@ export function MediaContent() {
     setIsProcessing(true);
     setError(null);
     setResult(null);
+    setProcessedResults([]);
+
+    // Determine backend action based on UI settings
+    let action = "resize";
+    if (transform.blur > 0) action = "blur";
+    else if (transform.saturation !== 100 || transform.brightness !== 100 || transform.contrast !== 100) action = "grayscale";
+
+    const results: ProcessedResult[] = [];
+
     try {
-      // Call real media transform API for each file
       for (const fileObj of files) {
-        // Note: files array in this component stores file metadata, not actual File objects
-        // For a real implementation, the File would come from an <input type="file">
-        // This marks the integration point for future upload+transform flow
+        const options: { width?: number; height?: number; quality?: number; format?: string } = {};
+        if (transform.resize) {
+          options.width = Number(transform.width) || 800;
+          options.height = Number(transform.height) || 600;
+        }
+        if (transform.compress) options.quality = transform.quality;
+        if (transform.convertFormat) options.format = transform.targetFormat.toLowerCase();
+
+        const res = await api.transformMedia(fileObj.file, action, options);
+        if (res.error) {
+          setError(`${t("errors.processFailed")}: ${res.error.message}`);
+          return;
+        }
+        if (res.data) {
+          results.push({ id: `r${Date.now()}-${fileObj.id}`, name: `processed_${fileObj.name}`, blobUrl: res.data.url });
+        }
       }
 
-      const fileCount = files.length || 1;
+      setProcessedResults(results);
+
+      const fileCount = results.length;
       setResult(t("results.processComplete", { count: fileCount }));
 
-      const transformed: typeof recentMedia = files.map((f) => ({
-        id: `r${Date.now()}-${f.id}`,
-        name: f.name,
-        type: transform.convertFormat ? `→ ${transform.targetFormat}` : "Original",
-        size: f.size,
-        processedAt: new Date(),
-      }));
+      const transformed: typeof recentMedia = files.map((f) => {
+        const processed = results.find(r => r.name.includes(f.name) || f.name.includes(r.name));
+        return {
+          id: `r${Date.now()}-${f.id}`,
+          name: f.name,
+          type: transform.convertFormat ? `→ ${transform.targetFormat}` : "Original",
+          size: f.size,
+          processedAt: new Date(),
+          blobUrl: processed?.blobUrl,
+        };
+      });
       setRecentMedia((prev) => [...transformed, ...prev]);
-    } catch {
+    } catch (err) {
       setError(t("errors.processFailed"));
     } finally {
       setIsProcessing(false);
@@ -224,20 +262,29 @@ export function MediaContent() {
 
   /* ── Download handlers ────────────────────────────────────────── */
   const handleDownloadAll = () => {
-    alert(t("results.downloadSimulation", { count: files.length }));
+    if (processedResults.length > 0) {
+      processedResults.forEach((r) => {
+        const a = document.createElement("a");
+        a.href = r.blobUrl;
+        a.download = r.name;
+        a.click();
+      });
+      processedResults.forEach(r => URL.revokeObjectURL(r.blobUrl));
+      setProcessedResults([]);
+    }
     files.forEach((f) => { if (f.previewUrl) URL.revokeObjectURL(f.previewUrl); });
     setFiles([]);
     setResult(t("results.downloadComplete"));
   };
 
   const handleDownloadSingle = (name: string) => {
-    const blob = new Blob([`Arquivo processado: ${name}`], { type: "application/octet-stream" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = name;
-    a.click();
-    URL.revokeObjectURL(url);
+    const processed = processedResults.find(r => r.name.includes(name) || name.includes(r.name));
+    if (processed) {
+      const a = document.createElement("a");
+      a.href = processed.blobUrl;
+      a.download = processed.name;
+      a.click();
+    }
   };
 
   if (!loaded) return null;
@@ -589,6 +636,26 @@ export function MediaContent() {
                   <CheckCircle className="h-4 w-4 shrink-0" aria-hidden="true" />{result}
                 </div>
               )}
+              {processedResults.length > 0 && (
+                <div className="mt-4 grid grid-cols-2 gap-3">
+                  {processedResults.map((pr) => (
+                    <div key={pr.id} className="rounded-[var(--radius-md)] border border-[var(--border-default)] overflow-hidden bg-[var(--surface-1)]">
+                      <img src={pr.blobUrl} alt={pr.name} className="w-full h-24 object-cover" />
+                      <div className="p-2 flex items-center justify-between">
+                        <p className="text-xs text-[var(--text-primary)] truncate">{pr.name}</p>
+                        <button
+                          type="button"
+                          onClick={() => handleDownloadSingle(pr.name)}
+                          aria-label={t("actions.download")}
+                          className="inline-flex h-7 w-7 items-center justify-center rounded-[var(--radius-sm)] text-[var(--text-tertiary)] hover:bg-[var(--surface-2)] hover:text-[var(--text-primary)] transition-colors"
+                        >
+                          <Download className="h-3.5 w-3.5" aria-hidden="true" />
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </section>
 
@@ -682,8 +749,12 @@ export function MediaContent() {
                 role="listitem"
                 className="rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-0)] shadow-[var(--shadow-sm)] overflow-hidden group"
               >
-                <div className="h-28 bg-[var(--surface-1)] flex items-center justify-center">
-                  <Image className="h-10 w-10 text-[var(--text-tertiary)]" aria-hidden="true" />
+                <div className="h-28 bg-[var(--surface-1)] flex items-center justify-center overflow-hidden">
+                  {item.blobUrl ? (
+                    <img src={item.blobUrl} alt={item.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <Image className="h-10 w-10 text-[var(--text-tertiary)]" aria-hidden="true" />
+                  )}
                 </div>
                 <div className="p-3">
                   <p className="text-xs font-medium text-[var(--text-primary)] truncate">{item.name}</p>

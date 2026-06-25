@@ -1,1254 +1,1256 @@
-{
-  "a11y": {
-    "skipToMain": "انتقل إلى المحتوى الرئيسي",
-    "themeToggle": "تبديل موضوع اللون",
-    "languageSwitcher": "اختر اللغة",
-    "showPassword": "إظهار كلمة المرور",
-    "hidePassword": "إخفاء كلمة المرور",
-    "closeModal": "إغلاق الحوار",
-    "mainNavigation": "الملاحة الرئيسية",
-    "sidebarNavigation": "التنقل في الشريط الجانبي",
-    "breadcrumb": "مسار التنقل",
-    "pagination": "ترقيم الصفحات",
-    "currentPage": "الصفحة الحالية، الصفحة {page}",
-    "goToPage": "انتقل إلى الصفحة {page}",
-    "goToHome": "اذهب إلى الصفحة الرئيسية"
-  },
-  "common": {
-    "loading": "تحميل…",
-    "error": "حدث خطأ ما",
-    "retry": "حاول ثانية",
-    "save": "يحفظ",
-    "cancel": "يلغي",
-    "delete": "يمسح",
-    "edit": "يحرر",
-    "create": "يخلق",
-    "search": "يبحث",
-    "filter": "فلتر",
-    "noResults": "لم يتم العثور على نتائج",
-    "back": "خلف",
-    "next": "التالي",
-    "previous": "سابق",
-    "confirm": "يتأكد",
-    "actions": "الإجراءات",
-    "more": "المزيد من الخيارات",
-    "copied": "تم النسخ إلى الحافظة",
-    "enabled": "ممكّن",
-    "disabled": "عاجز",
-    "increasedBy": "زيادة بنسبة",
-    "decreasedBy": "انخفض بنسبة"
-  },
-  "auth": {
-    "signIn": {
-      "title": "مرحبًا بعودتك",
-      "subtitle": "قم بتسجيل الدخول إلى حساب Pytomatiza+ الخاص بك",
-      "emailLabel": "عنوان البريد الإلكتروني",
-      "emailPlaceholder": "you@example.com",
-      "passwordLabel": "كلمة المرور",
-      "passwordPlaceholder": "أدخل كلمة المرور الخاصة بك",
-      "submit": "تسجيل الدخول",
-      "forgotPassword": "نسيت كلمة السر؟",
-      "noAccount": "ليس لديك حساب؟",
-      "createOne": "قم بإنشاء واحدة"
-    },
-    "signUp": {
-      "title": "أنشئ حسابك",
-      "subtitle": "ابدأ التشغيل الآلي باستخدام Pytomatiza+",
-      "nameLabel": "الاسم الكامل",
-      "namePlaceholder": "جين سميث",
-      "emailLabel": "عنوان البريد الإلكتروني",
-      "emailPlaceholder": "you@example.com",
-      "passwordLabel": "كلمة المرور",
-      "passwordPlaceholder": "8 أحرف على الأقل",
-      "confirmPasswordLabel": "تأكيد كلمة المرور",
-      "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور الخاصة بك",
-      "submit": "إنشاء حساب",
-      "haveAccount": "هل لديك حساب بالفعل؟",
-      "signIn": "تسجيل الدخول"
-    },
-    "google": "تواصل مع جوجل",
-    "divider": "or",
-    "errors": {
-      "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صالحة",
-      "emailExists": "يوجد حساب بهذا البريد الإلكتروني بالفعل",
-      "invalidEmail": "يرجى إدخال عنوان بريد إلكتروني صالح",
-      "passwordTooShort": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
-      "passwordUppercase": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
-      "passwordNumber": "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل",
-      "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
-      "nameTooShort": "يجب أن يتكون الاسم من حرفين على الأقل",
-      "generic": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
-      "rateLimited": "محاولات كثيرة جدًا. من فضلك انتظر لحظة."
-    },
-    "authenticationForm": "نموذج المصادقة"
-  },
-  "meta": {
-    "login": {
-      "title": "تسجيل الدخول — بيتوماتيزا+",
-      "description": "قم بتسجيل الدخول إلى حساب Pytomatiza+ الخاص بك لإدارة وكلاء الأتمتة الذين يعملون بالذكاء الاصطناعي."
-    },
-    "dashboard": {
-      "title": "لوحة القيادة - بيتوماتيزا+",
-      "description": "نظرة عامة على وكلاء التشغيل الآلي لـ Pytomatiza+ والنشاط الأخير وحالة النظام."
-    },
-    "agents": {
-      "title": "الوكلاء - بيتوماتيزا+",
-      "description": "تصفح وإدارة وكلاء أتمتة الذكاء الاصطناعي لديك."
-    },
-    "automations": {
-      "title": "الأتمتة — بيتوماتيزا+",
-      "description": "إنشاء وإدارة سير عمل أتمتة اللغة الطبيعية."
-    },
-    "settings": {
-      "title": "الإعدادات - بيتوماتيزا+",
-      "description": "إدارة حسابك وعمليات التكامل وتفضيلات الإشعارات."
-    },
-    "help": {
-      "title": "المساعدة والدعم — بيتوماتيزا+",
-      "description": "احصل على المساعدة، وتصفح الوثائق، واتصل بالدعم."
-    },
-    "logs": {
-      "title": "Logs & Aprovações — Pytomatiza+",
-      "description": "Visualize execuções de automação, histórico de agentes e gerencie aprovações pendentes."
-    },
-    "documents": {
-      "title": "المستندات — Pytomatiza+",
-      "description": "أتمتة معالجة المستندات باستخدام الذكاء الاصطناعي. قم باستخراج البيانات وتحويل التنسيقات وإدارة ملفات PDF وDOCX والمزيد."
-    },
-    "data": {
-      "title": "البيانات وجداول البيانات — Pytomatiza+",
-      "description": "قم بتوصيل مصادر البيانات، وتحويل جداول البيانات، وأتمتة التحليل باستخدام وكلاء الذكاء الاصطناعي."
-    },
-    "communication": {
-      "title": "الاتصالات — Pytomatiza+",
-      "description": "قم بأتمتة رسائل البريد الإلكتروني والرسائل والإشعارات متعددة القنوات من خلال عمليات سير العمل الذكية."
-    },
-    "media": {
-      "title": "الوسائط والصور — Pytomatiza+",
-      "description": "قم بمعالجة الصور والوسائط وتحويلها وتحسينها دفعة واحدة باستخدام الأتمتة الذكية."
-    },
-    "files": {
-      "title": "الملفات — Pytomatiza+",
-      "description": "إدارة عمليات الملفات وتنظيمها وأتمتتها باستخدام قواعد ذكية."
-    },
-    "architecture": {
-      "title": "الهندسة المعمارية — Pytomatiza+",
-      "description": "قم بإنشاء مخططات معمارية ووثائق فنية وتدفقات النظام باستخدام الذكاء الاصطناعي."
-    }
-  },
-  "navigation": {
-    "dashboard": "لوحة القيادة",
-    "agents": "الوكلاء",
-    "automations": "الأتمتة",
-    "settings": "إعدادات",
-    "help": "المساعدة والدعم",
-    "signOut": "تسجيل الخروج",
-    "collapse": "طي الشريط الجانبي",
-    "expand": "قم بتوسيع الشريط الجانبي",
-    "mainNavigation": "الملاحة الرئيسية",
-    "sidebarNavigation": "التنقل في الشريط الجانبي"
-  },
-  "settings": {
-    "title": "إعدادات",
-    "subtitle": "إدارة حسابك، والتفضيلات، وإعدادات التطبيق.",
-    "tabs": {
-      "appearance": "مظهر",
-      "accessibility": "إمكانية الوصول",
-      "languageRegion": "اللغة والمنطقة",
-      "account": "حساب",
-      "security": "حماية",
-      "notifications": "إشعارات",
-      "advanced": "متقدم"
-    },
-    "appearance": {
-      "title": "مظهر",
-      "subtitle": "تخصيص تجربتك البصرية.",
-      "accentColor": "لون مميز",
-      "accentColorDescription": "اختر لون التمييز للعناصر \"+\" والتمييز.",
-      "fontSize": "حجم الخط",
-      "fontSizeSmall": "صغير",
-      "fontSizeMedium": "واسطة",
-      "fontSizeLarge": "كبير",
-      "boldMode": "وضع جريء",
-      "boldModeDescription": "يزيد من وزن الخط في جميع أنحاء التطبيق.",
-      "elementDensity": "حجم العنصر",
-      "densitySmall": "صغير",
-      "densityMedium": "واسطة",
-      "densityLarge": "كبير",
-      "systemColor": "لون النظام",
-      "themeLight": "ضوء",
-      "themeDark": "مظلم",
-      "themeSystem": "نظام",
-      "backgroundColor": "لون الخلفية",
-      "bgPresetDefault": "تقصير",
-      "bgPresetWarm": "دافيء",
-      "bgPresetCool": "رائع",
-      "bgPresetForest": "غابة",
-      "bgPresetLavender": "لافندر",
-      "bgPresetSepia": "بني داكن",
-      "bgPresetMidnight": "منتصف الليل",
-      "bgPresetSlate": "لائحة",
-      "colorYellow": "أصفر",
-      "colorBlue": "Blue",
-      "colorGreen": "Green",
-      "colorPurple": "أرجواني",
-      "colorOrange": "البرتقالي",
-      "colorRed": "Red",
-      "colorPink": "Pink",
-      "accentColorAria": "{color} لون مميز"
-    },
-    "accessibility": {
-      "title": "إمكانية الوصول",
-      "subtitle": "قم بتكوين الخيارات لتسهيل الوصول إلى التطبيق.",
-      "highContrast": "التباين العالي",
-      "highContrastDescription": "يزيد من تباين الألوان لتحسين القراءة.",
-      "reduceMotion": "تقليل الرسوم المتحركة",
-      "reduceMotionDescription": "يقلل من تأثيرات الحركة والانتقالات.",
-      "focusOutline": "مخطط التركيز الموسع",
-      "focusOutlineDescription": "يزيد من سمك الخطوط العريضة لتركيز لوحة المفاتيح.",
-      "skipLinks": "اعرض دائمًا روابط التخطي",
-      "skipLinksDescription": "يجعل تخطي روابط التنقل مرئية بشكل دائم.",
-      "underlineLinks": "ضع خطًا تحت جميع الروابط",
-      "underlineLinksDescription": "يضيف تسطيرًا إلى جميع الروابط لتحديد أفضل.",
-      "screenReader": "تحسينات قارئ الشاشة",
-      "screenReaderDescription": "يضيف أوصافًا إضافية وتسميات ARIA الغنية."
-    },
-    "languageRegion": {
-      "title": "اللغة والمنطقة",
-      "subtitle": "اختر لغتك المفضلة والمنطقة الزمنية.",
-      "language": "لغة",
-      "languageDescription": "حدد لغة العرض الخاصة بالتطبيق.",
-      "timezone": "المنطقة الزمنية",
-      "timezoneDescription": "حدد منطقتك الزمنية المحلية."
-    },
-    "account": {
-      "title": "حساب",
-      "subtitle": "إدارة معلوماتك الشخصية.",
-      "fullName": "الاسم الكامل",
-      "fullNamePlaceholder": "اسمك الكامل",
-      "birthDate": "تاريخ الميلاد",
-      "profilePicture": "صورة الملف الشخصي",
-      "uploadPhoto": "تحميل الصورة",
-      "removePhoto": "إزالة الصورة",
-      "saveChanges": "حفظ التغييرات",
-      "lockedTitle": "منطقة محظورة",
-      "lockedDescription": "قم بتسجيل الدخول لإدارة معلومات حسابك.",
-      "login": "تسجيل الدخول",
-      "register": "إنشاء حساب"
-    },
-    "security": {
-      "title": "حماية",
-      "subtitle": "قم بتكوين خيارات أمان حسابك.",
-      "twoFactor": "المصادقة الثنائية (2FA)",
-      "twoFactorDescription": "يضيف طبقة إضافية من الحماية عند تسجيل الدخول.",
-      "changePassword": "تغيير كلمة المرور",
-      "changePasswordDescription": "قم بتحديث كلمة المرور الخاصة بك بانتظام للحفاظ على أمان حسابك.",
-      "activeSessions": "جلسات نشطة",
-      "activeSessionsDescription": "عرض وإنهاء الجلسات على الأجهزة الأخرى.",
-      "configure": "تكوين",
-      "change": "يتغير",
-      "current": "حاضِر",
-      "revoke": "إبطال",
-      "revokeAll": "قم بإنهاء جميع الجلسات الأخرى"
-    },
-    "notifications": {
-      "title": "إشعارات",
-      "subtitle": "اختر الطريقة التي تريد أن يتم إعلامك بها.",
-      "email": "إشعارات البريد الإلكتروني",
-      "emailDescription": "تلقي الملخصات والتنبيهات الهامة في البريد الإلكتروني الخاص بك.",
-      "inApp": "الإخطارات داخل التطبيق",
-      "inAppDescription": "يعرض اللافتات والشارات داخل التطبيق.",
-      "push": "دفع الإخطارات",
-      "pushDescription": "تلقي التنبيهات حتى عندما يكون التطبيق مغلقا.",
-      "sound": "صوت التنبيه",
-      "soundDescription": "يصدر صوتًا عند وصول إشعار."
-    },
-    "advanced": {
-      "title": "متقدم",
-      "subtitle": "خيارات صيانة التطبيقات المتقدمة.",
-      "clearCache": "مسح ذاكرة التخزين المؤقت للتطبيق",
-      "clearCacheDescription": "يزيل البيانات المؤقتة المخزنة محليا.",
-      "clearCacheButton": "امسح ذاكرة التخزين المؤقت الآن",
-      "clearCacheConfirm": "هل أنت متأكد؟ سيؤدي هذا إلى إزالة جميع البيانات المحلية المؤقتة.",
-      "resetSettings": "إعادة ضبط الإعدادات",
-      "resetSettingsDescription": "يعيد جميع الإعدادات إلى القيم الافتراضية.",
-      "resetSettingsButton": "إعادة التعيين إلى الوضع الافتراضي",
-      "resetSettingsConfirm": "هل أنت متأكد؟ سيتم فقدان جميع تفضيلاتك.",
-      "appVersion": "نسخة التطبيق"
-    }
-  },
-  "help": {
-    "title": "المساعدة والدعم",
-    "subtitle": "احصل على المساعدة، وتصفح الوثائق، واتصل بفريقنا.",
-    "documentation": "التوثيق",
-    "documentationDescription": "تصفح الأدلة والبرامج التعليمية ومراجع واجهة برمجة التطبيقات.",
-    "contactSupport": "اتصل بالدعم",
-    "contactSupportDescription": "احصل على المساعدة من فريقنا. عادة ما يتم الرد خلال 24 ساعة.",
-    "faqTitle": "الأسئلة المتداولة",
-    "faq0": {
-      "question": "كيف أقوم بإنشاء أتمتة؟",
-      "answer": "انتقل إلى صفحة عمليات الأتمتة واستخدم Natural Language Workflow Builder. قم بوصف ما تريد أتمتته باللغة الإنجليزية البسيطة، وسيقوم Pytomatiza+ ببناء سير العمل لك."
-    },
-    "faq1": {
-      "question": "كيف أقوم بتوصيل التكامل الجديد؟",
-      "answer": "انتقل إلى الإعدادات → عمليات التكامل لتوصيل خدمات الجهات الخارجية مثل Google Workspace أو Slack أو GitHub."
-    },
-    "faq2": {
-      "question": "ماذا يحدث إذا فشل الوكيل؟",
-      "answer": "يتم وضع علامة على الوكلاء الفاشلين بحالة خطأ. يمكنك عرض تفاصيل الخطأ في بطاقة الوكيل وإعادة محاولة التنفيذ."
-    },
-    "faq3": {
-      "question": "كيف أغير لغتي؟",
-      "answer": "انقر على أيقونة الكرة الأرضية في رأس الصفحة للتبديل بين 9 لغات مدعومة."
-    }
-  },
-  "dashboard": {
-    "title": "لوحة القيادة",
-    "welcome": "جيد {timeOfDay}، {name}",
-    "morning": "صباح",
-    "afternoon": "بعد الظهر",
-    "evening": "مساء",
-    "subtitle": "إليك ما يحدث مع عمليات التشغيل الآلي الخاصة بك اليوم.",
-    "stats": {
-      "activeAgents": "عوامل نشطة",
-      "automationsToday": "الأتمتة اليوم",
-      "successRate": "معدل النجاح",
-      "pendingApprovals": "الموافقات في انتظار",
-      "increasedBy": "تمت الزيادة بمقدار {value}",
-      "decreasedBy": "انخفض بمقدار {value}"
-    },
-    "recentActivity": "النشاط الأخير",
-    "quickActions": "إجراءات سريعة",
-    "quickActionsDescription": "المهام الشائعة للبدء",
-    "createAutomation": "أتمتة جديدة",
-    "viewAgents": "عرض جميع الوكلاء",
-    "viewReports": "عرض التقارير",
-    "error": {
-      "title": "خطأ في تحميل البيانات",
-      "loadingFailed": "تعذر تحميل بيانات لوحة التحكم. يرجى التحقق من اتصالك والمحاولة مرة أخرى.",
-      "retry": "حاول مرة أخرى",
-      "offlineBanner": "الواجهة الخلفية غير متاحة — قد تكون البيانات المعروضة قديمة",
-      "unknown": "خطأ غير معروف"
-    },
-    "empty": {
-      "title": "لم يتم العثور على وكلاء",
-      "description": "أنشئ وكيل الأتمتة الأول الخاص بك للبدء في رؤية النشاط هنا.",
-      "offlineTitle": "الخلفية غير متصل",
-      "offlineDescription": "اتصل بالواجهة الخلفية لرؤية وكلائك. انقر فوق \"إعادة المحاولة\" بمجرد توفر الخدمة."
-    },
-    "recentActivityEmpty": "سجل فارغ... قم بإنشاء أول نظام آلي لك باستخدام Pytomatiza+ بالانتقال إلى الوحدات!",
-    "loginPrompt": "قم بتسجيل الدخول إلى حسابك للوصول إلى البيانات في الوقت الحقيقي!",
-    "loginAction": "تسجيل الدخول",
-    "user": "User"
-  },
-  "agents": {
-    "title": "الوكلاء",
-    "subtitle": "تصفح وإدارة وكلاء أتمتة الذكاء الاصطناعي لديك",
-    "searchPlaceholder": "وكلاء البحث حسب الاسم أو النوع...",
-    "filterByType": "تصفية حسب النوع",
-    "filterByStatus": "التصفية حسب الحالة",
-    "allTypes": "جميع الأنواع",
-    "allStatuses": "جميع الحالات",
-    "types": {
-      "productivity": "إنتاجية",
-      "data": "بيانات",
-      "content": "محتوى",
-      "admin": "مسؤل",
-      "technical": "اِصطِلاحِيّ"
-    },
-    "statuses": {
-      "idle": "عاطل",
-      "running": "جري",
-      "error": "خطأ",
-      "paused": "متوقف مؤقتًا"
-    },
-    "statusDescriptions": {
-      "idle": "الحالة : جاهز و في الإنتظار",
-      "running": "الحالة: قيد التنفيذ",
-      "error": "الحالة: حدث خطأ",
-      "paused": "الحالة: متوقف مؤقتًا من قبل المستخدم"
-    },
-    "card": {
-      "lastRun": "التشغيل الأخير",
-      "successRate": "معدل النجاح",
-      "runNow": "اركض الآن",
-      "pause": "يوقف",
-      "resume": "سيرة ذاتية",
-      "configure": "تكوين",
-      "never": "أبداً"
-    },
-    "empty": "لا يوجد وكلاء يتطابقون مع عوامل التصفية الحالية. حاول تعديل معايير البحث أو التصفية.",
-    "error": "غير قادر على تحميل الوكلاء. يرجى التحقق من اتصالك والمحاولة مرة أخرى.",
-    "mock": {
-      "1": {
-        "name": "Salvador de Anexos de E-mail",
-        "desc": "Monitora a caixa de entrada em busca de anexos, salva-os no Google Drive e notifica via Slack."
-      },
-      "2": {
-        "name": "Gerador de Relat�rios Semanais",
-        "desc": "Compila dados de m�ltiplas fontes e gera um relat�rio PDF formatado toda segunda-feira."
-      },
-      "3": {
-        "name": "Monitor de Redes Sociais",
-        "desc": "Rastreia men��es � marca no Twitter, LinkedIn e Reddit. Responde automaticamente a consultas de suporte."
-      },
-      "4": {
-        "name": "Agente de Backup de Banco de Dados",
-        "desc": "Realiza backups noturnos do banco de dados e verifica a integridade. Alerta em caso de falha."
-      },
-      "5": {
-        "name": "Verificador de Sa�de de APIs",
-        "desc": "Faz ping em todas as APIs internas a cada minuto. Escala para o PagerDuty em caso de inatividade."
-      },
-      "6": {
-        "name": "Processador de Faturas",
-        "desc": "Extrai dados de faturas em PDF usando OCR e envia para o software de contabilidade."
-      },
-      "7": {
-        "name": "Agendador de Reuni�es",
-        "desc": "Coordena calend�rios entre equipes para encontrar hor�rios ideais e envia convites."
-      },
-      "8": {
-        "name": "Tradutor de Conte�do",
-        "desc": "Traduz posts de blog e documenta��o para 9 idiomas usando IA."
-      }
-    },
-    "agentsFound": "{count, plural, =1 {1 agente encontrado} other {{count} agentes encontrados}}",
-    "loginPrompt": "قم بتسجيل الدخول أو إنشاء حساب لحفظ وكلائك وسجلك!",
-    "resetFilters": "إعادة تعيين جميع الفلاتر"
-  },
-  "automations": {
-    "title": "الأتمتة",
-    "subtitle": "إنشاء وإدارة سير عمل أتمتة اللغة الطبيعية",
-    "nlpBuilder": {
-      "title": "منشئ سير عمل اللغة الطبيعية",
-      "description": "قم بوصف ما تريد أتمتته باللغة الإنجليزية البسيطة، وسيقوم Pytomatiza+ ببناء سير العمل نيابةً عنك.",
-      "instructionLabel": "ما الذي تريد أتمتة؟",
-      "instructionPlaceholder": "على سبيل المثال، عندما أتلقى بريدًا إلكترونيًا من عميل يحتوي على مرفق، احفظ المرفق في Google Drive وأخبرني عبر Slack.",
-      "instructionHelper": "كن محددًا قدر الإمكان. قم بتضمين المشغلات والشروط والإجراءات المطلوبة.",
-      "agentTypeLabel": "نوع الوكيل الموصى به",
-      "agentTypePlaceholder": "الاكتشاف التلقائي (مستحسن)",
-      "requireApprovalLabel": "تتطلب الموافقة قبل التنفيذ",
-      "requireApprovalHelper": "عند التمكين، سيتوقف سير العمل مؤقتًا للمراجعة قبل التشغيل.",
-      "build": "بناء سير العمل",
-      "building": "بناء سير العمل…",
-      "charCount": "{current}/{max} من الأحرف",
-      "suggestions": "جرب هذه الأمثلة:",
-      "example1": "أرسل تقريرًا أسبوعيًا بجميع التذاكر المغلقة إلى قناة فريق Slack كل يوم جمعة الساعة 5 مساءً",
-      "example2": "راقب إشاراتنا على تويتر وقم بالرد تلقائيًا على أسئلة الدعم من خلال رابط إلى مركز المساعدة",
-      "example3": "عند إضافة صف جديد إلى ورقة Google الخاصة بـ \"العملاء المحتملين\"، أرسل بريدًا إلكترونيًا ترحيبيًا مخصصًا عبر Gmail"
-    },
-    "workflowList": {
-      "title": "سير العمل الخاص بك",
-      "empty": "لا يوجد سير عمل حتى الآن. قم بإنشاء أول واحد أعلاه.",
-      "lastTriggered": "آخر ما أثار",
-      "executions": "عمليات الإعدام",
-      "toggle": "تبديل سير العمل",
-      "delete": "حذف سير العمل",
-      "deleteConfirm": "هل أنت متأكد أنك تريد حذف سير العمل هذا؟ لا يمكن التراجع عن هذا الإجراء.",
-      "deleted": "تم حذف سير العمل بنجاح",
-      "statusToggled": "سير العمل {status}",
-      "label": "سير العمل",
-      "neverTriggered": "لم يتم تشغيلها أبدًا",
-      "status": "الحالة: {status}",
-      "created": "تم إنشاء سير العمل! نوع الوكيل: {agentType}. الموافقة: {approval}.",
-      "required": "مطلوب",
-      "notRequired": "غير مطلوب"
-    },
-    "errors": {
-      "instructionTooShort": "يجب أن تتكون التعليمات من 10 أحرف على الأقل",
-      "instructionTooLong": "يجب ألا يتجاوز طول التعليمات 500 حرف",
-      "buildFailed": "فشل في بناء سير العمل. يرجى المحاولة مرة أخرى."
-    },
-    "loginPrompt": "قم بتسجيل الدخول إلى حسابك للوصول إلى البيانات في الوقت الحقيقي!",
-    "agentTypes": {
-      "productivity": "إنتاجية",
-      "data": "Data",
-      "content": "محتوى",
-      "admin": "Admin",
-      "technical": "اِصطِلاحِيّ"
-    }
-  },
-  "theme": {
-    "light": "ضوء",
-    "dark": "مظلم",
-    "system": "نظام"
-  },
-  "errors": {
-    "notFound": {
-      "title": "لم يتم العثور على الصفحة",
-      "description": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
-      "goHome": "اذهب إلى لوحة القيادة"
-    },
-    "serverError": {
-      "title": "خطأ في الخادم",
-      "description": "حدث خطأ غير متوقع. لقد تم إخطار فريقنا.",
-      "retry": "حاول ثانية"
-    },
-    "unauthorized": {
-      "title": "غير مصرح به",
-      "description": "تحتاج إلى تسجيل الدخول للوصول إلى هذه الصفحة.",
-      "signIn": "تسجيل الدخول"
-    },
-    "notFoundTitle": "لم يتم العثور على الصفحة",
-    "notFoundDescription": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
-    "notFoundAction": "اذهب إلى لوحة القيادة",
-    "somethingWentWrong": "حدث خطأ ما",
-    "unexpectedError": "حدث خطأ غير متوقع. لقد تم إخطار فريقنا.",
-    "dashboardErrorDescription": "حدث خطأ غير متوقع أثناء تحميل هذه الصفحة.",
-    "tryAgain": "حاول ثانية",
-    "goHome": "اذهب إلى المنزل",
-    "errorId": "معرف الخطأ:",
-    "loadingDashboard": "جارٍ تحميل لوحة القيادة",
-    "loadingDashboardContent": "جارٍ تحميل محتوى لوحة البيانات…"
-  },
-  "nav": {
-    "dashboard": "لوحة القيادة",
-    "home": "الرئيسية",
-    "automations": "الأتمتة",
-    "agents": "الوكلاء",
-    "logs": "السجلات والموافقات",
-    "modules": "وحدات",
-    "modulesPanel": "الوحدات المتاحة",
-    "openMenu": "فتح قائمة التنقل",
-    "closeMenu": "إغلاق قائمة التنقل",
-    "closeModules": "إغلاق لوحة الوحدات",
-    "primary": "التنقل الأساسي",
-    "documents": "وثائق",
-    "documentsDesc": "إدارة وتنظيم المستندات الخاصة بك.",
-    "data": "البيانات وجداول البيانات",
-    "dataDesc": "العمل مع مصادر البيانات وجداول البيانات.",
-    "communication": "تواصل",
-    "communicationDesc": "رسائل البريد الإلكتروني والرسائل والإشعارات.",
-    "media": "الوسائط والصور",
-    "mediaDesc": "إدارة أصول الصور والوسائط.",
-    "files": "ملفات",
-    "filesDesc": "تخزين الملفات العامة وإدارتها.",
-    "architecture": "بنيان",
-    "architectureDesc": "مخططات النظام ومستندات الهندسة المعمارية.",
-    "settings": "إعدادات",
-    "signOut": "تسجيل الخروج",
-    "signIn": "تسجيل الدخول",
-    "appearance": "مظهر",
-    "user": "User"
-  },
-  "modules": {
-    "documents": {
-      "title": "وثائق",
-      "subtitle": "أتمتة معالجة المستندات الذكية باستخدام وكلاء الذكاء الاصطناعي",
-      "upload": {
-        "title": "إرفاق الوثيقة",
-        "description": "قم بسحب وإسقاط الملف الخاص بك هنا أو انقر للتحديد",
-        "dragActive": "قم بإسقاط الملف لإرفاقه",
-        "browse": "تصفح الملفات",
-        "supportedFormats": "Supported formats: PDF, DOCX, XLSX, PPTX, TXT, CSV, images",
-        "maxSize": "الحد الأقصى للحجم: 25 ميجابايت",
-        "fileSelected": "تم تحديد الملف",
-        "remove": "إزالة الملف"
-      },
-      "instruction": {
-        "title": "ماذا يجب أن يفعل وكيل الذكاء الاصطناعي؟",
-        "description": "صف باللغة الطبيعية ما تريد أن يفعله الوكيل بهذه الوثيقة.",
-        "label": "تعليمات الوكيل",
-        "placeholder": "على سبيل المثال، استخراج كافة البيانات من الجدول الموجود في الصفحة 3 وتحويلها إلى جدول بيانات CSV. ثم أرسله بالبريد الإلكتروني إلى Finance@company.com.",
-        "helper": "كن محددًا: قم بتضمين البيانات المطلوب استخراجها، وتنسيق الإخراج، والمستلمين، وإجراءات ما بعد المعالجة.",
-        "charCount": "{current}/{max} أحرف"
-      },
-      "quickActions": {
-        "title": "إجراءات سريعة",
-        "extractData": "استخراج البيانات",
-        "convertFormat": "تحويل التنسيق",
-        "mergeDocs": "دمج المستندات",
-        "ocrScan": "مسح التعرف الضوئي على الحروف",
-        "summarize": "تلخيص المحتوى",
-        "translate": "يترجم",
-        "presets": {
-          "extract": "استخرج جميع البيانات المنظمة من هذا المستند وقم بتصديرها كملف CSV.",
-          "convert": "قم بتحويل هذا المستند إلى تنسيق PDF مع الحفاظ على التخطيط الأصلي.",
-          "merge": "قم بدمج هذا المستند مع الملفات الأخرى الموجودة في المجلد وقم بإنشاء ملف PDF موحد واحد.",
-          "ocr": "قم بمسح هذا المستند ضوئيًا باستخدام OCR واستخرج كل النص بتنسيق قابل للتحرير.",
-          "summarize": "لخص محتوى هذه الوثيقة في فقرة واحدة مع النقاط الرئيسية.",
-          "translate": "قم بترجمة هذا المستند إلى اللغة الإنجليزية مع الحفاظ على التنسيق الأصلي."
-        }
-      },
-      "recentDocuments": {
-        "title": "المستندات الحديثة",
-        "empty": "لم تتم معالجة أي وثائق حتى الآن. قم بتحميل المستند الأول أعلاه.",
-        "processed": "معالجتها",
-        "status": "حالة",
-        "actions": "الإجراءات",
-        "download": "تنزيل النتيجة",
-        "reprocess": "إعادة المعالجة",
-        "delete": "يمسح"
-      },
-      "processing": {
-        "button": "وثيقة العملية",
-        "processing": "يعالج…",
-        "success": "تمت معالجة المستند بنجاح!",
-        "error": "فشلت معالجة المستند. يرجى المحاولة مرة أخرى.",
-        "reprocessInstruction": "أعد معالجة المستند {name} مع تطبيق نفس التحويلات السابقة."
-      },
-      "integrations": {
-        "googleDrive": {
-          "title": "Google Drive",
-          "description": "قم بالوصول إلى المستندات واختيارها مباشرةً من Google Drive.",
-          "connect": "تواصل Google Drive",
-          "connecting": "جارٍ الاتصال...",
-          "connected": "متصل بـ Google Drive",
-          "browse": "تصفح محرك"
-        }
-      },
-      "dialogs": {
-        "deleteConfirm": "هل أنت متأكد أنك تريد حذف هذا المستند؟ لا يمكن التراجع عن هذا الإجراء."
-      }
-    },
-    "data": {
-      "title": "البيانات وجداول البيانات",
-      "subtitle": "ربط مصادر البيانات، وتحويل جداول البيانات، وأتمتة التحليل",
-      "source": {
-        "title": "مصدر البيانات",
-        "description": "اختر كيفية توصيل بياناتك",
-        "uploadCsv": "تحميل ملف CSV/Excel",
-        "googleSheets": "Google Sheets",
-        "database": "قاعدة بيانات SQL",
-        "api": "واجهة برمجة تطبيقات REST",
-        "url": "عنوان URL عام",
-        "selectPlaceholder": "حدد نوع المصدر...",
-        "connect": "يتصل",
-        "connecting": "جارٍ الاتصال…"
-      },
-      "instruction": {
-        "title": "ماذا تفعل مع البيانات؟",
-        "description": "وصف التحويل أو التحليل أو الأتمتة المطلوبة",
-        "label": "تعليمات المعالجة",
-        "placeholder": "على سبيل المثال، دمج أعمدة \"الاسم الأول\" و\"اسم العائلة\"، وتصفية السجلات التي تزيد مبيعاتها عن 10000 دولار، وتجميعها حسب المنطقة، وإنشاء مخطط شريطي.",
-        "helper": "قم بتضمين عوامل التصفية والتجميعات وروابط الجدول وتنسيق الإخراج المطلوب.",
-        "charCount": "{current}/{max} أحرف"
-      },
-      "preview": {
-        "title": "معاينة",
-        "noData": "قم بتوصيل مصدر بيانات للمعاينة",
-        "rows": "{count} الصفوف",
-        "columns": "{count} أعمدة",
-        "id": "ID",
-        "name": "Name",
-        "region": "منطقة",
-        "sales": "Sales",
-        "status": "حالة",
-        "showingRecords": "عرض {shown} من {total} السجلات"
-      },
-      "recentDatasets": {
-        "title": "مجموعات البيانات الأخيرة",
-        "empty": "لم تتم معالجة أي مجموعات بيانات حتى الآن",
-        "source": "مصدر",
-        "lastUsed": "آخر استخدام",
-        "info": "{rows} صفوف · {cols} أعمدة"
-      },
-      "actions": {
-        "transform": "تحويل البيانات",
-        "analyze": "تحليل البيانات",
-        "export": "نتيجة التصدير",
-        "schedule": "أتمتة الجدول الزمني",
-        "sidebarTitle": "الإجراءات",
-        "dashboard": "لوحة القيادة",
-        "processing": "يعالج…"
-      },
-      "integrations": {
-        "googleDrive": {
-          "title": "Google Drive",
-          "description": "يمكنك الوصول إلى جداول البيانات وملفات البيانات مباشرةً من Google Drive.",
-          "connect": "تواصل Google Drive",
-          "connecting": "جارٍ الاتصال...",
-          "connected": "متصل بـ Google Drive",
-          "browse": "تصفح محرك"
-        }
-      },
-      "errors": {
-        "connectFailed": "فشل الاتصال بمصدر البيانات.",
-        "processFailed": "فشلت معالجة البيانات."
-      },
-      "results": {
-        "connected": "تم الاتصال بنجاح! مصدر البيانات جاهز للمعالجة.",
-        "transformComplete": "اكتمل التحول! {count} تمت معالجة السجلات. النتيجة جاهزة للتحميل.",
-        "analyzeInstruction": "تحليل البيانات المتصلة وإنشاء رؤى: الاتجاهات والقيم المتطرفة والعلاقات المتبادلة والتوصيات.",
-        "scheduleAlert": "تم تكوين الجدولة! ستتم معالجة البيانات تلقائيا.",
-        "comingSoon": "الميزة قريبا."
-      },
-      "presets": {
-        "merge": {
-          "label": "دمج الأعمدة",
-          "prompt": "قم بدمج عمودي \"الاسم\" و\"اسم العائلة\" في عمود \"الاسم الكامل\" واحد."
-        },
-        "filter": {
-          "label": "تصفية السجلات",
-          "prompt": "قم بتصفية السجلات التي يكون فيها عمود \"المبيعات\" أكبر من 10000 دولار."
-        },
-        "group": {
-          "label": "المجموعة والتلخيص",
-          "prompt": "قم بتجميع البيانات حسب \"المنطقة\" واحسب مجموع ومتوسط ​​\"المبيعات\"."
-        },
-        "pivot": {
-          "label": "جدول محوري",
-          "prompt": "قم بإنشاء جدول محوري يحتوي على \"الفئة\" كصفوف، و\"الشهر\" كأعمدة، ومجموع \"الإيرادات\"."
-        },
-        "chart": {
-          "label": "إنشاء مخطط",
-          "prompt": "إنشاء مخطط شريطي يقارن المبيعات حسب المنطقة."
-        },
-        "export": {
-          "label": "تصدير منظم",
-          "prompt": "قم بتصدير البيانات المحولة إلى ملف CSV بتشفير UTF-8."
-        }
-      }
-    },
-    "communication": {
-      "title": "تواصل",
-      "subtitle": "أتمتة رسائل البريد الإلكتروني والرسائل والإشعارات متعددة القنوات",
-      "composer": {
-        "title": "إنشاء رسالة",
-        "description": "قم بوصف المحتوى وسيقوم وكيل الذكاء الاصطناعي بصياغة الرسالة",
-        "instructionLabel": "تعليمات الرسالة",
-        "instructionPlaceholder": "على سبيل المثال، أرسل رسالة تذكير عبر البريد الإلكتروني إلى جميع العملاء بفواتير مستحقة خلال 3 أيام، باستخدام نغمة احترافية ولكن ودية، وقم بتضمين رابط الدفع.",
-        "instructionHelper": "حدد: نغمة الرسالة والمعلومات المطلوب تضمينها والتخصيصات والحث على اتخاذ إجراء.",
-        "subjectLabel": "الموضوع (للرسائل الإلكترونية)",
-        "subjectPlaceholder": "موضوع البريد الإلكتروني...",
-        "charCount": "{current}/{max} أحرف",
-        "noSubject": "(لا يوجد موضوع)"
-      },
-      "channels": {
-        "title": "قنوات التسليم",
-        "email": "Email",
-        "slack": "Slack",
-        "whatsapp": "واتساب",
-        "teams": "فرق مايكروسوفت",
-        "sms": "SMS",
-        "discord": "الفتنة"
-      },
-      "recipients": {
-        "title": "المستلمون",
-        "description": "قم بتكوين من سيتلقى الرسالة",
-        "to": "To",
-        "toPlaceholder": "email@example.com",
-        "cc": "نسخة كربونية (نسخة كربونية)",
-        "ccPlaceholder": "email@example.com",
-        "addMore": "أضف المزيد",
-        "list": "قائمة التوزيع",
-        "condition": "حسب الحالة (على سبيل المثال، العملاء غير النشطين)"
-      },
-      "schedule": {
-        "title": "جدول",
-        "sendNow": "أرسل الآن",
-        "scheduleLater": "الجدول الزمني في وقت لاحق",
-        "recurring": "يتكرر",
-        "dateTime": "التاريخ والوقت",
-        "frequency": "تكرار",
-        "daily": "Daily",
-        "weekly": "أسبوعي",
-        "monthly": "شهريا",
-        "dateTimePlaceholder": "منتقي التاريخ/الوقت متاح في النسخة الكاملة."
-      },
-      "recentMessages": {
-        "title": "الرسائل الأخيرة",
-        "empty": "لم يتم إرسال أي رسائل حتى الآن",
-        "channel": "قناة",
-        "sentAt": "أرسلت في",
-        "status": "حالة"
-      },
-      "actions": {
-        "send": "أرسل رسالة",
-        "sending": "إرسال…",
-        "preview": "معاينة",
-        "saveDraft": "حفظ المسودة",
-        "testSend": "إرسال الاختبار",
-        "testSendDescription": "إرسال اختبار للتحقق من التنسيق"
-      },
-      "status": {
-        "sent": "Sent",
-        "scheduled": "المقرر",
-        "failed": "فشل"
-      },
-      "results": {
-        "sent": "تم إرسال الرسالة بنجاح عبر {channels}!",
-        "preview": "[معاينة] \n\nالقنوات: {channels} \nالموضوع: {subject} \n\n{instruction} \n\n(هذه محاكاة معاينة)",
-        "draftSaved": "تم حفظ المسودة بنجاح! يمكنك الوصول إليه من خلال \"الرسائل > المسودات\".",
-        "testSent": "تم إرسال الاختبار إلى {email}! تحقق من البريد الوارد الخاص بك."
-      },
-      "errors": {
-        "sendFailed": "فشل في إرسال الرسالة.",
-        "testNoRecipient": "الرجاء إدخال المستلم للاختبار."
-      }
-    },
-    "media": {
-      "title": "الوسائط والصور",
-      "subtitle": "معالجة الصور والوسائط وتحويلها وتحسينها دفعة واحدة",
-      "instruction": {
-        "title": "ماذا يجب أن يفعل وكيل الذكاء الاصطناعي مع الوسائط؟",
-        "description": "صف باللغة الطبيعية ما تريد أن يفعله الوكيل بصورك أو مقاطع الفيديو الخاصة بك.",
-        "label": "تعليمات الوكيل",
-        "placeholder": "على سبيل المثال، إزالة الخلفية من جميع الصور، وتغيير الحجم إلى 1200 × 800 مع الحفاظ على نسبة العرض إلى الارتفاع، والتحويل إلى WebP بجودة 85%، وتطبيق مرشح السطوع +10، وإضافة العلامة المائية \"© My Company\" في الزاوية اليمنى السفلية.",
-        "helper": "قم بتضمين: التحويلات المطلوب تطبيقها، والأبعاد، وتنسيق الإخراج، والجودة، والمرشحات، والعلامة المائية.",
-        "charCount": "{current}/{max} أحرف",
-        "button": "العملية مع الذكاء الاصطناعي",
-        "processing": "يعالج…"
-      },
-      "upload": {
-        "title": "تحميل الوسائط",
-        "description": "اسحب الصور أو مقاطع الفيديو للبدء",
-        "dragActive": "قم بإسقاط الملفات للتحميل",
-        "browse": "تصفح الملفات",
-        "supportedFormats": "Formats: JPG, PNG, GIF, SVG, WebP, MP4, MOV, WebM",
-        "maxSize": "الحد الأقصى للحجم: 100 ميجا بايت لكل ملف",
-        "batchInfo": "{count} الملف (الملفات) المحدد",
-        "remove": "يزيل"
-      },
-      "transformations": {
-        "title": "التحولات",
-        "description": "اختر ما تريد فعله بالوسائط الخاصة بك",
-        "resize": "تغيير الحجم",
-        "resizeDescription": "تغيير أبعاد الصورة",
-        "width": "Width",
-        "height": "ارتفاع",
-        "maintainAspect": "الحفاظ على نسبة العرض إلى الارتفاع",
-        "convertFormat": "تحويل التنسيق",
-        "convertDescription": "تحويل إلى تنسيق ملف آخر",
-        "targetFormat": "تنسيق الهدف",
-        "compress": "ضغط",
-        "compressDescription": "تقليل حجم الملف",
-        "quality": "جودة",
-        "watermark": "العلامة المائية",
-        "watermarkDescription": "أضف نصًا أو شعارًا متراكبًا على الصورة",
-        "watermarkText": "نص العلامة المائية",
-        "filters": "المرشحات والتعديلات",
-        "brightness": "سطوع",
-        "contrast": "مقابلة",
-        "saturation": "التشبع",
-        "blur": "Blur"
-      },
-      "preview": {
-        "title": "معاينة",
-        "original": "إبداعي",
-        "processed": "معالجتها",
-        "noMedia": "تحميل الوسائط للمعاينة"
-      },
-      "recentMedia": {
-        "title": "وسائل الإعلام الأخيرة",
-        "empty": "لم تتم معالجة أي وسائط حتى الآن"
-      },
-      "actions": {
-        "process": "وسائط العملية",
-        "processing": "يعالج…",
-        "download": "تنزيل النتيجة",
-        "downloadAll": "تنزيل الكل (ZIP)",
-        "batchProcess": "تجهيز الدفعة",
-        "filesCount": "{count} الملفات"
-      },
-      "integrations": {
-        "googleDrive": {
-          "title": "Google Drive",
-          "description": "الوصول إلى الصور ومقاطع الفيديو المخزنة في Google Drive.",
-          "connect": "تواصل Google Drive",
-          "connecting": "جارٍ الاتصال...",
-          "connected": "متصل بـ Google Drive",
-          "browse": "تصفح محرك"
-        },
-        "googlePhotos": {
-          "title": "صور جوجل",
-          "description": "يمكنك الوصول إلى صورك وألبوماتك مباشرةً من صور Google.",
-          "connect": "ربط صور جوجل",
-          "connecting": "جارٍ الاتصال...",
-          "connected": "متصل بصور جوجل",
-          "browse": "تصفح الصور"
-        }
-      },
-      "errors": {
-        "processFailed": "فشل في معالجة الوسائط.",
-        "aiFailed": "فشل في تفسير التعليمات."
-      },
-      "results": {
-        "processComplete": "اكتملت المعالجة! {count} تم تحويل الملف (الملفات) بنجاح.",
-        "aiInterpreted": "تم تفسير التعليمات بنجاح! تم تكوين التحويلات مسبقًا كما هو موضح. قم بمراجعة التعديلات في اللوحة وانقر فوق \"معالجة الوسائط\" لتطبيقها.",
-        "downloadSimulation": "محاكاة تنزيل الملف (الملفات) المعالجة {count} بتنسيق ZIP. \n\nفي النسخة الكاملة، سيتم ضغط جميع الملفات وتنزيلها.",
-        "downloadComplete": "اكتمل التنزيل! تمت إزالة الملفات من القائمة."
-      }
-    },
-    "files": {
-      "title": "Files",
-      "subtitle": "إدارة وتنظيم وأتمتة عمليات الملفات",
-      "instruction": {
-        "title": "ماذا يجب أن يفعل وكيل الذكاء الاصطناعي بملفاتك؟",
-        "description": "صف باللغة الطبيعية كيف تريد تنظيم ملفاتك أو معالجتها أو إدارتها.",
-        "label": "تعليمات الوكيل",
-        "placeholder": "على سبيل المثال، تنظيم جميع ملفات PDF في مجلد التنزيلات حسب تاريخ الإنشاء، وإعادة تسميتها باستخدام النمط 'YYYY-MM-DD - الاسم الأصلي'، ونقل الفواتير إلى /Finance/Invoices/{year}/{month}، وضغط الملفات الأقدم من 6 أشهر.",
-        "helper": "قم بتضمين: الملفات التي ستؤثر عليها، وكيفية تنظيمها، وإعادة تسمية النمط، والمجلدات الوجهة، والإجراءات الإضافية.",
-        "charCount": "{current}/{max} أحرف",
-        "button": "التنفيذ باستخدام الذكاء الاصطناعي",
-        "processing": "تنفيذ…"
-      },
-      "storage": {
-        "title": "تخزين",
-        "used": "Used",
-        "total": "من {total}",
-        "files": "{count} الملفات",
-        "folders": "{count} المجلدات",
-        "activeRules": "قواعد نشطة",
-        "rulesConfigured": "{count} تم تكوينه",
-        "lastFolder": "الأخير: {name}",
-        "progressLabel": "{progress}% مستخدم"
-      },
-      "upload": {
-        "title": "تحميل الملف",
-        "description": "اسحب الملفات أو المجلدات للتحميل",
-        "dragActive": "أسقط للتحميل",
-        "browse": "تصفح",
-        "createFolder": "إنشاء مجلد"
-      },
-      "browser": {
-        "title": "مستكشف الملفات",
-        "empty": "هذا المجلد فارغ",
-        "name": "Name",
-        "size": "Size",
-        "modified": "معدل",
-        "type": "Type",
-        "sortBy": "الترتيب حسب",
-        "search": "بحث في الملفات...",
-        "gridView": "عرض الشبكة",
-        "listView": "عرض القائمة",
-        "folder": "مجلد"
-      },
-      "rules": {
-        "title": "قواعد المنظمة",
-        "description": "أتمتة تنظيم الملفات",
-        "ruleName": "اسم القاعدة",
-        "ruleNamePlaceholder": "على سبيل المثال، فرز الفواتير حسب الشهر",
-        "condition": "حالة",
-        "conditionPlaceholder": "على سبيل المثال، اسم الملف يحتوي على \"فاتورة\"",
-        "action": "فعل",
-        "actionPlaceholder": "على سبيل المثال، انتقل إلى /Finance/Invoices/{year}/{month}",
-        "addRule": "أضف القاعدة",
-        "active": "نشيط",
-        "inactive": "غير نشط",
-        "empty": "لم يتم تكوين أي قواعد"
-      },
-      "actions": {
-        "label": "الإجراءات",
-        "moreOptions": "المزيد من الخيارات",
-        "upload": "رفع",
-        "newFolder": "مجلد جديد",
-        "delete": "يمسح",
-        "rename": "إعادة تسمية",
-        "move": "Move",
-        "copy": "Copy",
-        "share": "Share",
-        "download": "تحميل"
-      },
-      "aiPlaceholder": "E.g.: Organize all PDFs from the Downloads folder by creation date, renomeie com o padrão 'YYYY-MM-DD - nome original', mova faturas para /Financeiro/Faturas/{ano}/{mês} e compacte arquivos com mais de 6 meses.",
-      "integrations": {
-        "googleDrive": {
-          "title": "Google Drive",
-          "description": "قم بالوصول إلى الملفات وإدارتها مباشرةً من Google Drive كما لو كان مجلدًا محليًا.",
-          "connect": "تواصل Google Drive",
-          "connecting": "جارٍ الاتصال...",
-          "connected": "متصل بـ Google Drive",
-          "browse": "استكشف Drive",
-          "disconnect": "قطع الاتصال"
-        }
-      },
-      "dialogs": {
-        "newFolder": "اسم المجلد الجديد:",
-        "rename": "إعادة التسمية إلى:",
-        "deleteConfirm": "هل أنت متأكد أنك تريد حذف \"{name}\"؟ لا يمكن التراجع عن هذا الإجراء.",
-        "moveAlert": "نقل \"{name}\" — في النسخة الكاملة، سيتم عرض محدد المجلد.",
-        "copySuffix": "(ينسخ)",
-        "shareLink": "تم نسخ رابط المشاركة لـ \"{name}\" إلى الحافظة! \n\nhttps://pytomatiza.app/share/{id}",
-        "selectFile": "\"{label}\" — حدد ملفًا في المستكشف لاستخدام هذا الإجراء."
-      },
-      "results": {
-        "aiInterpreted": "تم تفسير التعليمات بنجاح! تم إنشاء قواعد المنظمة تلقائيًا. قم بمراجعتها في لوحة القواعد."
-      }
-    },
-    "architecture": {
-      "title": "بنيان",
-      "subtitle": "قم بإنشاء مخططات معمارية ووثائق فنية باستخدام الذكاء الاصطناعي",
-      "diagramBuilder": {
-        "title": "وصف الهندسة المعمارية الخاصة بك",
-        "description": "قم بوصف النظام باللغة الطبيعية وسيقوم وكيل الذكاء الاصطناعي بإنشاء الرسم التخطيطي",
-        "instructionLabel": "وصف الهندسة المعمارية",
-        "instructionPlaceholder": "على سبيل المثال، نظام التجارة الإلكترونية مع: موازن التحميل (Nginx)، و3 مثيلات لواجهة برمجة التطبيقات (Node.js على Kubernetes)، وPostgreSQL الأساسي + النسخة المتماثلة للقراءة، وRedis للتخزين المؤقت، وقائمة انتظار RabbitMQ للطلبات، وعمال Python، وتخزين S3 لصور المنتج.",
-        "instructionHelper": "تشمل: المكونات والاتصالات والبروتوكولات والتقنيات وتدفق البيانات.",
-        "charCount": "{current}/{max} أحرف"
-      },
-      "templates": {
-        "title": "قوالب الهندسة المعمارية",
-        "description": "اختر قالبًا كنقطة بداية",
-        "aws": "AWS سحابة",
-        "gcp": "جوجل كلاود",
-        "azure": "مايكروسوفت أزور",
-        "microservices": "الخدمات المصغرة",
-        "monolith": "متراصة وحدات",
-        "serverless": "بدون خادم",
-        "eventDriven": "يحركها الحدث",
-        "ciCd": "خط أنابيب CI/CD",
-        "network": "طوبولوجيا الشبكة",
-        "dataPipeline": "خط أنابيب البيانات"
-      },
-      "export": {
-        "title": "تنسيق التصدير",
-        "description": "اختر كيفية تصدير الرسم التخطيطي",
-        "png": "PNG (الصورة)",
-        "svg": "SVG (المتجه)",
-        "pdf": "PDF (وثيقة)",
-        "terraform": "تيرافورم (IAC)"
-      },
-      "recentDiagrams": {
-        "title": "المخططات الأخيرة",
-        "empty": "لم يتم إنشاء أي مخططات حتى الآن",
-        "createdAt": "تم الإنشاء في",
-        "components": "{count} مكونات",
-        "download": "تحميل",
-        "edit": "Edit",
-        "delete": "يمسح"
-      },
-      "actions": {
-        "generate": "إنشاء رسم تخطيطي",
-        "generating": "جارٍ إنشاء مخطط…",
-        "generateDescription": "إنشاء الوثائق",
-        "save": "حفظ المشروع",
-        "share": "Share",
-        "shareDescription": "شارك مع فريقك عبر الرابط"
-      },
-      "errors": {
-        "generateFailed": "فشل في إنشاء الرسم التخطيطي. يرجى المحاولة مرة أخرى."
-      },
-      "dialogs": {
-        "deleteConfirm": "هل أنت متأكد أنك تريد حذف هذا الرسم التخطيطي؟",
-        "shareLink": "تم نسخ رابط المشاركة إلى الحافظة! \n\nشارك مشروع الهندسة المعمارية هذا مع فريقك.",
-        "shareEmptyWarning": "قم بإنشاء الرسم التخطيطي الخاص بك باستخدام وكلاء الذكاء الاصطناعي أولاً لمشاركته!"
-      }
-    }
-  },
-  "footer": {
-    "copyright": "© {year} Pytomatiza+. جميع الحقوق محفوظة.",
-    "privacy": "سياسة الخصوصية",
-    "terms": "شروط الخدمة",
-    "status": "حالة النظام"
-  },
-  "logs": {
-    "title": "Logs & Aprovações",
-    "subtitle": "Monitore execuções de automação e gerencie solicitações de aprovação pendentes.",
-    "stats": {
-      "totalExecutions": "Total de Execuções",
-      "successRate": "Taxa de Success",
-      "pendingApprovals": "Aprovações Pendings",
-      "errors24h": "الأخطاء (24 ساعة)"
-    },
-    "tableHeader": "Execuções Recentes",
-    "tableAriaLabel": "Registros de execução",
-    "status": {
-      "success": "نجاح",
-      "error": "Error",
-      "pending": "Aprovação Pending",
-      "running": "Em Execução"
-    },
-    "agents": {
-      "emailSaver": "Salvador de Anexos de E-mail",
-      "reportGen": "Gerador de Relatórios Semanais",
-      "socialMonitor": "Monitor de Redes Sociais",
-      "dbBackup": "Agente de Backup de Banco de Dados",
-      "apiChecker": "Verificador de Saúde de APIs",
-      "invoiceProc": "Processador de Faturas",
-      "meetingSched": "Agendador de Reuniões",
-      "contentTrans": "Tradutor de Conteúdo"
-    },
-    "actions": {
-      "log1": "Processou 3 anexos de 2 e-mails",
-      "log2": "Gerou relatório semanal de vendas em PDF",
-      "log3": "Respondeu automaticamente a 5 menções de suporte",
-      "log4": "Backup noturno — verificação de integridade falhou",
-      "log5": "Verificou 12 endpoints — todos saudáveis",
-      "log6": "Aguardando aprovação de 3 faturas",
-      "log7": "Agendou 2 sincronizações de equipe para a próxima semana",
-      "log8": "Traduzindo post do blog para 9 idiomas"
-    },
-    "duration": {
-      "ongoing": "em andamento"
-    },
-    "tableEmpty": "لم يتم العثور على سجلات التنفيذ.",
-    "loginPrompt": "قم بتسجيل الدخول إلى حسابك للوصول إلى البيانات في الوقت الحقيقي!"
-  },
-  "landing": {
-    "nav": {
-      "features": "Features",
-      "howItWorks": "How It Works",
-      "signIn": "Sign In",
-      "getStarted": "Get Started",
-      "dashboard": "Dashboard"
-    },
-    "hero": {
-      "title": "Automate repetitive tasks with Python in minutes",
-      "subtitle": "Create powerful automations, bots, and workflows without leaving your browser. Pytomatiza+ turns complex Python scripting into visual, manageable processes.",
-      "cta": "Start Automating",
-      "demo": "Watch Demo"
-    },
-    "socialProof": {
-      "title": "Trusted by innovators",
-      "executions": "Executions performed",
-      "companies": "Companies trusting us",
-      "uptime": "Uptime",
-      "integrations": "Integrations"
-    },
-    "howItWorks": {
-      "title": "How It Works",
-      "subtitle": "Three simple steps to automate anything",
-      "step1": {
-        "title": "Create Your Automation",
-        "description": "Describe what you need in natural language or use our visual builder. Our AI engine interprets your requirements and generates the perfect automation script."
-      },
-      "step2": {
-        "title": "Configure Parameters",
-        "description": "Fine-tune inputs, connect APIs, set schedules, and define conditions. Every parameter is customizable to match your exact workflow needs."
-      },
-      "step3": {
-        "title": "Execute & Monitor",
-        "description": "Run your automation instantly or schedule it. Monitor execution in real-time, review logs, and get instant notifications on completion."
-      }
-    },
-    "features": {
-      "title": "Everything You Need to Automate",
-      "subtitle": "A complete platform for building, running, and monitoring automations",
-      "feature1": {
-        "title": "Python Automations",
-        "description": "Write or generate Python scripts for any task. File processing, data transformation, API calls — all automated."
-      },
-      "feature2": {
-        "title": "Integrations",
-        "description": "Connect with Google Drive, Gmail, Google Sheets, and hundreds of APIs. Your tools, unified in one platform."
-      },
-      "feature3": {
-        "title": "Smart Scheduling",
-        "description": "Set precise schedules, recurring intervals, or trigger-based execution. Your automations run exactly when you need them."
-      },
-      "feature4": {
-        "title": "Real-time Monitoring",
-        "description": "Watch executions live, track performance metrics, and receive alerts. Complete visibility into every automation."
-      },
-      "feature5": {
-        "title": "Complete Audit Logs",
-        "description": "Every execution is logged with full details. Review, debug, and optimize your automations with comprehensive audit trails."
-      },
-      "feature6": {
-        "title": "Built to Scale",
-        "description": "From small tasks to enterprise workflows. Pytomatiza+ handles increased load without compromising performance."
-      }
-    },
-    "demo": {
-      "title": "See It in Action",
-      "subtitle": "A visual platform designed for productivity",
-      "tabsLabel": "Choose a view",
-      "workflows": "Workflows",
-      "dashboard": "Dashboard",
-      "editor": "Editor",
-      "automations": "Automations"
-    },
-    "benefits": {
-      "title": "Automation Without the Complexity",
-      "subtitle": "See the difference Pytomatiza+ makes",
-      "withoutTitle": "Without Pytomatiza+",
-      "withTitle": "With Pytomatiza+",
-      "without": {
-        "manual": "Manual, repetitive tasks",
-        "errors": "Error-prone processes",
-        "delays": "Slow execution times",
-        "silos": "Disconnected tools",
-        "visibility": "No visibility into execution"
-      },
-      "with": {
-        "automation": "Full automation of repetitive work",
-        "accuracy": "Zero human errors",
-        "speed": "Blazing fast execution",
-        "integration": "Unified platform",
-        "insights": "Complete visibility and control"
-      }
-    },
-    "useCases": {
-      "title": "Automate Anything",
-      "subtitle": "From simple tasks to complex enterprise workflows",
-      "case1": {
-        "title": "Financial Automation",
-        "description": "Automate invoice processing, expense tracking, bank reconciliation, and financial report generation."
-      },
-      "case2": {
-        "title": "Report Automation",
-        "description": "Generate and distribute automated reports from any data source. Scheduled, formatted, and delivered on time."
-      },
-      "case3": {
-        "title": "Email Automation",
-        "description": "Automate email campaigns, notification sequences, attachment processing, and intelligent inbox management."
-      },
-      "case4": {
-        "title": "API Automation",
-        "description": "Orchestrate multi-step API workflows. Connect services, transform data, and automate complex integrations."
-      },
-      "case5": {
-        "title": "Spreadsheet Automation",
-        "description": "Process, transform, and analyze spreadsheet data automatically. Generate pivot tables, charts, and summaries."
-      },
-      "case6": {
-        "title": "Business Process Automation",
-        "description": "Automate approval workflows, data entry, document processing, and compliance reporting for your entire organization."
-      }
-    },
-    "cta": {
-      "title": "Start Automating Today",
-      "subtitle": "Join thousands of professionals who have transformed their workflow with Pytomatiza+",
-      "button": "Enter Pytomatiza+"
-    },
-    "footer": {
-      "description": "The intelligent automation platform that thinks, learns, and executes.",
-      "copyright": "© 2026 Pytomatiza+. All rights reserved.",
-      "product": {
-        "title": "Product",
-        "features": "Features",
-        "pricing": "Pricing",
-        "integrations": "Integrations",
-        "changelog": "Changelog"
-      },
-      "resources": {
-        "title": "Resources",
-        "docs": "Documentation",
-        "api": "API Reference",
-        "blog": "Blog",
-        "help": "Help Center"
-      },
-      "company": {
-        "title": "Company",
-        "about": "About",
-        "careers": "Careers",
-        "blog": "Blog",
-        "contact": "Contact"
-      },
-      "legal": {
-        "title": "Legal",
-        "privacy": "Privacy Policy",
-        "terms": "Terms of Service",
-        "cookies": "Cookie Policy",
-        "security": "Security"
-      }
-    },
-    "a11y": {
-      "mainNavigation": "Main navigation",
-      "mobileNavigation": "Mobile navigation",
-      "openMenu": "Open menu",
-      "closeMenu": "Close menu",
-      "heroIllustration": "Pytomatiza+ platform illustration showing automation workflows and analytics dashboard"
-    }
-  },
-  "brand": {
-    "tagline": "أتمتة مدعومة بالذكاء الاصطناعي تفكر وتتعلم وتنفذ، لذا لن تضطر إلى القيام بذلك.",
-    "feature1Title": "سير عمل اللغة الطبيعية",
-    "feature1Desc": "وصف المهام باللغة الإنجليزية البسيطة. يقوم محرك البرمجة اللغوية العصبية (NLP) لدينا ببناء الأتمتة لك.",
-    "feature2Title": "تنسيق متعدد الوكلاء",
-    "feature2Desc": "يتعاون وكلاء الذكاء الاصطناعي المتخصصون للتعامل مع العمليات المعقدة ومتعددة الخطوات.",
-    "feature3Title": "Enterprise-Grade الأمان",
-    "feature3Desc": "End-to-end التشفير والوصول القائم على الأدوار ومسارات التدقيق الكاملة."
-  }
+﻿{
+    "a11y":  {
+                 "skipToMain":  "Ø§Ù†ØªÙ‚Ù„ Ø¥Ù„Ù‰ Ø§Ù„Ù…Ø­ØªÙˆÙ‰ Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠ",
+                 "themeToggle":  "ØªØ¨Ø¯ÙŠÙ„ Ù…ÙˆØ¶ÙˆØ¹ Ø§Ù„Ù„ÙˆÙ†",
+                 "languageSwitcher":  "Ø§Ø®ØªØ± Ø§Ù„Ù„ØºØ©",
+                 "showPassword":  "Ø¥Ø¸Ù‡Ø§Ø± ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±",
+                 "hidePassword":  "Ø¥Ø®ÙØ§Ø¡ ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±",
+                 "closeModal":  "Ø¥ØºÙ„Ø§Ù‚ Ø§Ù„Ø­ÙˆØ§Ø±",
+                 "mainNavigation":  "Ø§Ù„Ù…Ù„Ø§Ø­Ø© Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©",
+                 "sidebarNavigation":  "Ø§Ù„ØªÙ†Ù‚Ù„ ÙÙŠ Ø§Ù„Ø´Ø±ÙŠØ· Ø§Ù„Ø¬Ø§Ù†Ø¨ÙŠ",
+                 "breadcrumb":  "Ù…Ø³Ø§Ø± Ø§Ù„ØªÙ†Ù‚Ù„",
+                 "pagination":  "ØªØ±Ù‚ÙŠÙ… Ø§Ù„ØµÙØ­Ø§Øª",
+                 "currentPage":  "Ø§Ù„ØµÙØ­Ø© Ø§Ù„Ø­Ø§Ù„ÙŠØ©ØŒ Ø§Ù„ØµÙØ­Ø© {page}",
+                 "goToPage":  "Ø§Ù†ØªÙ‚Ù„ Ø¥Ù„Ù‰ Ø§Ù„ØµÙØ­Ø© {page}",
+                 "goToHome":  "Ø§Ø°Ù‡Ø¨ Ø¥Ù„Ù‰ Ø§Ù„ØµÙØ­Ø© Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©"
+             },
+    "common":  {
+                   "loading":  "ØªØ­Ù…ÙŠÙ„â€¦",
+                   "error":  "Ø­Ø¯Ø« Ø®Ø·Ø£ Ù…Ø§",
+                   "retry":  "Ø­Ø§ÙˆÙ„ Ø«Ø§Ù†ÙŠØ©",
+                   "save":  "ÙŠØ­ÙØ¸",
+                   "cancel":  "ÙŠÙ„ØºÙŠ",
+                   "delete":  "ÙŠÙ…Ø³Ø­",
+                   "edit":  "ÙŠØ­Ø±Ø±",
+                   "create":  "ÙŠØ®Ù„Ù‚",
+                   "search":  "ÙŠØ¨Ø­Ø«",
+                   "filter":  "ÙÙ„ØªØ±",
+                   "noResults":  "Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ù†ØªØ§Ø¦Ø¬",
+                   "back":  "Ø®Ù„Ù",
+                   "next":  "Ø§Ù„ØªØ§Ù„ÙŠ",
+                   "previous":  "Ø³Ø§Ø¨Ù‚",
+                   "confirm":  "ÙŠØªØ£ÙƒØ¯",
+                   "actions":  "Ø§Ù„Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª",
+                   "more":  "Ø§Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ø®ÙŠØ§Ø±Ø§Øª",
+                   "copied":  "ØªÙ… Ø§Ù„Ù†Ø³Ø® Ø¥Ù„Ù‰ Ø§Ù„Ø­Ø§ÙØ¸Ø©",
+                   "enabled":  "Ù…Ù…ÙƒÙ‘Ù†",
+                   "disabled":  "Ø¹Ø§Ø¬Ø²",
+                   "increasedBy":  "Ø²ÙŠØ§Ø¯Ø© Ø¨Ù†Ø³Ø¨Ø©",
+                   "decreasedBy":  "Ø§Ù†Ø®ÙØ¶ Ø¨Ù†Ø³Ø¨Ø©"
+               },
+    "auth":  {
+                 "signIn":  {
+                                "title":  "Ù…Ø±Ø­Ø¨Ù‹Ø§ Ø¨Ø¹ÙˆØ¯ØªÙƒ",
+                                "subtitle":  "Ù‚Ù… Ø¨ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ Ø¥Ù„Ù‰ Ø­Ø³Ø§Ø¨ Pytomatiza+ Ø§Ù„Ø®Ø§Øµ Ø¨Ùƒ",
+                                "emailLabel":  "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ",
+                                "emailPlaceholder":  "you@example.com",
+                                "passwordLabel":  "ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±",
+                                "passwordPlaceholder":  "Ø£Ø¯Ø®Ù„ ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ± Ø§Ù„Ø®Ø§ØµØ© Ø¨Ùƒ",
+                                "submit":  "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„",
+                                "forgotPassword":  "Ù†Ø³ÙŠØª ÙƒÙ„Ù…Ø© Ø§Ù„Ø³Ø±ØŸ",
+                                "noAccount":  "Ù„ÙŠØ³ Ù„Ø¯ÙŠÙƒ Ø­Ø³Ø§Ø¨ØŸ",
+                                "createOne":  "Ù‚Ù… Ø¨Ø¥Ù†Ø´Ø§Ø¡ ÙˆØ§Ø­Ø¯Ø©"
+                            },
+                 "signUp":  {
+                                "title":  "Ø£Ù†Ø´Ø¦ Ø­Ø³Ø§Ø¨Ùƒ",
+                                "subtitle":  "Ø§Ø¨Ø¯Ø£ Ø§Ù„ØªØ´ØºÙŠÙ„ Ø§Ù„Ø¢Ù„ÙŠ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Pytomatiza+",
+                                "nameLabel":  "Ø§Ù„Ø§Ø³Ù… Ø§Ù„ÙƒØ§Ù…Ù„",
+                                "namePlaceholder":  "Ø¬ÙŠÙ† Ø³Ù…ÙŠØ«",
+                                "emailLabel":  "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ",
+                                "emailPlaceholder":  "you@example.com",
+                                "passwordLabel":  "ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±",
+                                "passwordPlaceholder":  "8 Ø£Ø­Ø±Ù Ø¹Ù„Ù‰ Ø§Ù„Ø£Ù‚Ù„",
+                                "confirmPasswordLabel":  "ØªØ£ÙƒÙŠØ¯ ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±",
+                                "confirmPasswordPlaceholder":  "Ø£Ø¹Ø¯ Ø¥Ø¯Ø®Ø§Ù„ ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ± Ø§Ù„Ø®Ø§ØµØ© Ø¨Ùƒ",
+                                "submit":  "Ø¥Ù†Ø´Ø§Ø¡ Ø­Ø³Ø§Ø¨",
+                                "haveAccount":  "Ù‡Ù„ Ù„Ø¯ÙŠÙƒ Ø­Ø³Ø§Ø¨ Ø¨Ø§Ù„ÙØ¹Ù„ØŸ",
+                                "signIn":  "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„"
+                            },
+                 "google":  "ØªÙˆØ§ØµÙ„ Ù…Ø¹ Ø¬ÙˆØ¬Ù„",
+                 "divider":  "or",
+                 "errors":  {
+                                "invalidCredentials":  "Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ Ø£Ùˆ ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ± ØºÙŠØ± ØµØ§Ù„Ø­Ø©",
+                                "emailExists":  "ÙŠÙˆØ¬Ø¯ Ø­Ø³Ø§Ø¨ Ø¨Ù‡Ø°Ø§ Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ Ø¨Ø§Ù„ÙØ¹Ù„",
+                                "invalidEmail":  "ÙŠØ±Ø¬Ù‰ Ø¥Ø¯Ø®Ø§Ù„ Ø¹Ù†ÙˆØ§Ù† Ø¨Ø±ÙŠØ¯ Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ ØµØ§Ù„Ø­",
+                                "passwordTooShort":  "ÙŠØ¬Ø¨ Ø£Ù† ØªØªÙƒÙˆÙ† ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ± Ù…Ù† 8 Ø£Ø­Ø±Ù Ø¹Ù„Ù‰ Ø§Ù„Ø£Ù‚Ù„",
+                                "passwordUppercase":  "ÙŠØ¬Ø¨ Ø£Ù† ØªØ­ØªÙˆÙŠ ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ± Ø¹Ù„Ù‰ Ø­Ø±Ù ÙƒØ¨ÙŠØ± ÙˆØ§Ø­Ø¯ Ø¹Ù„Ù‰ Ø§Ù„Ø£Ù‚Ù„",
+                                "passwordNumber":  "ÙŠØ¬Ø¨ Ø£Ù† ØªØ­ØªÙˆÙŠ ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ± Ø¹Ù„Ù‰ Ø±Ù‚Ù… ÙˆØ§Ø­Ø¯ Ø¹Ù„Ù‰ Ø§Ù„Ø£Ù‚Ù„",
+                                "passwordsDoNotMatch":  "ÙƒÙ„Ù…Ø§Øª Ø§Ù„Ù…Ø±ÙˆØ± ØºÙŠØ± Ù…ØªØ·Ø§Ø¨Ù‚Ø©",
+                                "nameTooShort":  "ÙŠØ¬Ø¨ Ø£Ù† ÙŠØªÙƒÙˆÙ† Ø§Ù„Ø§Ø³Ù… Ù…Ù† Ø­Ø±ÙÙŠÙ† Ø¹Ù„Ù‰ Ø§Ù„Ø£Ù‚Ù„",
+                                "generic":  "Ø­Ø¯Ø« Ø®Ø·Ø£ ØºÙŠØ± Ù…ØªÙˆÙ‚Ø¹. ÙŠØ±Ø¬Ù‰ Ø§Ù„Ù…Ø­Ø§ÙˆÙ„Ø© Ù…Ø±Ø© Ø£Ø®Ø±Ù‰.",
+                                "rateLimited":  "Ù…Ø­Ø§ÙˆÙ„Ø§Øª ÙƒØ«ÙŠØ±Ø© Ø¬Ø¯Ù‹Ø§. Ù…Ù† ÙØ¶Ù„Ùƒ Ø§Ù†ØªØ¸Ø± Ù„Ø­Ø¸Ø©."
+                            },
+                 "authenticationForm":  "Ù†Ù…ÙˆØ°Ø¬ Ø§Ù„Ù…ØµØ§Ø¯Ù‚Ø©"
+             },
+    "meta":  {
+                 "login":  {
+                               "title":  "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ â€” Ø¨ÙŠØªÙˆÙ…Ø§ØªÙŠØ²Ø§+",
+                               "description":  "Ù‚Ù… Ø¨ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ Ø¥Ù„Ù‰ Ø­Ø³Ø§Ø¨ Pytomatiza+ Ø§Ù„Ø®Ø§Øµ Ø¨Ùƒ Ù„Ø¥Ø¯Ø§Ø±Ø© ÙˆÙƒÙ„Ø§Ø¡ Ø§Ù„Ø£ØªÙ…ØªØ© Ø§Ù„Ø°ÙŠÙ† ÙŠØ¹Ù…Ù„ÙˆÙ† Ø¨Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ."
+                           },
+                 "dashboard":  {
+                                   "title":  "Ù„ÙˆØ­Ø© Ø§Ù„Ù‚ÙŠØ§Ø¯Ø© - Ø¨ÙŠØªÙˆÙ…Ø§ØªÙŠØ²Ø§+",
+                                   "description":  "Ù†Ø¸Ø±Ø© Ø¹Ø§Ù…Ø© Ø¹Ù„Ù‰ ÙˆÙƒÙ„Ø§Ø¡ Ø§Ù„ØªØ´ØºÙŠÙ„ Ø§Ù„Ø¢Ù„ÙŠ Ù„Ù€ Pytomatiza+ ÙˆØ§Ù„Ù†Ø´Ø§Ø· Ø§Ù„Ø£Ø®ÙŠØ± ÙˆØ­Ø§Ù„Ø© Ø§Ù„Ù†Ø¸Ø§Ù…."
+                               },
+                 "agents":  {
+                                "title":  "Ø§Ù„ÙˆÙƒÙ„Ø§Ø¡ - Ø¨ÙŠØªÙˆÙ…Ø§ØªÙŠØ²Ø§+",
+                                "description":  "ØªØµÙØ­ ÙˆØ¥Ø¯Ø§Ø±Ø© ÙˆÙƒÙ„Ø§Ø¡ Ø£ØªÙ…ØªØ© Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ù„Ø¯ÙŠÙƒ."
+                            },
+                 "automations":  {
+                                     "title":  "Ø§Ù„Ø£ØªÙ…ØªØ© â€” Ø¨ÙŠØªÙˆÙ…Ø§ØªÙŠØ²Ø§+",
+                                     "description":  "Ø¥Ù†Ø´Ø§Ø¡ ÙˆØ¥Ø¯Ø§Ø±Ø© Ø³ÙŠØ± Ø¹Ù…Ù„ Ø£ØªÙ…ØªØ© Ø§Ù„Ù„ØºØ© Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠØ©."
+                                 },
+                 "settings":  {
+                                  "title":  "Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª - Ø¨ÙŠØªÙˆÙ…Ø§ØªÙŠØ²Ø§+",
+                                  "description":  "Ø¥Ø¯Ø§Ø±Ø© Ø­Ø³Ø§Ø¨Ùƒ ÙˆØ¹Ù…Ù„ÙŠØ§Øª Ø§Ù„ØªÙƒØ§Ù…Ù„ ÙˆØªÙØ¶ÙŠÙ„Ø§Øª Ø§Ù„Ø¥Ø´Ø¹Ø§Ø±Ø§Øª."
+                              },
+                 "help":  {
+                              "title":  "Ø§Ù„Ù…Ø³Ø§Ø¹Ø¯Ø© ÙˆØ§Ù„Ø¯Ø¹Ù… â€” Ø¨ÙŠØªÙˆÙ…Ø§ØªÙŠØ²Ø§+",
+                              "description":  "Ø§Ø­ØµÙ„ Ø¹Ù„Ù‰ Ø§Ù„Ù…Ø³Ø§Ø¹Ø¯Ø©ØŒ ÙˆØªØµÙØ­ Ø§Ù„ÙˆØ«Ø§Ø¦Ù‚ØŒ ÙˆØ§ØªØµÙ„ Ø¨Ø§Ù„Ø¯Ø¹Ù…."
+                          },
+                 "logs":  {
+                              "title":  "Logs \u0026 AprovaÃ§Ãµes â€” Pytomatiza+",
+                              "description":  "Visualize execuÃ§Ãµes de automaÃ§Ã£o, histÃ³rico de agentes e gerencie aprovaÃ§Ãµes pendentes."
+                          },
+                 "documents":  {
+                                   "title":  "Ø§Ù„Ù…Ø³ØªÙ†Ø¯Ø§Øª â€” Pytomatiza+",
+                                   "description":  "Ø£ØªÙ…ØªØ© Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ù…Ø³ØªÙ†Ø¯Ø§Øª Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ. Ù‚Ù… Ø¨Ø§Ø³ØªØ®Ø±Ø§Ø¬ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØªØ­ÙˆÙŠÙ„ Ø§Ù„ØªÙ†Ø³ÙŠÙ‚Ø§Øª ÙˆØ¥Ø¯Ø§Ø±Ø© Ù…Ù„ÙØ§Øª PDF ÙˆDOCX ÙˆØ§Ù„Ù…Ø²ÙŠØ¯."
+                               },
+                 "data":  {
+                              "title":  "Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ¬Ø¯Ø§ÙˆÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª â€” Pytomatiza+",
+                              "description":  "Ù‚Ù… Ø¨ØªÙˆØµÙŠÙ„ Ù…ØµØ§Ø¯Ø± Ø§Ù„Ø¨ÙŠØ§Ù†Ø§ØªØŒ ÙˆØªØ­ÙˆÙŠÙ„ Ø¬Ø¯Ø§ÙˆÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§ØªØŒ ÙˆØ£ØªÙ…ØªØ© Ø§Ù„ØªØ­Ù„ÙŠÙ„ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… ÙˆÙƒÙ„Ø§Ø¡ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ."
+                          },
+                 "communication":  {
+                                       "title":  "Ø§Ù„Ø§ØªØµØ§Ù„Ø§Øª â€” Pytomatiza+",
+                                       "description":  "Ù‚Ù… Ø¨Ø£ØªÙ…ØªØ© Ø±Ø³Ø§Ø¦Ù„ Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ ÙˆØ§Ù„Ø±Ø³Ø§Ø¦Ù„ ÙˆØ§Ù„Ø¥Ø´Ø¹Ø§Ø±Ø§Øª Ù…ØªØ¹Ø¯Ø¯Ø© Ø§Ù„Ù‚Ù†ÙˆØ§Øª Ù…Ù† Ø®Ù„Ø§Ù„ Ø¹Ù…Ù„ÙŠØ§Øª Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„Ø°ÙƒÙŠØ©."
+                                   },
+                 "media":  {
+                               "title":  "Ø§Ù„ÙˆØ³Ø§Ø¦Ø· ÙˆØ§Ù„ØµÙˆØ± â€” Pytomatiza+",
+                               "description":  "Ù‚Ù… Ø¨Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„ØµÙˆØ± ÙˆØ§Ù„ÙˆØ³Ø§Ø¦Ø· ÙˆØªØ­ÙˆÙŠÙ„Ù‡Ø§ ÙˆØªØ­Ø³ÙŠÙ†Ù‡Ø§ Ø¯ÙØ¹Ø© ÙˆØ§Ø­Ø¯Ø© Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ø£ØªÙ…ØªØ© Ø§Ù„Ø°ÙƒÙŠØ©."
+                           },
+                 "files":  {
+                               "title":  "Ø§Ù„Ù…Ù„ÙØ§Øª â€” Pytomatiza+",
+                               "description":  "Ø¥Ø¯Ø§Ø±Ø© Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ù…Ù„ÙØ§Øª ÙˆØªÙ†Ø¸ÙŠÙ…Ù‡Ø§ ÙˆØ£ØªÙ…ØªØªÙ‡Ø§ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ù‚ÙˆØ§Ø¹Ø¯ Ø°ÙƒÙŠØ©."
+                           },
+                 "architecture":  {
+                                      "title":  "Ø§Ù„Ù‡Ù†Ø¯Ø³Ø© Ø§Ù„Ù…Ø¹Ù…Ø§Ø±ÙŠØ© â€” Pytomatiza+",
+                                      "description":  "Ù‚Ù… Ø¨Ø¥Ù†Ø´Ø§Ø¡ Ù…Ø®Ø·Ø·Ø§Øª Ù…Ø¹Ù…Ø§Ø±ÙŠØ© ÙˆÙˆØ«Ø§Ø¦Ù‚ ÙÙ†ÙŠØ© ÙˆØªØ¯ÙÙ‚Ø§Øª Ø§Ù„Ù†Ø¸Ø§Ù… Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ."
+                                  }
+             },
+    "navigation":  {
+                       "dashboard":  "Ù„ÙˆØ­Ø© Ø§Ù„Ù‚ÙŠØ§Ø¯Ø©",
+                       "agents":  "Ø§Ù„ÙˆÙƒÙ„Ø§Ø¡",
+                       "automations":  "Ø§Ù„Ø£ØªÙ…ØªØ©",
+                       "settings":  "Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª",
+                       "help":  "Ø§Ù„Ù…Ø³Ø§Ø¹Ø¯Ø© ÙˆØ§Ù„Ø¯Ø¹Ù…",
+                       "signOut":  "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø®Ø±ÙˆØ¬",
+                       "collapse":  "Ø·ÙŠ Ø§Ù„Ø´Ø±ÙŠØ· Ø§Ù„Ø¬Ø§Ù†Ø¨ÙŠ",
+                       "expand":  "Ù‚Ù… Ø¨ØªÙˆØ³ÙŠØ¹ Ø§Ù„Ø´Ø±ÙŠØ· Ø§Ù„Ø¬Ø§Ù†Ø¨ÙŠ",
+                       "mainNavigation":  "Ø§Ù„Ù…Ù„Ø§Ø­Ø© Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©",
+                       "sidebarNavigation":  "Ø§Ù„ØªÙ†Ù‚Ù„ ÙÙŠ Ø§Ù„Ø´Ø±ÙŠØ· Ø§Ù„Ø¬Ø§Ù†Ø¨ÙŠ"
+                   },
+    "settings":  {
+                     "title":  "Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª",
+                     "subtitle":  "Ø¥Ø¯Ø§Ø±Ø© Ø­Ø³Ø§Ø¨ÙƒØŒ ÙˆØ§Ù„ØªÙØ¶ÙŠÙ„Ø§ØªØŒ ÙˆØ¥Ø¹Ø¯Ø§Ø¯Ø§Øª Ø§Ù„ØªØ·Ø¨ÙŠÙ‚.",
+                     "tabs":  {
+                                  "appearance":  "Ù…Ø¸Ù‡Ø±",
+                                  "accessibility":  "Ø¥Ù…ÙƒØ§Ù†ÙŠØ© Ø§Ù„ÙˆØµÙˆÙ„",
+                                  "languageRegion":  "Ø§Ù„Ù„ØºØ© ÙˆØ§Ù„Ù…Ù†Ø·Ù‚Ø©",
+                                  "account":  "Ø­Ø³Ø§Ø¨",
+                                  "security":  "Ø­Ù…Ø§ÙŠØ©",
+                                  "notifications":  "Ø¥Ø´Ø¹Ø§Ø±Ø§Øª",
+                                  "advanced":  "Ù…ØªÙ‚Ø¯Ù…"
+                              },
+                     "appearance":  {
+                                        "title":  "Ù…Ø¸Ù‡Ø±",
+                                        "subtitle":  "ØªØ®ØµÙŠØµ ØªØ¬Ø±Ø¨ØªÙƒ Ø§Ù„Ø¨ØµØ±ÙŠØ©.",
+                                        "accentColor":  "Ù„ÙˆÙ† Ù…Ù…ÙŠØ²",
+                                        "accentColorDescription":  "Ø§Ø®ØªØ± Ù„ÙˆÙ† Ø§Ù„ØªÙ…ÙŠÙŠØ² Ù„Ù„Ø¹Ù†Ø§ØµØ± \"+\" ÙˆØ§Ù„ØªÙ…ÙŠÙŠØ².",
+                                        "fontSize":  "Ø­Ø¬Ù… Ø§Ù„Ø®Ø·",
+                                        "fontSizeSmall":  "ØµØºÙŠØ±",
+                                        "fontSizeMedium":  "ÙˆØ§Ø³Ø·Ø©",
+                                        "fontSizeLarge":  "ÙƒØ¨ÙŠØ±",
+                                        "boldMode":  "ÙˆØ¶Ø¹ Ø¬Ø±ÙŠØ¡",
+                                        "boldModeDescription":  "ÙŠØ²ÙŠØ¯ Ù…Ù† ÙˆØ²Ù† Ø§Ù„Ø®Ø· ÙÙŠ Ø¬Ù…ÙŠØ¹ Ø£Ù†Ø­Ø§Ø¡ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚.",
+                                        "elementDensity":  "Ø­Ø¬Ù… Ø§Ù„Ø¹Ù†ØµØ±",
+                                        "densitySmall":  "ØµØºÙŠØ±",
+                                        "densityMedium":  "ÙˆØ§Ø³Ø·Ø©",
+                                        "densityLarge":  "ÙƒØ¨ÙŠØ±",
+                                        "systemColor":  "Ù„ÙˆÙ† Ø§Ù„Ù†Ø¸Ø§Ù…",
+                                        "themeLight":  "Ø¶ÙˆØ¡",
+                                        "themeDark":  "Ù…Ø¸Ù„Ù…",
+                                        "themeSystem":  "Ù†Ø¸Ø§Ù…",
+                                        "backgroundColor":  "Ù„ÙˆÙ† Ø§Ù„Ø®Ù„ÙÙŠØ©",
+                                        "bgPresetDefault":  "ØªÙ‚ØµÙŠØ±",
+                                        "bgPresetWarm":  "Ø¯Ø§ÙÙŠØ¡",
+                                        "bgPresetCool":  "Ø±Ø§Ø¦Ø¹",
+                                        "bgPresetForest":  "ØºØ§Ø¨Ø©",
+                                        "bgPresetLavender":  "Ù„Ø§ÙÙ†Ø¯Ø±",
+                                        "bgPresetSepia":  "Ø¨Ù†ÙŠ Ø¯Ø§ÙƒÙ†",
+                                        "bgPresetMidnight":  "Ù…Ù†ØªØµÙ Ø§Ù„Ù„ÙŠÙ„",
+                                        "bgPresetSlate":  "Ù„Ø§Ø¦Ø­Ø©",
+                                        "colorYellow":  "Ø£ØµÙØ±",
+                                        "colorBlue":  "Blue",
+                                        "colorGreen":  "Green",
+                                        "colorPurple":  "Ø£Ø±Ø¬ÙˆØ§Ù†ÙŠ",
+                                        "colorOrange":  "Ø§Ù„Ø¨Ø±ØªÙ‚Ø§Ù„ÙŠ",
+                                        "colorRed":  "Red",
+                                        "colorPink":  "Pink",
+                                        "accentColorAria":  "{color} Ù„ÙˆÙ† Ù…Ù…ÙŠØ²"
+                                    },
+                     "accessibility":  {
+                                           "title":  "Ø¥Ù…ÙƒØ§Ù†ÙŠØ© Ø§Ù„ÙˆØµÙˆÙ„",
+                                           "subtitle":  "Ù‚Ù… Ø¨ØªÙƒÙˆÙŠÙ† Ø§Ù„Ø®ÙŠØ§Ø±Ø§Øª Ù„ØªØ³Ù‡ÙŠÙ„ Ø§Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚.",
+                                           "highContrast":  "Ø§Ù„ØªØ¨Ø§ÙŠÙ† Ø§Ù„Ø¹Ø§Ù„ÙŠ",
+                                           "highContrastDescription":  "ÙŠØ²ÙŠØ¯ Ù…Ù† ØªØ¨Ø§ÙŠÙ† Ø§Ù„Ø£Ù„ÙˆØ§Ù† Ù„ØªØ­Ø³ÙŠÙ† Ø§Ù„Ù‚Ø±Ø§Ø¡Ø©.",
+                                           "reduceMotion":  "ØªÙ‚Ù„ÙŠÙ„ Ø§Ù„Ø±Ø³ÙˆÙ… Ø§Ù„Ù…ØªØ­Ø±ÙƒØ©",
+                                           "reduceMotionDescription":  "ÙŠÙ‚Ù„Ù„ Ù…Ù† ØªØ£Ø«ÙŠØ±Ø§Øª Ø§Ù„Ø­Ø±ÙƒØ© ÙˆØ§Ù„Ø§Ù†ØªÙ‚Ø§Ù„Ø§Øª.",
+                                           "focusOutline":  "Ù…Ø®Ø·Ø· Ø§Ù„ØªØ±ÙƒÙŠØ² Ø§Ù„Ù…ÙˆØ³Ø¹",
+                                           "focusOutlineDescription":  "ÙŠØ²ÙŠØ¯ Ù…Ù† Ø³Ù…Ùƒ Ø§Ù„Ø®Ø·ÙˆØ· Ø§Ù„Ø¹Ø±ÙŠØ¶Ø© Ù„ØªØ±ÙƒÙŠØ² Ù„ÙˆØ­Ø© Ø§Ù„Ù…ÙØ§ØªÙŠØ­.",
+                                           "skipLinks":  "Ø§Ø¹Ø±Ø¶ Ø¯Ø§Ø¦Ù…Ù‹Ø§ Ø±ÙˆØ§Ø¨Ø· Ø§Ù„ØªØ®Ø·ÙŠ",
+                                           "skipLinksDescription":  "ÙŠØ¬Ø¹Ù„ ØªØ®Ø·ÙŠ Ø±ÙˆØ§Ø¨Ø· Ø§Ù„ØªÙ†Ù‚Ù„ Ù…Ø±Ø¦ÙŠØ© Ø¨Ø´ÙƒÙ„ Ø¯Ø§Ø¦Ù….",
+                                           "underlineLinks":  "Ø¶Ø¹ Ø®Ø·Ù‹Ø§ ØªØ­Øª Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø±ÙˆØ§Ø¨Ø·",
+                                           "underlineLinksDescription":  "ÙŠØ¶ÙŠÙ ØªØ³Ø·ÙŠØ±Ù‹Ø§ Ø¥Ù„Ù‰ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø±ÙˆØ§Ø¨Ø· Ù„ØªØ­Ø¯ÙŠØ¯ Ø£ÙØ¶Ù„.",
+                                           "screenReader":  "ØªØ­Ø³ÙŠÙ†Ø§Øª Ù‚Ø§Ø±Ø¦ Ø§Ù„Ø´Ø§Ø´Ø©",
+                                           "screenReaderDescription":  "ÙŠØ¶ÙŠÙ Ø£ÙˆØµØ§ÙÙ‹Ø§ Ø¥Ø¶Ø§ÙÙŠØ© ÙˆØªØ³Ù…ÙŠØ§Øª ARIA Ø§Ù„ØºÙ†ÙŠØ©."
+                                       },
+                     "languageRegion":  {
+                                            "title":  "Ø§Ù„Ù„ØºØ© ÙˆØ§Ù„Ù…Ù†Ø·Ù‚Ø©",
+                                            "subtitle":  "Ø§Ø®ØªØ± Ù„ØºØªÙƒ Ø§Ù„Ù…ÙØ¶Ù„Ø© ÙˆØ§Ù„Ù…Ù†Ø·Ù‚Ø© Ø§Ù„Ø²Ù…Ù†ÙŠØ©.",
+                                            "language":  "Ù„ØºØ©",
+                                            "languageDescription":  "Ø­Ø¯Ø¯ Ù„ØºØ© Ø§Ù„Ø¹Ø±Ø¶ Ø§Ù„Ø®Ø§ØµØ© Ø¨Ø§Ù„ØªØ·Ø¨ÙŠÙ‚.",
+                                            "timezone":  "Ø§Ù„Ù…Ù†Ø·Ù‚Ø© Ø§Ù„Ø²Ù…Ù†ÙŠØ©",
+                                            "timezoneDescription":  "Ø­Ø¯Ø¯ Ù…Ù†Ø·Ù‚ØªÙƒ Ø§Ù„Ø²Ù…Ù†ÙŠØ© Ø§Ù„Ù…Ø­Ù„ÙŠØ©."
+                                        },
+                     "account":  {
+                                     "title":  "Ø­Ø³Ø§Ø¨",
+                                     "subtitle":  "Ø¥Ø¯Ø§Ø±Ø© Ù…Ø¹Ù„ÙˆÙ…Ø§ØªÙƒ Ø§Ù„Ø´Ø®ØµÙŠØ©.",
+                                     "fullName":  "Ø§Ù„Ø§Ø³Ù… Ø§Ù„ÙƒØ§Ù…Ù„",
+                                     "fullNamePlaceholder":  "Ø§Ø³Ù…Ùƒ Ø§Ù„ÙƒØ§Ù…Ù„",
+                                     "birthDate":  "ØªØ§Ø±ÙŠØ® Ø§Ù„Ù…ÙŠÙ„Ø§Ø¯",
+                                     "profilePicture":  "ØµÙˆØ±Ø© Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ",
+                                     "uploadPhoto":  "ØªØ­Ù…ÙŠÙ„ Ø§Ù„ØµÙˆØ±Ø©",
+                                     "removePhoto":  "Ø¥Ø²Ø§Ù„Ø© Ø§Ù„ØµÙˆØ±Ø©",
+                                     "saveChanges":  "Ø­ÙØ¸ Ø§Ù„ØªØºÙŠÙŠØ±Ø§Øª",
+                                     "lockedTitle":  "Ù…Ù†Ø·Ù‚Ø© Ù…Ø­Ø¸ÙˆØ±Ø©",
+                                     "lockedDescription":  "Ù‚Ù… Ø¨ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ Ù„Ø¥Ø¯Ø§Ø±Ø© Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø­Ø³Ø§Ø¨Ùƒ.",
+                                     "login":  "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„",
+                                     "register":  "Ø¥Ù†Ø´Ø§Ø¡ Ø­Ø³Ø§Ø¨"
+                                 },
+                     "security":  {
+                                      "title":  "Ø­Ù…Ø§ÙŠØ©",
+                                      "subtitle":  "Ù‚Ù… Ø¨ØªÙƒÙˆÙŠÙ† Ø®ÙŠØ§Ø±Ø§Øª Ø£Ù…Ø§Ù† Ø­Ø³Ø§Ø¨Ùƒ.",
+                                      "twoFactor":  "Ø§Ù„Ù…ØµØ§Ø¯Ù‚Ø© Ø§Ù„Ø«Ù†Ø§Ø¦ÙŠØ© (2FA)",
+                                      "twoFactorDescription":  "ÙŠØ¶ÙŠÙ Ø·Ø¨Ù‚Ø© Ø¥Ø¶Ø§ÙÙŠØ© Ù…Ù† Ø§Ù„Ø­Ù…Ø§ÙŠØ© Ø¹Ù†Ø¯ ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„.",
+                                      "changePassword":  "ØªØºÙŠÙŠØ± ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±",
+                                      "changePasswordDescription":  "Ù‚Ù… Ø¨ØªØ­Ø¯ÙŠØ« ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ± Ø§Ù„Ø®Ø§ØµØ© Ø¨Ùƒ Ø¨Ø§Ù†ØªØ¸Ø§Ù… Ù„Ù„Ø­ÙØ§Ø¸ Ø¹Ù„Ù‰ Ø£Ù…Ø§Ù† Ø­Ø³Ø§Ø¨Ùƒ.",
+                                      "activeSessions":  "Ø¬Ù„Ø³Ø§Øª Ù†Ø´Ø·Ø©",
+                                      "activeSessionsDescription":  "Ø¹Ø±Ø¶ ÙˆØ¥Ù†Ù‡Ø§Ø¡ Ø§Ù„Ø¬Ù„Ø³Ø§Øª Ø¹Ù„Ù‰ Ø§Ù„Ø£Ø¬Ù‡Ø²Ø© Ø§Ù„Ø£Ø®Ø±Ù‰.",
+                                      "configure":  "ØªÙƒÙˆÙŠÙ†",
+                                      "change":  "ÙŠØªØºÙŠØ±",
+                                      "current":  "Ø­Ø§Ø¶ÙØ±",
+                                      "revoke":  "Ø¥Ø¨Ø·Ø§Ù„",
+                                      "revokeAll":  "Ù‚Ù… Ø¨Ø¥Ù†Ù‡Ø§Ø¡ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø¬Ù„Ø³Ø§Øª Ø§Ù„Ø£Ø®Ø±Ù‰"
+                                  },
+                     "notifications":  {
+                                           "title":  "Ø¥Ø´Ø¹Ø§Ø±Ø§Øª",
+                                           "subtitle":  "Ø§Ø®ØªØ± Ø§Ù„Ø·Ø±ÙŠÙ‚Ø© Ø§Ù„ØªÙŠ ØªØ±ÙŠØ¯ Ø£Ù† ÙŠØªÙ… Ø¥Ø¹Ù„Ø§Ù…Ùƒ Ø¨Ù‡Ø§.",
+                                           "email":  "Ø¥Ø´Ø¹Ø§Ø±Ø§Øª Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ",
+                                           "emailDescription":  "ØªÙ„Ù‚ÙŠ Ø§Ù„Ù…Ù„Ø®ØµØ§Øª ÙˆØ§Ù„ØªÙ†Ø¨ÙŠÙ‡Ø§Øª Ø§Ù„Ù‡Ø§Ù…Ø© ÙÙŠ Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ Ø§Ù„Ø®Ø§Øµ Ø¨Ùƒ.",
+                                           "inApp":  "Ø§Ù„Ø¥Ø®Ø·Ø§Ø±Ø§Øª Ø¯Ø§Ø®Ù„ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚",
+                                           "inAppDescription":  "ÙŠØ¹Ø±Ø¶ Ø§Ù„Ù„Ø§ÙØªØ§Øª ÙˆØ§Ù„Ø´Ø§Ø±Ø§Øª Ø¯Ø§Ø®Ù„ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚.",
+                                           "push":  "Ø¯ÙØ¹ Ø§Ù„Ø¥Ø®Ø·Ø§Ø±Ø§Øª",
+                                           "pushDescription":  "ØªÙ„Ù‚ÙŠ Ø§Ù„ØªÙ†Ø¨ÙŠÙ‡Ø§Øª Ø­ØªÙ‰ Ø¹Ù†Ø¯Ù…Ø§ ÙŠÙƒÙˆÙ† Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ Ù…ØºÙ„Ù‚Ø§.",
+                                           "sound":  "ØµÙˆØª Ø§Ù„ØªÙ†Ø¨ÙŠÙ‡",
+                                           "soundDescription":  "ÙŠØµØ¯Ø± ØµÙˆØªÙ‹Ø§ Ø¹Ù†Ø¯ ÙˆØµÙˆÙ„ Ø¥Ø´Ø¹Ø§Ø±."
+                                       },
+                     "advanced":  {
+                                      "title":  "Ù…ØªÙ‚Ø¯Ù…",
+                                      "subtitle":  "Ø®ÙŠØ§Ø±Ø§Øª ØµÙŠØ§Ù†Ø© Ø§Ù„ØªØ·Ø¨ÙŠÙ‚Ø§Øª Ø§Ù„Ù…ØªÙ‚Ø¯Ù…Ø©.",
+                                      "clearCache":  "Ù…Ø³Ø­ Ø°Ø§ÙƒØ±Ø© Ø§Ù„ØªØ®Ø²ÙŠÙ† Ø§Ù„Ù…Ø¤Ù‚Øª Ù„Ù„ØªØ·Ø¨ÙŠÙ‚",
+                                      "clearCacheDescription":  "ÙŠØ²ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ø¤Ù‚ØªØ© Ø§Ù„Ù…Ø®Ø²Ù†Ø© Ù…Ø­Ù„ÙŠØ§.",
+                                      "clearCacheButton":  "Ø§Ù…Ø³Ø­ Ø°Ø§ÙƒØ±Ø© Ø§Ù„ØªØ®Ø²ÙŠÙ† Ø§Ù„Ù…Ø¤Ù‚Øª Ø§Ù„Ø¢Ù†",
+                                      "clearCacheConfirm":  "Ù‡Ù„ Ø£Ù†Øª Ù…ØªØ£ÙƒØ¯ØŸ Ø³ÙŠØ¤Ø¯ÙŠ Ù‡Ø°Ø§ Ø¥Ù„Ù‰ Ø¥Ø²Ø§Ù„Ø© Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ø­Ù„ÙŠØ© Ø§Ù„Ù…Ø¤Ù‚ØªØ©.",
+                                      "resetSettings":  "Ø¥Ø¹Ø§Ø¯Ø© Ø¶Ø¨Ø· Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª",
+                                      "resetSettingsDescription":  "ÙŠØ¹ÙŠØ¯ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª Ø¥Ù„Ù‰ Ø§Ù„Ù‚ÙŠÙ… Ø§Ù„Ø§ÙØªØ±Ø§Ø¶ÙŠØ©.",
+                                      "resetSettingsButton":  "Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„ØªØ¹ÙŠÙŠÙ† Ø¥Ù„Ù‰ Ø§Ù„ÙˆØ¶Ø¹ Ø§Ù„Ø§ÙØªØ±Ø§Ø¶ÙŠ",
+                                      "resetSettingsConfirm":  "Ù‡Ù„ Ø£Ù†Øª Ù…ØªØ£ÙƒØ¯ØŸ Ø³ÙŠØªÙ… ÙÙ‚Ø¯Ø§Ù† Ø¬Ù…ÙŠØ¹ ØªÙØ¶ÙŠÙ„Ø§ØªÙƒ.",
+                                      "appVersion":  "Ù†Ø³Ø®Ø© Ø§Ù„ØªØ·Ø¨ÙŠÙ‚"
+                                  }
+                 },
+    "help":  {
+                 "title":  "Ø§Ù„Ù…Ø³Ø§Ø¹Ø¯Ø© ÙˆØ§Ù„Ø¯Ø¹Ù…",
+                 "subtitle":  "Ø§Ø­ØµÙ„ Ø¹Ù„Ù‰ Ø§Ù„Ù…Ø³Ø§Ø¹Ø¯Ø©ØŒ ÙˆØªØµÙØ­ Ø§Ù„ÙˆØ«Ø§Ø¦Ù‚ØŒ ÙˆØ§ØªØµÙ„ Ø¨ÙØ±ÙŠÙ‚Ù†Ø§.",
+                 "documentation":  "Ø§Ù„ØªÙˆØ«ÙŠÙ‚",
+                 "documentationDescription":  "ØªØµÙØ­ Ø§Ù„Ø£Ø¯Ù„Ø© ÙˆØ§Ù„Ø¨Ø±Ø§Ù…Ø¬ Ø§Ù„ØªØ¹Ù„ÙŠÙ…ÙŠØ© ÙˆÙ…Ø±Ø§Ø¬Ø¹ ÙˆØ§Ø¬Ù‡Ø© Ø¨Ø±Ù…Ø¬Ø© Ø§Ù„ØªØ·Ø¨ÙŠÙ‚Ø§Øª.",
+                 "contactSupport":  "Ø§ØªØµÙ„ Ø¨Ø§Ù„Ø¯Ø¹Ù…",
+                 "contactSupportDescription":  "Ø§Ø­ØµÙ„ Ø¹Ù„Ù‰ Ø§Ù„Ù…Ø³Ø§Ø¹Ø¯Ø© Ù…Ù† ÙØ±ÙŠÙ‚Ù†Ø§. Ø¹Ø§Ø¯Ø© Ù…Ø§ ÙŠØªÙ… Ø§Ù„Ø±Ø¯ Ø®Ù„Ø§Ù„ 24 Ø³Ø§Ø¹Ø©.",
+                 "faqTitle":  "Ø§Ù„Ø£Ø³Ø¦Ù„Ø© Ø§Ù„Ù…ØªØ¯Ø§ÙˆÙ„Ø©",
+                 "faq0":  {
+                              "question":  "ÙƒÙŠÙ Ø£Ù‚ÙˆÙ… Ø¨Ø¥Ù†Ø´Ø§Ø¡ Ø£ØªÙ…ØªØ©ØŸ",
+                              "answer":  "Ø§Ù†ØªÙ‚Ù„ Ø¥Ù„Ù‰ ØµÙØ­Ø© Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ø£ØªÙ…ØªØ© ÙˆØ§Ø³ØªØ®Ø¯Ù… Natural Language Workflow Builder. Ù‚Ù… Ø¨ÙˆØµÙ Ù…Ø§ ØªØ±ÙŠØ¯ Ø£ØªÙ…ØªØªÙ‡ Ø¨Ø§Ù„Ù„ØºØ© Ø§Ù„Ø¥Ù†Ø¬Ù„ÙŠØ²ÙŠØ© Ø§Ù„Ø¨Ø³ÙŠØ·Ø©ØŒ ÙˆØ³ÙŠÙ‚ÙˆÙ… Pytomatiza+ Ø¨Ø¨Ù†Ø§Ø¡ Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ Ù„Ùƒ."
+                          },
+                 "faq1":  {
+                              "question":  "ÙƒÙŠÙ Ø£Ù‚ÙˆÙ… Ø¨ØªÙˆØµÙŠÙ„ Ø§Ù„ØªÙƒØ§Ù…Ù„ Ø§Ù„Ø¬Ø¯ÙŠØ¯ØŸ",
+                              "answer":  "Ø§Ù†ØªÙ‚Ù„ Ø¥Ù„Ù‰ Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª â†’ Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„ØªÙƒØ§Ù…Ù„ Ù„ØªÙˆØµÙŠÙ„ Ø®Ø¯Ù…Ø§Øª Ø§Ù„Ø¬Ù‡Ø§Øª Ø§Ù„Ø®Ø§Ø±Ø¬ÙŠØ© Ù…Ø«Ù„ Google Workspace Ø£Ùˆ Slack Ø£Ùˆ GitHub."
+                          },
+                 "faq2":  {
+                              "question":  "Ù…Ø§Ø°Ø§ ÙŠØ­Ø¯Ø« Ø¥Ø°Ø§ ÙØ´Ù„ Ø§Ù„ÙˆÙƒÙŠÙ„ØŸ",
+                              "answer":  "ÙŠØªÙ… ÙˆØ¶Ø¹ Ø¹Ù„Ø§Ù…Ø© Ø¹Ù„Ù‰ Ø§Ù„ÙˆÙƒÙ„Ø§Ø¡ Ø§Ù„ÙØ§Ø´Ù„ÙŠÙ† Ø¨Ø­Ø§Ù„Ø© Ø®Ø·Ø£. ÙŠÙ…ÙƒÙ†Ùƒ Ø¹Ø±Ø¶ ØªÙØ§ØµÙŠÙ„ Ø§Ù„Ø®Ø·Ø£ ÙÙŠ Ø¨Ø·Ø§Ù‚Ø© Ø§Ù„ÙˆÙƒÙŠÙ„ ÙˆØ¥Ø¹Ø§Ø¯Ø© Ù…Ø­Ø§ÙˆÙ„Ø© Ø§Ù„ØªÙ†ÙÙŠØ°."
+                          },
+                 "faq3":  {
+                              "question":  "ÙƒÙŠÙ Ø£ØºÙŠØ± Ù„ØºØªÙŠØŸ",
+                              "answer":  "Ø§Ù†Ù‚Ø± Ø¹Ù„Ù‰ Ø£ÙŠÙ‚ÙˆÙ†Ø© Ø§Ù„ÙƒØ±Ø© Ø§Ù„Ø£Ø±Ø¶ÙŠØ© ÙÙŠ Ø±Ø£Ø³ Ø§Ù„ØµÙØ­Ø© Ù„Ù„ØªØ¨Ø¯ÙŠÙ„ Ø¨ÙŠÙ† 9 Ù„ØºØ§Øª Ù…Ø¯Ø¹ÙˆÙ…Ø©."
+                          }
+             },
+    "dashboard":  {
+                      "title":  "Ù„ÙˆØ­Ø© Ø§Ù„Ù‚ÙŠØ§Ø¯Ø©",
+                      "welcome":  "Ø¬ÙŠØ¯ {timeOfDay}ØŒ {name}",
+                      "morning":  "ØµØ¨Ø§Ø­",
+                      "afternoon":  "Ø¨Ø¹Ø¯ Ø§Ù„Ø¸Ù‡Ø±",
+                      "evening":  "Ù…Ø³Ø§Ø¡",
+                      "subtitle":  "Ø¥Ù„ÙŠÙƒ Ù…Ø§ ÙŠØ­Ø¯Ø« Ù…Ø¹ Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„ØªØ´ØºÙŠÙ„ Ø§Ù„Ø¢Ù„ÙŠ Ø§Ù„Ø®Ø§ØµØ© Ø¨Ùƒ Ø§Ù„ÙŠÙˆÙ….",
+                      "stats":  {
+                                    "activeAgents":  "Ø¹ÙˆØ§Ù…Ù„ Ù†Ø´Ø·Ø©",
+                                    "automationsToday":  "Ø§Ù„Ø£ØªÙ…ØªØ© Ø§Ù„ÙŠÙˆÙ…",
+                                    "successRate":  "Ù…Ø¹Ø¯Ù„ Ø§Ù„Ù†Ø¬Ø§Ø­",
+                                    "pendingApprovals":  "Ø§Ù„Ù…ÙˆØ§ÙÙ‚Ø§Øª ÙÙŠ Ø§Ù†ØªØ¸Ø§Ø±",
+                                    "increasedBy":  "ØªÙ…Øª Ø§Ù„Ø²ÙŠØ§Ø¯Ø© Ø¨Ù…Ù‚Ø¯Ø§Ø± {value}",
+                                    "decreasedBy":  "Ø§Ù†Ø®ÙØ¶ Ø¨Ù…Ù‚Ø¯Ø§Ø± {value}"
+                                },
+                      "recentActivity":  "Ø§Ù„Ù†Ø´Ø§Ø· Ø§Ù„Ø£Ø®ÙŠØ±",
+                      "quickActions":  "Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª Ø³Ø±ÙŠØ¹Ø©",
+                      "quickActionsDescription":  "Ø§Ù„Ù…Ù‡Ø§Ù… Ø§Ù„Ø´Ø§Ø¦Ø¹Ø© Ù„Ù„Ø¨Ø¯Ø¡",
+                      "createAutomation":  "Ø£ØªÙ…ØªØ© Ø¬Ø¯ÙŠØ¯Ø©",
+                      "viewAgents":  "Ø¹Ø±Ø¶ Ø¬Ù…ÙŠØ¹ Ø§Ù„ÙˆÙƒÙ„Ø§Ø¡",
+                      "viewReports":  "Ø¹Ø±Ø¶ Ø§Ù„ØªÙ‚Ø§Ø±ÙŠØ±",
+                      "error":  {
+                                    "title":  "Ø®Ø·Ø£ ÙÙŠ ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
+                                    "loadingFailed":  "ØªØ¹Ø°Ø± ØªØ­Ù…ÙŠÙ„ Ø¨ÙŠØ§Ù†Ø§Øª Ù„ÙˆØ­Ø© Ø§Ù„ØªØ­ÙƒÙ…. ÙŠØ±Ø¬Ù‰ Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§ØªØµØ§Ù„Ùƒ ÙˆØ§Ù„Ù…Ø­Ø§ÙˆÙ„Ø© Ù…Ø±Ø© Ø£Ø®Ø±Ù‰.",
+                                    "retry":  "Ø­Ø§ÙˆÙ„ Ù…Ø±Ø© Ø£Ø®Ø±Ù‰",
+                                    "offlineBanner":  "Ø§Ù„ÙˆØ§Ø¬Ù‡Ø© Ø§Ù„Ø®Ù„ÙÙŠØ© ØºÙŠØ± Ù…ØªØ§Ø­Ø© â€” Ù‚Ø¯ ØªÙƒÙˆÙ† Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ø¹Ø±ÙˆØ¶Ø© Ù‚Ø¯ÙŠÙ…Ø©",
+                                    "unknown":  "Ø®Ø·Ø£ ØºÙŠØ± Ù…Ø¹Ø±ÙˆÙ"
+                                },
+                      "empty":  {
+                                    "title":  "Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ ÙˆÙƒÙ„Ø§Ø¡",
+                                    "description":  "Ø£Ù†Ø´Ø¦ ÙˆÙƒÙŠÙ„ Ø§Ù„Ø£ØªÙ…ØªØ© Ø§Ù„Ø£ÙˆÙ„ Ø§Ù„Ø®Ø§Øµ Ø¨Ùƒ Ù„Ù„Ø¨Ø¯Ø¡ ÙÙŠ Ø±Ø¤ÙŠØ© Ø§Ù„Ù†Ø´Ø§Ø· Ù‡Ù†Ø§.",
+                                    "offlineTitle":  "Ø§Ù„Ø®Ù„ÙÙŠØ© ØºÙŠØ± Ù…ØªØµÙ„",
+                                    "offlineDescription":  "Ø§ØªØµÙ„ Ø¨Ø§Ù„ÙˆØ§Ø¬Ù‡Ø© Ø§Ù„Ø®Ù„ÙÙŠØ© Ù„Ø±Ø¤ÙŠØ© ÙˆÙƒÙ„Ø§Ø¦Ùƒ. Ø§Ù†Ù‚Ø± ÙÙˆÙ‚ \"Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„Ù…Ø­Ø§ÙˆÙ„Ø©\" Ø¨Ù…Ø¬Ø±Ø¯ ØªÙˆÙØ± Ø§Ù„Ø®Ø¯Ù…Ø©."
+                                },
+                      "recentActivityEmpty":  "Ø³Ø¬Ù„ ÙØ§Ø±Øº... Ù‚Ù… Ø¨Ø¥Ù†Ø´Ø§Ø¡ Ø£ÙˆÙ„ Ù†Ø¸Ø§Ù… Ø¢Ù„ÙŠ Ù„Ùƒ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Pytomatiza+ Ø¨Ø§Ù„Ø§Ù†ØªÙ‚Ø§Ù„ Ø¥Ù„Ù‰ Ø§Ù„ÙˆØ­Ø¯Ø§Øª!",
+                      "loginPrompt":  "Ù‚Ù… Ø¨ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ Ø¥Ù„Ù‰ Ø­Ø³Ø§Ø¨Ùƒ Ù„Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙÙŠ Ø§Ù„ÙˆÙ‚Øª Ø§Ù„Ø­Ù‚ÙŠÙ‚ÙŠ!",
+                      "loginAction":  "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„",
+                      "user":  "User"
+                  },
+    "agents":  {
+                   "title":  "Ø§Ù„ÙˆÙƒÙ„Ø§Ø¡",
+                   "subtitle":  "ØªØµÙØ­ ÙˆØ¥Ø¯Ø§Ø±Ø© ÙˆÙƒÙ„Ø§Ø¡ Ø£ØªÙ…ØªØ© Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ù„Ø¯ÙŠÙƒ",
+                   "searchPlaceholder":  "ÙˆÙƒÙ„Ø§Ø¡ Ø§Ù„Ø¨Ø­Ø« Ø­Ø³Ø¨ Ø§Ù„Ø§Ø³Ù… Ø£Ùˆ Ø§Ù„Ù†ÙˆØ¹...",
+                   "filterByType":  "ØªØµÙÙŠØ© Ø­Ø³Ø¨ Ø§Ù„Ù†ÙˆØ¹",
+                   "filterByStatus":  "Ø§Ù„ØªØµÙÙŠØ© Ø­Ø³Ø¨ Ø§Ù„Ø­Ø§Ù„Ø©",
+                   "allTypes":  "Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø£Ù†ÙˆØ§Ø¹",
+                   "allStatuses":  "Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø­Ø§Ù„Ø§Øª",
+                   "types":  {
+                                 "productivity":  "Ø¥Ù†ØªØ§Ø¬ÙŠØ©",
+                                 "data":  "Ø¨ÙŠØ§Ù†Ø§Øª",
+                                 "content":  "Ù…Ø­ØªÙˆÙ‰",
+                                 "admin":  "Ù…Ø³Ø¤Ù„",
+                                 "technical":  "Ø§ÙØµØ·ÙÙ„Ø§Ø­ÙÙŠÙ‘"
+                             },
+                   "statuses":  {
+                                    "idle":  "Ø¹Ø§Ø·Ù„",
+                                    "running":  "Ø¬Ø±ÙŠ",
+                                    "error":  "Ø®Ø·Ø£",
+                                    "paused":  "Ù…ØªÙˆÙ‚Ù Ù…Ø¤Ù‚ØªÙ‹Ø§"
+                                },
+                   "statusDescriptions":  {
+                                              "idle":  "Ø§Ù„Ø­Ø§Ù„Ø© : Ø¬Ø§Ù‡Ø² Ùˆ ÙÙŠ Ø§Ù„Ø¥Ù†ØªØ¸Ø§Ø±",
+                                              "running":  "Ø§Ù„Ø­Ø§Ù„Ø©: Ù‚ÙŠØ¯ Ø§Ù„ØªÙ†ÙÙŠØ°",
+                                              "error":  "Ø§Ù„Ø­Ø§Ù„Ø©: Ø­Ø¯Ø« Ø®Ø·Ø£",
+                                              "paused":  "Ø§Ù„Ø­Ø§Ù„Ø©: Ù…ØªÙˆÙ‚Ù Ù…Ø¤Ù‚ØªÙ‹Ø§ Ù…Ù† Ù‚Ø¨Ù„ Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…"
+                                          },
+                   "card":  {
+                                "lastRun":  "Ø§Ù„ØªØ´ØºÙŠÙ„ Ø§Ù„Ø£Ø®ÙŠØ±",
+                                "successRate":  "Ù…Ø¹Ø¯Ù„ Ø§Ù„Ù†Ø¬Ø§Ø­",
+                                "runNow":  "Ø§Ø±ÙƒØ¶ Ø§Ù„Ø¢Ù†",
+                                "pause":  "ÙŠÙˆÙ‚Ù",
+                                "resume":  "Ø³ÙŠØ±Ø© Ø°Ø§ØªÙŠØ©",
+                                "configure":  "ØªÙƒÙˆÙŠÙ†",
+                                "never":  "Ø£Ø¨Ø¯Ø§Ù‹"
+                            },
+                   "empty":  "Ù„Ø§ ÙŠÙˆØ¬Ø¯ ÙˆÙƒÙ„Ø§Ø¡ ÙŠØªØ·Ø§Ø¨Ù‚ÙˆÙ† Ù…Ø¹ Ø¹ÙˆØ§Ù…Ù„ Ø§Ù„ØªØµÙÙŠØ© Ø§Ù„Ø­Ø§Ù„ÙŠØ©. Ø­Ø§ÙˆÙ„ ØªØ¹Ø¯ÙŠÙ„ Ù…Ø¹Ø§ÙŠÙŠØ± Ø§Ù„Ø¨Ø­Ø« Ø£Ùˆ Ø§Ù„ØªØµÙÙŠØ©.",
+                   "error":  "ØºÙŠØ± Ù‚Ø§Ø¯Ø± Ø¹Ù„Ù‰ ØªØ­Ù…ÙŠÙ„ Ø§Ù„ÙˆÙƒÙ„Ø§Ø¡. ÙŠØ±Ø¬Ù‰ Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§ØªØµØ§Ù„Ùƒ ÙˆØ§Ù„Ù…Ø­Ø§ÙˆÙ„Ø© Ù…Ø±Ø© Ø£Ø®Ø±Ù‰.",
+                   "mock":  {
+                                "1":  {
+                                          "name":  "Salvador de Anexos de E-mail",
+                                          "desc":  "Monitora a caixa de entrada em busca de anexos, salva-os no Google Drive e notifica via Slack."
+                                      },
+                                "2":  {
+                                          "name":  "Gerador de Relatï¿½rios Semanais",
+                                          "desc":  "Compila dados de mï¿½ltiplas fontes e gera um relatï¿½rio PDF formatado toda segunda-feira."
+                                      },
+                                "3":  {
+                                          "name":  "Monitor de Redes Sociais",
+                                          "desc":  "Rastreia menï¿½ï¿½es ï¿½ marca no Twitter, LinkedIn e Reddit. Responde automaticamente a consultas de suporte."
+                                      },
+                                "4":  {
+                                          "name":  "Agente de Backup de Banco de Dados",
+                                          "desc":  "Realiza backups noturnos do banco de dados e verifica a integridade. Alerta em caso de falha."
+                                      },
+                                "5":  {
+                                          "name":  "Verificador de Saï¿½de de APIs",
+                                          "desc":  "Faz ping em todas as APIs internas a cada minuto. Escala para o PagerDuty em caso de inatividade."
+                                      },
+                                "6":  {
+                                          "name":  "Processador de Faturas",
+                                          "desc":  "Extrai dados de faturas em PDF usando OCR e envia para o software de contabilidade."
+                                      },
+                                "7":  {
+                                          "name":  "Agendador de Reuniï¿½es",
+                                          "desc":  "Coordena calendï¿½rios entre equipes para encontrar horï¿½rios ideais e envia convites."
+                                      },
+                                "8":  {
+                                          "name":  "Tradutor de Conteï¿½do",
+                                          "desc":  "Traduz posts de blog e documentaï¿½ï¿½o para 9 idiomas usando IA."
+                                      }
+                            },
+                   "agentsFound":  "{count, plural, =1 {1 agente encontrado} other {{count} agentes encontrados}}",
+                   "loginPrompt":  "Ù‚Ù… Ø¨ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ Ø£Ùˆ Ø¥Ù†Ø´Ø§Ø¡ Ø­Ø³Ø§Ø¨ Ù„Ø­ÙØ¸ ÙˆÙƒÙ„Ø§Ø¦Ùƒ ÙˆØ³Ø¬Ù„Ùƒ!",
+                   "resetFilters":  "Ø¥Ø¹Ø§Ø¯Ø© ØªØ¹ÙŠÙŠÙ† Ø¬Ù…ÙŠØ¹ Ø§Ù„ÙÙ„Ø§ØªØ±"
+               },
+    "automations":  {
+                        "title":  "Ø§Ù„Ø£ØªÙ…ØªØ©",
+                        "subtitle":  "Ø¥Ù†Ø´Ø§Ø¡ ÙˆØ¥Ø¯Ø§Ø±Ø© Ø³ÙŠØ± Ø¹Ù…Ù„ Ø£ØªÙ…ØªØ© Ø§Ù„Ù„ØºØ© Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠØ©",
+                        "nlpBuilder":  {
+                                           "title":  "Ù…Ù†Ø´Ø¦ Ø³ÙŠØ± Ø¹Ù…Ù„ Ø§Ù„Ù„ØºØ© Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠØ©",
+                                           "description":  "Ù‚Ù… Ø¨ÙˆØµÙ Ù…Ø§ ØªØ±ÙŠØ¯ Ø£ØªÙ…ØªØªÙ‡ Ø¨Ø§Ù„Ù„ØºØ© Ø§Ù„Ø¥Ù†Ø¬Ù„ÙŠØ²ÙŠØ© Ø§Ù„Ø¨Ø³ÙŠØ·Ø©ØŒ ÙˆØ³ÙŠÙ‚ÙˆÙ… Pytomatiza+ Ø¨Ø¨Ù†Ø§Ø¡ Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ Ù†ÙŠØ§Ø¨Ø©Ù‹ Ø¹Ù†Ùƒ.",
+                                           "instructionLabel":  "Ù…Ø§ Ø§Ù„Ø°ÙŠ ØªØ±ÙŠØ¯ Ø£ØªÙ…ØªØ©ØŸ",
+                                           "instructionPlaceholder":  "Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ Ø¹Ù†Ø¯Ù…Ø§ Ø£ØªÙ„Ù‚Ù‰ Ø¨Ø±ÙŠØ¯Ù‹Ø§ Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠÙ‹Ø§ Ù…Ù† Ø¹Ù…ÙŠÙ„ ÙŠØ­ØªÙˆÙŠ Ø¹Ù„Ù‰ Ù…Ø±ÙÙ‚ØŒ Ø§Ø­ÙØ¸ Ø§Ù„Ù…Ø±ÙÙ‚ ÙÙŠ Google Drive ÙˆØ£Ø®Ø¨Ø±Ù†ÙŠ Ø¹Ø¨Ø± Slack.",
+                                           "instructionHelper":  "ÙƒÙ† Ù…Ø­Ø¯Ø¯Ù‹Ø§ Ù‚Ø¯Ø± Ø§Ù„Ø¥Ù…ÙƒØ§Ù†. Ù‚Ù… Ø¨ØªØ¶Ù…ÙŠÙ† Ø§Ù„Ù…Ø´ØºÙ„Ø§Øª ÙˆØ§Ù„Ø´Ø±ÙˆØ· ÙˆØ§Ù„Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª Ø§Ù„Ù…Ø·Ù„ÙˆØ¨Ø©.",
+                                           "agentTypeLabel":  "Ù†ÙˆØ¹ Ø§Ù„ÙˆÙƒÙŠÙ„ Ø§Ù„Ù…ÙˆØµÙ‰ Ø¨Ù‡",
+                                           "agentTypePlaceholder":  "Ø§Ù„Ø§ÙƒØªØ´Ø§Ù Ø§Ù„ØªÙ„Ù‚Ø§Ø¦ÙŠ (Ù…Ø³ØªØ­Ø³Ù†)",
+                                           "requireApprovalLabel":  "ØªØªØ·Ù„Ø¨ Ø§Ù„Ù…ÙˆØ§ÙÙ‚Ø© Ù‚Ø¨Ù„ Ø§Ù„ØªÙ†ÙÙŠØ°",
+                                           "requireApprovalHelper":  "Ø¹Ù†Ø¯ Ø§Ù„ØªÙ…ÙƒÙŠÙ†ØŒ Ø³ÙŠØªÙˆÙ‚Ù Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ Ù…Ø¤Ù‚ØªÙ‹Ø§ Ù„Ù„Ù…Ø±Ø§Ø¬Ø¹Ø© Ù‚Ø¨Ù„ Ø§Ù„ØªØ´ØºÙŠÙ„.",
+                                           "build":  "Ø¨Ù†Ø§Ø¡ Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„",
+                                           "building":  "Ø¨Ù†Ø§Ø¡ Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„â€¦",
+                                           "charCount":  "{current}/{max} Ù…Ù† Ø§Ù„Ø£Ø­Ø±Ù",
+                                           "suggestions":  "Ø¬Ø±Ø¨ Ù‡Ø°Ù‡ Ø§Ù„Ø£Ù…Ø«Ù„Ø©:",
+                                           "example1":  "Ø£Ø±Ø³Ù„ ØªÙ‚Ø±ÙŠØ±Ù‹Ø§ Ø£Ø³Ø¨ÙˆØ¹ÙŠÙ‹Ø§ Ø¨Ø¬Ù…ÙŠØ¹ Ø§Ù„ØªØ°Ø§ÙƒØ± Ø§Ù„Ù…ØºÙ„Ù‚Ø© Ø¥Ù„Ù‰ Ù‚Ù†Ø§Ø© ÙØ±ÙŠÙ‚ Slack ÙƒÙ„ ÙŠÙˆÙ… Ø¬Ù…Ø¹Ø© Ø§Ù„Ø³Ø§Ø¹Ø© 5 Ù…Ø³Ø§Ø¡Ù‹",
+                                           "example2":  "Ø±Ø§Ù‚Ø¨ Ø¥Ø´Ø§Ø±Ø§ØªÙ†Ø§ Ø¹Ù„Ù‰ ØªÙˆÙŠØªØ± ÙˆÙ‚Ù… Ø¨Ø§Ù„Ø±Ø¯ ØªÙ„Ù‚Ø§Ø¦ÙŠÙ‹Ø§ Ø¹Ù„Ù‰ Ø£Ø³Ø¦Ù„Ø© Ø§Ù„Ø¯Ø¹Ù… Ù…Ù† Ø®Ù„Ø§Ù„ Ø±Ø§Ø¨Ø· Ø¥Ù„Ù‰ Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ø³Ø§Ø¹Ø¯Ø©",
+                                           "example3":  "Ø¹Ù†Ø¯ Ø¥Ø¶Ø§ÙØ© ØµÙ Ø¬Ø¯ÙŠØ¯ Ø¥Ù„Ù‰ ÙˆØ±Ù‚Ø© Google Ø§Ù„Ø®Ø§ØµØ© Ø¨Ù€ \"Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡ Ø§Ù„Ù…Ø­ØªÙ…Ù„ÙŠÙ†\"ØŒ Ø£Ø±Ø³Ù„ Ø¨Ø±ÙŠØ¯Ù‹Ø§ Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠÙ‹Ø§ ØªØ±Ø­ÙŠØ¨ÙŠÙ‹Ø§ Ù…Ø®ØµØµÙ‹Ø§ Ø¹Ø¨Ø± Gmail"
+                                       },
+                        "workflowList":  {
+                                             "title":  "Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„Ø®Ø§Øµ Ø¨Ùƒ",
+                                             "empty":  "Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ø³ÙŠØ± Ø¹Ù…Ù„ Ø­ØªÙ‰ Ø§Ù„Ø¢Ù†. Ù‚Ù… Ø¨Ø¥Ù†Ø´Ø§Ø¡ Ø£ÙˆÙ„ ÙˆØ§Ø­Ø¯ Ø£Ø¹Ù„Ø§Ù‡.",
+                                             "lastTriggered":  "Ø¢Ø®Ø± Ù…Ø§ Ø£Ø«Ø§Ø±",
+                                             "executions":  "Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ø¥Ø¹Ø¯Ø§Ù…",
+                                             "toggle":  "ØªØ¨Ø¯ÙŠÙ„ Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„",
+                                             "delete":  "Ø­Ø°Ù Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„",
+                                             "deleteConfirm":  "Ù‡Ù„ Ø£Ù†Øª Ù…ØªØ£ÙƒØ¯ Ø£Ù†Ùƒ ØªØ±ÙŠØ¯ Ø­Ø°Ù Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ Ù‡Ø°Ø§ØŸ Ù„Ø§ ÙŠÙ…ÙƒÙ† Ø§Ù„ØªØ±Ø§Ø¬Ø¹ Ø¹Ù† Ù‡Ø°Ø§ Ø§Ù„Ø¥Ø¬Ø±Ø§Ø¡.",
+                                             "deleted":  "ØªÙ… Ø­Ø°Ù Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ Ø¨Ù†Ø¬Ø§Ø­",
+                                             "statusToggled":  "Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ {status}",
+                                             "label":  "Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„",
+                                             "neverTriggered":  "Ù„Ù… ÙŠØªÙ… ØªØ´ØºÙŠÙ„Ù‡Ø§ Ø£Ø¨Ø¯Ù‹Ø§",
+                                             "status":  "Ø§Ù„Ø­Ø§Ù„Ø©: {status}",
+                                             "created":  "ØªÙ… Ø¥Ù†Ø´Ø§Ø¡ Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„! Ù†ÙˆØ¹ Ø§Ù„ÙˆÙƒÙŠÙ„: {agentType}. Ø§Ù„Ù…ÙˆØ§ÙÙ‚Ø©: {approval}.",
+                                             "required":  "Ù…Ø·Ù„ÙˆØ¨",
+                                             "notRequired":  "ØºÙŠØ± Ù…Ø·Ù„ÙˆØ¨"
+                                         },
+                        "errors":  {
+                                       "instructionTooShort":  "ÙŠØ¬Ø¨ Ø£Ù† ØªØªÙƒÙˆÙ† Ø§Ù„ØªØ¹Ù„ÙŠÙ…Ø§Øª Ù…Ù† 10 Ø£Ø­Ø±Ù Ø¹Ù„Ù‰ Ø§Ù„Ø£Ù‚Ù„",
+                                       "instructionTooLong":  "ÙŠØ¬Ø¨ Ø£Ù„Ø§ ÙŠØªØ¬Ø§ÙˆØ² Ø·ÙˆÙ„ Ø§Ù„ØªØ¹Ù„ÙŠÙ…Ø§Øª 500 Ø­Ø±Ù",
+                                       "buildFailed":  "ÙØ´Ù„ ÙÙŠ Ø¨Ù†Ø§Ø¡ Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„. ÙŠØ±Ø¬Ù‰ Ø§Ù„Ù…Ø­Ø§ÙˆÙ„Ø© Ù…Ø±Ø© Ø£Ø®Ø±Ù‰."
+                                   },
+                        "loginPrompt":  "Ù‚Ù… Ø¨ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ Ø¥Ù„Ù‰ Ø­Ø³Ø§Ø¨Ùƒ Ù„Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙÙŠ Ø§Ù„ÙˆÙ‚Øª Ø§Ù„Ø­Ù‚ÙŠÙ‚ÙŠ!",
+                        "agentTypes":  {
+                                           "productivity":  "Ø¥Ù†ØªØ§Ø¬ÙŠØ©",
+                                           "data":  "Data",
+                                           "content":  "Ù…Ø­ØªÙˆÙ‰",
+                                           "admin":  "Admin",
+                                           "technical":  "Ø§ÙØµØ·ÙÙ„Ø§Ø­ÙÙŠÙ‘"
+                                       }
+                    },
+    "theme":  {
+                  "light":  "Ø¶ÙˆØ¡",
+                  "dark":  "Ù…Ø¸Ù„Ù…",
+                  "system":  "Ù†Ø¸Ø§Ù…"
+              },
+    "errors":  {
+                   "notFound":  {
+                                    "title":  "Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ø§Ù„ØµÙØ­Ø©",
+                                    "description":  "Ø§Ù„ØµÙØ­Ø© Ø§Ù„ØªÙŠ ØªØ¨Ø­Ø« Ø¹Ù†Ù‡Ø§ ØºÙŠØ± Ù…ÙˆØ¬ÙˆØ¯Ø© Ø£Ùˆ ØªÙ… Ù†Ù‚Ù„Ù‡Ø§.",
+                                    "goHome":  "Ø§Ø°Ù‡Ø¨ Ø¥Ù„Ù‰ Ù„ÙˆØ­Ø© Ø§Ù„Ù‚ÙŠØ§Ø¯Ø©"
+                                },
+                   "serverError":  {
+                                       "title":  "Ø®Ø·Ø£ ÙÙŠ Ø§Ù„Ø®Ø§Ø¯Ù…",
+                                       "description":  "Ø­Ø¯Ø« Ø®Ø·Ø£ ØºÙŠØ± Ù…ØªÙˆÙ‚Ø¹. Ù„Ù‚Ø¯ ØªÙ… Ø¥Ø®Ø·Ø§Ø± ÙØ±ÙŠÙ‚Ù†Ø§.",
+                                       "retry":  "Ø­Ø§ÙˆÙ„ Ø«Ø§Ù†ÙŠØ©"
+                                   },
+                   "unauthorized":  {
+                                        "title":  "ØºÙŠØ± Ù…ØµØ±Ø­ Ø¨Ù‡",
+                                        "description":  "ØªØ­ØªØ§Ø¬ Ø¥Ù„Ù‰ ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ Ù„Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø©.",
+                                        "signIn":  "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„"
+                                    },
+                   "notFoundTitle":  "Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ø§Ù„ØµÙØ­Ø©",
+                   "notFoundDescription":  "Ø§Ù„ØµÙØ­Ø© Ø§Ù„ØªÙŠ ØªØ¨Ø­Ø« Ø¹Ù†Ù‡Ø§ ØºÙŠØ± Ù…ÙˆØ¬ÙˆØ¯Ø© Ø£Ùˆ ØªÙ… Ù†Ù‚Ù„Ù‡Ø§.",
+                   "notFoundAction":  "Ø§Ø°Ù‡Ø¨ Ø¥Ù„Ù‰ Ù„ÙˆØ­Ø© Ø§Ù„Ù‚ÙŠØ§Ø¯Ø©",
+                   "somethingWentWrong":  "Ø­Ø¯Ø« Ø®Ø·Ø£ Ù…Ø§",
+                   "unexpectedError":  "Ø­Ø¯Ø« Ø®Ø·Ø£ ØºÙŠØ± Ù…ØªÙˆÙ‚Ø¹. Ù„Ù‚Ø¯ ØªÙ… Ø¥Ø®Ø·Ø§Ø± ÙØ±ÙŠÙ‚Ù†Ø§.",
+                   "dashboardErrorDescription":  "Ø­Ø¯Ø« Ø®Ø·Ø£ ØºÙŠØ± Ù…ØªÙˆÙ‚Ø¹ Ø£Ø«Ù†Ø§Ø¡ ØªØ­Ù…ÙŠÙ„ Ù‡Ø°Ù‡ Ø§Ù„ØµÙØ­Ø©.",
+                   "tryAgain":  "Ø­Ø§ÙˆÙ„ Ø«Ø§Ù†ÙŠØ©",
+                   "goHome":  "Ø§Ø°Ù‡Ø¨ Ø¥Ù„Ù‰ Ø§Ù„Ù…Ù†Ø²Ù„",
+                   "errorId":  "Ù…Ø¹Ø±Ù Ø§Ù„Ø®Ø·Ø£:",
+                   "loadingDashboard":  "Ø¬Ø§Ø±Ù ØªØ­Ù…ÙŠÙ„ Ù„ÙˆØ­Ø© Ø§Ù„Ù‚ÙŠØ§Ø¯Ø©",
+                   "loadingDashboardContent":  "Ø¬Ø§Ø±Ù ØªØ­Ù…ÙŠÙ„ Ù…Ø­ØªÙˆÙ‰ Ù„ÙˆØ­Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øªâ€¦"
+               },
+    "nav":  {
+                "dashboard":  "Ù„ÙˆØ­Ø© Ø§Ù„Ù‚ÙŠØ§Ø¯Ø©",
+                "home":  "Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©",
+                "automations":  "Ø§Ù„Ø£ØªÙ…ØªØ©",
+                "agents":  "Ø§Ù„ÙˆÙƒÙ„Ø§Ø¡",
+                "logs":  "Ø§Ù„Ø³Ø¬Ù„Ø§Øª ÙˆØ§Ù„Ù…ÙˆØ§ÙÙ‚Ø§Øª",
+                "modules":  "ÙˆØ­Ø¯Ø§Øª",
+                "modulesPanel":  "Ø§Ù„ÙˆØ­Ø¯Ø§Øª Ø§Ù„Ù…ØªØ§Ø­Ø©",
+                "openMenu":  "ÙØªØ­ Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„ØªÙ†Ù‚Ù„",
+                "closeMenu":  "Ø¥ØºÙ„Ø§Ù‚ Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„ØªÙ†Ù‚Ù„",
+                "closeModules":  "Ø¥ØºÙ„Ø§Ù‚ Ù„ÙˆØ­Ø© Ø§Ù„ÙˆØ­Ø¯Ø§Øª",
+                "primary":  "Ø§Ù„ØªÙ†Ù‚Ù„ Ø§Ù„Ø£Ø³Ø§Ø³ÙŠ",
+                "documents":  "ÙˆØ«Ø§Ø¦Ù‚",
+                "documentsDesc":  "Ø¥Ø¯Ø§Ø±Ø© ÙˆØªÙ†Ø¸ÙŠÙ… Ø§Ù„Ù…Ø³ØªÙ†Ø¯Ø§Øª Ø§Ù„Ø®Ø§ØµØ© Ø¨Ùƒ.",
+                "data":  "Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ¬Ø¯Ø§ÙˆÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
+                "dataDesc":  "Ø§Ù„Ø¹Ù…Ù„ Ù…Ø¹ Ù…ØµØ§Ø¯Ø± Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ¬Ø¯Ø§ÙˆÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª.",
+                "communication":  "ØªÙˆØ§ØµÙ„",
+                "communicationDesc":  "Ø±Ø³Ø§Ø¦Ù„ Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ ÙˆØ§Ù„Ø±Ø³Ø§Ø¦Ù„ ÙˆØ§Ù„Ø¥Ø´Ø¹Ø§Ø±Ø§Øª.",
+                "media":  "Ø§Ù„ÙˆØ³Ø§Ø¦Ø· ÙˆØ§Ù„ØµÙˆØ±",
+                "mediaDesc":  "Ø¥Ø¯Ø§Ø±Ø© Ø£ØµÙˆÙ„ Ø§Ù„ØµÙˆØ± ÙˆØ§Ù„ÙˆØ³Ø§Ø¦Ø·.",
+                "files":  "Ù…Ù„ÙØ§Øª",
+                "filesDesc":  "ØªØ®Ø²ÙŠÙ† Ø§Ù„Ù…Ù„ÙØ§Øª Ø§Ù„Ø¹Ø§Ù…Ø© ÙˆØ¥Ø¯Ø§Ø±ØªÙ‡Ø§.",
+                "architecture":  "Ø¨Ù†ÙŠØ§Ù†",
+                "architectureDesc":  "Ù…Ø®Ø·Ø·Ø§Øª Ø§Ù„Ù†Ø¸Ø§Ù… ÙˆÙ…Ø³ØªÙ†Ø¯Ø§Øª Ø§Ù„Ù‡Ù†Ø¯Ø³Ø© Ø§Ù„Ù…Ø¹Ù…Ø§Ø±ÙŠØ©.",
+                "settings":  "Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª",
+                "signOut":  "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø®Ø±ÙˆØ¬",
+                "signIn":  "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„",
+                "appearance":  "Ù…Ø¸Ù‡Ø±",
+                "user":  "User"
+            },
+    "modules":  {
+                    "documents":  {
+                                      "title":  "ÙˆØ«Ø§Ø¦Ù‚",
+                                      "subtitle":  "Ø£ØªÙ…ØªØ© Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ù…Ø³ØªÙ†Ø¯Ø§Øª Ø§Ù„Ø°ÙƒÙŠØ© Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… ÙˆÙƒÙ„Ø§Ø¡ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ",
+                                      "upload":  {
+                                                     "title":  "Ø¥Ø±ÙØ§Ù‚ Ø§Ù„ÙˆØ«ÙŠÙ‚Ø©",
+                                                     "description":  "Ù‚Ù… Ø¨Ø³Ø­Ø¨ ÙˆØ¥Ø³Ù‚Ø§Ø· Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø®Ø§Øµ Ø¨Ùƒ Ù‡Ù†Ø§ Ø£Ùˆ Ø§Ù†Ù‚Ø± Ù„Ù„ØªØ­Ø¯ÙŠØ¯",
+                                                     "dragActive":  "Ù‚Ù… Ø¨Ø¥Ø³Ù‚Ø§Ø· Ø§Ù„Ù…Ù„Ù Ù„Ø¥Ø±ÙØ§Ù‚Ù‡",
+                                                     "browse":  "ØªØµÙØ­ Ø§Ù„Ù…Ù„ÙØ§Øª",
+                                                     "supportedFormats":  "Supported formats: PDF, DOCX, XLSX, PPTX, TXT, CSV, images",
+                                                     "maxSize":  "Ø§Ù„Ø­Ø¯ Ø§Ù„Ø£Ù‚ØµÙ‰ Ù„Ù„Ø­Ø¬Ù…: 25 Ù…ÙŠØ¬Ø§Ø¨Ø§ÙŠØª",
+                                                     "fileSelected":  "ØªÙ… ØªØ­Ø¯ÙŠØ¯ Ø§Ù„Ù…Ù„Ù",
+                                                     "remove":  "Ø¥Ø²Ø§Ù„Ø© Ø§Ù„Ù…Ù„Ù"
+                                                 },
+                                      "instruction":  {
+                                                          "title":  "Ù…Ø§Ø°Ø§ ÙŠØ¬Ø¨ Ø£Ù† ÙŠÙØ¹Ù„ ÙˆÙƒÙŠÙ„ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠØŸ",
+                                                          "description":  "ØµÙ Ø¨Ø§Ù„Ù„ØºØ© Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠØ© Ù…Ø§ ØªØ±ÙŠØ¯ Ø£Ù† ÙŠÙØ¹Ù„Ù‡ Ø§Ù„ÙˆÙƒÙŠÙ„ Ø¨Ù‡Ø°Ù‡ Ø§Ù„ÙˆØ«ÙŠÙ‚Ø©.",
+                                                          "label":  "ØªØ¹Ù„ÙŠÙ…Ø§Øª Ø§Ù„ÙˆÙƒÙŠÙ„",
+                                                          "placeholder":  "Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ Ø§Ø³ØªØ®Ø±Ø§Ø¬ ÙƒØ§ÙØ© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ù…Ù† Ø§Ù„Ø¬Ø¯ÙˆÙ„ Ø§Ù„Ù…ÙˆØ¬ÙˆØ¯ ÙÙŠ Ø§Ù„ØµÙØ­Ø© 3 ÙˆØªØ­ÙˆÙŠÙ„Ù‡Ø§ Ø¥Ù„Ù‰ Ø¬Ø¯ÙˆÙ„ Ø¨ÙŠØ§Ù†Ø§Øª CSV. Ø«Ù… Ø£Ø±Ø³Ù„Ù‡ Ø¨Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ Ø¥Ù„Ù‰ Finance@company.com.",
+                                                          "helper":  "ÙƒÙ† Ù…Ø­Ø¯Ø¯Ù‹Ø§: Ù‚Ù… Ø¨ØªØ¶Ù…ÙŠÙ† Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ø·Ù„ÙˆØ¨ Ø§Ø³ØªØ®Ø±Ø§Ø¬Ù‡Ø§ØŒ ÙˆØªÙ†Ø³ÙŠÙ‚ Ø§Ù„Ø¥Ø®Ø±Ø§Ø¬ØŒ ÙˆØ§Ù„Ù…Ø³ØªÙ„Ù…ÙŠÙ†ØŒ ÙˆØ¥Ø¬Ø±Ø§Ø¡Ø§Øª Ù…Ø§ Ø¨Ø¹Ø¯ Ø§Ù„Ù…Ø¹Ø§Ù„Ø¬Ø©.",
+                                                          "charCount":  "{current}/{max} Ø£Ø­Ø±Ù"
+                                                      },
+                                      "quickActions":  {
+                                                           "title":  "Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª Ø³Ø±ÙŠØ¹Ø©",
+                                                           "extractData":  "Ø§Ø³ØªØ®Ø±Ø§Ø¬ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
+                                                           "convertFormat":  "ØªØ­ÙˆÙŠÙ„ Ø§Ù„ØªÙ†Ø³ÙŠÙ‚",
+                                                           "mergeDocs":  "Ø¯Ù…Ø¬ Ø§Ù„Ù…Ø³ØªÙ†Ø¯Ø§Øª",
+                                                           "ocrScan":  "Ù…Ø³Ø­ Ø§Ù„ØªØ¹Ø±Ù Ø§Ù„Ø¶ÙˆØ¦ÙŠ Ø¹Ù„Ù‰ Ø§Ù„Ø­Ø±ÙˆÙ",
+                                                           "summarize":  "ØªÙ„Ø®ÙŠØµ Ø§Ù„Ù…Ø­ØªÙˆÙ‰",
+                                                           "translate":  "ÙŠØªØ±Ø¬Ù…",
+                                                           "presets":  {
+                                                                           "extract":  "Ø§Ø³ØªØ®Ø±Ø¬ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ù†Ø¸Ù…Ø© Ù…Ù† Ù‡Ø°Ø§ Ø§Ù„Ù…Ø³ØªÙ†Ø¯ ÙˆÙ‚Ù… Ø¨ØªØµØ¯ÙŠØ±Ù‡Ø§ ÙƒÙ…Ù„Ù CSV.",
+                                                                           "convert":  "Ù‚Ù… Ø¨ØªØ­ÙˆÙŠÙ„ Ù‡Ø°Ø§ Ø§Ù„Ù…Ø³ØªÙ†Ø¯ Ø¥Ù„Ù‰ ØªÙ†Ø³ÙŠÙ‚ PDF Ù…Ø¹ Ø§Ù„Ø­ÙØ§Ø¸ Ø¹Ù„Ù‰ Ø§Ù„ØªØ®Ø·ÙŠØ· Ø§Ù„Ø£ØµÙ„ÙŠ.",
+                                                                           "merge":  "Ù‚Ù… Ø¨Ø¯Ù…Ø¬ Ù‡Ø°Ø§ Ø§Ù„Ù…Ø³ØªÙ†Ø¯ Ù…Ø¹ Ø§Ù„Ù…Ù„ÙØ§Øª Ø§Ù„Ø£Ø®Ø±Ù‰ Ø§Ù„Ù…ÙˆØ¬ÙˆØ¯Ø© ÙÙŠ Ø§Ù„Ù…Ø¬Ù„Ø¯ ÙˆÙ‚Ù… Ø¨Ø¥Ù†Ø´Ø§Ø¡ Ù…Ù„Ù PDF Ù…ÙˆØ­Ø¯ ÙˆØ§Ø­Ø¯.",
+                                                                           "ocr":  "Ù‚Ù… Ø¨Ù…Ø³Ø­ Ù‡Ø°Ø§ Ø§Ù„Ù…Ø³ØªÙ†Ø¯ Ø¶ÙˆØ¦ÙŠÙ‹Ø§ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… OCR ÙˆØ§Ø³ØªØ®Ø±Ø¬ ÙƒÙ„ Ø§Ù„Ù†Øµ Ø¨ØªÙ†Ø³ÙŠÙ‚ Ù‚Ø§Ø¨Ù„ Ù„Ù„ØªØ­Ø±ÙŠØ±.",
+                                                                           "summarize":  "Ù„Ø®Øµ Ù…Ø­ØªÙˆÙ‰ Ù‡Ø°Ù‡ Ø§Ù„ÙˆØ«ÙŠÙ‚Ø© ÙÙŠ ÙÙ‚Ø±Ø© ÙˆØ§Ø­Ø¯Ø© Ù…Ø¹ Ø§Ù„Ù†Ù‚Ø§Ø· Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©.",
+                                                                           "translate":  "Ù‚Ù… Ø¨ØªØ±Ø¬Ù…Ø© Ù‡Ø°Ø§ Ø§Ù„Ù…Ø³ØªÙ†Ø¯ Ø¥Ù„Ù‰ Ø§Ù„Ù„ØºØ© Ø§Ù„Ø¥Ù†Ø¬Ù„ÙŠØ²ÙŠØ© Ù…Ø¹ Ø§Ù„Ø­ÙØ§Ø¸ Ø¹Ù„Ù‰ Ø§Ù„ØªÙ†Ø³ÙŠÙ‚ Ø§Ù„Ø£ØµÙ„ÙŠ."
+                                                                       }
+                                                       },
+                                      "recentDocuments":  {
+                                                              "title":  "Ø§Ù„Ù…Ø³ØªÙ†Ø¯Ø§Øª Ø§Ù„Ø­Ø¯ÙŠØ«Ø©",
+                                                              "empty":  "Ù„Ù… ØªØªÙ… Ù…Ø¹Ø§Ù„Ø¬Ø© Ø£ÙŠ ÙˆØ«Ø§Ø¦Ù‚ Ø­ØªÙ‰ Ø§Ù„Ø¢Ù†. Ù‚Ù… Ø¨ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ù…Ø³ØªÙ†Ø¯ Ø§Ù„Ø£ÙˆÙ„ Ø£Ø¹Ù„Ø§Ù‡.",
+                                                              "processed":  "Ù…Ø¹Ø§Ù„Ø¬ØªÙ‡Ø§",
+                                                              "status":  "Ø­Ø§Ù„Ø©",
+                                                              "actions":  "Ø§Ù„Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª",
+                                                              "download":  "ØªÙ†Ø²ÙŠÙ„ Ø§Ù„Ù†ØªÙŠØ¬Ø©",
+                                                              "reprocess":  "Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„Ù…Ø¹Ø§Ù„Ø¬Ø©",
+                                                              "delete":  "ÙŠÙ…Ø³Ø­"
+                                                          },
+                                      "processing":  {
+                                                         "button":  "ÙˆØ«ÙŠÙ‚Ø© Ø§Ù„Ø¹Ù…Ù„ÙŠØ©",
+                                                         "processing":  "ÙŠØ¹Ø§Ù„Ø¬â€¦",
+                                                         "success":  "ØªÙ…Øª Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ù…Ø³ØªÙ†Ø¯ Ø¨Ù†Ø¬Ø§Ø­!",
+                                                         "error":  "ÙØ´Ù„Øª Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ù…Ø³ØªÙ†Ø¯. ÙŠØ±Ø¬Ù‰ Ø§Ù„Ù…Ø­Ø§ÙˆÙ„Ø© Ù…Ø±Ø© Ø£Ø®Ø±Ù‰.",
+                                                         "reprocessInstruction":  "Ø£Ø¹Ø¯ Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ù…Ø³ØªÙ†Ø¯ {name} Ù…Ø¹ ØªØ·Ø¨ÙŠÙ‚ Ù†ÙØ³ Ø§Ù„ØªØ­ÙˆÙŠÙ„Ø§Øª Ø§Ù„Ø³Ø§Ø¨Ù‚Ø©.",
+                                                         "resultTitle":  "نتيجة التحليل",
+                                                         "unsupportedFormat":  "تنسيق الملف غير مدعوم من OCR. استخدم PDF أو PNG أو JPG أو WebP."
+                                                     },
+                                      "integrations":  {
+                                                           "googleDrive":  {
+                                                                               "title":  "Google Drive",
+                                                                               "description":  "Ù‚Ù… Ø¨Ø§Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„Ù…Ø³ØªÙ†Ø¯Ø§Øª ÙˆØ§Ø®ØªÙŠØ§Ø±Ù‡Ø§ Ù…Ø¨Ø§Ø´Ø±Ø©Ù‹ Ù…Ù† Google Drive.",
+                                                                               "connect":  "ØªÙˆØ§ØµÙ„ Google Drive",
+                                                                               "connecting":  "Ø¬Ø§Ø±Ù Ø§Ù„Ø§ØªØµØ§Ù„...",
+                                                                               "connected":  "Ù…ØªØµÙ„ Ø¨Ù€ Google Drive",
+                                                                               "browse":  "ØªØµÙØ­ Ù…Ø­Ø±Ùƒ"
+                                                                           }
+                                                       },
+                                      "dialogs":  {
+                                                      "deleteConfirm":  "Ù‡Ù„ Ø£Ù†Øª Ù…ØªØ£ÙƒØ¯ Ø£Ù†Ùƒ ØªØ±ÙŠØ¯ Ø­Ø°Ù Ù‡Ø°Ø§ Ø§Ù„Ù…Ø³ØªÙ†Ø¯ØŸ Ù„Ø§ ÙŠÙ…ÙƒÙ† Ø§Ù„ØªØ±Ø§Ø¬Ø¹ Ø¹Ù† Ù‡Ø°Ø§ Ø§Ù„Ø¥Ø¬Ø±Ø§Ø¡."
+                                                  }
+                                  },
+                    "data":  {
+                                 "title":  "Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ¬Ø¯Ø§ÙˆÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
+                                 "subtitle":  "Ø±Ø¨Ø· Ù…ØµØ§Ø¯Ø± Ø§Ù„Ø¨ÙŠØ§Ù†Ø§ØªØŒ ÙˆØªØ­ÙˆÙŠÙ„ Ø¬Ø¯Ø§ÙˆÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§ØªØŒ ÙˆØ£ØªÙ…ØªØ© Ø§Ù„ØªØ­Ù„ÙŠÙ„",
+                                 "source":  {
+                                                "title":  "Ù…ØµØ¯Ø± Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
+                                                "description":  "Ø§Ø®ØªØ± ÙƒÙŠÙÙŠØ© ØªÙˆØµÙŠÙ„ Ø¨ÙŠØ§Ù†Ø§ØªÙƒ",
+                                                "uploadCsv":  "ØªØ­Ù…ÙŠÙ„ Ù…Ù„Ù CSV/Excel",
+                                                "googleSheets":  "Google Sheets",
+                                                "database":  "Ù‚Ø§Ø¹Ø¯Ø© Ø¨ÙŠØ§Ù†Ø§Øª SQL",
+                                                "api":  "ÙˆØ§Ø¬Ù‡Ø© Ø¨Ø±Ù…Ø¬Ø© ØªØ·Ø¨ÙŠÙ‚Ø§Øª REST",
+                                                "url":  "Ø¹Ù†ÙˆØ§Ù† URL Ø¹Ø§Ù…",
+                                                "selectPlaceholder":  "Ø­Ø¯Ø¯ Ù†ÙˆØ¹ Ø§Ù„Ù…ØµØ¯Ø±...",
+                                                "connect":  "ÙŠØªØµÙ„",
+                                                "connecting":  "Ø¬Ø§Ø±Ù Ø§Ù„Ø§ØªØµØ§Ù„â€¦"
+                                            },
+                                 "instruction":  {
+                                                     "title":  "Ù…Ø§Ø°Ø§ ØªÙØ¹Ù„ Ù…Ø¹ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§ØªØŸ",
+                                                     "description":  "ÙˆØµÙ Ø§Ù„ØªØ­ÙˆÙŠÙ„ Ø£Ùˆ Ø§Ù„ØªØ­Ù„ÙŠÙ„ Ø£Ùˆ Ø§Ù„Ø£ØªÙ…ØªØ© Ø§Ù„Ù…Ø·Ù„ÙˆØ¨Ø©",
+                                                     "label":  "ØªØ¹Ù„ÙŠÙ…Ø§Øª Ø§Ù„Ù…Ø¹Ø§Ù„Ø¬Ø©",
+                                                     "placeholder":  "Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ Ø¯Ù…Ø¬ Ø£Ø¹Ù…Ø¯Ø© \"Ø§Ù„Ø§Ø³Ù… Ø§Ù„Ø£ÙˆÙ„\" Ùˆ\"Ø§Ø³Ù… Ø§Ù„Ø¹Ø§Ø¦Ù„Ø©\"ØŒ ÙˆØªØµÙÙŠØ© Ø§Ù„Ø³Ø¬Ù„Ø§Øª Ø§Ù„ØªÙŠ ØªØ²ÙŠØ¯ Ù…Ø¨ÙŠØ¹Ø§ØªÙ‡Ø§ Ø¹Ù† 10000 Ø¯ÙˆÙ„Ø§Ø±ØŒ ÙˆØªØ¬Ù…ÙŠØ¹Ù‡Ø§ Ø­Ø³Ø¨ Ø§Ù„Ù…Ù†Ø·Ù‚Ø©ØŒ ÙˆØ¥Ù†Ø´Ø§Ø¡ Ù…Ø®Ø·Ø· Ø´Ø±ÙŠØ·ÙŠ.",
+                                                     "helper":  "Ù‚Ù… Ø¨ØªØ¶Ù…ÙŠÙ† Ø¹ÙˆØ§Ù…Ù„ Ø§Ù„ØªØµÙÙŠØ© ÙˆØ§Ù„ØªØ¬Ù…ÙŠØ¹Ø§Øª ÙˆØ±ÙˆØ§Ø¨Ø· Ø§Ù„Ø¬Ø¯ÙˆÙ„ ÙˆØªÙ†Ø³ÙŠÙ‚ Ø§Ù„Ø¥Ø®Ø±Ø§Ø¬ Ø§Ù„Ù…Ø·Ù„ÙˆØ¨.",
+                                                     "charCount":  "{current}/{max} Ø£Ø­Ø±Ù"
+                                                 },
+                                 "preview":  {
+                                                 "title":  "Ù…Ø¹Ø§ÙŠÙ†Ø©",
+                                                 "noData":  "Ù‚Ù… Ø¨ØªÙˆØµÙŠÙ„ Ù…ØµØ¯Ø± Ø¨ÙŠØ§Ù†Ø§Øª Ù„Ù„Ù…Ø¹Ø§ÙŠÙ†Ø©",
+                                                 "rows":  "{count} Ø§Ù„ØµÙÙˆÙ",
+                                                 "columns":  "{count} Ø£Ø¹Ù…Ø¯Ø©",
+                                                 "id":  "ID",
+                                                 "name":  "Name",
+                                                 "region":  "Ù…Ù†Ø·Ù‚Ø©",
+                                                 "sales":  "Sales",
+                                                 "status":  "Ø­Ø§Ù„Ø©",
+                                                 "showingRecords":  "Ø¹Ø±Ø¶ {shown} Ù…Ù† {total} Ø§Ù„Ø³Ø¬Ù„Ø§Øª"
+                                             },
+                                 "recentDatasets":  {
+                                                        "title":  "Ù…Ø¬Ù…ÙˆØ¹Ø§Øª Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø£Ø®ÙŠØ±Ø©",
+                                                        "empty":  "Ù„Ù… ØªØªÙ… Ù…Ø¹Ø§Ù„Ø¬Ø© Ø£ÙŠ Ù…Ø¬Ù…ÙˆØ¹Ø§Øª Ø¨ÙŠØ§Ù†Ø§Øª Ø­ØªÙ‰ Ø§Ù„Ø¢Ù†",
+                                                        "source":  "Ù…ØµØ¯Ø±",
+                                                        "lastUsed":  "Ø¢Ø®Ø± Ø§Ø³ØªØ®Ø¯Ø§Ù…",
+                                                        "info":  "{rows} ØµÙÙˆÙ Â· {cols} Ø£Ø¹Ù…Ø¯Ø©"
+                                                    },
+                                 "actions":  {
+                                                 "transform":  "ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
+                                                 "analyze":  "ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
+                                                 "export":  "Ù†ØªÙŠØ¬Ø© Ø§Ù„ØªØµØ¯ÙŠØ±",
+                                                 "schedule":  "Ø£ØªÙ…ØªØ© Ø§Ù„Ø¬Ø¯ÙˆÙ„ Ø§Ù„Ø²Ù…Ù†ÙŠ",
+                                                 "sidebarTitle":  "Ø§Ù„Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª",
+                                                 "dashboard":  "Ù„ÙˆØ­Ø© Ø§Ù„Ù‚ÙŠØ§Ø¯Ø©",
+                                                 "processing":  "ÙŠØ¹Ø§Ù„Ø¬â€¦"
+                                             },
+                                 "integrations":  {
+                                                      "googleDrive":  {
+                                                                          "title":  "Google Drive",
+                                                                          "description":  "ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø¬Ø¯Ø§ÙˆÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆÙ…Ù„ÙØ§Øª Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ù…Ø¨Ø§Ø´Ø±Ø©Ù‹ Ù…Ù† Google Drive.",
+                                                                          "connect":  "ØªÙˆØ§ØµÙ„ Google Drive",
+                                                                          "connecting":  "Ø¬Ø§Ø±Ù Ø§Ù„Ø§ØªØµØ§Ù„...",
+                                                                          "connected":  "Ù…ØªØµÙ„ Ø¨Ù€ Google Drive",
+                                                                          "browse":  "ØªØµÙØ­ Ù…Ø­Ø±Ùƒ"
+                                                                      }
+                                                  },
+                                 "errors":  {
+                                                "connectFailed":  "ÙØ´Ù„ Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ù…ØµØ¯Ø± Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª.",
+                                                "processFailed":  "ÙØ´Ù„Øª Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª."
+                                            },
+                                 "results":  {
+                                                 "connected":  "ØªÙ… Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ù†Ø¬Ø§Ø­! Ù…ØµØ¯Ø± Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø¬Ø§Ù‡Ø² Ù„Ù„Ù…Ø¹Ø§Ù„Ø¬Ø©.",
+                                                 "transformComplete":  "Ø§ÙƒØªÙ…Ù„ Ø§Ù„ØªØ­ÙˆÙ„! {count} ØªÙ…Øª Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ø³Ø¬Ù„Ø§Øª. Ø§Ù„Ù†ØªÙŠØ¬Ø© Ø¬Ø§Ù‡Ø²Ø© Ù„Ù„ØªØ­Ù…ÙŠÙ„.",
+                                                 "analyzeInstruction":  "ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…ØªØµÙ„Ø© ÙˆØ¥Ù†Ø´Ø§Ø¡ Ø±Ø¤Ù‰: Ø§Ù„Ø§ØªØ¬Ø§Ù‡Ø§Øª ÙˆØ§Ù„Ù‚ÙŠÙ… Ø§Ù„Ù…ØªØ·Ø±ÙØ© ÙˆØ§Ù„Ø¹Ù„Ø§Ù‚Ø§Øª Ø§Ù„Ù…ØªØ¨Ø§Ø¯Ù„Ø© ÙˆØ§Ù„ØªÙˆØµÙŠØ§Øª.",
+                                                 "scheduleAlert":  "ØªÙ… ØªÙƒÙˆÙŠÙ† Ø§Ù„Ø¬Ø¯ÙˆÙ„Ø©! Ø³ØªØªÙ… Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ØªÙ„Ù‚Ø§Ø¦ÙŠØ§.",
+                                                 "comingSoon":  "Ø§Ù„Ù…ÙŠØ²Ø© Ù‚Ø±ÙŠØ¨Ø§."
+                                             },
+                                 "presets":  {
+                                                 "merge":  {
+                                                               "label":  "Ø¯Ù…Ø¬ Ø§Ù„Ø£Ø¹Ù…Ø¯Ø©",
+                                                               "prompt":  "Ù‚Ù… Ø¨Ø¯Ù…Ø¬ Ø¹Ù…ÙˆØ¯ÙŠ \"Ø§Ù„Ø§Ø³Ù…\" Ùˆ\"Ø§Ø³Ù… Ø§Ù„Ø¹Ø§Ø¦Ù„Ø©\" ÙÙŠ Ø¹Ù…ÙˆØ¯ \"Ø§Ù„Ø§Ø³Ù… Ø§Ù„ÙƒØ§Ù…Ù„\" ÙˆØ§Ø­Ø¯."
+                                                           },
+                                                 "filter":  {
+                                                                "label":  "ØªØµÙÙŠØ© Ø§Ù„Ø³Ø¬Ù„Ø§Øª",
+                                                                "prompt":  "Ù‚Ù… Ø¨ØªØµÙÙŠØ© Ø§Ù„Ø³Ø¬Ù„Ø§Øª Ø§Ù„ØªÙŠ ÙŠÙƒÙˆÙ† ÙÙŠÙ‡Ø§ Ø¹Ù…ÙˆØ¯ \"Ø§Ù„Ù…Ø¨ÙŠØ¹Ø§Øª\" Ø£ÙƒØ¨Ø± Ù…Ù† 10000 Ø¯ÙˆÙ„Ø§Ø±."
+                                                            },
+                                                 "group":  {
+                                                               "label":  "Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ø© ÙˆØ§Ù„ØªÙ„Ø®ÙŠØµ",
+                                                               "prompt":  "Ù‚Ù… Ø¨ØªØ¬Ù…ÙŠØ¹ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø­Ø³Ø¨ \"Ø§Ù„Ù…Ù†Ø·Ù‚Ø©\" ÙˆØ§Ø­Ø³Ø¨ Ù…Ø¬Ù…ÙˆØ¹ ÙˆÙ…ØªÙˆØ³Ø· â€‹â€‹\"Ø§Ù„Ù…Ø¨ÙŠØ¹Ø§Øª\"."
+                                                           },
+                                                 "pivot":  {
+                                                               "label":  "Ø¬Ø¯ÙˆÙ„ Ù…Ø­ÙˆØ±ÙŠ",
+                                                               "prompt":  "Ù‚Ù… Ø¨Ø¥Ù†Ø´Ø§Ø¡ Ø¬Ø¯ÙˆÙ„ Ù…Ø­ÙˆØ±ÙŠ ÙŠØ­ØªÙˆÙŠ Ø¹Ù„Ù‰ \"Ø§Ù„ÙØ¦Ø©\" ÙƒØµÙÙˆÙØŒ Ùˆ\"Ø§Ù„Ø´Ù‡Ø±\" ÙƒØ£Ø¹Ù…Ø¯Ø©ØŒ ÙˆÙ…Ø¬Ù…ÙˆØ¹ \"Ø§Ù„Ø¥ÙŠØ±Ø§Ø¯Ø§Øª\"."
+                                                           },
+                                                 "chart":  {
+                                                               "label":  "Ø¥Ù†Ø´Ø§Ø¡ Ù…Ø®Ø·Ø·",
+                                                               "prompt":  "Ø¥Ù†Ø´Ø§Ø¡ Ù…Ø®Ø·Ø· Ø´Ø±ÙŠØ·ÙŠ ÙŠÙ‚Ø§Ø±Ù† Ø§Ù„Ù…Ø¨ÙŠØ¹Ø§Øª Ø­Ø³Ø¨ Ø§Ù„Ù…Ù†Ø·Ù‚Ø©."
+                                                           },
+                                                 "export":  {
+                                                                "label":  "ØªØµØ¯ÙŠØ± Ù…Ù†Ø¸Ù…",
+                                                                "prompt":  "Ù‚Ù… Ø¨ØªØµØ¯ÙŠØ± Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ø­ÙˆÙ„Ø© Ø¥Ù„Ù‰ Ù…Ù„Ù CSV Ø¨ØªØ´ÙÙŠØ± UTF-8."
+                                                            }
+                                             }
+                             },
+                    "communication":  {
+                                          "title":  "ØªÙˆØ§ØµÙ„",
+                                          "subtitle":  "Ø£ØªÙ…ØªØ© Ø±Ø³Ø§Ø¦Ù„ Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ ÙˆØ§Ù„Ø±Ø³Ø§Ø¦Ù„ ÙˆØ§Ù„Ø¥Ø´Ø¹Ø§Ø±Ø§Øª Ù…ØªØ¹Ø¯Ø¯Ø© Ø§Ù„Ù‚Ù†ÙˆØ§Øª",
+                                          "composer":  {
+                                                           "title":  "Ø¥Ù†Ø´Ø§Ø¡ Ø±Ø³Ø§Ù„Ø©",
+                                                           "description":  "Ù‚Ù… Ø¨ÙˆØµÙ Ø§Ù„Ù…Ø­ØªÙˆÙ‰ ÙˆØ³ÙŠÙ‚ÙˆÙ… ÙˆÙƒÙŠÙ„ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø¨ØµÙŠØ§ØºØ© Ø§Ù„Ø±Ø³Ø§Ù„Ø©",
+                                                           "instructionLabel":  "ØªØ¹Ù„ÙŠÙ…Ø§Øª Ø§Ù„Ø±Ø³Ø§Ù„Ø©",
+                                                           "instructionPlaceholder":  "Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ Ø£Ø±Ø³Ù„ Ø±Ø³Ø§Ù„Ø© ØªØ°ÙƒÙŠØ± Ø¹Ø¨Ø± Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ Ø¥Ù„Ù‰ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡ Ø¨ÙÙˆØ§ØªÙŠØ± Ù…Ø³ØªØ­Ù‚Ø© Ø®Ù„Ø§Ù„ 3 Ø£ÙŠØ§Ù…ØŒ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ù†ØºÙ…Ø© Ø§Ø­ØªØ±Ø§ÙÙŠØ© ÙˆÙ„ÙƒÙ† ÙˆØ¯ÙŠØ©ØŒ ÙˆÙ‚Ù… Ø¨ØªØ¶Ù…ÙŠÙ† Ø±Ø§Ø¨Ø· Ø§Ù„Ø¯ÙØ¹.",
+                                                           "instructionHelper":  "Ø­Ø¯Ø¯: Ù†ØºÙ…Ø© Ø§Ù„Ø±Ø³Ø§Ù„Ø© ÙˆØ§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ù…Ø·Ù„ÙˆØ¨ ØªØ¶Ù…ÙŠÙ†Ù‡Ø§ ÙˆØ§Ù„ØªØ®ØµÙŠØµØ§Øª ÙˆØ§Ù„Ø­Ø« Ø¹Ù„Ù‰ Ø§ØªØ®Ø§Ø° Ø¥Ø¬Ø±Ø§Ø¡.",
+                                                           "subjectLabel":  "Ø§Ù„Ù…ÙˆØ¶ÙˆØ¹ (Ù„Ù„Ø±Ø³Ø§Ø¦Ù„ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ©)",
+                                                           "subjectPlaceholder":  "Ù…ÙˆØ¶ÙˆØ¹ Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ...",
+                                                           "charCount":  "{current}/{max} Ø£Ø­Ø±Ù",
+                                                           "noSubject":  "(Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ù…ÙˆØ¶ÙˆØ¹)"
+                                                       },
+                                          "channels":  {
+                                                           "title":  "Ù‚Ù†ÙˆØ§Øª Ø§Ù„ØªØ³Ù„ÙŠÙ…",
+                                                           "email":  "Email",
+                                                           "slack":  "Slack",
+                                                           "whatsapp":  "ÙˆØ§ØªØ³Ø§Ø¨",
+                                                           "teams":  "ÙØ±Ù‚ Ù…Ø§ÙŠÙƒØ±ÙˆØ³ÙˆÙØª",
+                                                           "sms":  "SMS",
+                                                           "discord":  "Ø§Ù„ÙØªÙ†Ø©"
+                                                       },
+                                          "recipients":  {
+                                                             "title":  "Ø§Ù„Ù…Ø³ØªÙ„Ù…ÙˆÙ†",
+                                                             "description":  "Ù‚Ù… Ø¨ØªÙƒÙˆÙŠÙ† Ù…Ù† Ø³ÙŠØªÙ„Ù‚Ù‰ Ø§Ù„Ø±Ø³Ø§Ù„Ø©",
+                                                             "to":  "To",
+                                                             "toPlaceholder":  "email@example.com",
+                                                             "cc":  "Ù†Ø³Ø®Ø© ÙƒØ±Ø¨ÙˆÙ†ÙŠØ© (Ù†Ø³Ø®Ø© ÙƒØ±Ø¨ÙˆÙ†ÙŠØ©)",
+                                                             "ccPlaceholder":  "email@example.com",
+                                                             "addMore":  "Ø£Ø¶Ù Ø§Ù„Ù…Ø²ÙŠØ¯",
+                                                             "list":  "Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„ØªÙˆØ²ÙŠØ¹",
+                                                             "condition":  "Ø­Ø³Ø¨ Ø§Ù„Ø­Ø§Ù„Ø© (Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡ ØºÙŠØ± Ø§Ù„Ù†Ø´Ø·ÙŠÙ†)"
+                                                         },
+                                          "schedule":  {
+                                                           "title":  "Ø¬Ø¯ÙˆÙ„",
+                                                           "sendNow":  "Ø£Ø±Ø³Ù„ Ø§Ù„Ø¢Ù†",
+                                                           "scheduleLater":  "Ø§Ù„Ø¬Ø¯ÙˆÙ„ Ø§Ù„Ø²Ù…Ù†ÙŠ ÙÙŠ ÙˆÙ‚Øª Ù„Ø§Ø­Ù‚",
+                                                           "recurring":  "ÙŠØªÙƒØ±Ø±",
+                                                           "dateTime":  "Ø§Ù„ØªØ§Ø±ÙŠØ® ÙˆØ§Ù„ÙˆÙ‚Øª",
+                                                           "frequency":  "ØªÙƒØ±Ø§Ø±",
+                                                           "daily":  "Daily",
+                                                           "weekly":  "Ø£Ø³Ø¨ÙˆØ¹ÙŠ",
+                                                           "monthly":  "Ø´Ù‡Ø±ÙŠØ§",
+                                                           "dateTimePlaceholder":  "Ù…Ù†ØªÙ‚ÙŠ Ø§Ù„ØªØ§Ø±ÙŠØ®/Ø§Ù„ÙˆÙ‚Øª Ù…ØªØ§Ø­ ÙÙŠ Ø§Ù„Ù†Ø³Ø®Ø© Ø§Ù„ÙƒØ§Ù…Ù„Ø©."
+                                                       },
+                                          "recentMessages":  {
+                                                                 "title":  "Ø§Ù„Ø±Ø³Ø§Ø¦Ù„ Ø§Ù„Ø£Ø®ÙŠØ±Ø©",
+                                                                 "empty":  "Ù„Ù… ÙŠØªÙ… Ø¥Ø±Ø³Ø§Ù„ Ø£ÙŠ Ø±Ø³Ø§Ø¦Ù„ Ø­ØªÙ‰ Ø§Ù„Ø¢Ù†",
+                                                                 "channel":  "Ù‚Ù†Ø§Ø©",
+                                                                 "sentAt":  "Ø£Ø±Ø³Ù„Øª ÙÙŠ",
+                                                                 "status":  "Ø­Ø§Ù„Ø©"
+                                                             },
+                                          "actions":  {
+                                                          "send":  "Ø£Ø±Ø³Ù„ Ø±Ø³Ø§Ù„Ø©",
+                                                          "sending":  "Ø¥Ø±Ø³Ø§Ù„â€¦",
+                                                          "preview":  "Ù…Ø¹Ø§ÙŠÙ†Ø©",
+                                                          "saveDraft":  "Ø­ÙØ¸ Ø§Ù„Ù…Ø³ÙˆØ¯Ø©",
+                                                          "testSend":  "Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±",
+                                                          "testSendDescription":  "Ø¥Ø±Ø³Ø§Ù„ Ø§Ø®ØªØ¨Ø§Ø± Ù„Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„ØªÙ†Ø³ÙŠÙ‚"
+                                                      },
+                                          "status":  {
+                                                         "sent":  "Sent",
+                                                         "scheduled":  "Ø§Ù„Ù…Ù‚Ø±Ø±",
+                                                         "failed":  "ÙØ´Ù„"
+                                                     },
+                                          "results":  {
+                                                          "sent":  "ØªÙ… Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø±Ø³Ø§Ù„Ø© Ø¨Ù†Ø¬Ø§Ø­ Ø¹Ø¨Ø± {channels}!",
+                                                          "preview":  "[Ù…Ø¹Ø§ÙŠÙ†Ø©] \n\nØ§Ù„Ù‚Ù†ÙˆØ§Øª: {channels} \nØ§Ù„Ù…ÙˆØ¶ÙˆØ¹: {subject} \n\n{instruction} \n\n(Ù‡Ø°Ù‡ Ù…Ø­Ø§ÙƒØ§Ø© Ù…Ø¹Ø§ÙŠÙ†Ø©)",
+                                                          "draftSaved":  "ØªÙ… Ø­ÙØ¸ Ø§Ù„Ù…Ø³ÙˆØ¯Ø© Ø¨Ù†Ø¬Ø§Ø­! ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ù„ÙˆØµÙˆÙ„ Ø¥Ù„ÙŠÙ‡ Ù…Ù† Ø®Ù„Ø§Ù„ \"Ø§Ù„Ø±Ø³Ø§Ø¦Ù„ \u003e Ø§Ù„Ù…Ø³ÙˆØ¯Ø§Øª\".",
+                                                          "testSent":  "ØªÙ… Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø± Ø¥Ù„Ù‰ {email}! ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„ÙˆØ§Ø±Ø¯ Ø§Ù„Ø®Ø§Øµ Ø¨Ùƒ."
+                                                      },
+                                          "errors":  {
+                                                         "sendFailed":  "ÙØ´Ù„ ÙÙŠ Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø±Ø³Ø§Ù„Ø©.",
+                                                         "testNoRecipient":  "Ø§Ù„Ø±Ø¬Ø§Ø¡ Ø¥Ø¯Ø®Ø§Ù„ Ø§Ù„Ù…Ø³ØªÙ„Ù… Ù„Ù„Ø§Ø®ØªØ¨Ø§Ø±."
+                                                     }
+                                      },
+                    "media":  {
+                                  "title":  "Ø§Ù„ÙˆØ³Ø§Ø¦Ø· ÙˆØ§Ù„ØµÙˆØ±",
+                                  "subtitle":  "Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„ØµÙˆØ± ÙˆØ§Ù„ÙˆØ³Ø§Ø¦Ø· ÙˆØªØ­ÙˆÙŠÙ„Ù‡Ø§ ÙˆØªØ­Ø³ÙŠÙ†Ù‡Ø§ Ø¯ÙØ¹Ø© ÙˆØ§Ø­Ø¯Ø©",
+                                  "instruction":  {
+                                                      "title":  "Ù…Ø§Ø°Ø§ ÙŠØ¬Ø¨ Ø£Ù† ÙŠÙØ¹Ù„ ÙˆÙƒÙŠÙ„ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ù…Ø¹ Ø§Ù„ÙˆØ³Ø§Ø¦Ø·ØŸ",
+                                                      "description":  "ØµÙ Ø¨Ø§Ù„Ù„ØºØ© Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠØ© Ù…Ø§ ØªØ±ÙŠØ¯ Ø£Ù† ÙŠÙØ¹Ù„Ù‡ Ø§Ù„ÙˆÙƒÙŠÙ„ Ø¨ØµÙˆØ±Ùƒ Ø£Ùˆ Ù…Ù‚Ø§Ø·Ø¹ Ø§Ù„ÙÙŠØ¯ÙŠÙˆ Ø§Ù„Ø®Ø§ØµØ© Ø¨Ùƒ.",
+                                                      "label":  "ØªØ¹Ù„ÙŠÙ…Ø§Øª Ø§Ù„ÙˆÙƒÙŠÙ„",
+                                                      "placeholder":  "Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ Ø¥Ø²Ø§Ù„Ø© Ø§Ù„Ø®Ù„ÙÙŠØ© Ù…Ù† Ø¬Ù…ÙŠØ¹ Ø§Ù„ØµÙˆØ±ØŒ ÙˆØªØºÙŠÙŠØ± Ø§Ù„Ø­Ø¬Ù… Ø¥Ù„Ù‰ 1200 Ã— 800 Ù…Ø¹ Ø§Ù„Ø­ÙØ§Ø¸ Ø¹Ù„Ù‰ Ù†Ø³Ø¨Ø© Ø§Ù„Ø¹Ø±Ø¶ Ø¥Ù„Ù‰ Ø§Ù„Ø§Ø±ØªÙØ§Ø¹ØŒ ÙˆØ§Ù„ØªØ­ÙˆÙŠÙ„ Ø¥Ù„Ù‰ WebP Ø¨Ø¬ÙˆØ¯Ø© 85%ØŒ ÙˆØªØ·Ø¨ÙŠÙ‚ Ù…Ø±Ø´Ø­ Ø§Ù„Ø³Ø·ÙˆØ¹ +10ØŒ ÙˆØ¥Ø¶Ø§ÙØ© Ø§Ù„Ø¹Ù„Ø§Ù…Ø© Ø§Ù„Ù…Ø§Ø¦ÙŠØ© \"Â© My Company\" ÙÙŠ Ø§Ù„Ø²Ø§ÙˆÙŠØ© Ø§Ù„ÙŠÙ…Ù†Ù‰ Ø§Ù„Ø³ÙÙ„ÙŠØ©.",
+                                                      "helper":  "Ù‚Ù… Ø¨ØªØ¶Ù…ÙŠÙ†: Ø§Ù„ØªØ­ÙˆÙŠÙ„Ø§Øª Ø§Ù„Ù…Ø·Ù„ÙˆØ¨ ØªØ·Ø¨ÙŠÙ‚Ù‡Ø§ØŒ ÙˆØ§Ù„Ø£Ø¨Ø¹Ø§Ø¯ØŒ ÙˆØªÙ†Ø³ÙŠÙ‚ Ø§Ù„Ø¥Ø®Ø±Ø§Ø¬ØŒ ÙˆØ§Ù„Ø¬ÙˆØ¯Ø©ØŒ ÙˆØ§Ù„Ù…Ø±Ø´Ø­Ø§ØªØŒ ÙˆØ§Ù„Ø¹Ù„Ø§Ù…Ø© Ø§Ù„Ù…Ø§Ø¦ÙŠØ©.",
+                                                      "charCount":  "{current}/{max} Ø£Ø­Ø±Ù",
+                                                      "button":  "Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ù…Ø¹ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ",
+                                                      "processing":  "ÙŠØ¹Ø§Ù„Ø¬â€¦"
+                                                  },
+                                  "upload":  {
+                                                 "title":  "ØªØ­Ù…ÙŠÙ„ Ø§Ù„ÙˆØ³Ø§Ø¦Ø·",
+                                                 "description":  "Ø§Ø³Ø­Ø¨ Ø§Ù„ØµÙˆØ± Ø£Ùˆ Ù…Ù‚Ø§Ø·Ø¹ Ø§Ù„ÙÙŠØ¯ÙŠÙˆ Ù„Ù„Ø¨Ø¯Ø¡",
+                                                 "dragActive":  "Ù‚Ù… Ø¨Ø¥Ø³Ù‚Ø§Ø· Ø§Ù„Ù…Ù„ÙØ§Øª Ù„Ù„ØªØ­Ù…ÙŠÙ„",
+                                                 "browse":  "ØªØµÙØ­ Ø§Ù„Ù…Ù„ÙØ§Øª",
+                                                 "supportedFormats":  "Formats: JPG, PNG, GIF, SVG, WebP, MP4, MOV, WebM",
+                                                 "maxSize":  "Ø§Ù„Ø­Ø¯ Ø§Ù„Ø£Ù‚ØµÙ‰ Ù„Ù„Ø­Ø¬Ù…: 100 Ù…ÙŠØ¬Ø§ Ø¨Ø§ÙŠØª Ù„ÙƒÙ„ Ù…Ù„Ù",
+                                                 "batchInfo":  "{count} Ø§Ù„Ù…Ù„Ù (Ø§Ù„Ù…Ù„ÙØ§Øª) Ø§Ù„Ù…Ø­Ø¯Ø¯",
+                                                 "remove":  "ÙŠØ²ÙŠÙ„"
+                                             },
+                                  "transformations":  {
+                                                          "title":  "Ø§Ù„ØªØ­ÙˆÙ„Ø§Øª",
+                                                          "description":  "Ø§Ø®ØªØ± Ù…Ø§ ØªØ±ÙŠØ¯ ÙØ¹Ù„Ù‡ Ø¨Ø§Ù„ÙˆØ³Ø§Ø¦Ø· Ø§Ù„Ø®Ø§ØµØ© Ø¨Ùƒ",
+                                                          "resize":  "ØªØºÙŠÙŠØ± Ø§Ù„Ø­Ø¬Ù…",
+                                                          "resizeDescription":  "ØªØºÙŠÙŠØ± Ø£Ø¨Ø¹Ø§Ø¯ Ø§Ù„ØµÙˆØ±Ø©",
+                                                          "width":  "Width",
+                                                          "height":  "Ø§Ø±ØªÙØ§Ø¹",
+                                                          "maintainAspect":  "Ø§Ù„Ø­ÙØ§Ø¸ Ø¹Ù„Ù‰ Ù†Ø³Ø¨Ø© Ø§Ù„Ø¹Ø±Ø¶ Ø¥Ù„Ù‰ Ø§Ù„Ø§Ø±ØªÙØ§Ø¹",
+                                                          "convertFormat":  "ØªØ­ÙˆÙŠÙ„ Ø§Ù„ØªÙ†Ø³ÙŠÙ‚",
+                                                          "convertDescription":  "ØªØ­ÙˆÙŠÙ„ Ø¥Ù„Ù‰ ØªÙ†Ø³ÙŠÙ‚ Ù…Ù„Ù Ø¢Ø®Ø±",
+                                                          "targetFormat":  "ØªÙ†Ø³ÙŠÙ‚ Ø§Ù„Ù‡Ø¯Ù",
+                                                          "compress":  "Ø¶ØºØ·",
+                                                          "compressDescription":  "ØªÙ‚Ù„ÙŠÙ„ Ø­Ø¬Ù… Ø§Ù„Ù…Ù„Ù",
+                                                          "quality":  "Ø¬ÙˆØ¯Ø©",
+                                                          "watermark":  "Ø§Ù„Ø¹Ù„Ø§Ù…Ø© Ø§Ù„Ù…Ø§Ø¦ÙŠØ©",
+                                                          "watermarkDescription":  "Ø£Ø¶Ù Ù†ØµÙ‹Ø§ Ø£Ùˆ Ø´Ø¹Ø§Ø±Ù‹Ø§ Ù…ØªØ±Ø§ÙƒØ¨Ù‹Ø§ Ø¹Ù„Ù‰ Ø§Ù„ØµÙˆØ±Ø©",
+                                                          "watermarkText":  "Ù†Øµ Ø§Ù„Ø¹Ù„Ø§Ù…Ø© Ø§Ù„Ù…Ø§Ø¦ÙŠØ©",
+                                                          "filters":  "Ø§Ù„Ù…Ø±Ø´Ø­Ø§Øª ÙˆØ§Ù„ØªØ¹Ø¯ÙŠÙ„Ø§Øª",
+                                                          "brightness":  "Ø³Ø·ÙˆØ¹",
+                                                          "contrast":  "Ù…Ù‚Ø§Ø¨Ù„Ø©",
+                                                          "saturation":  "Ø§Ù„ØªØ´Ø¨Ø¹",
+                                                          "blur":  "Blur"
+                                                      },
+                                  "preview":  {
+                                                  "title":  "Ù…Ø¹Ø§ÙŠÙ†Ø©",
+                                                  "original":  "Ø¥Ø¨Ø¯Ø§Ø¹ÙŠ",
+                                                  "processed":  "Ù…Ø¹Ø§Ù„Ø¬ØªÙ‡Ø§",
+                                                  "noMedia":  "ØªØ­Ù…ÙŠÙ„ Ø§Ù„ÙˆØ³Ø§Ø¦Ø· Ù„Ù„Ù…Ø¹Ø§ÙŠÙ†Ø©"
+                                              },
+                                  "recentMedia":  {
+                                                      "title":  "ÙˆØ³Ø§Ø¦Ù„ Ø§Ù„Ø¥Ø¹Ù„Ø§Ù… Ø§Ù„Ø£Ø®ÙŠØ±Ø©",
+                                                      "empty":  "Ù„Ù… ØªØªÙ… Ù…Ø¹Ø§Ù„Ø¬Ø© Ø£ÙŠ ÙˆØ³Ø§Ø¦Ø· Ø­ØªÙ‰ Ø§Ù„Ø¢Ù†"
+                                                  },
+                                  "actions":  {
+                                                  "process":  "ÙˆØ³Ø§Ø¦Ø· Ø§Ù„Ø¹Ù…Ù„ÙŠØ©",
+                                                  "processing":  "ÙŠØ¹Ø§Ù„Ø¬â€¦",
+                                                  "download":  "ØªÙ†Ø²ÙŠÙ„ Ø§Ù„Ù†ØªÙŠØ¬Ø©",
+                                                  "downloadAll":  "ØªÙ†Ø²ÙŠÙ„ Ø§Ù„ÙƒÙ„ (ZIP)",
+                                                  "batchProcess":  "ØªØ¬Ù‡ÙŠØ² Ø§Ù„Ø¯ÙØ¹Ø©",
+                                                  "filesCount":  "{count} Ø§Ù„Ù…Ù„ÙØ§Øª"
+                                              },
+                                  "integrations":  {
+                                                       "googleDrive":  {
+                                                                           "title":  "Google Drive",
+                                                                           "description":  "Ø§Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„ØµÙˆØ± ÙˆÙ…Ù‚Ø§Ø·Ø¹ Ø§Ù„ÙÙŠØ¯ÙŠÙˆ Ø§Ù„Ù…Ø®Ø²Ù†Ø© ÙÙŠ Google Drive.",
+                                                                           "connect":  "ØªÙˆØ§ØµÙ„ Google Drive",
+                                                                           "connecting":  "Ø¬Ø§Ø±Ù Ø§Ù„Ø§ØªØµØ§Ù„...",
+                                                                           "connected":  "Ù…ØªØµÙ„ Ø¨Ù€ Google Drive",
+                                                                           "browse":  "ØªØµÙØ­ Ù…Ø­Ø±Ùƒ"
+                                                                       },
+                                                       "googlePhotos":  {
+                                                                            "title":  "ØµÙˆØ± Ø¬ÙˆØ¬Ù„",
+                                                                            "description":  "ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ ØµÙˆØ±Ùƒ ÙˆØ£Ù„Ø¨ÙˆÙ…Ø§ØªÙƒ Ù…Ø¨Ø§Ø´Ø±Ø©Ù‹ Ù…Ù† ØµÙˆØ± Google.",
+                                                                            "connect":  "Ø±Ø¨Ø· ØµÙˆØ± Ø¬ÙˆØ¬Ù„",
+                                                                            "connecting":  "Ø¬Ø§Ø±Ù Ø§Ù„Ø§ØªØµØ§Ù„...",
+                                                                            "connected":  "Ù…ØªØµÙ„ Ø¨ØµÙˆØ± Ø¬ÙˆØ¬Ù„",
+                                                                            "browse":  "ØªØµÙØ­ Ø§Ù„ØµÙˆØ±"
+                                                                        }
+                                                   },
+                                  "errors":  {
+                                                 "processFailed":  "ÙØ´Ù„ ÙÙŠ Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„ÙˆØ³Ø§Ø¦Ø·.",
+                                                 "aiFailed":  "ÙØ´Ù„ ÙÙŠ ØªÙØ³ÙŠØ± Ø§Ù„ØªØ¹Ù„ÙŠÙ…Ø§Øª."
+                                             },
+                                  "results":  {
+                                                  "processComplete":  "Ø§ÙƒØªÙ…Ù„Øª Ø§Ù„Ù…Ø¹Ø§Ù„Ø¬Ø©! {count} ØªÙ… ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ù…Ù„Ù (Ø§Ù„Ù…Ù„ÙØ§Øª) Ø¨Ù†Ø¬Ø§Ø­.",
+                                                  "aiInterpreted":  "ØªÙ… ØªÙØ³ÙŠØ± Ø§Ù„ØªØ¹Ù„ÙŠÙ…Ø§Øª Ø¨Ù†Ø¬Ø§Ø­! ØªÙ… ØªÙƒÙˆÙŠÙ† Ø§Ù„ØªØ­ÙˆÙŠÙ„Ø§Øª Ù…Ø³Ø¨Ù‚Ù‹Ø§ ÙƒÙ…Ø§ Ù‡Ùˆ Ù…ÙˆØ¶Ø­. Ù‚Ù… Ø¨Ù…Ø±Ø§Ø¬Ø¹Ø© Ø§Ù„ØªØ¹Ø¯ÙŠÙ„Ø§Øª ÙÙŠ Ø§Ù„Ù„ÙˆØ­Ø© ÙˆØ§Ù†Ù‚Ø± ÙÙˆÙ‚ \"Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„ÙˆØ³Ø§Ø¦Ø·\" Ù„ØªØ·Ø¨ÙŠÙ‚Ù‡Ø§.",
+                                                  "downloadSimulation":  "Ù…Ø­Ø§ÙƒØ§Ø© ØªÙ†Ø²ÙŠÙ„ Ø§Ù„Ù…Ù„Ù (Ø§Ù„Ù…Ù„ÙØ§Øª) Ø§Ù„Ù…Ø¹Ø§Ù„Ø¬Ø© {count} Ø¨ØªÙ†Ø³ÙŠÙ‚ ZIP. \n\nÙÙŠ Ø§Ù„Ù†Ø³Ø®Ø© Ø§Ù„ÙƒØ§Ù…Ù„Ø©ØŒ Ø³ÙŠØªÙ… Ø¶ØºØ· Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ù„ÙØ§Øª ÙˆØªÙ†Ø²ÙŠÙ„Ù‡Ø§.",
+                                                  "downloadComplete":  "Ø§ÙƒØªÙ…Ù„ Ø§Ù„ØªÙ†Ø²ÙŠÙ„! ØªÙ…Øª Ø¥Ø²Ø§Ù„Ø© Ø§Ù„Ù…Ù„ÙØ§Øª Ù…Ù† Ø§Ù„Ù‚Ø§Ø¦Ù…Ø©."
+                                              }
+                              },
+                    "files":  {
+                                  "title":  "Files",
+                                  "subtitle":  "Ø¥Ø¯Ø§Ø±Ø© ÙˆØªÙ†Ø¸ÙŠÙ… ÙˆØ£ØªÙ…ØªØ© Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ù…Ù„ÙØ§Øª",
+                                  "instruction":  {
+                                                      "title":  "Ù…Ø§Ø°Ø§ ÙŠØ¬Ø¨ Ø£Ù† ÙŠÙØ¹Ù„ ÙˆÙƒÙŠÙ„ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø¨Ù…Ù„ÙØ§ØªÙƒØŸ",
+                                                      "description":  "ØµÙ Ø¨Ø§Ù„Ù„ØºØ© Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠØ© ÙƒÙŠÙ ØªØ±ÙŠØ¯ ØªÙ†Ø¸ÙŠÙ… Ù…Ù„ÙØ§ØªÙƒ Ø£Ùˆ Ù…Ø¹Ø§Ù„Ø¬ØªÙ‡Ø§ Ø£Ùˆ Ø¥Ø¯Ø§Ø±ØªÙ‡Ø§.",
+                                                      "label":  "ØªØ¹Ù„ÙŠÙ…Ø§Øª Ø§Ù„ÙˆÙƒÙŠÙ„",
+                                                      "placeholder":  "Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ ØªÙ†Ø¸ÙŠÙ… Ø¬Ù…ÙŠØ¹ Ù…Ù„ÙØ§Øª PDF ÙÙŠ Ù…Ø¬Ù„Ø¯ Ø§Ù„ØªÙ†Ø²ÙŠÙ„Ø§Øª Ø­Ø³Ø¨ ØªØ§Ø±ÙŠØ® Ø§Ù„Ø¥Ù†Ø´Ø§Ø¡ØŒ ÙˆØ¥Ø¹Ø§Ø¯Ø© ØªØ³Ù…ÙŠØªÙ‡Ø§ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ù†Ù…Ø· \u0027YYYY-MM-DD - Ø§Ù„Ø§Ø³Ù… Ø§Ù„Ø£ØµÙ„ÙŠ\u0027ØŒ ÙˆÙ†Ù‚Ù„ Ø§Ù„ÙÙˆØ§ØªÙŠØ± Ø¥Ù„Ù‰ /Finance/Invoices/{year}/{month}ØŒ ÙˆØ¶ØºØ· Ø§Ù„Ù…Ù„ÙØ§Øª Ø§Ù„Ø£Ù‚Ø¯Ù… Ù…Ù† 6 Ø£Ø´Ù‡Ø±.",
+                                                      "helper":  "Ù‚Ù… Ø¨ØªØ¶Ù…ÙŠÙ†: Ø§Ù„Ù…Ù„ÙØ§Øª Ø§Ù„ØªÙŠ Ø³ØªØ¤Ø«Ø± Ø¹Ù„ÙŠÙ‡Ø§ØŒ ÙˆÙƒÙŠÙÙŠØ© ØªÙ†Ø¸ÙŠÙ…Ù‡Ø§ØŒ ÙˆØ¥Ø¹Ø§Ø¯Ø© ØªØ³Ù…ÙŠØ© Ø§Ù„Ù†Ù…Ø·ØŒ ÙˆØ§Ù„Ù…Ø¬Ù„Ø¯Ø§Øª Ø§Ù„ÙˆØ¬Ù‡Ø©ØŒ ÙˆØ§Ù„Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª Ø§Ù„Ø¥Ø¶Ø§ÙÙŠØ©.",
+                                                      "charCount":  "{current}/{max} Ø£Ø­Ø±Ù",
+                                                      "button":  "Ø§Ù„ØªÙ†ÙÙŠØ° Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ",
+                                                      "processing":  "ØªÙ†ÙÙŠØ°â€¦"
+                                                  },
+                                  "storage":  {
+                                                  "title":  "ØªØ®Ø²ÙŠÙ†",
+                                                  "used":  "Used",
+                                                  "total":  "Ù…Ù† {total}",
+                                                  "files":  "{count} Ø§Ù„Ù…Ù„ÙØ§Øª",
+                                                  "folders":  "{count} Ø§Ù„Ù…Ø¬Ù„Ø¯Ø§Øª",
+                                                  "activeRules":  "Ù‚ÙˆØ§Ø¹Ø¯ Ù†Ø´Ø·Ø©",
+                                                  "rulesConfigured":  "{count} ØªÙ… ØªÙƒÙˆÙŠÙ†Ù‡",
+                                                  "lastFolder":  "Ø§Ù„Ø£Ø®ÙŠØ±: {name}",
+                                                  "progressLabel":  "{progress}% Ù…Ø³ØªØ®Ø¯Ù…"
+                                              },
+                                  "upload":  {
+                                                 "title":  "ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ù…Ù„Ù",
+                                                 "description":  "Ø§Ø³Ø­Ø¨ Ø§Ù„Ù…Ù„ÙØ§Øª Ø£Ùˆ Ø§Ù„Ù…Ø¬Ù„Ø¯Ø§Øª Ù„Ù„ØªØ­Ù…ÙŠÙ„",
+                                                 "dragActive":  "Ø£Ø³Ù‚Ø· Ù„Ù„ØªØ­Ù…ÙŠÙ„",
+                                                 "browse":  "ØªØµÙØ­",
+                                                 "createFolder":  "Ø¥Ù†Ø´Ø§Ø¡ Ù…Ø¬Ù„Ø¯"
+                                             },
+                                  "browser":  {
+                                                  "title":  "Ù…Ø³ØªÙƒØ´Ù Ø§Ù„Ù…Ù„ÙØ§Øª",
+                                                  "empty":  "Ù‡Ø°Ø§ Ø§Ù„Ù…Ø¬Ù„Ø¯ ÙØ§Ø±Øº",
+                                                  "name":  "Name",
+                                                  "size":  "Size",
+                                                  "modified":  "Ù…Ø¹Ø¯Ù„",
+                                                  "type":  "Type",
+                                                  "sortBy":  "Ø§Ù„ØªØ±ØªÙŠØ¨ Ø­Ø³Ø¨",
+                                                  "search":  "Ø¨Ø­Ø« ÙÙŠ Ø§Ù„Ù…Ù„ÙØ§Øª...",
+                                                  "gridView":  "Ø¹Ø±Ø¶ Ø§Ù„Ø´Ø¨ÙƒØ©",
+                                                  "listView":  "Ø¹Ø±Ø¶ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø©",
+                                                  "folder":  "Ù…Ø¬Ù„Ø¯"
+                                              },
+                                  "rules":  {
+                                                "title":  "Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ù…Ù†Ø¸Ù…Ø©",
+                                                "description":  "Ø£ØªÙ…ØªØ© ØªÙ†Ø¸ÙŠÙ… Ø§Ù„Ù…Ù„ÙØ§Øª",
+                                                "ruleName":  "Ø§Ø³Ù… Ø§Ù„Ù‚Ø§Ø¹Ø¯Ø©",
+                                                "ruleNamePlaceholder":  "Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ ÙØ±Ø² Ø§Ù„ÙÙˆØ§ØªÙŠØ± Ø­Ø³Ø¨ Ø§Ù„Ø´Ù‡Ø±",
+                                                "condition":  "Ø­Ø§Ù„Ø©",
+                                                "conditionPlaceholder":  "Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ Ø§Ø³Ù… Ø§Ù„Ù…Ù„Ù ÙŠØ­ØªÙˆÙŠ Ø¹Ù„Ù‰ \"ÙØ§ØªÙˆØ±Ø©\"",
+                                                "action":  "ÙØ¹Ù„",
+                                                "actionPlaceholder":  "Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ Ø§Ù†ØªÙ‚Ù„ Ø¥Ù„Ù‰ /Finance/Invoices/{year}/{month}",
+                                                "addRule":  "Ø£Ø¶Ù Ø§Ù„Ù‚Ø§Ø¹Ø¯Ø©",
+                                                "active":  "Ù†Ø´ÙŠØ·",
+                                                "inactive":  "ØºÙŠØ± Ù†Ø´Ø·",
+                                                "empty":  "Ù„Ù… ÙŠØªÙ… ØªÙƒÙˆÙŠÙ† Ø£ÙŠ Ù‚ÙˆØ§Ø¹Ø¯"
+                                            },
+                                  "actions":  {
+                                                  "label":  "Ø§Ù„Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª",
+                                                  "moreOptions":  "Ø§Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ø®ÙŠØ§Ø±Ø§Øª",
+                                                  "upload":  "Ø±ÙØ¹",
+                                                  "newFolder":  "Ù…Ø¬Ù„Ø¯ Ø¬Ø¯ÙŠØ¯",
+                                                  "delete":  "ÙŠÙ…Ø³Ø­",
+                                                  "rename":  "Ø¥Ø¹Ø§Ø¯Ø© ØªØ³Ù…ÙŠØ©",
+                                                  "move":  "Move",
+                                                  "copy":  "Copy",
+                                                  "share":  "Share",
+                                                  "download":  "ØªØ­Ù…ÙŠÙ„"
+                                              },
+                                  "aiPlaceholder":  "E.g.: Organize all PDFs from the Downloads folder by creation date, renomeie com o padrÃ£o \u0027YYYY-MM-DD - nome original\u0027, mova faturas para /Financeiro/Faturas/{ano}/{mÃªs} e compacte arquivos com mais de 6 meses.",
+                                  "integrations":  {
+                                                       "googleDrive":  {
+                                                                           "title":  "Google Drive",
+                                                                           "description":  "Ù‚Ù… Ø¨Ø§Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„Ù…Ù„ÙØ§Øª ÙˆØ¥Ø¯Ø§Ø±ØªÙ‡Ø§ Ù…Ø¨Ø§Ø´Ø±Ø©Ù‹ Ù…Ù† Google Drive ÙƒÙ…Ø§ Ù„Ùˆ ÙƒØ§Ù† Ù…Ø¬Ù„Ø¯Ù‹Ø§ Ù…Ø­Ù„ÙŠÙ‹Ø§.",
+                                                                           "connect":  "ØªÙˆØ§ØµÙ„ Google Drive",
+                                                                           "connecting":  "Ø¬Ø§Ø±Ù Ø§Ù„Ø§ØªØµØ§Ù„...",
+                                                                           "connected":  "Ù…ØªØµÙ„ Ø¨Ù€ Google Drive",
+                                                                           "browse":  "Ø§Ø³ØªÙƒØ´Ù Drive",
+                                                                           "disconnect":  "Ù‚Ø·Ø¹ Ø§Ù„Ø§ØªØµØ§Ù„"
+                                                                       }
+                                                   },
+                                  "dialogs":  {
+                                                  "newFolder":  "Ø§Ø³Ù… Ø§Ù„Ù…Ø¬Ù„Ø¯ Ø§Ù„Ø¬Ø¯ÙŠØ¯:",
+                                                  "rename":  "Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„ØªØ³Ù…ÙŠØ© Ø¥Ù„Ù‰:",
+                                                  "deleteConfirm":  "Ù‡Ù„ Ø£Ù†Øª Ù…ØªØ£ÙƒØ¯ Ø£Ù†Ùƒ ØªØ±ÙŠØ¯ Ø­Ø°Ù \"{name}\"ØŸ Ù„Ø§ ÙŠÙ…ÙƒÙ† Ø§Ù„ØªØ±Ø§Ø¬Ø¹ Ø¹Ù† Ù‡Ø°Ø§ Ø§Ù„Ø¥Ø¬Ø±Ø§Ø¡.",
+                                                  "moveAlert":  "Ù†Ù‚Ù„ \"{name}\" â€” ÙÙŠ Ø§Ù„Ù†Ø³Ø®Ø© Ø§Ù„ÙƒØ§Ù…Ù„Ø©ØŒ Ø³ÙŠØªÙ… Ø¹Ø±Ø¶ Ù…Ø­Ø¯Ø¯ Ø§Ù„Ù…Ø¬Ù„Ø¯.",
+                                                  "copySuffix":  "(ÙŠÙ†Ø³Ø®)",
+                                                  "shareLink":  "ØªÙ… Ù†Ø³Ø® Ø±Ø§Ø¨Ø· Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ© Ù„Ù€ \"{name}\" Ø¥Ù„Ù‰ Ø§Ù„Ø­Ø§ÙØ¸Ø©! \n\nhttps://pytomatiza.app/share/{id}",
+                                                  "selectFile":  "\"{label}\" â€” Ø­Ø¯Ø¯ Ù…Ù„ÙÙ‹Ø§ ÙÙŠ Ø§Ù„Ù…Ø³ØªÙƒØ´Ù Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù… Ù‡Ø°Ø§ Ø§Ù„Ø¥Ø¬Ø±Ø§Ø¡."
+                                              },
+                                  "results":  {
+                                                  "aiInterpreted":  "ØªÙ… ØªÙØ³ÙŠØ± Ø§Ù„ØªØ¹Ù„ÙŠÙ…Ø§Øª Ø¨Ù†Ø¬Ø§Ø­! ØªÙ… Ø¥Ù†Ø´Ø§Ø¡ Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ù…Ù†Ø¸Ù…Ø© ØªÙ„Ù‚Ø§Ø¦ÙŠÙ‹Ø§. Ù‚Ù… Ø¨Ù…Ø±Ø§Ø¬Ø¹ØªÙ‡Ø§ ÙÙŠ Ù„ÙˆØ­Ø© Ø§Ù„Ù‚ÙˆØ§Ø¹Ø¯."
+                                              }
+                              },
+                    "architecture":  {
+                                         "title":  "Ø¨Ù†ÙŠØ§Ù†",
+                                         "subtitle":  "Ù‚Ù… Ø¨Ø¥Ù†Ø´Ø§Ø¡ Ù…Ø®Ø·Ø·Ø§Øª Ù…Ø¹Ù…Ø§Ø±ÙŠØ© ÙˆÙˆØ«Ø§Ø¦Ù‚ ÙÙ†ÙŠØ© Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ",
+                                         "diagramBuilder":  {
+                                                                "title":  "ÙˆØµÙ Ø§Ù„Ù‡Ù†Ø¯Ø³Ø© Ø§Ù„Ù…Ø¹Ù…Ø§Ø±ÙŠØ© Ø§Ù„Ø®Ø§ØµØ© Ø¨Ùƒ",
+                                                                "description":  "Ù‚Ù… Ø¨ÙˆØµÙ Ø§Ù„Ù†Ø¸Ø§Ù… Ø¨Ø§Ù„Ù„ØºØ© Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠØ© ÙˆØ³ÙŠÙ‚ÙˆÙ… ÙˆÙƒÙŠÙ„ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø¨Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„Ø±Ø³Ù… Ø§Ù„ØªØ®Ø·ÙŠØ·ÙŠ",
+                                                                "instructionLabel":  "ÙˆØµÙ Ø§Ù„Ù‡Ù†Ø¯Ø³Ø© Ø§Ù„Ù…Ø¹Ù…Ø§Ø±ÙŠØ©",
+                                                                "instructionPlaceholder":  "Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ Ù†Ø¸Ø§Ù… Ø§Ù„ØªØ¬Ø§Ø±Ø© Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ© Ù…Ø¹: Ù…ÙˆØ§Ø²Ù† Ø§Ù„ØªØ­Ù…ÙŠÙ„ (Nginx)ØŒ Ùˆ3 Ù…Ø«ÙŠÙ„Ø§Øª Ù„ÙˆØ§Ø¬Ù‡Ø© Ø¨Ø±Ù…Ø¬Ø© Ø§Ù„ØªØ·Ø¨ÙŠÙ‚Ø§Øª (Node.js Ø¹Ù„Ù‰ Kubernetes)ØŒ ÙˆPostgreSQL Ø§Ù„Ø£Ø³Ø§Ø³ÙŠ + Ø§Ù„Ù†Ø³Ø®Ø© Ø§Ù„Ù…ØªÙ…Ø§Ø«Ù„Ø© Ù„Ù„Ù‚Ø±Ø§Ø¡Ø©ØŒ ÙˆRedis Ù„Ù„ØªØ®Ø²ÙŠÙ† Ø§Ù„Ù…Ø¤Ù‚ØªØŒ ÙˆÙ‚Ø§Ø¦Ù…Ø© Ø§Ù†ØªØ¸Ø§Ø± RabbitMQ Ù„Ù„Ø·Ù„Ø¨Ø§ØªØŒ ÙˆØ¹Ù…Ø§Ù„ PythonØŒ ÙˆØªØ®Ø²ÙŠÙ† S3 Ù„ØµÙˆØ± Ø§Ù„Ù…Ù†ØªØ¬.",
+                                                                "instructionHelper":  "ØªØ´Ù…Ù„: Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª ÙˆØ§Ù„Ø§ØªØµØ§Ù„Ø§Øª ÙˆØ§Ù„Ø¨Ø±ÙˆØªÙˆÙƒÙˆÙ„Ø§Øª ÙˆØ§Ù„ØªÙ‚Ù†ÙŠØ§Øª ÙˆØªØ¯ÙÙ‚ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª.",
+                                                                "charCount":  "{current}/{max} Ø£Ø­Ø±Ù"
+                                                            },
+                                         "templates":  {
+                                                           "title":  "Ù‚ÙˆØ§Ù„Ø¨ Ø§Ù„Ù‡Ù†Ø¯Ø³Ø© Ø§Ù„Ù…Ø¹Ù…Ø§Ø±ÙŠØ©",
+                                                           "description":  "Ø§Ø®ØªØ± Ù‚Ø§Ù„Ø¨Ù‹Ø§ ÙƒÙ†Ù‚Ø·Ø© Ø¨Ø¯Ø§ÙŠØ©",
+                                                           "aws":  "AWS Ø³Ø­Ø§Ø¨Ø©",
+                                                           "gcp":  "Ø¬ÙˆØ¬Ù„ ÙƒÙ„Ø§ÙˆØ¯",
+                                                           "azure":  "Ù…Ø§ÙŠÙƒØ±ÙˆØ³ÙˆÙØª Ø£Ø²ÙˆØ±",
+                                                           "microservices":  "Ø§Ù„Ø®Ø¯Ù…Ø§Øª Ø§Ù„Ù…ØµØºØ±Ø©",
+                                                           "monolith":  "Ù…ØªØ±Ø§ØµØ© ÙˆØ­Ø¯Ø§Øª",
+                                                           "serverless":  "Ø¨Ø¯ÙˆÙ† Ø®Ø§Ø¯Ù…",
+                                                           "eventDriven":  "ÙŠØ­Ø±ÙƒÙ‡Ø§ Ø§Ù„Ø­Ø¯Ø«",
+                                                           "ciCd":  "Ø®Ø· Ø£Ù†Ø§Ø¨ÙŠØ¨ CI/CD",
+                                                           "network":  "Ø·ÙˆØ¨ÙˆÙ„ÙˆØ¬ÙŠØ§ Ø§Ù„Ø´Ø¨ÙƒØ©",
+                                                           "dataPipeline":  "Ø®Ø· Ø£Ù†Ø§Ø¨ÙŠØ¨ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª"
+                                                       },
+                                         "export":  {
+                                                        "title":  "ØªÙ†Ø³ÙŠÙ‚ Ø§Ù„ØªØµØ¯ÙŠØ±",
+                                                        "description":  "Ø§Ø®ØªØ± ÙƒÙŠÙÙŠØ© ØªØµØ¯ÙŠØ± Ø§Ù„Ø±Ø³Ù… Ø§Ù„ØªØ®Ø·ÙŠØ·ÙŠ",
+                                                        "png":  "PNG (Ø§Ù„ØµÙˆØ±Ø©)",
+                                                        "svg":  "SVG (Ø§Ù„Ù…ØªØ¬Ù‡)",
+                                                        "pdf":  "PDF (ÙˆØ«ÙŠÙ‚Ø©)",
+                                                        "terraform":  "ØªÙŠØ±Ø§ÙÙˆØ±Ù… (IAC)"
+                                                    },
+                                         "recentDiagrams":  {
+                                                                "title":  "Ø§Ù„Ù…Ø®Ø·Ø·Ø§Øª Ø§Ù„Ø£Ø®ÙŠØ±Ø©",
+                                                                "empty":  "Ù„Ù… ÙŠØªÙ… Ø¥Ù†Ø´Ø§Ø¡ Ø£ÙŠ Ù…Ø®Ø·Ø·Ø§Øª Ø­ØªÙ‰ Ø§Ù„Ø¢Ù†",
+                                                                "createdAt":  "ØªÙ… Ø§Ù„Ø¥Ù†Ø´Ø§Ø¡ ÙÙŠ",
+                                                                "components":  "{count} Ù…ÙƒÙˆÙ†Ø§Øª",
+                                                                "download":  "ØªØ­Ù…ÙŠÙ„",
+                                                                "edit":  "Edit",
+                                                                "delete":  "ÙŠÙ…Ø³Ø­"
+                                                            },
+                                         "actions":  {
+                                                         "generate":  "Ø¥Ù†Ø´Ø§Ø¡ Ø±Ø³Ù… ØªØ®Ø·ÙŠØ·ÙŠ",
+                                                         "generating":  "Ø¬Ø§Ø±Ù Ø¥Ù†Ø´Ø§Ø¡ Ù…Ø®Ø·Ø·â€¦",
+                                                         "generateDescription":  "Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„ÙˆØ«Ø§Ø¦Ù‚",
+                                                         "save":  "Ø­ÙØ¸ Ø§Ù„Ù…Ø´Ø±ÙˆØ¹",
+                                                         "share":  "Share",
+                                                         "shareDescription":  "Ø´Ø§Ø±Ùƒ Ù…Ø¹ ÙØ±ÙŠÙ‚Ùƒ Ø¹Ø¨Ø± Ø§Ù„Ø±Ø§Ø¨Ø·"
+                                                     },
+                                         "errors":  {
+                                                        "generateFailed":  "ÙØ´Ù„ ÙÙŠ Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„Ø±Ø³Ù… Ø§Ù„ØªØ®Ø·ÙŠØ·ÙŠ. ÙŠØ±Ø¬Ù‰ Ø§Ù„Ù…Ø­Ø§ÙˆÙ„Ø© Ù…Ø±Ø© Ø£Ø®Ø±Ù‰."
+                                                    },
+                                         "dialogs":  {
+                                                         "deleteConfirm":  "Ù‡Ù„ Ø£Ù†Øª Ù…ØªØ£ÙƒØ¯ Ø£Ù†Ùƒ ØªØ±ÙŠØ¯ Ø­Ø°Ù Ù‡Ø°Ø§ Ø§Ù„Ø±Ø³Ù… Ø§Ù„ØªØ®Ø·ÙŠØ·ÙŠØŸ",
+                                                         "shareLink":  "ØªÙ… Ù†Ø³Ø® Ø±Ø§Ø¨Ø· Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ© Ø¥Ù„Ù‰ Ø§Ù„Ø­Ø§ÙØ¸Ø©! \n\nØ´Ø§Ø±Ùƒ Ù…Ø´Ø±ÙˆØ¹ Ø§Ù„Ù‡Ù†Ø¯Ø³Ø© Ø§Ù„Ù…Ø¹Ù…Ø§Ø±ÙŠØ© Ù‡Ø°Ø§ Ù…Ø¹ ÙØ±ÙŠÙ‚Ùƒ.",
+                                                         "shareEmptyWarning":  "Ù‚Ù… Ø¨Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„Ø±Ø³Ù… Ø§Ù„ØªØ®Ø·ÙŠØ·ÙŠ Ø§Ù„Ø®Ø§Øµ Ø¨Ùƒ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… ÙˆÙƒÙ„Ø§Ø¡ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø£ÙˆÙ„Ø§Ù‹ Ù„Ù…Ø´Ø§Ø±ÙƒØªÙ‡!"
+                                                     }
+                                     }
+                },
+    "footer":  {
+                   "copyright":  "Â© {year} Pytomatiza+. Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø­Ù‚ÙˆÙ‚ Ù…Ø­ÙÙˆØ¸Ø©.",
+                   "privacy":  "Ø³ÙŠØ§Ø³Ø© Ø§Ù„Ø®ØµÙˆØµÙŠØ©",
+                   "terms":  "Ø´Ø±ÙˆØ· Ø§Ù„Ø®Ø¯Ù…Ø©",
+                   "status":  "Ø­Ø§Ù„Ø© Ø§Ù„Ù†Ø¸Ø§Ù…"
+               },
+    "logs":  {
+                 "title":  "Logs \u0026 AprovaÃ§Ãµes",
+                 "subtitle":  "Monitore execuÃ§Ãµes de automaÃ§Ã£o e gerencie solicitaÃ§Ãµes de aprovaÃ§Ã£o pendentes.",
+                 "stats":  {
+                               "totalExecutions":  "Total de ExecuÃ§Ãµes",
+                               "successRate":  "Taxa de Success",
+                               "pendingApprovals":  "AprovaÃ§Ãµes Pendings",
+                               "errors24h":  "Ø§Ù„Ø£Ø®Ø·Ø§Ø¡ (24 Ø³Ø§Ø¹Ø©)"
+                           },
+                 "tableHeader":  "ExecuÃ§Ãµes Recentes",
+                 "tableAriaLabel":  "Registros de execuÃ§Ã£o",
+                 "status":  {
+                                "success":  "Ù†Ø¬Ø§Ø­",
+                                "error":  "Error",
+                                "pending":  "AprovaÃ§Ã£o Pending",
+                                "running":  "Em ExecuÃ§Ã£o"
+                            },
+                 "agents":  {
+                                "emailSaver":  "Salvador de Anexos de E-mail",
+                                "reportGen":  "Gerador de RelatÃ³rios Semanais",
+                                "socialMonitor":  "Monitor de Redes Sociais",
+                                "dbBackup":  "Agente de Backup de Banco de Dados",
+                                "apiChecker":  "Verificador de SaÃºde de APIs",
+                                "invoiceProc":  "Processador de Faturas",
+                                "meetingSched":  "Agendador de ReuniÃµes",
+                                "contentTrans":  "Tradutor de ConteÃºdo"
+                            },
+                 "actions":  {
+                                 "log1":  "Processou 3 anexos de 2 e-mails",
+                                 "log2":  "Gerou relatÃ³rio semanal de vendas em PDF",
+                                 "log3":  "Respondeu automaticamente a 5 menÃ§Ãµes de suporte",
+                                 "log4":  "Backup noturno â€” verificaÃ§Ã£o de integridade falhou",
+                                 "log5":  "Verificou 12 endpoints â€” todos saudÃ¡veis",
+                                 "log6":  "Aguardando aprovaÃ§Ã£o de 3 faturas",
+                                 "log7":  "Agendou 2 sincronizaÃ§Ãµes de equipe para a prÃ³xima semana",
+                                 "log8":  "Traduzindo post do blog para 9 idiomas"
+                             },
+                 "duration":  {
+                                  "ongoing":  "em andamento"
+                              },
+                 "tableEmpty":  "Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ø³Ø¬Ù„Ø§Øª Ø§Ù„ØªÙ†ÙÙŠØ°.",
+                 "loginPrompt":  "Ù‚Ù… Ø¨ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ Ø¥Ù„Ù‰ Ø­Ø³Ø§Ø¨Ùƒ Ù„Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙÙŠ Ø§Ù„ÙˆÙ‚Øª Ø§Ù„Ø­Ù‚ÙŠÙ‚ÙŠ!"
+             },
+    "landing":  {
+                    "nav":  {
+                                "features":  "Features",
+                                "howItWorks":  "How It Works",
+                                "signIn":  "Sign In",
+                                "getStarted":  "Get Started",
+                                "dashboard":  "Dashboard"
+                            },
+                    "hero":  {
+                                 "title":  "Automate repetitive tasks with Python in minutes",
+                                 "subtitle":  "Create powerful automations, bots, and workflows without leaving your browser. Pytomatiza+ turns complex Python scripting into visual, manageable processes.",
+                                 "cta":  "Start Automating",
+                                 "demo":  "Watch Demo"
+                             },
+                    "socialProof":  {
+                                        "title":  "Trusted by innovators",
+                                        "executions":  "Executions performed",
+                                        "companies":  "Companies trusting us",
+                                        "uptime":  "Uptime",
+                                        "integrations":  "Integrations"
+                                    },
+                    "howItWorks":  {
+                                       "title":  "How It Works",
+                                       "subtitle":  "Three simple steps to automate anything",
+                                       "step1":  {
+                                                     "title":  "Create Your Automation",
+                                                     "description":  "Describe what you need in natural language or use our visual builder. Our AI engine interprets your requirements and generates the perfect automation script."
+                                                 },
+                                       "step2":  {
+                                                     "title":  "Configure Parameters",
+                                                     "description":  "Fine-tune inputs, connect APIs, set schedules, and define conditions. Every parameter is customizable to match your exact workflow needs."
+                                                 },
+                                       "step3":  {
+                                                     "title":  "Execute \u0026 Monitor",
+                                                     "description":  "Run your automation instantly or schedule it. Monitor execution in real-time, review logs, and get instant notifications on completion."
+                                                 }
+                                   },
+                    "features":  {
+                                     "title":  "Everything You Need to Automate",
+                                     "subtitle":  "A complete platform for building, running, and monitoring automations",
+                                     "feature1":  {
+                                                      "title":  "Python Automations",
+                                                      "description":  "Write or generate Python scripts for any task. File processing, data transformation, API calls â€” all automated."
+                                                  },
+                                     "feature2":  {
+                                                      "title":  "Integrations",
+                                                      "description":  "Connect with Google Drive, Gmail, Google Sheets, and hundreds of APIs. Your tools, unified in one platform."
+                                                  },
+                                     "feature3":  {
+                                                      "title":  "Smart Scheduling",
+                                                      "description":  "Set precise schedules, recurring intervals, or trigger-based execution. Your automations run exactly when you need them."
+                                                  },
+                                     "feature4":  {
+                                                      "title":  "Real-time Monitoring",
+                                                      "description":  "Watch executions live, track performance metrics, and receive alerts. Complete visibility into every automation."
+                                                  },
+                                     "feature5":  {
+                                                      "title":  "Complete Audit Logs",
+                                                      "description":  "Every execution is logged with full details. Review, debug, and optimize your automations with comprehensive audit trails."
+                                                  },
+                                     "feature6":  {
+                                                      "title":  "Built to Scale",
+                                                      "description":  "From small tasks to enterprise workflows. Pytomatiza+ handles increased load without compromising performance."
+                                                  }
+                                 },
+                    "demo":  {
+                                 "title":  "See It in Action",
+                                 "subtitle":  "A visual platform designed for productivity",
+                                 "tabsLabel":  "Choose a view",
+                                 "workflows":  "Workflows",
+                                 "dashboard":  "Dashboard",
+                                 "editor":  "Editor",
+                                 "automations":  "Automations"
+                             },
+                    "benefits":  {
+                                     "title":  "Automation Without the Complexity",
+                                     "subtitle":  "See the difference Pytomatiza+ makes",
+                                     "withoutTitle":  "Without Pytomatiza+",
+                                     "withTitle":  "With Pytomatiza+",
+                                     "without":  {
+                                                     "manual":  "Manual, repetitive tasks",
+                                                     "errors":  "Error-prone processes",
+                                                     "delays":  "Slow execution times",
+                                                     "silos":  "Disconnected tools",
+                                                     "visibility":  "No visibility into execution"
+                                                 },
+                                     "with":  {
+                                                  "automation":  "Full automation of repetitive work",
+                                                  "accuracy":  "Zero human errors",
+                                                  "speed":  "Blazing fast execution",
+                                                  "integration":  "Unified platform",
+                                                  "insights":  "Complete visibility and control"
+                                              }
+                                 },
+                    "useCases":  {
+                                     "title":  "Automate Anything",
+                                     "subtitle":  "From simple tasks to complex enterprise workflows",
+                                     "case1":  {
+                                                   "title":  "Financial Automation",
+                                                   "description":  "Automate invoice processing, expense tracking, bank reconciliation, and financial report generation."
+                                               },
+                                     "case2":  {
+                                                   "title":  "Report Automation",
+                                                   "description":  "Generate and distribute automated reports from any data source. Scheduled, formatted, and delivered on time."
+                                               },
+                                     "case3":  {
+                                                   "title":  "Email Automation",
+                                                   "description":  "Automate email campaigns, notification sequences, attachment processing, and intelligent inbox management."
+                                               },
+                                     "case4":  {
+                                                   "title":  "API Automation",
+                                                   "description":  "Orchestrate multi-step API workflows. Connect services, transform data, and automate complex integrations."
+                                               },
+                                     "case5":  {
+                                                   "title":  "Spreadsheet Automation",
+                                                   "description":  "Process, transform, and analyze spreadsheet data automatically. Generate pivot tables, charts, and summaries."
+                                               },
+                                     "case6":  {
+                                                   "title":  "Business Process Automation",
+                                                   "description":  "Automate approval workflows, data entry, document processing, and compliance reporting for your entire organization."
+                                               }
+                                 },
+                    "cta":  {
+                                "title":  "Start Automating Today",
+                                "subtitle":  "Join thousands of professionals who have transformed their workflow with Pytomatiza+",
+                                "button":  "Enter Pytomatiza+"
+                            },
+                    "footer":  {
+                                   "description":  "The intelligent automation platform that thinks, learns, and executes.",
+                                   "copyright":  "Â© 2026 Pytomatiza+. All rights reserved.",
+                                   "product":  {
+                                                   "title":  "Product",
+                                                   "features":  "Features",
+                                                   "pricing":  "Pricing",
+                                                   "integrations":  "Integrations",
+                                                   "changelog":  "Changelog"
+                                               },
+                                   "resources":  {
+                                                     "title":  "Resources",
+                                                     "docs":  "Documentation",
+                                                     "api":  "API Reference",
+                                                     "blog":  "Blog",
+                                                     "help":  "Help Center"
+                                                 },
+                                   "company":  {
+                                                   "title":  "Company",
+                                                   "about":  "About",
+                                                   "careers":  "Careers",
+                                                   "blog":  "Blog",
+                                                   "contact":  "Contact"
+                                               },
+                                   "legal":  {
+                                                 "title":  "Legal",
+                                                 "privacy":  "Privacy Policy",
+                                                 "terms":  "Terms of Service",
+                                                 "cookies":  "Cookie Policy",
+                                                 "security":  "Security"
+                                             }
+                               },
+                    "a11y":  {
+                                 "mainNavigation":  "Main navigation",
+                                 "mobileNavigation":  "Mobile navigation",
+                                 "openMenu":  "Open menu",
+                                 "closeMenu":  "Close menu",
+                                 "heroIllustration":  "Pytomatiza+ platform illustration showing automation workflows and analytics dashboard"
+                             }
+                },
+    "brand":  {
+                  "tagline":  "Ø£ØªÙ…ØªØ© Ù…Ø¯Ø¹ÙˆÙ…Ø© Ø¨Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ ØªÙÙƒØ± ÙˆØªØªØ¹Ù„Ù… ÙˆØªÙ†ÙØ°ØŒ Ù„Ø°Ø§ Ù„Ù† ØªØ¶Ø·Ø± Ø¥Ù„Ù‰ Ø§Ù„Ù‚ÙŠØ§Ù… Ø¨Ø°Ù„Ùƒ.",
+                  "feature1Title":  "Ø³ÙŠØ± Ø¹Ù…Ù„ Ø§Ù„Ù„ØºØ© Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠØ©",
+                  "feature1Desc":  "ÙˆØµÙ Ø§Ù„Ù…Ù‡Ø§Ù… Ø¨Ø§Ù„Ù„ØºØ© Ø§Ù„Ø¥Ù†Ø¬Ù„ÙŠØ²ÙŠØ© Ø§Ù„Ø¨Ø³ÙŠØ·Ø©. ÙŠÙ‚ÙˆÙ… Ù…Ø­Ø±Ùƒ Ø§Ù„Ø¨Ø±Ù…Ø¬Ø© Ø§Ù„Ù„ØºÙˆÙŠØ© Ø§Ù„Ø¹ØµØ¨ÙŠØ© (NLP) Ù„Ø¯ÙŠÙ†Ø§ Ø¨Ø¨Ù†Ø§Ø¡ Ø§Ù„Ø£ØªÙ…ØªØ© Ù„Ùƒ.",
+                  "feature2Title":  "ØªÙ†Ø³ÙŠÙ‚ Ù…ØªØ¹Ø¯Ø¯ Ø§Ù„ÙˆÙƒÙ„Ø§Ø¡",
+                  "feature2Desc":  "ÙŠØªØ¹Ø§ÙˆÙ† ÙˆÙƒÙ„Ø§Ø¡ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø§Ù„Ù…ØªØ®ØµØµÙˆÙ† Ù„Ù„ØªØ¹Ø§Ù…Ù„ Ù…Ø¹ Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ù…Ø¹Ù‚Ø¯Ø© ÙˆÙ…ØªØ¹Ø¯Ø¯Ø© Ø§Ù„Ø®Ø·ÙˆØ§Øª.",
+                  "feature3Title":  "Enterprise-Grade Ø§Ù„Ø£Ù…Ø§Ù†",
+                  "feature3Desc":  "End-to-end Ø§Ù„ØªØ´ÙÙŠØ± ÙˆØ§Ù„ÙˆØµÙˆÙ„ Ø§Ù„Ù‚Ø§Ø¦Ù… Ø¹Ù„Ù‰ Ø§Ù„Ø£Ø¯ÙˆØ§Ø± ÙˆÙ…Ø³Ø§Ø±Ø§Øª Ø§Ù„ØªØ¯Ù‚ÙŠÙ‚ Ø§Ù„ÙƒØ§Ù…Ù„Ø©."
+              }
 }

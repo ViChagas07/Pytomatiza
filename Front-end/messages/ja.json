@@ -1,1254 +1,1256 @@
-{
-  "a11y": {
-    "skipToMain": "メインコンテンツにスキップ",
-    "themeToggle": "カラーテーマの切り替え",
-    "languageSwitcher": "言語を選択してください",
-    "showPassword": "パスワードを表示",
-    "hidePassword": "パスワードを隠す",
-    "closeModal": "ダイアログを閉じる",
-    "mainNavigation": "メインナビゲーション",
-    "sidebarNavigation": "サイドバーのナビゲーション",
-    "breadcrumb": "ブレッドクラム",
-    "pagination": "ページネーション",
-    "currentPage": "現在のページ、ページ {page}",
-    "goToPage": "ページ {page} に移動",
-    "goToHome": "ホームページへ行く"
-  },
-  "common": {
-    "loading": "読み込み中…",
-    "error": "何か問題が発生しました",
-    "retry": "もう一度やり直してください",
-    "save": "保存",
-    "cancel": "キャンセル",
-    "delete": "消去",
-    "edit": "編集",
-    "create": "作成する",
-    "search": "検索",
-    "filter": "フィルター",
-    "noResults": "結果が見つかりませんでした",
-    "back": "戻る",
-    "next": "次",
-    "previous": "前の",
-    "confirm": "確認する",
-    "actions": "アクション",
-    "more": "その他のオプション",
-    "copied": "クリップボードにコピーされました",
-    "enabled": "有効",
-    "disabled": "無効",
-    "increasedBy": "増加",
-    "decreasedBy": "減少"
-  },
-  "auth": {
-    "signIn": {
-      "title": "おかえり",
-      "subtitle": "Pytomatiza+ アカウントにサインインする",
-      "emailLabel": "電子メールアドレス",
-      "emailPlaceholder": "you@example.com",
-      "passwordLabel": "パスワード",
-      "passwordPlaceholder": "パスワードを入力してください",
-      "submit": "サインイン",
-      "forgotPassword": "パスワードをお忘れですか？",
-      "noAccount": "アカウントをお持ちでない場合は、",
-      "createOne": "作成する"
-    },
-    "signUp": {
-      "title": "アカウントを作成する",
-      "subtitle": "Pytomatiza+ で自動化を始めましょう",
-      "nameLabel": "フルネーム",
-      "namePlaceholder": "ジェーン・スミス",
-      "emailLabel": "電子メールアドレス",
-      "emailPlaceholder": "you@example.com",
-      "passwordLabel": "パスワード",
-      "passwordPlaceholder": "少なくとも 8 文字",
-      "confirmPasswordLabel": "パスワードを認証する",
-      "confirmPasswordPlaceholder": "パスワードを再入力してください",
-      "submit": "アカウントを作成する",
-      "haveAccount": "すでにアカウントをお持ちですか?",
-      "signIn": "サインイン"
-    },
-    "google": "Google を続ける",
-    "divider": "or",
-    "errors": {
-      "invalidCredentials": "無効な電子メールまたはパスワード",
-      "emailExists": "このメールアドレスを持つアカウントはすでに存在します",
-      "invalidEmail": "有効なメールアドレスを入力してください",
-      "passwordTooShort": "パスワードは8文字以上である必要があります",
-      "passwordUppercase": "パスワードには少なくとも 1 つの大文字が含まれている必要があります",
-      "passwordNumber": "パスワードには少なくとも 1 つの数字が含まれている必要があります",
-      "passwordsDoNotMatch": "パスワードが一致しません",
-      "nameTooShort": "名前は少なくとも 2 文字である必要があります",
-      "generic": "予期しないエラーが発生しました。 もう一度試してください。",
-      "rateLimited": "試行回数が多すぎます。 しばらくお待ちください。"
-    },
-    "authenticationForm": "認証フォーム"
-  },
-  "meta": {
-    "login": {
-      "title": "サインイン — ピトマティザ+",
-      "description": "Pytomatiza+ アカウントにサインインして、AI を活用した自動化エージェントを管理します。"
-    },
-    "dashboard": {
-      "title": "ダッシュボード - ピトマティザ+",
-      "description": "Pytomatiza+ 自動化エージェント、最近のアクティビティ、およびシステム ステータスの概要。"
-    },
-    "agents": {
-      "title": "エージェント - ピトマティザ+",
-      "description": "AI 自動化エージェントを参照して管理します。"
-    },
-    "automations": {
-      "title": "自動化 — Pytomatiza+",
-      "description": "自然言語自動化ワークフローを作成および管理します。"
-    },
-    "settings": {
-      "title": "設定 - ピトマティザ+",
-      "description": "アカウント、統合、通知設定を管理します。"
-    },
-    "help": {
-      "title": "ヘルプとサポート — Pytomatiza+",
-      "description": "ヘルプを取得し、ドキュメントを参照し、サポートに連絡してください。"
-    },
-    "logs": {
-      "title": "Logs & Aprovações — Pytomatiza+",
-      "description": "Visualize execuções de automação, histórico de agentes e gerencie aprovações pendentes."
-    },
-    "documents": {
-      "title": "ドキュメント — Pytomatiza+",
-      "description": "AIで文書処理を自動化。 データの抽出、形式の変換、PDF、DOCX などの管理を行います。"
-    },
-    "data": {
-      "title": "データとスプレッドシート — Pytomatiza+",
-      "description": "データ ソースを接続し、スプレッドシートを変換し、AI エージェントを使用して分析を自動化します。"
-    },
-    "communication": {
-      "title": "コミュニケーション — Pytomatiza+",
-      "description": "インテリジェントなワークフローで電子メール、メッセージ、マルチチャネル通知を自動化します。"
-    },
-    "media": {
-      "title": "メディアと画像 — Pytomatiza+",
-      "description": "インテリジェントな自動化により、画像とメディアをバッチで処理、変換、最適化します。"
-    },
-    "files": {
-      "title": "ファイル — Pytomatiza+",
-      "description": "インテリジェントなルールを使用してファイル操作を管理、整理、自動化します。"
-    },
-    "architecture": {
-      "title": "建築 — Pytomatiza+",
-      "description": "AI を使用してアーキテクチャ図、技術文書、システム フローを生成します。"
-    }
-  },
-  "navigation": {
-    "dashboard": "ダッシュボード",
-    "agents": "エージェント",
-    "automations": "自動化",
-    "settings": "設定",
-    "help": "ヘルプとサポート",
-    "signOut": "サインアウト",
-    "collapse": "サイドバーを折りたたむ",
-    "expand": "サイドバーを展開する",
-    "mainNavigation": "メインナビゲーション",
-    "sidebarNavigation": "サイドバーのナビゲーション"
-  },
-  "settings": {
-    "title": "設定",
-    "subtitle": "アカウント、環境設定、アプリケーション設定を管理します。",
-    "tabs": {
-      "appearance": "外観",
-      "accessibility": "アクセシビリティ",
-      "languageRegion": "言語と地域",
-      "account": "アカウント",
-      "security": "安全",
-      "notifications": "通知",
-      "advanced": "高度な"
-    },
-    "appearance": {
-      "title": "外観",
-      "subtitle": "視覚体験をカスタマイズします。",
-      "accentColor": "アクセントカラー",
-      "accentColorDescription": "「+」およびアクセント要素のハイライト色を選択します。",
-      "fontSize": "フォントサイズ",
-      "fontSizeSmall": "小さい",
-      "fontSizeMedium": "中くらい",
-      "fontSizeLarge": "大きい",
-      "boldMode": "太字モード",
-      "boldModeDescription": "アプリ全体のフォントの太さを増やします。",
-      "elementDensity": "要素サイズ",
-      "densitySmall": "小さい",
-      "densityMedium": "中くらい",
-      "densityLarge": "大きい",
-      "systemColor": "システムカラー",
-      "themeLight": "ライト",
-      "themeDark": "暗い",
-      "themeSystem": "システム",
-      "backgroundColor": "背景色",
-      "bgPresetDefault": "デフォルト",
-      "bgPresetWarm": "暖かい",
-      "bgPresetCool": "いいね",
-      "bgPresetForest": "森",
-      "bgPresetLavender": "ラベンダー",
-      "bgPresetSepia": "セピア",
-      "bgPresetMidnight": "夜中",
-      "bgPresetSlate": "スレート",
-      "colorYellow": "黄色",
-      "colorBlue": "Blue",
-      "colorGreen": "Green",
-      "colorPurple": "紫",
-      "colorOrange": "オレンジ",
-      "colorRed": "Red",
-      "colorPink": "Pink",
-      "accentColorAria": "{color} アクセントカラー"
-    },
-    "accessibility": {
-      "title": "アクセシビリティ",
-      "subtitle": "アプリをよりアクセスしやすくするオプションを構成します。",
-      "highContrast": "ハイコントラスト",
-      "highContrastDescription": "色のコントラストを高めて読みやすくします。",
-      "reduceMotion": "アニメーションを減らす",
-      "reduceMotionDescription": "モーションエフェクトとトランジションを最小限に抑えます。",
-      "focusOutline": "拡大されたフォーカスアウトライン",
-      "focusOutlineDescription": "キーボード フォーカスのアウトラインの太さを増加します。",
-      "skipLinks": "スキップリンクを常に表示する",
-      "skipLinksDescription": "スキップ ナビゲーション リンクを永続的に表示します。",
-      "underlineLinks": "すべてのリンクに下線を引く",
-      "underlineLinksDescription": "識別しやすくするために、すべてのリンクに下線を追加します。",
-      "screenReader": "スクリーンリーダーの最適化",
-      "screenReaderDescription": "追加の説明と強化された ARIA ラベルを追加します。"
-    },
-    "languageRegion": {
-      "title": "言語と地域",
-      "subtitle": "希望の言語とタイムゾーンを選択してください。",
-      "language": "言語",
-      "languageDescription": "アプリケーションの表示言語を選択します。",
-      "timezone": "タイムゾーン",
-      "timezoneDescription": "現地のタイムゾーンを選択します。"
-    },
-    "account": {
-      "title": "アカウント",
-      "subtitle": "個人情報を管理します。",
-      "fullName": "フルネーム",
-      "fullNamePlaceholder": "あなたのフルネーム",
-      "birthDate": "生年月日",
-      "profilePicture": "プロフィール写真",
-      "uploadPhoto": "写真をアップロードする",
-      "removePhoto": "写真を削除",
-      "saveChanges": "変更を保存する",
-      "lockedTitle": "立ち入り禁止エリア",
-      "lockedDescription": "サインインしてアカウント情報を管理します。",
-      "login": "サインイン",
-      "register": "アカウントを作成する"
-    },
-    "security": {
-      "title": "安全",
-      "subtitle": "アカウントのセキュリティ オプションを構成します。",
-      "twoFactor": "二要素認証 (2FA)",
-      "twoFactorDescription": "サインイン時に保護層を追加します。",
-      "changePassword": "パスワードを変更する",
-      "changePasswordDescription": "アカウントを安全に保つためにパスワードを定期的に更新してください。",
-      "activeSessions": "アクティブなセッション",
-      "activeSessionsDescription": "他のデバイス上のセッションを表示して終了します。",
-      "configure": "設定する",
-      "change": "変化",
-      "current": "現在",
-      "revoke": "取り消す",
-      "revokeAll": "他のすべてのセッションを終了する"
-    },
-    "notifications": {
-      "title": "通知",
-      "subtitle": "通知の受け取り方法を選択します。",
-      "email": "電子メール通知",
-      "emailDescription": "概要と重要なアラートを電子メールで受け取ります。",
-      "inApp": "アプリ内通知",
-      "inAppDescription": "アプリ内にバナーとバッジを表示します。",
-      "push": "プッシュ通知",
-      "pushDescription": "アプリを閉じているときでもアラートを受信します。",
-      "sound": "警報音",
-      "soundDescription": "通知が届いたときに音を鳴らします。"
-    },
-    "advanced": {
-      "title": "高度な",
-      "subtitle": "高度なアプリケーション メンテナンス オプション。",
-      "clearCache": "アプリのキャッシュをクリアする",
-      "clearCacheDescription": "ローカルに保存されている一時データを削除します。",
-      "clearCacheButton": "今すぐキャッシュをクリア",
-      "clearCacheConfirm": "本気ですか？ これにより、一時的なローカル データがすべて削除されます。",
-      "resetSettings": "設定をリセットする",
-      "resetSettingsDescription": "すべての設定をデフォルト値に戻します。",
-      "resetSettingsButton": "デフォルトにリセットする",
-      "resetSettingsConfirm": "本気ですか？ すべての設定が失われます。",
-      "appVersion": "アプリのバージョン"
-    }
-  },
-  "help": {
-    "title": "ヘルプとサポート",
-    "subtitle": "ヘルプを入手し、ドキュメントを参照し、当社のチームにお問い合わせください。",
-    "documentation": "ドキュメント",
-    "documentationDescription": "ガイド、チュートリアル、API リファレンスを参照します。",
-    "contactSupport": "サポートに連絡する",
-    "contactSupportDescription": "私たちのチームに助けてもらいましょう。 通常 24 時間以内に返信します。",
-    "faqTitle": "よくある質問",
-    "faq0": {
-      "question": "オートメーションを作成するにはどうすればよいですか?",
-      "answer": "「自動化」ページに移動し、Natural Language Workflow Builder を使用します。 自動化したい内容をわかりやすい英語で説明すると、Pytomatiza+ がワークフローを構築します。"
-    },
-    "faq1": {
-      "question": "新しい統合を接続するにはどうすればよいですか?",
-      "answer": "[設定] → [統合] に移動して、Google Workspace、Slack、GitHub などのサードパーティ サービスに接続します。"
-    },
-    "faq2": {
-      "question": "エージェントが失敗するとどうなりますか?",
-      "answer": "失敗したエージェントには、エラー ステータスがマークされます。 エージェント カードでエラーの詳細を表示し、実行を再試行できます。"
-    },
-    "faq3": {
-      "question": "言語を変更するにはどうすればよいですか?",
-      "answer": "ヘッダーの地球アイコンをクリックして、サポートされている 9 つの言語を切り替えます。"
-    }
-  },
-  "dashboard": {
-    "title": "ダッシュボード",
-    "welcome": "いいですね、{timeOfDay}、{name}",
-    "morning": "朝",
-    "afternoon": "午後",
-    "evening": "夕方",
-    "subtitle": "今日の自動化で何が起こっているかを次に示します。",
-    "stats": {
-      "activeAgents": "アクティブエージェント",
-      "automationsToday": "今日のオートメーション",
-      "successRate": "成功率",
-      "pendingApprovals": "承認待ち",
-      "increasedBy": "{value}増加",
-      "decreasedBy": "{value}減少"
-    },
-    "recentActivity": "最近の活動",
-    "quickActions": "クイックアクション",
-    "quickActionsDescription": "はじめによく使う操作",
-    "createAutomation": "新しい自動化",
-    "viewAgents": "すべてのエージェントを表示",
-    "viewReports": "レポートを表示する",
-    "error": {
-      "title": "データの読み込みエラー",
-      "loadingFailed": "ダッシュボードデータを読み込めませんでした。接続を確認して再試行してください。",
-      "retry": "再試行",
-      "offlineBanner": "バックエンドを利用できません - 表示されるデータは古い可能性があります",
-      "unknown": "不明なエラー"
-    },
-    "empty": {
-      "title": "エージェントが見つかりません",
-      "description": "最初の自動化エージェントを作成して、ここでアクティビティを確認できるようにしましょう。",
-      "offlineTitle": "バックエンドがオフライン",
-      "offlineDescription": "バックエンドに接続してエージェントを確認します。 サービスが利用可能になったら、「再試行」をクリックします。"
-    },
-    "recentActivityEmpty": "履歴を空にします…モジュールに移動して、Pytomatiza+ で最初のオートメーションを作成します。",
-    "loginPrompt": "アカウントにサインインしてリアルタイム データにアクセスしてください。",
-    "loginAction": "サインイン",
-    "user": "User"
-  },
-  "agents": {
-    "title": "エージェント",
-    "subtitle": "AI 自動化エージェントを参照して管理する",
-    "searchPlaceholder": "名前またはタイプでエージェントを検索…",
-    "filterByType": "タイプでフィルタリングする",
-    "filterByStatus": "ステータスでフィルタリングする",
-    "allTypes": "全種類",
-    "allStatuses": "すべてのステータス",
-    "types": {
-      "productivity": "生産性",
-      "data": "データ",
-      "content": "コンテンツ",
-      "admin": "管理者",
-      "technical": "テクニカル"
-    },
-    "statuses": {
-      "idle": "アイドル状態",
-      "running": "ランニング",
-      "error": "エラー",
-      "paused": "一時停止中"
-    },
-    "statusDescriptions": {
-      "idle": "ステータス: 準備ができて待機中",
-      "running": "ステータス: 現在実行中",
-      "error": "ステータス: エラーが発生しました",
-      "paused": "ステータス: ユーザーによって一時停止されました"
-    },
-    "card": {
-      "lastRun": "最後の実行",
-      "successRate": "成功率",
-      "runNow": "今すぐ実行",
-      "pause": "一時停止",
-      "resume": "再開する",
-      "configure": "設定する",
-      "never": "一度もない"
-    },
-    "empty": "現在のフィルターに一致するエージェントはありません。 検索またはフィルター条件を調整してみてください。",
-    "error": "エージェントをロードできません。 接続を確認して、もう一度試してください。",
-    "mock": {
-      "1": {
-        "name": "Salvador de Anexos de E-mail",
-        "desc": "Monitora a caixa de entrada em busca de anexos, salva-os no Google Drive e notifica via Slack."
-      },
-      "2": {
-        "name": "Gerador de Relat�rios Semanais",
-        "desc": "Compila dados de m�ltiplas fontes e gera um relat�rio PDF formatado toda segunda-feira."
-      },
-      "3": {
-        "name": "Monitor de Redes Sociais",
-        "desc": "Rastreia men��es � marca no Twitter, LinkedIn e Reddit. Responde automaticamente a consultas de suporte."
-      },
-      "4": {
-        "name": "Agente de Backup de Banco de Dados",
-        "desc": "Realiza backups noturnos do banco de dados e verifica a integridade. Alerta em caso de falha."
-      },
-      "5": {
-        "name": "Verificador de Sa�de de APIs",
-        "desc": "Faz ping em todas as APIs internas a cada minuto. Escala para o PagerDuty em caso de inatividade."
-      },
-      "6": {
-        "name": "Processador de Faturas",
-        "desc": "Extrai dados de faturas em PDF usando OCR e envia para o software de contabilidade."
-      },
-      "7": {
-        "name": "Agendador de Reuni�es",
-        "desc": "Coordena calend�rios entre equipes para encontrar hor�rios ideais e envia convites."
-      },
-      "8": {
-        "name": "Tradutor de Conte�do",
-        "desc": "Traduz posts de blog e documenta��o para 9 idiomas usando IA."
-      }
-    },
-    "agentsFound": "{count, plural, =1 {1 agente encontrado} other {{count} agentes encontrados}}",
-    "loginPrompt": "エージェントと履歴を保存するには、ログインまたはアカウントを作成してください！",
-    "resetFilters": "すべてのフィルターをリセット"
-  },
-  "automations": {
-    "title": "自動化",
-    "subtitle": "自然言語自動化ワークフローを作成および管理する",
-    "nlpBuilder": {
-      "title": "自然言語ワークフロービルダー",
-      "description": "自動化したい内容をわかりやすい英語で説明すると、Pytomatiza+ がワークフローを構築します。",
-      "instructionLabel": "何を自動化したいですか?",
-      "instructionPlaceholder": "例: クライアントから添付ファイル付きのメールを受信した場合、添付ファイルを Google ドライブに保存し、Slack で通知します。",
-      "instructionHelper": "できるだけ具体的にしてください。 トリガー、条件、および必要なアクションを含めます。",
-      "agentTypeLabel": "推奨されるエージェントの種類",
-      "agentTypePlaceholder": "自動検出 (推奨)",
-      "requireApprovalLabel": "実行前に承認が必要",
-      "requireApprovalHelper": "有効にすると、ワークフローは実行前にレビューのために一時停止します。",
-      "build": "ワークフローの構築",
-      "building": "ワークフローを構築中…",
-      "charCount": "{current}/{max} 文字",
-      "suggestions": "次の例を試してください。",
-      "example1": "クローズされたすべてのチケットの週次レポートを毎週金曜日の午後 5 時にチームの Slack チャネルに送信します",
-      "example2": "Twitter のメンションを監視し、ヘルプ センターへのリンクを使用してサポートの質問に自動的に返信します。",
-      "example3": "「見込み客」Google シートに新しい行が追加されると、Gmail 経由でパーソナライズされたウェルカム メールが送信されます"
-    },
-    "workflowList": {
-      "title": "あなたのワークフロー",
-      "empty": "ワークフローはまだありません。 上で最初のものを作成します。",
-      "lastTriggered": "最後にトリガーされた",
-      "executions": "処刑",
-      "toggle": "ワークフローの切り替え",
-      "delete": "ワークフローの削除",
-      "deleteConfirm": "このワークフローを削除してもよろしいですか? この操作は元に戻すことができません。",
-      "deleted": "ワークフローが正常に削除されました",
-      "statusToggled": "ワークフロー {status}",
-      "label": "ワークフロー",
-      "neverTriggered": "決してトリガーされない",
-      "status": "ステータス: {status}",
-      "created": "ワークフローが作成されました! エージェントの種類: {agentType}。 承認: {approval}。",
-      "required": "必須",
-      "notRequired": "必要ありません"
-    },
-    "errors": {
-      "instructionTooShort": "指示は 10 文字以上である必要があります",
-      "instructionTooLong": "指示は 500 文字を超えてはなりません",
-      "buildFailed": "ワークフローの構築に失敗しました。 もう一度試してください。"
-    },
-    "loginPrompt": "アカウントにログインしてリアルタイム データにアクセスしてください。",
-    "agentTypes": {
-      "productivity": "生産性",
-      "data": "Data",
-      "content": "コンテンツ",
-      "admin": "Admin",
-      "technical": "テクニカル"
-    }
-  },
-  "theme": {
-    "light": "ライト",
-    "dark": "暗い",
-    "system": "システム"
-  },
-  "errors": {
-    "notFound": {
-      "title": "ページが見つかりません",
-      "description": "お探しのページは存在しないか、移動されました。",
-      "goHome": "ダッシュボードに移動"
-    },
-    "serverError": {
-      "title": "サーバーエラー",
-      "description": "予期しないエラーが発生しました。 私たちのチームに通知されました。",
-      "retry": "もう一度やり直してください"
-    },
-    "unauthorized": {
-      "title": "無許可",
-      "description": "このページにアクセスするにはサインインする必要があります。",
-      "signIn": "サインイン"
-    },
-    "notFoundTitle": "ページが見つかりません",
-    "notFoundDescription": "お探しのページは存在しないか、移動されました。",
-    "notFoundAction": "ダッシュボードに移動",
-    "somethingWentWrong": "何か問題が発生しました",
-    "unexpectedError": "予期しないエラーが発生しました。 私たちのチームに通知されました。",
-    "dashboardErrorDescription": "このページの読み込み中に予期しないエラーが発生しました。",
-    "tryAgain": "もう一度やり直してください",
-    "goHome": "家に帰れ",
-    "errorId": "エラーID:",
-    "loadingDashboard": "ダッシュボードを読み込み中",
-    "loadingDashboardContent": "ダッシュボードのコンテンツを読み込み中…"
-  },
-  "nav": {
-    "dashboard": "ダッシュボード",
-    "home": "ホーム",
-    "automations": "自動化",
-    "agents": "エージェント",
-    "logs": "ログと承認",
-    "modules": "モジュール",
-    "modulesPanel": "利用可能なモジュール",
-    "openMenu": "ナビゲーションメニューを開く",
-    "closeMenu": "ナビゲーションメニューを閉じる",
-    "closeModules": "モジュールパネルを閉じる",
-    "primary": "プライマリナビゲーション",
-    "documents": "書類",
-    "documentsDesc": "書類を管理、整理します。",
-    "data": "データとスプレッドシート",
-    "dataDesc": "データ ソースとスプレッドシートを操作します。",
-    "communication": "コミュニケーション",
-    "communicationDesc": "電子メール、メッセージ、通知。",
-    "media": "メディアと画像",
-    "mediaDesc": "画像およびメディア資産の管理。",
-    "files": "ファイル",
-    "filesDesc": "一般的なファイルのストレージと管理。",
-    "architecture": "建築",
-    "architectureDesc": "システム図とアーキテクチャのドキュメント。",
-    "settings": "設定",
-    "signOut": "サインアウト",
-    "signIn": "サインイン",
-    "appearance": "外観",
-    "user": "User"
-  },
-  "modules": {
-    "documents": {
-      "title": "書類",
-      "subtitle": "AI エージェントによるインテリジェントなドキュメント処理の自動化",
-      "upload": {
-        "title": "文書を添付する",
-        "description": "ここにファイルをドラッグ アンド ドロップするか、クリックして選択します",
-        "dragActive": "添付するファイルをドロップします",
-        "browse": "ファイルを参照する",
-        "supportedFormats": "Supported formats: PDF, DOCX, XLSX, PPTX, TXT, CSV, images",
-        "maxSize": "最大サイズ: 25 MB",
-        "fileSelected": "選択されたファイル",
-        "remove": "ファイルを削除する"
-      },
-      "instruction": {
-        "title": "AIエージェントは何をすべきでしょうか?",
-        "description": "エージェントにこの文書に対して何をしてもらいたいかを自然言語で説明します。",
-        "label": "エージェントの指示",
-        "placeholder": "例: 3 ページの表からすべてのデータを抽出し、CSV スプレッドシートに変換します。 その後、finance@company.com に電子メールで送信します。",
-        "helper": "具体的にする: 抽出するデータ、出力形式、受信者、後処理アクションを含めます。",
-        "charCount": "{current}/{max}文字"
-      },
-      "quickActions": {
-        "title": "クイックアクション",
-        "extractData": "データの抽出",
-        "convertFormat": "フォーマットを変換する",
-        "mergeDocs": "文書を結合する",
-        "ocrScan": "OCRスキャン",
-        "summarize": "内容を要約する",
-        "translate": "翻訳する",
-        "presets": {
-          "extract": "このドキュメントからすべての構造化データを抽出し、CSV としてエクスポートします。",
-          "convert": "元のレイアウトを維持したまま、このドキュメントを PDF 形式に変換します。",
-          "merge": "このドキュメントをフォルダー内の他のファイルと結合し、単一の統合された PDF を生成します。",
-          "ocr": "OCR を使用してこの文書をスキャンし、すべてのテキストを編集可能な形式で抽出します。",
-          "summarize": "この文書の内容を重要なポイントとともに 1 つの段落に要約します。",
-          "translate": "元の書式を維持したまま、この文書を英語に翻訳します。"
-        }
-      },
-      "recentDocuments": {
-        "title": "最近のドキュメント",
-        "empty": "まだ処理された文書はありません。 最初のドキュメントを上にアップロードします。",
-        "processed": "加工済み",
-        "status": "状態",
-        "actions": "アクション",
-        "download": "ダウンロード結果",
-        "reprocess": "再処理",
-        "delete": "消去"
-      },
-      "processing": {
-        "button": "プロセス文書",
-        "processing": "処理…",
-        "success": "書類は正常に処理されました!",
-        "error": "ドキュメントの処理に失敗しました。 もう一度試してください。",
-        "reprocessInstruction": "以前と同じ変換を適用してドキュメント {name} を再処理します。"
-      },
-      "integrations": {
-        "googleDrive": {
-          "title": "Google Drive",
-          "description": "Google Drive から直接ドキュメントにアクセスして選択します。",
-          "connect": "Google Drive を接続します",
-          "connecting": "接続中...",
-          "connected": "Google Drive に接続されました",
-          "browse": "ドライブを参照"
-        }
-      },
-      "dialogs": {
-        "deleteConfirm": "この文書を削除してもよろしいですか? この操作は元に戻すことができません。"
-      }
-    },
-    "data": {
-      "title": "データとスプレッドシート",
-      "subtitle": "データソースを接続し、スプレッドシートを変換し、分析を自動化します",
-      "source": {
-        "title": "データソース",
-        "description": "データの接続方法を選択してください",
-        "uploadCsv": "CSV/Excelのアップロード",
-        "googleSheets": "Google Sheets",
-        "database": "SQLデータベース",
-        "api": "REST API",
-        "url": "公開URL",
-        "selectPlaceholder": "ソースタイプを選択してください…",
-        "connect": "接続する",
-        "connecting": "接続中…"
-      },
-      "instruction": {
-        "title": "データをどうするか?",
-        "description": "希望する変換、分析、または自動化について説明します。",
-        "label": "処理命令",
-        "placeholder": "たとえば、「名」列と「姓」列を結合し、売上が 10,000 ドルを超えるレコードをフィルタリングし、地域ごとにグループ化し、棒グラフを生成します。",
-        "helper": "フィルター、集計、テーブル結合、および必要な出力形式を含めます。",
-        "charCount": "{current}/{max}文字"
-      },
-      "preview": {
-        "title": "プレビュー",
-        "noData": "データソースをプレビューに接続する",
-        "rows": "{count}行",
-        "columns": "{count}列",
-        "id": "ID",
-        "name": "Name",
-        "region": "地域",
-        "sales": "Sales",
-        "status": "状態",
-        "showingRecords": "{total} 件中 {shown} 件のレコードを表示しています"
-      },
-      "recentDatasets": {
-        "title": "最近のデータセット",
-        "empty": "データセットはまだ処理されていません",
-        "source": "ソース",
-        "lastUsed": "最後に使用した",
-        "info": "{rows}行 · {cols}列"
-      },
-      "actions": {
-        "transform": "データを変換する",
-        "analyze": "データを分析する",
-        "export": "結果のエクスポート",
-        "schedule": "スケジュールの自動化",
-        "sidebarTitle": "アクション",
-        "dashboard": "ダッシュボード",
-        "processing": "処理…"
-      },
-      "integrations": {
-        "googleDrive": {
-          "title": "Google Drive",
-          "description": "Google Drive からスプレッドシートやデータ ファイルに直接アクセスします。",
-          "connect": "Google Drive を接続します",
-          "connecting": "接続中...",
-          "connected": "Google Drive に接続されました",
-          "browse": "ドライブを参照"
-        }
-      },
-      "errors": {
-        "connectFailed": "データソースへの接続に失敗しました。",
-        "processFailed": "データの処理に失敗しました。"
-      },
-      "results": {
-        "connected": "無事接続されました！ データ ソースを処理する準備ができています。",
-        "transformComplete": "変身完了！ {count} レコードが処理されました。 結果をダウンロードする準備ができました。",
-        "analyzeInstruction": "接続されたデータを分析し、傾向、異常値、相関関係、推奨事項などの洞察を生成します。",
-        "scheduleAlert": "スケジュールが設定されました! データは自動的に処理されます。",
-        "comingSoon": "機能は近日公開予定です。"
-      },
-      "presets": {
-        "merge": {
-          "label": "列を結合する",
-          "prompt": "「名前」列と「姓」列を 1 つの「フルネーム」列に結合します。"
-        },
-        "filter": {
-          "label": "レコードをフィルタリングする",
-          "prompt": "「Sales」列が $10,000 を超えるレコードをフィルターします。"
-        },
-        "group": {
-          "label": "グループ化して要約する",
-          "prompt": "データを「地域」ごとにグループ化し、「売上」の合計と平均を計算します。"
-        },
-        "pivot": {
-          "label": "ピボットテーブル",
-          "prompt": "「Category」を行、「Month」を列、「Revenue」の合計を含むピボット テーブルを作成します。"
-        },
-        "chart": {
-          "label": "チャートの生成",
-          "prompt": "地域ごとの売上を比較する棒グラフを生成します。"
-        },
-        "export": {
-          "label": "構造化されたエクスポート",
-          "prompt": "変換されたデータを UTF-8 エンコードを使用して CSV ファイルにエクスポートします。"
-        }
-      }
-    },
-    "communication": {
-      "title": "コミュニケーション",
-      "subtitle": "電子メール、メッセージ、マルチチャネル通知を自動化する",
-      "composer": {
-        "title": "メッセージを作成する",
-        "description": "コンテンツを説明すると、AI エージェントがメッセージの下書きを作成します",
-        "instructionLabel": "メッセージ指示",
-        "instructionPlaceholder": "例: 3 日以内に請求書の期限が来るすべてのクライアントに、プロフェッショナルかつフレンドリーな口調でリマインダー メールを送信し、支払いリンクを含めます。",
-        "instructionHelper": "メッセージ トーン、含める情報、パーソナライゼーション、CTA を指定します。",
-        "subjectLabel": "件名（メールの場合）",
-        "subjectPlaceholder": "メールの件名…",
-        "charCount": "{current}/{max}文字",
-        "noSubject": "(主語なし)"
-      },
-      "channels": {
-        "title": "配送チャネル",
-        "email": "Email",
-        "slack": "Slack",
-        "whatsapp": "ワッツアップ",
-        "teams": "マイクロソフトチーム",
-        "sms": "SMS",
-        "discord": "不和"
-      },
-      "recipients": {
-        "title": "受信者",
-        "description": "メッセージを受信する人を設定する",
-        "to": "To",
-        "toPlaceholder": "email@example.com",
-        "cc": "CC（カーボンコピー）",
-        "ccPlaceholder": "email@example.com",
-        "addMore": "さらに追加",
-        "list": "配布リスト",
-        "condition": "条件別（非アクティブなクライアントなど）"
-      },
-      "schedule": {
-        "title": "スケジュール",
-        "sendNow": "今すぐ送信",
-        "scheduleLater": "後の予定を立てる",
-        "recurring": "繰り返し発生する",
-        "dateTime": "日時",
-        "frequency": "頻度",
-        "daily": "Daily",
-        "weekly": "毎週",
-        "monthly": "毎月",
-        "dateTimePlaceholder": "日付/時刻ピッカーはフルバージョンで利用できます。"
-      },
-      "recentMessages": {
-        "title": "最近のメッセージ",
-        "empty": "まだメッセージは送信されていません",
-        "channel": "チャネル",
-        "sentAt": "に送信されました",
-        "status": "状態"
-      },
-      "actions": {
-        "send": "メッセージを送信する",
-        "sending": "送信中…",
-        "preview": "プレビュー",
-        "saveDraft": "下書きの保存",
-        "testSend": "送信テスト",
-        "testSendDescription": "テストを送信してフォーマットを検証する"
-      },
-      "status": {
-        "sent": "Sent",
-        "scheduled": "予定されている",
-        "failed": "失敗した"
-      },
-      "results": {
-        "sent": "{channels}経由でメッセージが正常に送信されました!",
-        "preview": "[プレビュー]\n\n チャンネル: {channels}\n 件名: {subject}\n\n {instruction}\n\n (これはプレビュー シミュレーションです)",
-        "draftSaved": "下書きは正常に保存されました。 「メッセージ > 下書き」からアクセスできます。",
-        "testSent": "テストは{email}に送信されました! 受信箱を確認してください。"
-      },
-      "errors": {
-        "sendFailed": "メッセージの送信に失敗しました。",
-        "testNoRecipient": "テストの受信者を入力してください。"
-      }
-    },
-    "media": {
-      "title": "メディアと画像",
-      "subtitle": "画像とメディアをバッチで処理、変換、最適化します",
-      "instruction": {
-        "title": "AI エージェントはメディアに対して何をすべきでしょうか?",
-        "description": "エージェントに画像やビデオに対して何をしてもらいたいかを自然言語で説明します。",
-        "label": "エージェントの指示",
-        "placeholder": "たとえば、すべての画像から背景を削除し、アスペクト比を維持して 1200x800 にサイズ変更し、85% の品質で WebP に変換し、明るさ +10 フィルターを適用し、右下隅に「© My Company」の透かしを追加します。",
-        "helper": "適用する変換、サイズ、出力形式、品質、フィルター、ウォーターマークが含まれます。",
-        "charCount": "{current}/{max}文字",
-        "button": "AIによる処理",
-        "processing": "処理…"
-      },
-      "upload": {
-        "title": "メディアのアップロード",
-        "description": "画像またはビデオをドラッグして開始します",
-        "dragActive": "ファイルをドロップしてアップロードする",
-        "browse": "ファイルを参照する",
-        "supportedFormats": "Formats: JPG, PNG, GIF, SVG, WebP, MP4, MOV, WebM",
-        "maxSize": "最大サイズ: ファイルごとに 100 MB",
-        "batchInfo": "{count} ファイルが選択されました",
-        "remove": "取り除く"
-      },
-      "transformations": {
-        "title": "変換",
-        "description": "メディアをどうするかを選択してください",
-        "resize": "サイズ変更",
-        "resizeDescription": "画像の寸法を変更する",
-        "width": "Width",
-        "height": "身長",
-        "maintainAspect": "アスペクト比を維持する",
-        "convertFormat": "フォーマットを変換する",
-        "convertDescription": "別のファイル形式に変換する",
-        "targetFormat": "対象フォーマット",
-        "compress": "圧縮する",
-        "compressDescription": "ファイルサイズを減らす",
-        "quality": "品質",
-        "watermark": "透かし",
-        "watermarkDescription": "画像にテキストまたはロゴのオーバーレイを追加する",
-        "watermarkText": "透かしテキスト",
-        "filters": "フィルターと調整",
-        "brightness": "輝度",
-        "contrast": "対比",
-        "saturation": "飽和",
-        "blur": "Blur"
-      },
-      "preview": {
-        "title": "プレビュー",
-        "original": "オリジナル",
-        "processed": "加工済み",
-        "noMedia": "メディアをアップロードしてプレビューする"
-      },
-      "recentMedia": {
-        "title": "最近のメディア",
-        "empty": "まだメディアが処理されていません"
-      },
-      "actions": {
-        "process": "プロセスメディア",
-        "processing": "処理…",
-        "download": "ダウンロード結果",
-        "downloadAll": "すべてダウンロード（ZIP）",
-        "batchProcess": "バッチ処理",
-        "filesCount": "{count} ファイル"
-      },
-      "integrations": {
-        "googleDrive": {
-          "title": "Google Drive",
-          "description": "Google Drive に保存されている画像やビデオにアクセスします。",
-          "connect": "Google Drive を接続します",
-          "connecting": "接続中...",
-          "connected": "Google Drive に接続されました",
-          "browse": "ドライブを参照"
-        },
-        "googlePhotos": {
-          "title": "Googleフォト",
-          "description": "Google フォトから写真やアルバムに直接アクセスします。",
-          "connect": "Google フォトを接続する",
-          "connecting": "接続中...",
-          "connected": "Googleフォトに接続しました",
-          "browse": "写真を閲覧する"
-        }
-      },
-      "errors": {
-        "processFailed": "メディアの処理に失敗しました。",
-        "aiFailed": "指示の解釈に失敗しました。"
-      },
-      "results": {
-        "processComplete": "処理が完了しました！ {count} ファイルは正常に変換されました。",
-        "aiInterpreted": "命令は正常に解釈されました。 変換は説明どおりに事前構成されています。 パネル内の調整を確認し、「メディアを処理」をクリックして適用します。",
-        "downloadSimulation": "{count} 処理されたファイルを ZIP 形式でダウンロードすることをシミュレートします。 \n\nフルバージョンでは、すべてのファイルが圧縮されてダウンロードされます。",
-        "downloadComplete": "ダウンロード完了！ ファイルがリストから削除されました。"
-      }
-    },
-    "files": {
-      "title": "Files",
-      "subtitle": "ファイル操作を管理、整理、自動化する",
-      "instruction": {
-        "title": "AI エージェントはファイルに対して何をすべきでしょうか?",
-        "description": "ファイルをどのように整理、処理、管理するかを自然言語で説明します。",
-        "label": "エージェントの指示",
-        "placeholder": "たとえば、ダウンロード フォルダー内のすべての PDF を作成日順に整理し、「YYYY-MM-DD - 元の名前」パターンを使用して名前を変更し、請求書を /Finance/Invoices/{year}/{month} に移動し、6 か月以上前のファイルを圧縮します。",
-        "helper": "含まれる内容: 影響するファイル、それらの整理方法、名前変更パターン、宛先フォルダー、追加のアクション。",
-        "charCount": "{current}/{max}文字",
-        "button": "AIで実行する",
-        "processing": "実行中…"
-      },
-      "storage": {
-        "title": "ストレージ",
-        "used": "Used",
-        "total": "{total}",
-        "files": "{count} ファイル",
-        "folders": "{count}フォルダ",
-        "activeRules": "アクティブなルール",
-        "rulesConfigured": "{count}設定済み",
-        "lastFolder": "最後: {name}",
-        "progressLabel": "{progress}%使用"
-      },
-      "upload": {
-        "title": "ファイルのアップロード",
-        "description": "ファイルまたはフォルダーをドラッグしてアップロードします",
-        "dragActive": "ドロップしてアップロード",
-        "browse": "ブラウズ",
-        "createFolder": "フォルダーの作成"
-      },
-      "browser": {
-        "title": "ファイルエクスプローラー",
-        "empty": "このフォルダは空です",
-        "name": "Name",
-        "size": "Size",
-        "modified": "修正済み",
-        "type": "Type",
-        "sortBy": "並べ替え",
-        "search": "ファイルを検索…",
-        "gridView": "グリッドビュー",
-        "listView": "リストビュー",
-        "folder": "フォルダ"
-      },
-      "rules": {
-        "title": "組織規則",
-        "description": "ファイル整理を自動化する",
-        "ruleName": "ルール名",
-        "ruleNamePlaceholder": "例: 請求書を月ごとに並べ替える",
-        "condition": "状態",
-        "conditionPlaceholder": "例: ファイル名に「請求書」が含まれている",
-        "action": "アクション",
-        "actionPlaceholder": "例: /Finance/Invoices/{year}/{month} に移動します",
-        "addRule": "ルールの追加",
-        "active": "アクティブ",
-        "inactive": "非アクティブ",
-        "empty": "ルールが設定されていません"
-      },
-      "actions": {
-        "label": "アクション",
-        "moreOptions": "その他のオプション",
-        "upload": "アップロード",
-        "newFolder": "新しいフォルダー",
-        "delete": "消去",
-        "rename": "名前の変更",
-        "move": "Move",
-        "copy": "Copy",
-        "share": "Share",
-        "download": "ダウンロード"
-      },
-      "aiPlaceholder": "E.g.: Organize all PDFs from the Downloads folder by creation date, renomeie com o padrão 'YYYY-MM-DD - nome original', mova faturas para /Financeiro/Faturas/{ano}/{mês} e compacte arquivos com mais de 6 meses.",
-      "integrations": {
-        "googleDrive": {
-          "title": "Google Drive",
-          "description": "ローカル フォルダーであるかのように、Google Drive からファイルに直接アクセスして管理します。",
-          "connect": "Google Drive を接続します",
-          "connecting": "接続中...",
-          "connected": "Google Drive に接続されました",
-          "browse": "ドライブを探索する",
-          "disconnect": "切断する"
-        }
-      },
-      "dialogs": {
-        "newFolder": "新しいフォルダー名:",
-        "rename": "名前を次のように変更します:",
-        "deleteConfirm": "「{name}」を削除してもよろしいですか? この操作は元に戻すことができません。",
-        "moveAlert": "「{name}」を移動 — 製品版では、フォルダー セレクターが表示されます。",
-        "copySuffix": "（コピー）",
-        "shareLink": "クリップボードにコピーされた「{name}」のリンクを共有します。 \n\nhttps://pytomatiza.app/share/{id}",
-        "selectFile": "「{label}」 — このアクションを使用するには、エクスプローラーでファイルを選択します。"
-      },
-      "results": {
-        "aiInterpreted": "命令は正常に解釈されました。 組織ルールは自動的に作成されます。 ルールパネルでそれらを確認してください。"
-      }
-    },
-    "architecture": {
-      "title": "建築",
-      "subtitle": "AI を使用してアーキテクチャ図と技術文書を生成",
-      "diagramBuilder": {
-        "title": "アーキテクチャについて説明してください",
-        "description": "自然言語でシステムを説明すると、AI エージェントが図を生成します",
-        "instructionLabel": "アーキテクチャの説明",
-        "instructionPlaceholder": "例: ロード バランサー (Nginx)、3 つの API インスタンス (Kubernetes の Node.js)、プライマリ PostgreSQL + リード レプリカ、キャッシュ用の Redis、注文用の RabbitMQ キュー、Python ワーカー、および製品画像用の S3 ストレージを備えた電子商取引システム。",
-        "instructionHelper": "コンポーネント、接続、プロトコル、テクノロジー、データ フローが含まれます。",
-        "charCount": "{current}/{max}文字"
-      },
-      "templates": {
-        "title": "アーキテクチャテンプレート",
-        "description": "出発点としてテンプレートを選択する",
-        "aws": "AWS クラウド",
-        "gcp": "グーグルクラウド",
-        "azure": "マイクロソフトアジュール",
-        "microservices": "マイクロサービス",
-        "monolith": "モジュラーモノリス",
-        "serverless": "サーバーレス",
-        "eventDriven": "イベント駆動型",
-        "ciCd": "CI/CD パイプライン",
-        "network": "ネットワークトポロジー",
-        "dataPipeline": "データパイプライン"
-      },
-      "export": {
-        "title": "エクスポート形式",
-        "description": "図のエクスポート方法を選択する",
-        "png": "PNG（イメージ）",
-        "svg": "SVG（ベクター）",
-        "pdf": "PDF（文書）",
-        "terraform": "テラフォーム (IaC)"
-      },
-      "recentDiagrams": {
-        "title": "最近の図",
-        "empty": "図はまだ生成されていません",
-        "createdAt": "で作成されました",
-        "components": "{count} コンポーネント",
-        "download": "ダウンロード",
-        "edit": "Edit",
-        "delete": "消去"
-      },
-      "actions": {
-        "generate": "ダイアグラムの生成",
-        "generating": "図を生成中…",
-        "generateDescription": "ドキュメントの生成",
-        "save": "プロジェクトの保存",
-        "share": "Share",
-        "shareDescription": "リンク経由でチームと共有する"
-      },
-      "errors": {
-        "generateFailed": "ダイアグラムの生成に失敗しました。 もう一度試してください。"
-      },
-      "dialogs": {
-        "deleteConfirm": "この図を削除してもよろしいですか?",
-        "shareLink": "クリップボードにコピーされたリンクを共有します!\n\n このアーキテクチャ プロジェクトをチームと共有します。",
-        "shareEmptyWarning": "共有するには、まずAIエージェントで図を作成してください！"
-      }
-    }
-  },
-  "footer": {
-    "copyright": "© {year} Pytomatiza+. 無断転載を禁じます。",
-    "privacy": "プライバシーポリシー",
-    "terms": "利用規約",
-    "status": "システムステータス"
-  },
-  "logs": {
-    "title": "Logs & Aprovações",
-    "subtitle": "Monitore execuções de automação e gerencie solicitações de aprovação pendentes.",
-    "stats": {
-      "totalExecutions": "Total de Execuções",
-      "successRate": "Taxa de Success",
-      "pendingApprovals": "Aprovações Pendings",
-      "errors24h": "エラー (24 時間)"
-    },
-    "tableHeader": "Execuções Recentes",
-    "tableAriaLabel": "Registros de execução",
-    "status": {
-      "success": "成功",
-      "error": "Error",
-      "pending": "Aprovação Pending",
-      "running": "Em Execução"
-    },
-    "agents": {
-      "emailSaver": "Salvador de Anexos de E-mail",
-      "reportGen": "Gerador de Relatórios Semanais",
-      "socialMonitor": "Monitor de Redes Sociais",
-      "dbBackup": "Agente de Backup de Banco de Dados",
-      "apiChecker": "Verificador de Saúde de APIs",
-      "invoiceProc": "Processador de Faturas",
-      "meetingSched": "Agendador de Reuniões",
-      "contentTrans": "Tradutor de Conteúdo"
-    },
-    "actions": {
-      "log1": "Processou 3 anexos de 2 e-mails",
-      "log2": "Gerou relatório semanal de vendas em PDF",
-      "log3": "Respondeu automaticamente a 5 menções de suporte",
-      "log4": "Backup noturno — verificação de integridade falhou",
-      "log5": "Verificou 12 endpoints — todos saudáveis",
-      "log6": "Aguardando aprovação de 3 faturas",
-      "log7": "Agendou 2 sincronizações de equipe para a próxima semana",
-      "log8": "Traduzindo post do blog para 9 idiomas"
-    },
-    "duration": {
-      "ongoing": "em andamento"
-    },
-    "tableEmpty": "実行ログが見つかりませんでした。",
-    "loginPrompt": "アカウントにログインしてリアルタイム データにアクセスしてください。"
-  },
-  "landing": {
-    "nav": {
-      "features": "Features",
-      "howItWorks": "How It Works",
-      "signIn": "Sign In",
-      "getStarted": "Get Started",
-      "dashboard": "Dashboard"
-    },
-    "hero": {
-      "title": "Automate repetitive tasks with Python in minutes",
-      "subtitle": "Create powerful automations, bots, and workflows without leaving your browser. Pytomatiza+ turns complex Python scripting into visual, manageable processes.",
-      "cta": "Start Automating",
-      "demo": "Watch Demo"
-    },
-    "socialProof": {
-      "title": "Trusted by innovators",
-      "executions": "Executions performed",
-      "companies": "Companies trusting us",
-      "uptime": "Uptime",
-      "integrations": "Integrations"
-    },
-    "howItWorks": {
-      "title": "How It Works",
-      "subtitle": "Three simple steps to automate anything",
-      "step1": {
-        "title": "Create Your Automation",
-        "description": "Describe what you need in natural language or use our visual builder. Our AI engine interprets your requirements and generates the perfect automation script."
-      },
-      "step2": {
-        "title": "Configure Parameters",
-        "description": "Fine-tune inputs, connect APIs, set schedules, and define conditions. Every parameter is customizable to match your exact workflow needs."
-      },
-      "step3": {
-        "title": "Execute & Monitor",
-        "description": "Run your automation instantly or schedule it. Monitor execution in real-time, review logs, and get instant notifications on completion."
-      }
-    },
-    "features": {
-      "title": "Everything You Need to Automate",
-      "subtitle": "A complete platform for building, running, and monitoring automations",
-      "feature1": {
-        "title": "Python Automations",
-        "description": "Write or generate Python scripts for any task. File processing, data transformation, API calls — all automated."
-      },
-      "feature2": {
-        "title": "Integrations",
-        "description": "Connect with Google Drive, Gmail, Google Sheets, and hundreds of APIs. Your tools, unified in one platform."
-      },
-      "feature3": {
-        "title": "Smart Scheduling",
-        "description": "Set precise schedules, recurring intervals, or trigger-based execution. Your automations run exactly when you need them."
-      },
-      "feature4": {
-        "title": "Real-time Monitoring",
-        "description": "Watch executions live, track performance metrics, and receive alerts. Complete visibility into every automation."
-      },
-      "feature5": {
-        "title": "Complete Audit Logs",
-        "description": "Every execution is logged with full details. Review, debug, and optimize your automations with comprehensive audit trails."
-      },
-      "feature6": {
-        "title": "Built to Scale",
-        "description": "From small tasks to enterprise workflows. Pytomatiza+ handles increased load without compromising performance."
-      }
-    },
-    "demo": {
-      "title": "See It in Action",
-      "subtitle": "A visual platform designed for productivity",
-      "tabsLabel": "Choose a view",
-      "workflows": "Workflows",
-      "dashboard": "Dashboard",
-      "editor": "Editor",
-      "automations": "Automations"
-    },
-    "benefits": {
-      "title": "Automation Without the Complexity",
-      "subtitle": "See the difference Pytomatiza+ makes",
-      "withoutTitle": "Without Pytomatiza+",
-      "withTitle": "With Pytomatiza+",
-      "without": {
-        "manual": "Manual, repetitive tasks",
-        "errors": "Error-prone processes",
-        "delays": "Slow execution times",
-        "silos": "Disconnected tools",
-        "visibility": "No visibility into execution"
-      },
-      "with": {
-        "automation": "Full automation of repetitive work",
-        "accuracy": "Zero human errors",
-        "speed": "Blazing fast execution",
-        "integration": "Unified platform",
-        "insights": "Complete visibility and control"
-      }
-    },
-    "useCases": {
-      "title": "Automate Anything",
-      "subtitle": "From simple tasks to complex enterprise workflows",
-      "case1": {
-        "title": "Financial Automation",
-        "description": "Automate invoice processing, expense tracking, bank reconciliation, and financial report generation."
-      },
-      "case2": {
-        "title": "Report Automation",
-        "description": "Generate and distribute automated reports from any data source. Scheduled, formatted, and delivered on time."
-      },
-      "case3": {
-        "title": "Email Automation",
-        "description": "Automate email campaigns, notification sequences, attachment processing, and intelligent inbox management."
-      },
-      "case4": {
-        "title": "API Automation",
-        "description": "Orchestrate multi-step API workflows. Connect services, transform data, and automate complex integrations."
-      },
-      "case5": {
-        "title": "Spreadsheet Automation",
-        "description": "Process, transform, and analyze spreadsheet data automatically. Generate pivot tables, charts, and summaries."
-      },
-      "case6": {
-        "title": "Business Process Automation",
-        "description": "Automate approval workflows, data entry, document processing, and compliance reporting for your entire organization."
-      }
-    },
-    "cta": {
-      "title": "Start Automating Today",
-      "subtitle": "Join thousands of professionals who have transformed their workflow with Pytomatiza+",
-      "button": "Enter Pytomatiza+"
-    },
-    "footer": {
-      "description": "The intelligent automation platform that thinks, learns, and executes.",
-      "copyright": "© 2026 Pytomatiza+. All rights reserved.",
-      "product": {
-        "title": "Product",
-        "features": "Features",
-        "pricing": "Pricing",
-        "integrations": "Integrations",
-        "changelog": "Changelog"
-      },
-      "resources": {
-        "title": "Resources",
-        "docs": "Documentation",
-        "api": "API Reference",
-        "blog": "Blog",
-        "help": "Help Center"
-      },
-      "company": {
-        "title": "Company",
-        "about": "About",
-        "careers": "Careers",
-        "blog": "Blog",
-        "contact": "Contact"
-      },
-      "legal": {
-        "title": "Legal",
-        "privacy": "Privacy Policy",
-        "terms": "Terms of Service",
-        "cookies": "Cookie Policy",
-        "security": "Security"
-      }
-    },
-    "a11y": {
-      "mainNavigation": "Main navigation",
-      "mobileNavigation": "Mobile navigation",
-      "openMenu": "Open menu",
-      "closeMenu": "Close menu",
-      "heroIllustration": "Pytomatiza+ platform illustration showing automation workflows and analytics dashboard"
-    }
-  },
-  "brand": {
-    "tagline": "AI を活用した自動化により、考え、学習し、実行するため、その必要はありません。",
-    "feature1Title": "自然言語ワークフロー",
-    "feature1Desc": "わかりやすい英語でタスクを説明します。 当社の NLP エンジンは自動化を構築します。",
-    "feature2Title": "マルチエージェントオーケストレーション",
-    "feature2Desc": "専門の AI エージェントが連携して、複雑な複数ステップのプロセスを処理します。",
-    "feature3Title": "Enterprise-Grade セキュリティ",
-    "feature3Desc": "End-to-end 暗号化、ロールベースのアクセス、完全な監査証跡。"
-  }
+﻿{
+    "a11y":  {
+                 "skipToMain":  "ãƒ¡ã‚¤ãƒ³ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã«ã‚¹ã‚­ãƒƒãƒ—",
+                 "themeToggle":  "ã‚«ãƒ©ãƒ¼ãƒ†ãƒ¼ãƒžã®åˆ‡ã‚Šæ›¿ãˆ",
+                 "languageSwitcher":  "è¨€èªžã‚’é¸æŠžã—ã¦ãã ã•ã„",
+                 "showPassword":  "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’è¡¨ç¤º",
+                 "hidePassword":  "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’éš ã™",
+                 "closeModal":  "ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’é–‰ã˜ã‚‹",
+                 "mainNavigation":  "ãƒ¡ã‚¤ãƒ³ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³",
+                 "sidebarNavigation":  "ã‚µã‚¤ãƒ‰ãƒãƒ¼ã®ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³",
+                 "breadcrumb":  "ãƒ–ãƒ¬ãƒƒãƒ‰ã‚¯ãƒ©ãƒ ",
+                 "pagination":  "ãƒšãƒ¼ã‚¸ãƒãƒ¼ã‚·ãƒ§ãƒ³",
+                 "currentPage":  "ç¾åœ¨ã®ãƒšãƒ¼ã‚¸ã€ãƒšãƒ¼ã‚¸ {page}",
+                 "goToPage":  "ãƒšãƒ¼ã‚¸ {page} ã«ç§»å‹•",
+                 "goToHome":  "ãƒ›ãƒ¼ãƒ ãƒšãƒ¼ã‚¸ã¸è¡Œã"
+             },
+    "common":  {
+                   "loading":  "èª­ã¿è¾¼ã¿ä¸­â€¦",
+                   "error":  "ä½•ã‹å•é¡ŒãŒç™ºç”Ÿã—ã¾ã—ãŸ",
+                   "retry":  "ã‚‚ã†ä¸€åº¦ã‚„ã‚Šç›´ã—ã¦ãã ã•ã„",
+                   "save":  "ä¿å­˜",
+                   "cancel":  "ã‚­ãƒ£ãƒ³ã‚»ãƒ«",
+                   "delete":  "æ¶ˆåŽ»",
+                   "edit":  "ç·¨é›†",
+                   "create":  "ä½œæˆã™ã‚‹",
+                   "search":  "æ¤œç´¢",
+                   "filter":  "ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼",
+                   "noResults":  "çµæžœãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸ",
+                   "back":  "æˆ»ã‚‹",
+                   "next":  "æ¬¡",
+                   "previous":  "å‰ã®",
+                   "confirm":  "ç¢ºèªã™ã‚‹",
+                   "actions":  "ã‚¢ã‚¯ã‚·ãƒ§ãƒ³",
+                   "more":  "ãã®ä»–ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³",
+                   "copied":  "ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ã‚³ãƒ”ãƒ¼ã•ã‚Œã¾ã—ãŸ",
+                   "enabled":  "æœ‰åŠ¹",
+                   "disabled":  "ç„¡åŠ¹",
+                   "increasedBy":  "å¢—åŠ ",
+                   "decreasedBy":  "æ¸›å°‘"
+               },
+    "auth":  {
+                 "signIn":  {
+                                "title":  "ãŠã‹ãˆã‚Š",
+                                "subtitle":  "Pytomatiza+ ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã«ã‚µã‚¤ãƒ³ã‚¤ãƒ³ã™ã‚‹",
+                                "emailLabel":  "é›»å­ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹",
+                                "emailPlaceholder":  "you@example.com",
+                                "passwordLabel":  "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰",
+                                "passwordPlaceholder":  "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„",
+                                "submit":  "ã‚µã‚¤ãƒ³ã‚¤ãƒ³",
+                                "forgotPassword":  "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’ãŠå¿˜ã‚Œã§ã™ã‹ï¼Ÿ",
+                                "noAccount":  "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã‚’ãŠæŒã¡ã§ãªã„å ´åˆã¯ã€",
+                                "createOne":  "ä½œæˆã™ã‚‹"
+                            },
+                 "signUp":  {
+                                "title":  "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã‚’ä½œæˆã™ã‚‹",
+                                "subtitle":  "Pytomatiza+ ã§è‡ªå‹•åŒ–ã‚’å§‹ã‚ã¾ã—ã‚‡ã†",
+                                "nameLabel":  "ãƒ•ãƒ«ãƒãƒ¼ãƒ ",
+                                "namePlaceholder":  "ã‚¸ã‚§ãƒ¼ãƒ³ãƒ»ã‚¹ãƒŸã‚¹",
+                                "emailLabel":  "é›»å­ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹",
+                                "emailPlaceholder":  "you@example.com",
+                                "passwordLabel":  "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰",
+                                "passwordPlaceholder":  "å°‘ãªãã¨ã‚‚ 8 æ–‡å­—",
+                                "confirmPasswordLabel":  "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’èªè¨¼ã™ã‚‹",
+                                "confirmPasswordPlaceholder":  "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å†å…¥åŠ›ã—ã¦ãã ã•ã„",
+                                "submit":  "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã‚’ä½œæˆã™ã‚‹",
+                                "haveAccount":  "ã™ã§ã«ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã‚’ãŠæŒã¡ã§ã™ã‹?",
+                                "signIn":  "ã‚µã‚¤ãƒ³ã‚¤ãƒ³"
+                            },
+                 "google":  "Google ã‚’ç¶šã‘ã‚‹",
+                 "divider":  "or",
+                 "errors":  {
+                                "invalidCredentials":  "ç„¡åŠ¹ãªé›»å­ãƒ¡ãƒ¼ãƒ«ã¾ãŸã¯ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰",
+                                "emailExists":  "ã“ã®ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’æŒã¤ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã¯ã™ã§ã«å­˜åœ¨ã—ã¾ã™",
+                                "invalidEmail":  "æœ‰åŠ¹ãªãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„",
+                                "passwordTooShort":  "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯8æ–‡å­—ä»¥ä¸Šã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™",
+                                "passwordUppercase":  "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã«ã¯å°‘ãªãã¨ã‚‚ 1 ã¤ã®å¤§æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™",
+                                "passwordNumber":  "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã«ã¯å°‘ãªãã¨ã‚‚ 1 ã¤ã®æ•°å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™",
+                                "passwordsDoNotMatch":  "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒä¸€è‡´ã—ã¾ã›ã‚“",
+                                "nameTooShort":  "åå‰ã¯å°‘ãªãã¨ã‚‚ 2 æ–‡å­—ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™",
+                                "generic":  "äºˆæœŸã—ãªã„ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ ã‚‚ã†ä¸€åº¦è©¦ã—ã¦ãã ã•ã„ã€‚",
+                                "rateLimited":  "è©¦è¡Œå›žæ•°ãŒå¤šã™ãŽã¾ã™ã€‚ ã—ã°ã‚‰ããŠå¾…ã¡ãã ã•ã„ã€‚"
+                            },
+                 "authenticationForm":  "èªè¨¼ãƒ•ã‚©ãƒ¼ãƒ "
+             },
+    "meta":  {
+                 "login":  {
+                               "title":  "ã‚µã‚¤ãƒ³ã‚¤ãƒ³ â€” ãƒ”ãƒˆãƒžãƒ†ã‚£ã‚¶+",
+                               "description":  "Pytomatiza+ ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã«ã‚µã‚¤ãƒ³ã‚¤ãƒ³ã—ã¦ã€AI ã‚’æ´»ç”¨ã—ãŸè‡ªå‹•åŒ–ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã‚’ç®¡ç†ã—ã¾ã™ã€‚"
+                           },
+                 "dashboard":  {
+                                   "title":  "ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰ - ãƒ”ãƒˆãƒžãƒ†ã‚£ã‚¶+",
+                                   "description":  "Pytomatiza+ è‡ªå‹•åŒ–ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã€æœ€è¿‘ã®ã‚¢ã‚¯ãƒ†ã‚£ãƒ“ãƒ†ã‚£ã€ãŠã‚ˆã³ã‚·ã‚¹ãƒ†ãƒ  ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã®æ¦‚è¦ã€‚"
+                               },
+                 "agents":  {
+                                "title":  "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆ - ãƒ”ãƒˆãƒžãƒ†ã‚£ã‚¶+",
+                                "description":  "AI è‡ªå‹•åŒ–ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã‚’å‚ç…§ã—ã¦ç®¡ç†ã—ã¾ã™ã€‚"
+                            },
+                 "automations":  {
+                                     "title":  "è‡ªå‹•åŒ– â€” Pytomatiza+",
+                                     "description":  "è‡ªç„¶è¨€èªžè‡ªå‹•åŒ–ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã‚’ä½œæˆãŠã‚ˆã³ç®¡ç†ã—ã¾ã™ã€‚"
+                                 },
+                 "settings":  {
+                                  "title":  "è¨­å®š - ãƒ”ãƒˆãƒžãƒ†ã‚£ã‚¶+",
+                                  "description":  "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã€çµ±åˆã€é€šçŸ¥è¨­å®šã‚’ç®¡ç†ã—ã¾ã™ã€‚"
+                              },
+                 "help":  {
+                              "title":  "ãƒ˜ãƒ«ãƒ—ã¨ã‚µãƒãƒ¼ãƒˆ â€” Pytomatiza+",
+                              "description":  "ãƒ˜ãƒ«ãƒ—ã‚’å–å¾—ã—ã€ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’å‚ç…§ã—ã€ã‚µãƒãƒ¼ãƒˆã«é€£çµ¡ã—ã¦ãã ã•ã„ã€‚"
+                          },
+                 "logs":  {
+                              "title":  "Logs \u0026 AprovaÃ§Ãµes â€” Pytomatiza+",
+                              "description":  "Visualize execuÃ§Ãµes de automaÃ§Ã£o, histÃ³rico de agentes e gerencie aprovaÃ§Ãµes pendentes."
+                          },
+                 "documents":  {
+                                   "title":  "ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆ â€” Pytomatiza+",
+                                   "description":  "AIã§æ–‡æ›¸å‡¦ç†ã‚’è‡ªå‹•åŒ–ã€‚ ãƒ‡ãƒ¼ã‚¿ã®æŠ½å‡ºã€å½¢å¼ã®å¤‰æ›ã€PDFã€DOCX ãªã©ã®ç®¡ç†ã‚’è¡Œã„ã¾ã™ã€‚"
+                               },
+                 "data":  {
+                              "title":  "ãƒ‡ãƒ¼ã‚¿ã¨ã‚¹ãƒ—ãƒ¬ãƒƒãƒ‰ã‚·ãƒ¼ãƒˆ â€” Pytomatiza+",
+                              "description":  "ãƒ‡ãƒ¼ã‚¿ ã‚½ãƒ¼ã‚¹ã‚’æŽ¥ç¶šã—ã€ã‚¹ãƒ—ãƒ¬ãƒƒãƒ‰ã‚·ãƒ¼ãƒˆã‚’å¤‰æ›ã—ã€AI ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã‚’ä½¿ç”¨ã—ã¦åˆ†æžã‚’è‡ªå‹•åŒ–ã—ã¾ã™ã€‚"
+                          },
+                 "communication":  {
+                                       "title":  "ã‚³ãƒŸãƒ¥ãƒ‹ã‚±ãƒ¼ã‚·ãƒ§ãƒ³ â€” Pytomatiza+",
+                                       "description":  "ã‚¤ãƒ³ãƒ†ãƒªã‚¸ã‚§ãƒ³ãƒˆãªãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§é›»å­ãƒ¡ãƒ¼ãƒ«ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€ãƒžãƒ«ãƒãƒãƒ£ãƒãƒ«é€šçŸ¥ã‚’è‡ªå‹•åŒ–ã—ã¾ã™ã€‚"
+                                   },
+                 "media":  {
+                               "title":  "ãƒ¡ãƒ‡ã‚£ã‚¢ã¨ç”»åƒ â€” Pytomatiza+",
+                               "description":  "ã‚¤ãƒ³ãƒ†ãƒªã‚¸ã‚§ãƒ³ãƒˆãªè‡ªå‹•åŒ–ã«ã‚ˆã‚Šã€ç”»åƒã¨ãƒ¡ãƒ‡ã‚£ã‚¢ã‚’ãƒãƒƒãƒã§å‡¦ç†ã€å¤‰æ›ã€æœ€é©åŒ–ã—ã¾ã™ã€‚"
+                           },
+                 "files":  {
+                               "title":  "ãƒ•ã‚¡ã‚¤ãƒ« â€” Pytomatiza+",
+                               "description":  "ã‚¤ãƒ³ãƒ†ãƒªã‚¸ã‚§ãƒ³ãƒˆãªãƒ«ãƒ¼ãƒ«ã‚’ä½¿ç”¨ã—ã¦ãƒ•ã‚¡ã‚¤ãƒ«æ“ä½œã‚’ç®¡ç†ã€æ•´ç†ã€è‡ªå‹•åŒ–ã—ã¾ã™ã€‚"
+                           },
+                 "architecture":  {
+                                      "title":  "å»ºç¯‰ â€” Pytomatiza+",
+                                      "description":  "AI ã‚’ä½¿ç”¨ã—ã¦ã‚¢ãƒ¼ã‚­ãƒ†ã‚¯ãƒãƒ£å›³ã€æŠ€è¡“æ–‡æ›¸ã€ã‚·ã‚¹ãƒ†ãƒ  ãƒ•ãƒ­ãƒ¼ã‚’ç”Ÿæˆã—ã¾ã™ã€‚"
+                                  }
+             },
+    "navigation":  {
+                       "dashboard":  "ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰",
+                       "agents":  "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆ",
+                       "automations":  "è‡ªå‹•åŒ–",
+                       "settings":  "è¨­å®š",
+                       "help":  "ãƒ˜ãƒ«ãƒ—ã¨ã‚µãƒãƒ¼ãƒˆ",
+                       "signOut":  "ã‚µã‚¤ãƒ³ã‚¢ã‚¦ãƒˆ",
+                       "collapse":  "ã‚µã‚¤ãƒ‰ãƒãƒ¼ã‚’æŠ˜ã‚ŠãŸãŸã‚€",
+                       "expand":  "ã‚µã‚¤ãƒ‰ãƒãƒ¼ã‚’å±•é–‹ã™ã‚‹",
+                       "mainNavigation":  "ãƒ¡ã‚¤ãƒ³ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³",
+                       "sidebarNavigation":  "ã‚µã‚¤ãƒ‰ãƒãƒ¼ã®ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³"
+                   },
+    "settings":  {
+                     "title":  "è¨­å®š",
+                     "subtitle":  "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã€ç’°å¢ƒè¨­å®šã€ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³è¨­å®šã‚’ç®¡ç†ã—ã¾ã™ã€‚",
+                     "tabs":  {
+                                  "appearance":  "å¤–è¦³",
+                                  "accessibility":  "ã‚¢ã‚¯ã‚»ã‚·ãƒ“ãƒªãƒ†ã‚£",
+                                  "languageRegion":  "è¨€èªžã¨åœ°åŸŸ",
+                                  "account":  "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆ",
+                                  "security":  "å®‰å…¨",
+                                  "notifications":  "é€šçŸ¥",
+                                  "advanced":  "é«˜åº¦ãª"
+                              },
+                     "appearance":  {
+                                        "title":  "å¤–è¦³",
+                                        "subtitle":  "è¦–è¦šä½“é¨“ã‚’ã‚«ã‚¹ã‚¿ãƒžã‚¤ã‚ºã—ã¾ã™ã€‚",
+                                        "accentColor":  "ã‚¢ã‚¯ã‚»ãƒ³ãƒˆã‚«ãƒ©ãƒ¼",
+                                        "accentColorDescription":  "ã€Œ+ã€ãŠã‚ˆã³ã‚¢ã‚¯ã‚»ãƒ³ãƒˆè¦ç´ ã®ãƒã‚¤ãƒ©ã‚¤ãƒˆè‰²ã‚’é¸æŠžã—ã¾ã™ã€‚",
+                                        "fontSize":  "ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚º",
+                                        "fontSizeSmall":  "å°ã•ã„",
+                                        "fontSizeMedium":  "ä¸­ãã‚‰ã„",
+                                        "fontSizeLarge":  "å¤§ãã„",
+                                        "boldMode":  "å¤ªå­—ãƒ¢ãƒ¼ãƒ‰",
+                                        "boldModeDescription":  "ã‚¢ãƒ—ãƒªå…¨ä½“ã®ãƒ•ã‚©ãƒ³ãƒˆã®å¤ªã•ã‚’å¢—ã‚„ã—ã¾ã™ã€‚",
+                                        "elementDensity":  "è¦ç´ ã‚µã‚¤ã‚º",
+                                        "densitySmall":  "å°ã•ã„",
+                                        "densityMedium":  "ä¸­ãã‚‰ã„",
+                                        "densityLarge":  "å¤§ãã„",
+                                        "systemColor":  "ã‚·ã‚¹ãƒ†ãƒ ã‚«ãƒ©ãƒ¼",
+                                        "themeLight":  "ãƒ©ã‚¤ãƒˆ",
+                                        "themeDark":  "æš—ã„",
+                                        "themeSystem":  "ã‚·ã‚¹ãƒ†ãƒ ",
+                                        "backgroundColor":  "èƒŒæ™¯è‰²",
+                                        "bgPresetDefault":  "ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ",
+                                        "bgPresetWarm":  "æš–ã‹ã„",
+                                        "bgPresetCool":  "ã„ã„ã­",
+                                        "bgPresetForest":  "æ£®",
+                                        "bgPresetLavender":  "ãƒ©ãƒ™ãƒ³ãƒ€ãƒ¼",
+                                        "bgPresetSepia":  "ã‚»ãƒ”ã‚¢",
+                                        "bgPresetMidnight":  "å¤œä¸­",
+                                        "bgPresetSlate":  "ã‚¹ãƒ¬ãƒ¼ãƒˆ",
+                                        "colorYellow":  "é»„è‰²",
+                                        "colorBlue":  "Blue",
+                                        "colorGreen":  "Green",
+                                        "colorPurple":  "ç´«",
+                                        "colorOrange":  "ã‚ªãƒ¬ãƒ³ã‚¸",
+                                        "colorRed":  "Red",
+                                        "colorPink":  "Pink",
+                                        "accentColorAria":  "{color} ã‚¢ã‚¯ã‚»ãƒ³ãƒˆã‚«ãƒ©ãƒ¼"
+                                    },
+                     "accessibility":  {
+                                           "title":  "ã‚¢ã‚¯ã‚»ã‚·ãƒ“ãƒªãƒ†ã‚£",
+                                           "subtitle":  "ã‚¢ãƒ—ãƒªã‚’ã‚ˆã‚Šã‚¢ã‚¯ã‚»ã‚¹ã—ã‚„ã™ãã™ã‚‹ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’æ§‹æˆã—ã¾ã™ã€‚",
+                                           "highContrast":  "ãƒã‚¤ã‚³ãƒ³ãƒˆãƒ©ã‚¹ãƒˆ",
+                                           "highContrastDescription":  "è‰²ã®ã‚³ãƒ³ãƒˆãƒ©ã‚¹ãƒˆã‚’é«˜ã‚ã¦èª­ã¿ã‚„ã™ãã—ã¾ã™ã€‚",
+                                           "reduceMotion":  "ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æ¸›ã‚‰ã™",
+                                           "reduceMotionDescription":  "ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã¨ãƒˆãƒ©ãƒ³ã‚¸ã‚·ãƒ§ãƒ³ã‚’æœ€å°é™ã«æŠ‘ãˆã¾ã™ã€‚",
+                                           "focusOutline":  "æ‹¡å¤§ã•ã‚ŒãŸãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚¢ã‚¦ãƒˆãƒ©ã‚¤ãƒ³",
+                                           "focusOutlineDescription":  "ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã®ã‚¢ã‚¦ãƒˆãƒ©ã‚¤ãƒ³ã®å¤ªã•ã‚’å¢—åŠ ã—ã¾ã™ã€‚",
+                                           "skipLinks":  "ã‚¹ã‚­ãƒƒãƒ—ãƒªãƒ³ã‚¯ã‚’å¸¸ã«è¡¨ç¤ºã™ã‚‹",
+                                           "skipLinksDescription":  "ã‚¹ã‚­ãƒƒãƒ— ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³ ãƒªãƒ³ã‚¯ã‚’æ°¸ç¶šçš„ã«è¡¨ç¤ºã—ã¾ã™ã€‚",
+                                           "underlineLinks":  "ã™ã¹ã¦ã®ãƒªãƒ³ã‚¯ã«ä¸‹ç·šã‚’å¼•ã",
+                                           "underlineLinksDescription":  "è­˜åˆ¥ã—ã‚„ã™ãã™ã‚‹ãŸã‚ã«ã€ã™ã¹ã¦ã®ãƒªãƒ³ã‚¯ã«ä¸‹ç·šã‚’è¿½åŠ ã—ã¾ã™ã€‚",
+                                           "screenReader":  "ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ãƒªãƒ¼ãƒ€ãƒ¼ã®æœ€é©åŒ–",
+                                           "screenReaderDescription":  "è¿½åŠ ã®èª¬æ˜Žã¨å¼·åŒ–ã•ã‚ŒãŸ ARIA ãƒ©ãƒ™ãƒ«ã‚’è¿½åŠ ã—ã¾ã™ã€‚"
+                                       },
+                     "languageRegion":  {
+                                            "title":  "è¨€èªžã¨åœ°åŸŸ",
+                                            "subtitle":  "å¸Œæœ›ã®è¨€èªžã¨ã‚¿ã‚¤ãƒ ã‚¾ãƒ¼ãƒ³ã‚’é¸æŠžã—ã¦ãã ã•ã„ã€‚",
+                                            "language":  "è¨€èªž",
+                                            "languageDescription":  "ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®è¡¨ç¤ºè¨€èªžã‚’é¸æŠžã—ã¾ã™ã€‚",
+                                            "timezone":  "ã‚¿ã‚¤ãƒ ã‚¾ãƒ¼ãƒ³",
+                                            "timezoneDescription":  "ç¾åœ°ã®ã‚¿ã‚¤ãƒ ã‚¾ãƒ¼ãƒ³ã‚’é¸æŠžã—ã¾ã™ã€‚"
+                                        },
+                     "account":  {
+                                     "title":  "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆ",
+                                     "subtitle":  "å€‹äººæƒ…å ±ã‚’ç®¡ç†ã—ã¾ã™ã€‚",
+                                     "fullName":  "ãƒ•ãƒ«ãƒãƒ¼ãƒ ",
+                                     "fullNamePlaceholder":  "ã‚ãªãŸã®ãƒ•ãƒ«ãƒãƒ¼ãƒ ",
+                                     "birthDate":  "ç”Ÿå¹´æœˆæ—¥",
+                                     "profilePicture":  "ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«å†™çœŸ",
+                                     "uploadPhoto":  "å†™çœŸã‚’ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ã™ã‚‹",
+                                     "removePhoto":  "å†™çœŸã‚’å‰Šé™¤",
+                                     "saveChanges":  "å¤‰æ›´ã‚’ä¿å­˜ã™ã‚‹",
+                                     "lockedTitle":  "ç«‹ã¡å…¥ã‚Šç¦æ­¢ã‚¨ãƒªã‚¢",
+                                     "lockedDescription":  "ã‚µã‚¤ãƒ³ã‚¤ãƒ³ã—ã¦ã‚¢ã‚«ã‚¦ãƒ³ãƒˆæƒ…å ±ã‚’ç®¡ç†ã—ã¾ã™ã€‚",
+                                     "login":  "ã‚µã‚¤ãƒ³ã‚¤ãƒ³",
+                                     "register":  "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã‚’ä½œæˆã™ã‚‹"
+                                 },
+                     "security":  {
+                                      "title":  "å®‰å…¨",
+                                      "subtitle":  "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã®ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£ ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’æ§‹æˆã—ã¾ã™ã€‚",
+                                      "twoFactor":  "äºŒè¦ç´ èªè¨¼ (2FA)",
+                                      "twoFactorDescription":  "ã‚µã‚¤ãƒ³ã‚¤ãƒ³æ™‚ã«ä¿è­·å±¤ã‚’è¿½åŠ ã—ã¾ã™ã€‚",
+                                      "changePassword":  "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å¤‰æ›´ã™ã‚‹",
+                                      "changePasswordDescription":  "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã‚’å®‰å…¨ã«ä¿ã¤ãŸã‚ã«ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å®šæœŸçš„ã«æ›´æ–°ã—ã¦ãã ã•ã„ã€‚",
+                                      "activeSessions":  "ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãªã‚»ãƒƒã‚·ãƒ§ãƒ³",
+                                      "activeSessionsDescription":  "ä»–ã®ãƒ‡ãƒã‚¤ã‚¹ä¸Šã®ã‚»ãƒƒã‚·ãƒ§ãƒ³ã‚’è¡¨ç¤ºã—ã¦çµ‚äº†ã—ã¾ã™ã€‚",
+                                      "configure":  "è¨­å®šã™ã‚‹",
+                                      "change":  "å¤‰åŒ–",
+                                      "current":  "ç¾åœ¨",
+                                      "revoke":  "å–ã‚Šæ¶ˆã™",
+                                      "revokeAll":  "ä»–ã®ã™ã¹ã¦ã®ã‚»ãƒƒã‚·ãƒ§ãƒ³ã‚’çµ‚äº†ã™ã‚‹"
+                                  },
+                     "notifications":  {
+                                           "title":  "é€šçŸ¥",
+                                           "subtitle":  "é€šçŸ¥ã®å—ã‘å–ã‚Šæ–¹æ³•ã‚’é¸æŠžã—ã¾ã™ã€‚",
+                                           "email":  "é›»å­ãƒ¡ãƒ¼ãƒ«é€šçŸ¥",
+                                           "emailDescription":  "æ¦‚è¦ã¨é‡è¦ãªã‚¢ãƒ©ãƒ¼ãƒˆã‚’é›»å­ãƒ¡ãƒ¼ãƒ«ã§å—ã‘å–ã‚Šã¾ã™ã€‚",
+                                           "inApp":  "ã‚¢ãƒ—ãƒªå†…é€šçŸ¥",
+                                           "inAppDescription":  "ã‚¢ãƒ—ãƒªå†…ã«ãƒãƒŠãƒ¼ã¨ãƒãƒƒã‚¸ã‚’è¡¨ç¤ºã—ã¾ã™ã€‚",
+                                           "push":  "ãƒ—ãƒƒã‚·ãƒ¥é€šçŸ¥",
+                                           "pushDescription":  "ã‚¢ãƒ—ãƒªã‚’é–‰ã˜ã¦ã„ã‚‹ã¨ãã§ã‚‚ã‚¢ãƒ©ãƒ¼ãƒˆã‚’å—ä¿¡ã—ã¾ã™ã€‚",
+                                           "sound":  "è­¦å ±éŸ³",
+                                           "soundDescription":  "é€šçŸ¥ãŒå±Šã„ãŸã¨ãã«éŸ³ã‚’é³´ã‚‰ã—ã¾ã™ã€‚"
+                                       },
+                     "advanced":  {
+                                      "title":  "é«˜åº¦ãª",
+                                      "subtitle":  "é«˜åº¦ãªã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã€‚",
+                                      "clearCache":  "ã‚¢ãƒ—ãƒªã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹",
+                                      "clearCacheDescription":  "ãƒ­ãƒ¼ã‚«ãƒ«ã«ä¿å­˜ã•ã‚Œã¦ã„ã‚‹ä¸€æ™‚ãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤ã—ã¾ã™ã€‚",
+                                      "clearCacheButton":  "ä»Šã™ãã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚’ã‚¯ãƒªã‚¢",
+                                      "clearCacheConfirm":  "æœ¬æ°—ã§ã™ã‹ï¼Ÿ ã“ã‚Œã«ã‚ˆã‚Šã€ä¸€æ™‚çš„ãªãƒ­ãƒ¼ã‚«ãƒ« ãƒ‡ãƒ¼ã‚¿ãŒã™ã¹ã¦å‰Šé™¤ã•ã‚Œã¾ã™ã€‚",
+                                      "resetSettings":  "è¨­å®šã‚’ãƒªã‚»ãƒƒãƒˆã™ã‚‹",
+                                      "resetSettingsDescription":  "ã™ã¹ã¦ã®è¨­å®šã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã«æˆ»ã—ã¾ã™ã€‚",
+                                      "resetSettingsButton":  "ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã«ãƒªã‚»ãƒƒãƒˆã™ã‚‹",
+                                      "resetSettingsConfirm":  "æœ¬æ°—ã§ã™ã‹ï¼Ÿ ã™ã¹ã¦ã®è¨­å®šãŒå¤±ã‚ã‚Œã¾ã™ã€‚",
+                                      "appVersion":  "ã‚¢ãƒ—ãƒªã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³"
+                                  }
+                 },
+    "help":  {
+                 "title":  "ãƒ˜ãƒ«ãƒ—ã¨ã‚µãƒãƒ¼ãƒˆ",
+                 "subtitle":  "ãƒ˜ãƒ«ãƒ—ã‚’å…¥æ‰‹ã—ã€ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’å‚ç…§ã—ã€å½“ç¤¾ã®ãƒãƒ¼ãƒ ã«ãŠå•ã„åˆã‚ã›ãã ã•ã„ã€‚",
+                 "documentation":  "ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆ",
+                 "documentationDescription":  "ã‚¬ã‚¤ãƒ‰ã€ãƒãƒ¥ãƒ¼ãƒˆãƒªã‚¢ãƒ«ã€API ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã‚’å‚ç…§ã—ã¾ã™ã€‚",
+                 "contactSupport":  "ã‚µãƒãƒ¼ãƒˆã«é€£çµ¡ã™ã‚‹",
+                 "contactSupportDescription":  "ç§ãŸã¡ã®ãƒãƒ¼ãƒ ã«åŠ©ã‘ã¦ã‚‚ã‚‰ã„ã¾ã—ã‚‡ã†ã€‚ é€šå¸¸ 24 æ™‚é–“ä»¥å†…ã«è¿”ä¿¡ã—ã¾ã™ã€‚",
+                 "faqTitle":  "ã‚ˆãã‚ã‚‹è³ªå•",
+                 "faq0":  {
+                              "question":  "ã‚ªãƒ¼ãƒˆãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ä½œæˆã™ã‚‹ã«ã¯ã©ã†ã™ã‚Œã°ã‚ˆã„ã§ã™ã‹?",
+                              "answer":  "ã€Œè‡ªå‹•åŒ–ã€ãƒšãƒ¼ã‚¸ã«ç§»å‹•ã—ã€Natural Language Workflow Builder ã‚’ä½¿ç”¨ã—ã¾ã™ã€‚ è‡ªå‹•åŒ–ã—ãŸã„å†…å®¹ã‚’ã‚ã‹ã‚Šã‚„ã™ã„è‹±èªžã§èª¬æ˜Žã™ã‚‹ã¨ã€Pytomatiza+ ãŒãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚"
+                          },
+                 "faq1":  {
+                              "question":  "æ–°ã—ã„çµ±åˆã‚’æŽ¥ç¶šã™ã‚‹ã«ã¯ã©ã†ã™ã‚Œã°ã‚ˆã„ã§ã™ã‹?",
+                              "answer":  "[è¨­å®š] â†’ [çµ±åˆ] ã«ç§»å‹•ã—ã¦ã€Google Workspaceã€Slackã€GitHub ãªã©ã®ã‚µãƒ¼ãƒ‰ãƒ‘ãƒ¼ãƒ†ã‚£ ã‚µãƒ¼ãƒ“ã‚¹ã«æŽ¥ç¶šã—ã¾ã™ã€‚"
+                          },
+                 "faq2":  {
+                              "question":  "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆãŒå¤±æ•—ã™ã‚‹ã¨ã©ã†ãªã‚Šã¾ã™ã‹?",
+                              "answer":  "å¤±æ•—ã—ãŸã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã«ã¯ã€ã‚¨ãƒ©ãƒ¼ ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãŒãƒžãƒ¼ã‚¯ã•ã‚Œã¾ã™ã€‚ ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆ ã‚«ãƒ¼ãƒ‰ã§ã‚¨ãƒ©ãƒ¼ã®è©³ç´°ã‚’è¡¨ç¤ºã—ã€å®Ÿè¡Œã‚’å†è©¦è¡Œã§ãã¾ã™ã€‚"
+                          },
+                 "faq3":  {
+                              "question":  "è¨€èªžã‚’å¤‰æ›´ã™ã‚‹ã«ã¯ã©ã†ã™ã‚Œã°ã‚ˆã„ã§ã™ã‹?",
+                              "answer":  "ãƒ˜ãƒƒãƒ€ãƒ¼ã®åœ°çƒã‚¢ã‚¤ã‚³ãƒ³ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã€ã‚µãƒãƒ¼ãƒˆã•ã‚Œã¦ã„ã‚‹ 9 ã¤ã®è¨€èªžã‚’åˆ‡ã‚Šæ›¿ãˆã¾ã™ã€‚"
+                          }
+             },
+    "dashboard":  {
+                      "title":  "ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰",
+                      "welcome":  "ã„ã„ã§ã™ã­ã€{timeOfDay}ã€{name}",
+                      "morning":  "æœ",
+                      "afternoon":  "åˆå¾Œ",
+                      "evening":  "å¤•æ–¹",
+                      "subtitle":  "ä»Šæ—¥ã®è‡ªå‹•åŒ–ã§ä½•ãŒèµ·ã“ã£ã¦ã„ã‚‹ã‹ã‚’æ¬¡ã«ç¤ºã—ã¾ã™ã€‚",
+                      "stats":  {
+                                    "activeAgents":  "ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆ",
+                                    "automationsToday":  "ä»Šæ—¥ã®ã‚ªãƒ¼ãƒˆãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³",
+                                    "successRate":  "æˆåŠŸçŽ‡",
+                                    "pendingApprovals":  "æ‰¿èªå¾…ã¡",
+                                    "increasedBy":  "{value}å¢—åŠ ",
+                                    "decreasedBy":  "{value}æ¸›å°‘"
+                                },
+                      "recentActivity":  "æœ€è¿‘ã®æ´»å‹•",
+                      "quickActions":  "ã‚¯ã‚¤ãƒƒã‚¯ã‚¢ã‚¯ã‚·ãƒ§ãƒ³",
+                      "quickActionsDescription":  "ã¯ã˜ã‚ã«ã‚ˆãä½¿ã†æ“ä½œ",
+                      "createAutomation":  "æ–°ã—ã„è‡ªå‹•åŒ–",
+                      "viewAgents":  "ã™ã¹ã¦ã®ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã‚’è¡¨ç¤º",
+                      "viewReports":  "ãƒ¬ãƒãƒ¼ãƒˆã‚’è¡¨ç¤ºã™ã‚‹",
+                      "error":  {
+                                    "title":  "ãƒ‡ãƒ¼ã‚¿ã®èª­ã¿è¾¼ã¿ã‚¨ãƒ©ãƒ¼",
+                                    "loadingFailed":  "ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚ã¾ã›ã‚“ã§ã—ãŸã€‚æŽ¥ç¶šã‚’ç¢ºèªã—ã¦å†è©¦è¡Œã—ã¦ãã ã•ã„ã€‚",
+                                    "retry":  "å†è©¦è¡Œ",
+                                    "offlineBanner":  "ãƒãƒƒã‚¯ã‚¨ãƒ³ãƒ‰ã‚’åˆ©ç”¨ã§ãã¾ã›ã‚“ - è¡¨ç¤ºã•ã‚Œã‚‹ãƒ‡ãƒ¼ã‚¿ã¯å¤ã„å¯èƒ½æ€§ãŒã‚ã‚Šã¾ã™",
+                                    "unknown":  "ä¸æ˜Žãªã‚¨ãƒ©ãƒ¼"
+                                },
+                      "empty":  {
+                                    "title":  "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“",
+                                    "description":  "æœ€åˆã®è‡ªå‹•åŒ–ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã‚’ä½œæˆã—ã¦ã€ã“ã“ã§ã‚¢ã‚¯ãƒ†ã‚£ãƒ“ãƒ†ã‚£ã‚’ç¢ºèªã§ãã‚‹ã‚ˆã†ã«ã—ã¾ã—ã‚‡ã†ã€‚",
+                                    "offlineTitle":  "ãƒãƒƒã‚¯ã‚¨ãƒ³ãƒ‰ãŒã‚ªãƒ•ãƒ©ã‚¤ãƒ³",
+                                    "offlineDescription":  "ãƒãƒƒã‚¯ã‚¨ãƒ³ãƒ‰ã«æŽ¥ç¶šã—ã¦ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã‚’ç¢ºèªã—ã¾ã™ã€‚ ã‚µãƒ¼ãƒ“ã‚¹ãŒåˆ©ç”¨å¯èƒ½ã«ãªã£ãŸã‚‰ã€ã€Œå†è©¦è¡Œã€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã¾ã™ã€‚"
+                                },
+                      "recentActivityEmpty":  "å±¥æ­´ã‚’ç©ºã«ã—ã¾ã™â€¦ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã«ç§»å‹•ã—ã¦ã€Pytomatiza+ ã§æœ€åˆã®ã‚ªãƒ¼ãƒˆãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ä½œæˆã—ã¾ã™ã€‚",
+                      "loginPrompt":  "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã«ã‚µã‚¤ãƒ³ã‚¤ãƒ³ã—ã¦ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ  ãƒ‡ãƒ¼ã‚¿ã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ãã ã•ã„ã€‚",
+                      "loginAction":  "ã‚µã‚¤ãƒ³ã‚¤ãƒ³",
+                      "user":  "User"
+                  },
+    "agents":  {
+                   "title":  "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆ",
+                   "subtitle":  "AI è‡ªå‹•åŒ–ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã‚’å‚ç…§ã—ã¦ç®¡ç†ã™ã‚‹",
+                   "searchPlaceholder":  "åå‰ã¾ãŸã¯ã‚¿ã‚¤ãƒ—ã§ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã‚’æ¤œç´¢â€¦",
+                   "filterByType":  "ã‚¿ã‚¤ãƒ—ã§ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°ã™ã‚‹",
+                   "filterByStatus":  "ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã§ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°ã™ã‚‹",
+                   "allTypes":  "å…¨ç¨®é¡ž",
+                   "allStatuses":  "ã™ã¹ã¦ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹",
+                   "types":  {
+                                 "productivity":  "ç”Ÿç”£æ€§",
+                                 "data":  "ãƒ‡ãƒ¼ã‚¿",
+                                 "content":  "ã‚³ãƒ³ãƒ†ãƒ³ãƒ„",
+                                 "admin":  "ç®¡ç†è€…",
+                                 "technical":  "ãƒ†ã‚¯ãƒ‹ã‚«ãƒ«"
+                             },
+                   "statuses":  {
+                                    "idle":  "ã‚¢ã‚¤ãƒ‰ãƒ«çŠ¶æ…‹",
+                                    "running":  "ãƒ©ãƒ³ãƒ‹ãƒ³ã‚°",
+                                    "error":  "ã‚¨ãƒ©ãƒ¼",
+                                    "paused":  "ä¸€æ™‚åœæ­¢ä¸­"
+                                },
+                   "statusDescriptions":  {
+                                              "idle":  "ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹: æº–å‚™ãŒã§ãã¦å¾…æ©Ÿä¸­",
+                                              "running":  "ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹: ç¾åœ¨å®Ÿè¡Œä¸­",
+                                              "error":  "ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹: ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ",
+                                              "paused":  "ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹: ãƒ¦ãƒ¼ã‚¶ãƒ¼ã«ã‚ˆã£ã¦ä¸€æ™‚åœæ­¢ã•ã‚Œã¾ã—ãŸ"
+                                          },
+                   "card":  {
+                                "lastRun":  "æœ€å¾Œã®å®Ÿè¡Œ",
+                                "successRate":  "æˆåŠŸçŽ‡",
+                                "runNow":  "ä»Šã™ãå®Ÿè¡Œ",
+                                "pause":  "ä¸€æ™‚åœæ­¢",
+                                "resume":  "å†é–‹ã™ã‚‹",
+                                "configure":  "è¨­å®šã™ã‚‹",
+                                "never":  "ä¸€åº¦ã‚‚ãªã„"
+                            },
+                   "empty":  "ç¾åœ¨ã®ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã«ä¸€è‡´ã™ã‚‹ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã¯ã‚ã‚Šã¾ã›ã‚“ã€‚ æ¤œç´¢ã¾ãŸã¯ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼æ¡ä»¶ã‚’èª¿æ•´ã—ã¦ã¿ã¦ãã ã•ã„ã€‚",
+                   "error":  "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã‚’ãƒ­ãƒ¼ãƒ‰ã§ãã¾ã›ã‚“ã€‚ æŽ¥ç¶šã‚’ç¢ºèªã—ã¦ã€ã‚‚ã†ä¸€åº¦è©¦ã—ã¦ãã ã•ã„ã€‚",
+                   "mock":  {
+                                "1":  {
+                                          "name":  "Salvador de Anexos de E-mail",
+                                          "desc":  "Monitora a caixa de entrada em busca de anexos, salva-os no Google Drive e notifica via Slack."
+                                      },
+                                "2":  {
+                                          "name":  "Gerador de Relatï¿½rios Semanais",
+                                          "desc":  "Compila dados de mï¿½ltiplas fontes e gera um relatï¿½rio PDF formatado toda segunda-feira."
+                                      },
+                                "3":  {
+                                          "name":  "Monitor de Redes Sociais",
+                                          "desc":  "Rastreia menï¿½ï¿½es ï¿½ marca no Twitter, LinkedIn e Reddit. Responde automaticamente a consultas de suporte."
+                                      },
+                                "4":  {
+                                          "name":  "Agente de Backup de Banco de Dados",
+                                          "desc":  "Realiza backups noturnos do banco de dados e verifica a integridade. Alerta em caso de falha."
+                                      },
+                                "5":  {
+                                          "name":  "Verificador de Saï¿½de de APIs",
+                                          "desc":  "Faz ping em todas as APIs internas a cada minuto. Escala para o PagerDuty em caso de inatividade."
+                                      },
+                                "6":  {
+                                          "name":  "Processador de Faturas",
+                                          "desc":  "Extrai dados de faturas em PDF usando OCR e envia para o software de contabilidade."
+                                      },
+                                "7":  {
+                                          "name":  "Agendador de Reuniï¿½es",
+                                          "desc":  "Coordena calendï¿½rios entre equipes para encontrar horï¿½rios ideais e envia convites."
+                                      },
+                                "8":  {
+                                          "name":  "Tradutor de Conteï¿½do",
+                                          "desc":  "Traduz posts de blog e documentaï¿½ï¿½o para 9 idiomas usando IA."
+                                      }
+                            },
+                   "agentsFound":  "{count, plural, =1 {1 agente encontrado} other {{count} agentes encontrados}}",
+                   "loginPrompt":  "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã¨å±¥æ­´ã‚’ä¿å­˜ã™ã‚‹ã«ã¯ã€ãƒ­ã‚°ã‚¤ãƒ³ã¾ãŸã¯ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã‚’ä½œæˆã—ã¦ãã ã•ã„ï¼",
+                   "resetFilters":  "ã™ã¹ã¦ã®ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã‚’ãƒªã‚»ãƒƒãƒˆ"
+               },
+    "automations":  {
+                        "title":  "è‡ªå‹•åŒ–",
+                        "subtitle":  "è‡ªç„¶è¨€èªžè‡ªå‹•åŒ–ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã‚’ä½œæˆãŠã‚ˆã³ç®¡ç†ã™ã‚‹",
+                        "nlpBuilder":  {
+                                           "title":  "è‡ªç„¶è¨€èªžãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ãƒ“ãƒ«ãƒ€ãƒ¼",
+                                           "description":  "è‡ªå‹•åŒ–ã—ãŸã„å†…å®¹ã‚’ã‚ã‹ã‚Šã‚„ã™ã„è‹±èªžã§èª¬æ˜Žã™ã‚‹ã¨ã€Pytomatiza+ ãŒãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚",
+                                           "instructionLabel":  "ä½•ã‚’è‡ªå‹•åŒ–ã—ãŸã„ã§ã™ã‹?",
+                                           "instructionPlaceholder":  "ä¾‹: ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã‹ã‚‰æ·»ä»˜ãƒ•ã‚¡ã‚¤ãƒ«ä»˜ãã®ãƒ¡ãƒ¼ãƒ«ã‚’å—ä¿¡ã—ãŸå ´åˆã€æ·»ä»˜ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ Google ãƒ‰ãƒ©ã‚¤ãƒ–ã«ä¿å­˜ã—ã€Slack ã§é€šçŸ¥ã—ã¾ã™ã€‚",
+                                           "instructionHelper":  "ã§ãã‚‹ã ã‘å…·ä½“çš„ã«ã—ã¦ãã ã•ã„ã€‚ ãƒˆãƒªã‚¬ãƒ¼ã€æ¡ä»¶ã€ãŠã‚ˆã³å¿…è¦ãªã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚’å«ã‚ã¾ã™ã€‚",
+                                           "agentTypeLabel":  "æŽ¨å¥¨ã•ã‚Œã‚‹ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã®ç¨®é¡ž",
+                                           "agentTypePlaceholder":  "è‡ªå‹•æ¤œå‡º (æŽ¨å¥¨)",
+                                           "requireApprovalLabel":  "å®Ÿè¡Œå‰ã«æ‰¿èªãŒå¿…è¦",
+                                           "requireApprovalHelper":  "æœ‰åŠ¹ã«ã™ã‚‹ã¨ã€ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã¯å®Ÿè¡Œå‰ã«ãƒ¬ãƒ“ãƒ¥ãƒ¼ã®ãŸã‚ã«ä¸€æ™‚åœæ­¢ã—ã¾ã™ã€‚",
+                                           "build":  "ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã®æ§‹ç¯‰",
+                                           "building":  "ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã‚’æ§‹ç¯‰ä¸­â€¦",
+                                           "charCount":  "{current}/{max} æ–‡å­—",
+                                           "suggestions":  "æ¬¡ã®ä¾‹ã‚’è©¦ã—ã¦ãã ã•ã„ã€‚",
+                                           "example1":  "ã‚¯ãƒ­ãƒ¼ã‚ºã•ã‚ŒãŸã™ã¹ã¦ã®ãƒã‚±ãƒƒãƒˆã®é€±æ¬¡ãƒ¬ãƒãƒ¼ãƒˆã‚’æ¯Žé€±é‡‘æ›œæ—¥ã®åˆå¾Œ 5 æ™‚ã«ãƒãƒ¼ãƒ ã® Slack ãƒãƒ£ãƒãƒ«ã«é€ä¿¡ã—ã¾ã™",
+                                           "example2":  "Twitter ã®ãƒ¡ãƒ³ã‚·ãƒ§ãƒ³ã‚’ç›£è¦–ã—ã€ãƒ˜ãƒ«ãƒ— ã‚»ãƒ³ã‚¿ãƒ¼ã¸ã®ãƒªãƒ³ã‚¯ã‚’ä½¿ç”¨ã—ã¦ã‚µãƒãƒ¼ãƒˆã®è³ªå•ã«è‡ªå‹•çš„ã«è¿”ä¿¡ã—ã¾ã™ã€‚",
+                                           "example3":  "ã€Œè¦‹è¾¼ã¿å®¢ã€Google ã‚·ãƒ¼ãƒˆã«æ–°ã—ã„è¡ŒãŒè¿½åŠ ã•ã‚Œã‚‹ã¨ã€Gmail çµŒç”±ã§ãƒ‘ãƒ¼ã‚½ãƒŠãƒ©ã‚¤ã‚ºã•ã‚ŒãŸã‚¦ã‚§ãƒ«ã‚«ãƒ  ãƒ¡ãƒ¼ãƒ«ãŒé€ä¿¡ã•ã‚Œã¾ã™"
+                                       },
+                        "workflowList":  {
+                                             "title":  "ã‚ãªãŸã®ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼",
+                                             "empty":  "ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã¯ã¾ã ã‚ã‚Šã¾ã›ã‚“ã€‚ ä¸Šã§æœ€åˆã®ã‚‚ã®ã‚’ä½œæˆã—ã¾ã™ã€‚",
+                                             "lastTriggered":  "æœ€å¾Œã«ãƒˆãƒªã‚¬ãƒ¼ã•ã‚ŒãŸ",
+                                             "executions":  "å‡¦åˆ‘",
+                                             "toggle":  "ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã®åˆ‡ã‚Šæ›¿ãˆ",
+                                             "delete":  "ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã®å‰Šé™¤",
+                                             "deleteConfirm":  "ã“ã®ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã‚’å‰Šé™¤ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹? ã“ã®æ“ä½œã¯å…ƒã«æˆ»ã™ã“ã¨ãŒã§ãã¾ã›ã‚“ã€‚",
+                                             "deleted":  "ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ãŒæ­£å¸¸ã«å‰Šé™¤ã•ã‚Œã¾ã—ãŸ",
+                                             "statusToggled":  "ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ {status}",
+                                             "label":  "ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼",
+                                             "neverTriggered":  "æ±ºã—ã¦ãƒˆãƒªã‚¬ãƒ¼ã•ã‚Œãªã„",
+                                             "status":  "ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹: {status}",
+                                             "created":  "ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ãŒä½œæˆã•ã‚Œã¾ã—ãŸ! ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã®ç¨®é¡ž: {agentType}ã€‚ æ‰¿èª: {approval}ã€‚",
+                                             "required":  "å¿…é ˆ",
+                                             "notRequired":  "å¿…è¦ã‚ã‚Šã¾ã›ã‚“"
+                                         },
+                        "errors":  {
+                                       "instructionTooShort":  "æŒ‡ç¤ºã¯ 10 æ–‡å­—ä»¥ä¸Šã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™",
+                                       "instructionTooLong":  "æŒ‡ç¤ºã¯ 500 æ–‡å­—ã‚’è¶…ãˆã¦ã¯ãªã‚Šã¾ã›ã‚“",
+                                       "buildFailed":  "ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã®æ§‹ç¯‰ã«å¤±æ•—ã—ã¾ã—ãŸã€‚ ã‚‚ã†ä¸€åº¦è©¦ã—ã¦ãã ã•ã„ã€‚"
+                                   },
+                        "loginPrompt":  "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã«ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ  ãƒ‡ãƒ¼ã‚¿ã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ãã ã•ã„ã€‚",
+                        "agentTypes":  {
+                                           "productivity":  "ç”Ÿç”£æ€§",
+                                           "data":  "Data",
+                                           "content":  "ã‚³ãƒ³ãƒ†ãƒ³ãƒ„",
+                                           "admin":  "Admin",
+                                           "technical":  "ãƒ†ã‚¯ãƒ‹ã‚«ãƒ«"
+                                       }
+                    },
+    "theme":  {
+                  "light":  "ãƒ©ã‚¤ãƒˆ",
+                  "dark":  "æš—ã„",
+                  "system":  "ã‚·ã‚¹ãƒ†ãƒ "
+              },
+    "errors":  {
+                   "notFound":  {
+                                    "title":  "ãƒšãƒ¼ã‚¸ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“",
+                                    "description":  "ãŠæŽ¢ã—ã®ãƒšãƒ¼ã‚¸ã¯å­˜åœ¨ã—ãªã„ã‹ã€ç§»å‹•ã•ã‚Œã¾ã—ãŸã€‚",
+                                    "goHome":  "ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰ã«ç§»å‹•"
+                                },
+                   "serverError":  {
+                                       "title":  "ã‚µãƒ¼ãƒãƒ¼ã‚¨ãƒ©ãƒ¼",
+                                       "description":  "äºˆæœŸã—ãªã„ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ ç§ãŸã¡ã®ãƒãƒ¼ãƒ ã«é€šçŸ¥ã•ã‚Œã¾ã—ãŸã€‚",
+                                       "retry":  "ã‚‚ã†ä¸€åº¦ã‚„ã‚Šç›´ã—ã¦ãã ã•ã„"
+                                   },
+                   "unauthorized":  {
+                                        "title":  "ç„¡è¨±å¯",
+                                        "description":  "ã“ã®ãƒšãƒ¼ã‚¸ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã«ã¯ã‚µã‚¤ãƒ³ã‚¤ãƒ³ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚",
+                                        "signIn":  "ã‚µã‚¤ãƒ³ã‚¤ãƒ³"
+                                    },
+                   "notFoundTitle":  "ãƒšãƒ¼ã‚¸ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“",
+                   "notFoundDescription":  "ãŠæŽ¢ã—ã®ãƒšãƒ¼ã‚¸ã¯å­˜åœ¨ã—ãªã„ã‹ã€ç§»å‹•ã•ã‚Œã¾ã—ãŸã€‚",
+                   "notFoundAction":  "ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰ã«ç§»å‹•",
+                   "somethingWentWrong":  "ä½•ã‹å•é¡ŒãŒç™ºç”Ÿã—ã¾ã—ãŸ",
+                   "unexpectedError":  "äºˆæœŸã—ãªã„ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ ç§ãŸã¡ã®ãƒãƒ¼ãƒ ã«é€šçŸ¥ã•ã‚Œã¾ã—ãŸã€‚",
+                   "dashboardErrorDescription":  "ã“ã®ãƒšãƒ¼ã‚¸ã®èª­ã¿è¾¼ã¿ä¸­ã«äºˆæœŸã—ãªã„ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚",
+                   "tryAgain":  "ã‚‚ã†ä¸€åº¦ã‚„ã‚Šç›´ã—ã¦ãã ã•ã„",
+                   "goHome":  "å®¶ã«å¸°ã‚Œ",
+                   "errorId":  "ã‚¨ãƒ©ãƒ¼ID:",
+                   "loadingDashboard":  "ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰ã‚’èª­ã¿è¾¼ã¿ä¸­",
+                   "loadingDashboardContent":  "ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰ã®ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã‚’èª­ã¿è¾¼ã¿ä¸­â€¦"
+               },
+    "nav":  {
+                "dashboard":  "ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰",
+                "home":  "ãƒ›ãƒ¼ãƒ ",
+                "automations":  "è‡ªå‹•åŒ–",
+                "agents":  "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆ",
+                "logs":  "ãƒ­ã‚°ã¨æ‰¿èª",
+                "modules":  "ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«",
+                "modulesPanel":  "åˆ©ç”¨å¯èƒ½ãªãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«",
+                "openMenu":  "ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’é–‹ã",
+                "closeMenu":  "ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’é–‰ã˜ã‚‹",
+                "closeModules":  "ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ãƒ‘ãƒãƒ«ã‚’é–‰ã˜ã‚‹",
+                "primary":  "ãƒ—ãƒ©ã‚¤ãƒžãƒªãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³",
+                "documents":  "æ›¸é¡ž",
+                "documentsDesc":  "æ›¸é¡žã‚’ç®¡ç†ã€æ•´ç†ã—ã¾ã™ã€‚",
+                "data":  "ãƒ‡ãƒ¼ã‚¿ã¨ã‚¹ãƒ—ãƒ¬ãƒƒãƒ‰ã‚·ãƒ¼ãƒˆ",
+                "dataDesc":  "ãƒ‡ãƒ¼ã‚¿ ã‚½ãƒ¼ã‚¹ã¨ã‚¹ãƒ—ãƒ¬ãƒƒãƒ‰ã‚·ãƒ¼ãƒˆã‚’æ“ä½œã—ã¾ã™ã€‚",
+                "communication":  "ã‚³ãƒŸãƒ¥ãƒ‹ã‚±ãƒ¼ã‚·ãƒ§ãƒ³",
+                "communicationDesc":  "é›»å­ãƒ¡ãƒ¼ãƒ«ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€é€šçŸ¥ã€‚",
+                "media":  "ãƒ¡ãƒ‡ã‚£ã‚¢ã¨ç”»åƒ",
+                "mediaDesc":  "ç”»åƒãŠã‚ˆã³ãƒ¡ãƒ‡ã‚£ã‚¢è³‡ç”£ã®ç®¡ç†ã€‚",
+                "files":  "ãƒ•ã‚¡ã‚¤ãƒ«",
+                "filesDesc":  "ä¸€èˆ¬çš„ãªãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ã¨ç®¡ç†ã€‚",
+                "architecture":  "å»ºç¯‰",
+                "architectureDesc":  "ã‚·ã‚¹ãƒ†ãƒ å›³ã¨ã‚¢ãƒ¼ã‚­ãƒ†ã‚¯ãƒãƒ£ã®ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã€‚",
+                "settings":  "è¨­å®š",
+                "signOut":  "ã‚µã‚¤ãƒ³ã‚¢ã‚¦ãƒˆ",
+                "signIn":  "ã‚µã‚¤ãƒ³ã‚¤ãƒ³",
+                "appearance":  "å¤–è¦³",
+                "user":  "User"
+            },
+    "modules":  {
+                    "documents":  {
+                                      "title":  "æ›¸é¡ž",
+                                      "subtitle":  "AI ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã«ã‚ˆã‚‹ã‚¤ãƒ³ãƒ†ãƒªã‚¸ã‚§ãƒ³ãƒˆãªãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆå‡¦ç†ã®è‡ªå‹•åŒ–",
+                                      "upload":  {
+                                                     "title":  "æ–‡æ›¸ã‚’æ·»ä»˜ã™ã‚‹",
+                                                     "description":  "ã“ã“ã«ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ‰ãƒ©ãƒƒã‚° ã‚¢ãƒ³ãƒ‰ ãƒ‰ãƒ­ãƒƒãƒ—ã™ã‚‹ã‹ã€ã‚¯ãƒªãƒƒã‚¯ã—ã¦é¸æŠžã—ã¾ã™",
+                                                     "dragActive":  "æ·»ä»˜ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¾ã™",
+                                                     "browse":  "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‚ç…§ã™ã‚‹",
+                                                     "supportedFormats":  "Supported formats: PDF, DOCX, XLSX, PPTX, TXT, CSV, images",
+                                                     "maxSize":  "æœ€å¤§ã‚µã‚¤ã‚º: 25 MB",
+                                                     "fileSelected":  "é¸æŠžã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«",
+                                                     "remove":  "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤ã™ã‚‹"
+                                                 },
+                                      "instruction":  {
+                                                          "title":  "AIã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã¯ä½•ã‚’ã™ã¹ãã§ã—ã‚‡ã†ã‹?",
+                                                          "description":  "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã«ã“ã®æ–‡æ›¸ã«å¯¾ã—ã¦ä½•ã‚’ã—ã¦ã‚‚ã‚‰ã„ãŸã„ã‹ã‚’è‡ªç„¶è¨€èªžã§èª¬æ˜Žã—ã¾ã™ã€‚",
+                                                          "label":  "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã®æŒ‡ç¤º",
+                                                          "placeholder":  "ä¾‹: 3 ãƒšãƒ¼ã‚¸ã®è¡¨ã‹ã‚‰ã™ã¹ã¦ã®ãƒ‡ãƒ¼ã‚¿ã‚’æŠ½å‡ºã—ã€CSV ã‚¹ãƒ—ãƒ¬ãƒƒãƒ‰ã‚·ãƒ¼ãƒˆã«å¤‰æ›ã—ã¾ã™ã€‚ ãã®å¾Œã€finance@company.com ã«é›»å­ãƒ¡ãƒ¼ãƒ«ã§é€ä¿¡ã—ã¾ã™ã€‚",
+                                                          "helper":  "å…·ä½“çš„ã«ã™ã‚‹: æŠ½å‡ºã™ã‚‹ãƒ‡ãƒ¼ã‚¿ã€å‡ºåŠ›å½¢å¼ã€å—ä¿¡è€…ã€å¾Œå‡¦ç†ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚’å«ã‚ã¾ã™ã€‚",
+                                                          "charCount":  "{current}/{max}æ–‡å­—"
+                                                      },
+                                      "quickActions":  {
+                                                           "title":  "ã‚¯ã‚¤ãƒƒã‚¯ã‚¢ã‚¯ã‚·ãƒ§ãƒ³",
+                                                           "extractData":  "ãƒ‡ãƒ¼ã‚¿ã®æŠ½å‡º",
+                                                           "convertFormat":  "ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã‚’å¤‰æ›ã™ã‚‹",
+                                                           "mergeDocs":  "æ–‡æ›¸ã‚’çµåˆã™ã‚‹",
+                                                           "ocrScan":  "OCRã‚¹ã‚­ãƒ£ãƒ³",
+                                                           "summarize":  "å†…å®¹ã‚’è¦ç´„ã™ã‚‹",
+                                                           "translate":  "ç¿»è¨³ã™ã‚‹",
+                                                           "presets":  {
+                                                                           "extract":  "ã“ã®ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‹ã‚‰ã™ã¹ã¦ã®æ§‹é€ åŒ–ãƒ‡ãƒ¼ã‚¿ã‚’æŠ½å‡ºã—ã€CSV ã¨ã—ã¦ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆã—ã¾ã™ã€‚",
+                                                                           "convert":  "å…ƒã®ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã‚’ç¶­æŒã—ãŸã¾ã¾ã€ã“ã®ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’ PDF å½¢å¼ã«å¤‰æ›ã—ã¾ã™ã€‚",
+                                                                           "merge":  "ã“ã®ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼å†…ã®ä»–ã®ãƒ•ã‚¡ã‚¤ãƒ«ã¨çµåˆã—ã€å˜ä¸€ã®çµ±åˆã•ã‚ŒãŸ PDF ã‚’ç”Ÿæˆã—ã¾ã™ã€‚",
+                                                                           "ocr":  "OCR ã‚’ä½¿ç”¨ã—ã¦ã“ã®æ–‡æ›¸ã‚’ã‚¹ã‚­ãƒ£ãƒ³ã—ã€ã™ã¹ã¦ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’ç·¨é›†å¯èƒ½ãªå½¢å¼ã§æŠ½å‡ºã—ã¾ã™ã€‚",
+                                                                           "summarize":  "ã“ã®æ–‡æ›¸ã®å†…å®¹ã‚’é‡è¦ãªãƒã‚¤ãƒ³ãƒˆã¨ã¨ã‚‚ã« 1 ã¤ã®æ®µè½ã«è¦ç´„ã—ã¾ã™ã€‚",
+                                                                           "translate":  "å…ƒã®æ›¸å¼ã‚’ç¶­æŒã—ãŸã¾ã¾ã€ã“ã®æ–‡æ›¸ã‚’è‹±èªžã«ç¿»è¨³ã—ã¾ã™ã€‚"
+                                                                       }
+                                                       },
+                                      "recentDocuments":  {
+                                                              "title":  "æœ€è¿‘ã®ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆ",
+                                                              "empty":  "ã¾ã å‡¦ç†ã•ã‚ŒãŸæ–‡æ›¸ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚ æœ€åˆã®ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’ä¸Šã«ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ã—ã¾ã™ã€‚",
+                                                              "processed":  "åŠ å·¥æ¸ˆã¿",
+                                                              "status":  "çŠ¶æ…‹",
+                                                              "actions":  "ã‚¢ã‚¯ã‚·ãƒ§ãƒ³",
+                                                              "download":  "ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰çµæžœ",
+                                                              "reprocess":  "å†å‡¦ç†",
+                                                              "delete":  "æ¶ˆåŽ»"
+                                                          },
+                                      "processing":  {
+                                                         "button":  "ãƒ—ãƒ­ã‚»ã‚¹æ–‡æ›¸",
+                                                         "processing":  "å‡¦ç†â€¦",
+                                                         "success":  "æ›¸é¡žã¯æ­£å¸¸ã«å‡¦ç†ã•ã‚Œã¾ã—ãŸ!",
+                                                         "error":  "ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®å‡¦ç†ã«å¤±æ•—ã—ã¾ã—ãŸã€‚ ã‚‚ã†ä¸€åº¦è©¦ã—ã¦ãã ã•ã„ã€‚",
+                                                         "reprocessInstruction":  "ä»¥å‰ã¨åŒã˜å¤‰æ›ã‚’é©ç”¨ã—ã¦ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆ {name} ã‚’å†å‡¦ç†ã—ã¾ã™ã€‚",
+                                                         "resultTitle":  "分析結果",
+                                                         "unsupportedFormat":  "OCRでサポートされていないファイル形式です。PDF、PNG、JPG、WebPを使用してください。"
+                                                     },
+                                      "integrations":  {
+                                                           "googleDrive":  {
+                                                                               "title":  "Google Drive",
+                                                                               "description":  "Google Drive ã‹ã‚‰ç›´æŽ¥ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦é¸æŠžã—ã¾ã™ã€‚",
+                                                                               "connect":  "Google Drive ã‚’æŽ¥ç¶šã—ã¾ã™",
+                                                                               "connecting":  "æŽ¥ç¶šä¸­...",
+                                                                               "connected":  "Google Drive ã«æŽ¥ç¶šã•ã‚Œã¾ã—ãŸ",
+                                                                               "browse":  "ãƒ‰ãƒ©ã‚¤ãƒ–ã‚’å‚ç…§"
+                                                                           }
+                                                       },
+                                      "dialogs":  {
+                                                      "deleteConfirm":  "ã“ã®æ–‡æ›¸ã‚’å‰Šé™¤ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹? ã“ã®æ“ä½œã¯å…ƒã«æˆ»ã™ã“ã¨ãŒã§ãã¾ã›ã‚“ã€‚"
+                                                  }
+                                  },
+                    "data":  {
+                                 "title":  "ãƒ‡ãƒ¼ã‚¿ã¨ã‚¹ãƒ—ãƒ¬ãƒƒãƒ‰ã‚·ãƒ¼ãƒˆ",
+                                 "subtitle":  "ãƒ‡ãƒ¼ã‚¿ã‚½ãƒ¼ã‚¹ã‚’æŽ¥ç¶šã—ã€ã‚¹ãƒ—ãƒ¬ãƒƒãƒ‰ã‚·ãƒ¼ãƒˆã‚’å¤‰æ›ã—ã€åˆ†æžã‚’è‡ªå‹•åŒ–ã—ã¾ã™",
+                                 "source":  {
+                                                "title":  "ãƒ‡ãƒ¼ã‚¿ã‚½ãƒ¼ã‚¹",
+                                                "description":  "ãƒ‡ãƒ¼ã‚¿ã®æŽ¥ç¶šæ–¹æ³•ã‚’é¸æŠžã—ã¦ãã ã•ã„",
+                                                "uploadCsv":  "CSV/Excelã®ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰",
+                                                "googleSheets":  "Google Sheets",
+                                                "database":  "SQLãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹",
+                                                "api":  "REST API",
+                                                "url":  "å…¬é–‹URL",
+                                                "selectPlaceholder":  "ã‚½ãƒ¼ã‚¹ã‚¿ã‚¤ãƒ—ã‚’é¸æŠžã—ã¦ãã ã•ã„â€¦",
+                                                "connect":  "æŽ¥ç¶šã™ã‚‹",
+                                                "connecting":  "æŽ¥ç¶šä¸­â€¦"
+                                            },
+                                 "instruction":  {
+                                                     "title":  "ãƒ‡ãƒ¼ã‚¿ã‚’ã©ã†ã™ã‚‹ã‹?",
+                                                     "description":  "å¸Œæœ›ã™ã‚‹å¤‰æ›ã€åˆ†æžã€ã¾ãŸã¯è‡ªå‹•åŒ–ã«ã¤ã„ã¦èª¬æ˜Žã—ã¾ã™ã€‚",
+                                                     "label":  "å‡¦ç†å‘½ä»¤",
+                                                     "placeholder":  "ãŸã¨ãˆã°ã€ã€Œåã€åˆ—ã¨ã€Œå§“ã€åˆ—ã‚’çµåˆã—ã€å£²ä¸ŠãŒ 10,000 ãƒ‰ãƒ«ã‚’è¶…ãˆã‚‹ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°ã—ã€åœ°åŸŸã”ã¨ã«ã‚°ãƒ«ãƒ¼ãƒ—åŒ–ã—ã€æ£’ã‚°ãƒ©ãƒ•ã‚’ç”Ÿæˆã—ã¾ã™ã€‚",
+                                                     "helper":  "ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã€é›†è¨ˆã€ãƒ†ãƒ¼ãƒ–ãƒ«çµåˆã€ãŠã‚ˆã³å¿…è¦ãªå‡ºåŠ›å½¢å¼ã‚’å«ã‚ã¾ã™ã€‚",
+                                                     "charCount":  "{current}/{max}æ–‡å­—"
+                                                 },
+                                 "preview":  {
+                                                 "title":  "ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼",
+                                                 "noData":  "ãƒ‡ãƒ¼ã‚¿ã‚½ãƒ¼ã‚¹ã‚’ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼ã«æŽ¥ç¶šã™ã‚‹",
+                                                 "rows":  "{count}è¡Œ",
+                                                 "columns":  "{count}åˆ—",
+                                                 "id":  "ID",
+                                                 "name":  "Name",
+                                                 "region":  "åœ°åŸŸ",
+                                                 "sales":  "Sales",
+                                                 "status":  "çŠ¶æ…‹",
+                                                 "showingRecords":  "{total} ä»¶ä¸­ {shown} ä»¶ã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’è¡¨ç¤ºã—ã¦ã„ã¾ã™"
+                                             },
+                                 "recentDatasets":  {
+                                                        "title":  "æœ€è¿‘ã®ãƒ‡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆ",
+                                                        "empty":  "ãƒ‡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆã¯ã¾ã å‡¦ç†ã•ã‚Œã¦ã„ã¾ã›ã‚“",
+                                                        "source":  "ã‚½ãƒ¼ã‚¹",
+                                                        "lastUsed":  "æœ€å¾Œã«ä½¿ç”¨ã—ãŸ",
+                                                        "info":  "{rows}è¡Œ Â· {cols}åˆ—"
+                                                    },
+                                 "actions":  {
+                                                 "transform":  "ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ›ã™ã‚‹",
+                                                 "analyze":  "ãƒ‡ãƒ¼ã‚¿ã‚’åˆ†æžã™ã‚‹",
+                                                 "export":  "çµæžœã®ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆ",
+                                                 "schedule":  "ã‚¹ã‚±ã‚¸ãƒ¥ãƒ¼ãƒ«ã®è‡ªå‹•åŒ–",
+                                                 "sidebarTitle":  "ã‚¢ã‚¯ã‚·ãƒ§ãƒ³",
+                                                 "dashboard":  "ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰",
+                                                 "processing":  "å‡¦ç†â€¦"
+                                             },
+                                 "integrations":  {
+                                                      "googleDrive":  {
+                                                                          "title":  "Google Drive",
+                                                                          "description":  "Google Drive ã‹ã‚‰ã‚¹ãƒ—ãƒ¬ãƒƒãƒ‰ã‚·ãƒ¼ãƒˆã‚„ãƒ‡ãƒ¼ã‚¿ ãƒ•ã‚¡ã‚¤ãƒ«ã«ç›´æŽ¥ã‚¢ã‚¯ã‚»ã‚¹ã—ã¾ã™ã€‚",
+                                                                          "connect":  "Google Drive ã‚’æŽ¥ç¶šã—ã¾ã™",
+                                                                          "connecting":  "æŽ¥ç¶šä¸­...",
+                                                                          "connected":  "Google Drive ã«æŽ¥ç¶šã•ã‚Œã¾ã—ãŸ",
+                                                                          "browse":  "ãƒ‰ãƒ©ã‚¤ãƒ–ã‚’å‚ç…§"
+                                                                      }
+                                                  },
+                                 "errors":  {
+                                                "connectFailed":  "ãƒ‡ãƒ¼ã‚¿ã‚½ãƒ¼ã‚¹ã¸ã®æŽ¥ç¶šã«å¤±æ•—ã—ã¾ã—ãŸã€‚",
+                                                "processFailed":  "ãƒ‡ãƒ¼ã‚¿ã®å‡¦ç†ã«å¤±æ•—ã—ã¾ã—ãŸã€‚"
+                                            },
+                                 "results":  {
+                                                 "connected":  "ç„¡äº‹æŽ¥ç¶šã•ã‚Œã¾ã—ãŸï¼ ãƒ‡ãƒ¼ã‚¿ ã‚½ãƒ¼ã‚¹ã‚’å‡¦ç†ã™ã‚‹æº–å‚™ãŒã§ãã¦ã„ã¾ã™ã€‚",
+                                                 "transformComplete":  "å¤‰èº«å®Œäº†ï¼ {count} ãƒ¬ã‚³ãƒ¼ãƒ‰ãŒå‡¦ç†ã•ã‚Œã¾ã—ãŸã€‚ çµæžœã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã™ã‚‹æº–å‚™ãŒã§ãã¾ã—ãŸã€‚",
+                                                 "analyzeInstruction":  "æŽ¥ç¶šã•ã‚ŒãŸãƒ‡ãƒ¼ã‚¿ã‚’åˆ†æžã—ã€å‚¾å‘ã€ç•°å¸¸å€¤ã€ç›¸é–¢é–¢ä¿‚ã€æŽ¨å¥¨äº‹é …ãªã©ã®æ´žå¯Ÿã‚’ç”Ÿæˆã—ã¾ã™ã€‚",
+                                                 "scheduleAlert":  "ã‚¹ã‚±ã‚¸ãƒ¥ãƒ¼ãƒ«ãŒè¨­å®šã•ã‚Œã¾ã—ãŸ! ãƒ‡ãƒ¼ã‚¿ã¯è‡ªå‹•çš„ã«å‡¦ç†ã•ã‚Œã¾ã™ã€‚",
+                                                 "comingSoon":  "æ©Ÿèƒ½ã¯è¿‘æ—¥å…¬é–‹äºˆå®šã§ã™ã€‚"
+                                             },
+                                 "presets":  {
+                                                 "merge":  {
+                                                               "label":  "åˆ—ã‚’çµåˆã™ã‚‹",
+                                                               "prompt":  "ã€Œåå‰ã€åˆ—ã¨ã€Œå§“ã€åˆ—ã‚’ 1 ã¤ã®ã€Œãƒ•ãƒ«ãƒãƒ¼ãƒ ã€åˆ—ã«çµåˆã—ã¾ã™ã€‚"
+                                                           },
+                                                 "filter":  {
+                                                                "label":  "ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°ã™ã‚‹",
+                                                                "prompt":  "ã€ŒSalesã€åˆ—ãŒ $10,000 ã‚’è¶…ãˆã‚‹ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã—ã¾ã™ã€‚"
+                                                            },
+                                                 "group":  {
+                                                               "label":  "ã‚°ãƒ«ãƒ¼ãƒ—åŒ–ã—ã¦è¦ç´„ã™ã‚‹",
+                                                               "prompt":  "ãƒ‡ãƒ¼ã‚¿ã‚’ã€Œåœ°åŸŸã€ã”ã¨ã«ã‚°ãƒ«ãƒ¼ãƒ—åŒ–ã—ã€ã€Œå£²ä¸Šã€ã®åˆè¨ˆã¨å¹³å‡ã‚’è¨ˆç®—ã—ã¾ã™ã€‚"
+                                                           },
+                                                 "pivot":  {
+                                                               "label":  "ãƒ”ãƒœãƒƒãƒˆãƒ†ãƒ¼ãƒ–ãƒ«",
+                                                               "prompt":  "ã€ŒCategoryã€ã‚’è¡Œã€ã€ŒMonthã€ã‚’åˆ—ã€ã€ŒRevenueã€ã®åˆè¨ˆã‚’å«ã‚€ãƒ”ãƒœãƒƒãƒˆ ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’ä½œæˆã—ã¾ã™ã€‚"
+                                                           },
+                                                 "chart":  {
+                                                               "label":  "ãƒãƒ£ãƒ¼ãƒˆã®ç”Ÿæˆ",
+                                                               "prompt":  "åœ°åŸŸã”ã¨ã®å£²ä¸Šã‚’æ¯”è¼ƒã™ã‚‹æ£’ã‚°ãƒ©ãƒ•ã‚’ç”Ÿæˆã—ã¾ã™ã€‚"
+                                                           },
+                                                 "export":  {
+                                                                "label":  "æ§‹é€ åŒ–ã•ã‚ŒãŸã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆ",
+                                                                "prompt":  "å¤‰æ›ã•ã‚ŒãŸãƒ‡ãƒ¼ã‚¿ã‚’ UTF-8 ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã‚’ä½¿ç”¨ã—ã¦ CSV ãƒ•ã‚¡ã‚¤ãƒ«ã«ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆã—ã¾ã™ã€‚"
+                                                            }
+                                             }
+                             },
+                    "communication":  {
+                                          "title":  "ã‚³ãƒŸãƒ¥ãƒ‹ã‚±ãƒ¼ã‚·ãƒ§ãƒ³",
+                                          "subtitle":  "é›»å­ãƒ¡ãƒ¼ãƒ«ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€ãƒžãƒ«ãƒãƒãƒ£ãƒãƒ«é€šçŸ¥ã‚’è‡ªå‹•åŒ–ã™ã‚‹",
+                                          "composer":  {
+                                                           "title":  "ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’ä½œæˆã™ã‚‹",
+                                                           "description":  "ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã‚’èª¬æ˜Žã™ã‚‹ã¨ã€AI ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆãŒãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ä¸‹æ›¸ãã‚’ä½œæˆã—ã¾ã™",
+                                                           "instructionLabel":  "ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æŒ‡ç¤º",
+                                                           "instructionPlaceholder":  "ä¾‹: 3 æ—¥ä»¥å†…ã«è«‹æ±‚æ›¸ã®æœŸé™ãŒæ¥ã‚‹ã™ã¹ã¦ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã«ã€ãƒ—ãƒ­ãƒ•ã‚§ãƒƒã‚·ãƒ§ãƒŠãƒ«ã‹ã¤ãƒ•ãƒ¬ãƒ³ãƒ‰ãƒªãƒ¼ãªå£èª¿ã§ãƒªãƒžã‚¤ãƒ³ãƒ€ãƒ¼ ãƒ¡ãƒ¼ãƒ«ã‚’é€ä¿¡ã—ã€æ”¯æ‰•ã„ãƒªãƒ³ã‚¯ã‚’å«ã‚ã¾ã™ã€‚",
+                                                           "instructionHelper":  "ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒˆãƒ¼ãƒ³ã€å«ã‚ã‚‹æƒ…å ±ã€ãƒ‘ãƒ¼ã‚½ãƒŠãƒ©ã‚¤ã‚¼ãƒ¼ã‚·ãƒ§ãƒ³ã€CTA ã‚’æŒ‡å®šã—ã¾ã™ã€‚",
+                                                           "subjectLabel":  "ä»¶åï¼ˆãƒ¡ãƒ¼ãƒ«ã®å ´åˆï¼‰",
+                                                           "subjectPlaceholder":  "ãƒ¡ãƒ¼ãƒ«ã®ä»¶åâ€¦",
+                                                           "charCount":  "{current}/{max}æ–‡å­—",
+                                                           "noSubject":  "(ä¸»èªžãªã—)"
+                                                       },
+                                          "channels":  {
+                                                           "title":  "é…é€ãƒãƒ£ãƒãƒ«",
+                                                           "email":  "Email",
+                                                           "slack":  "Slack",
+                                                           "whatsapp":  "ãƒ¯ãƒƒãƒ„ã‚¢ãƒƒãƒ—",
+                                                           "teams":  "ãƒžã‚¤ã‚¯ãƒ­ã‚½ãƒ•ãƒˆãƒãƒ¼ãƒ ",
+                                                           "sms":  "SMS",
+                                                           "discord":  "ä¸å’Œ"
+                                                       },
+                                          "recipients":  {
+                                                             "title":  "å—ä¿¡è€…",
+                                                             "description":  "ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å—ä¿¡ã™ã‚‹äººã‚’è¨­å®šã™ã‚‹",
+                                                             "to":  "To",
+                                                             "toPlaceholder":  "email@example.com",
+                                                             "cc":  "CCï¼ˆã‚«ãƒ¼ãƒœãƒ³ã‚³ãƒ”ãƒ¼ï¼‰",
+                                                             "ccPlaceholder":  "email@example.com",
+                                                             "addMore":  "ã•ã‚‰ã«è¿½åŠ ",
+                                                             "list":  "é…å¸ƒãƒªã‚¹ãƒˆ",
+                                                             "condition":  "æ¡ä»¶åˆ¥ï¼ˆéžã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãªã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆãªã©ï¼‰"
+                                                         },
+                                          "schedule":  {
+                                                           "title":  "ã‚¹ã‚±ã‚¸ãƒ¥ãƒ¼ãƒ«",
+                                                           "sendNow":  "ä»Šã™ãé€ä¿¡",
+                                                           "scheduleLater":  "å¾Œã®äºˆå®šã‚’ç«‹ã¦ã‚‹",
+                                                           "recurring":  "ç¹°ã‚Šè¿”ã—ç™ºç”Ÿã™ã‚‹",
+                                                           "dateTime":  "æ—¥æ™‚",
+                                                           "frequency":  "é »åº¦",
+                                                           "daily":  "Daily",
+                                                           "weekly":  "æ¯Žé€±",
+                                                           "monthly":  "æ¯Žæœˆ",
+                                                           "dateTimePlaceholder":  "æ—¥ä»˜/æ™‚åˆ»ãƒ”ãƒƒã‚«ãƒ¼ã¯ãƒ•ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã§åˆ©ç”¨ã§ãã¾ã™ã€‚"
+                                                       },
+                                          "recentMessages":  {
+                                                                 "title":  "æœ€è¿‘ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸",
+                                                                 "empty":  "ã¾ã ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯é€ä¿¡ã•ã‚Œã¦ã„ã¾ã›ã‚“",
+                                                                 "channel":  "ãƒãƒ£ãƒãƒ«",
+                                                                 "sentAt":  "ã«é€ä¿¡ã•ã‚Œã¾ã—ãŸ",
+                                                                 "status":  "çŠ¶æ…‹"
+                                                             },
+                                          "actions":  {
+                                                          "send":  "ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’é€ä¿¡ã™ã‚‹",
+                                                          "sending":  "é€ä¿¡ä¸­â€¦",
+                                                          "preview":  "ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼",
+                                                          "saveDraft":  "ä¸‹æ›¸ãã®ä¿å­˜",
+                                                          "testSend":  "é€ä¿¡ãƒ†ã‚¹ãƒˆ",
+                                                          "testSendDescription":  "ãƒ†ã‚¹ãƒˆã‚’é€ä¿¡ã—ã¦ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã‚’æ¤œè¨¼ã™ã‚‹"
+                                                      },
+                                          "status":  {
+                                                         "sent":  "Sent",
+                                                         "scheduled":  "äºˆå®šã•ã‚Œã¦ã„ã‚‹",
+                                                         "failed":  "å¤±æ•—ã—ãŸ"
+                                                     },
+                                          "results":  {
+                                                          "sent":  "{channels}çµŒç”±ã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒæ­£å¸¸ã«é€ä¿¡ã•ã‚Œã¾ã—ãŸ!",
+                                                          "preview":  "[ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼]\n\n ãƒãƒ£ãƒ³ãƒãƒ«: {channels}\n ä»¶å: {subject}\n\n {instruction}\n\n (ã“ã‚Œã¯ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼ ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã§ã™)",
+                                                          "draftSaved":  "ä¸‹æ›¸ãã¯æ­£å¸¸ã«ä¿å­˜ã•ã‚Œã¾ã—ãŸã€‚ ã€Œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ \u003e ä¸‹æ›¸ãã€ã‹ã‚‰ã‚¢ã‚¯ã‚»ã‚¹ã§ãã¾ã™ã€‚",
+                                                          "testSent":  "ãƒ†ã‚¹ãƒˆã¯{email}ã«é€ä¿¡ã•ã‚Œã¾ã—ãŸ! å—ä¿¡ç®±ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚"
+                                                      },
+                                          "errors":  {
+                                                         "sendFailed":  "ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®é€ä¿¡ã«å¤±æ•—ã—ã¾ã—ãŸã€‚",
+                                                         "testNoRecipient":  "ãƒ†ã‚¹ãƒˆã®å—ä¿¡è€…ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚"
+                                                     }
+                                      },
+                    "media":  {
+                                  "title":  "ãƒ¡ãƒ‡ã‚£ã‚¢ã¨ç”»åƒ",
+                                  "subtitle":  "ç”»åƒã¨ãƒ¡ãƒ‡ã‚£ã‚¢ã‚’ãƒãƒƒãƒã§å‡¦ç†ã€å¤‰æ›ã€æœ€é©åŒ–ã—ã¾ã™",
+                                  "instruction":  {
+                                                      "title":  "AI ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã¯ãƒ¡ãƒ‡ã‚£ã‚¢ã«å¯¾ã—ã¦ä½•ã‚’ã™ã¹ãã§ã—ã‚‡ã†ã‹?",
+                                                      "description":  "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã«ç”»åƒã‚„ãƒ“ãƒ‡ã‚ªã«å¯¾ã—ã¦ä½•ã‚’ã—ã¦ã‚‚ã‚‰ã„ãŸã„ã‹ã‚’è‡ªç„¶è¨€èªžã§èª¬æ˜Žã—ã¾ã™ã€‚",
+                                                      "label":  "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã®æŒ‡ç¤º",
+                                                      "placeholder":  "ãŸã¨ãˆã°ã€ã™ã¹ã¦ã®ç”»åƒã‹ã‚‰èƒŒæ™¯ã‚’å‰Šé™¤ã—ã€ã‚¢ã‚¹ãƒšã‚¯ãƒˆæ¯”ã‚’ç¶­æŒã—ã¦ 1200x800 ã«ã‚µã‚¤ã‚ºå¤‰æ›´ã—ã€85% ã®å“è³ªã§ WebP ã«å¤‰æ›ã—ã€æ˜Žã‚‹ã• +10 ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã‚’é©ç”¨ã—ã€å³ä¸‹éš…ã«ã€ŒÂ© My Companyã€ã®é€ã‹ã—ã‚’è¿½åŠ ã—ã¾ã™ã€‚",
+                                                      "helper":  "é©ç”¨ã™ã‚‹å¤‰æ›ã€ã‚µã‚¤ã‚ºã€å‡ºåŠ›å½¢å¼ã€å“è³ªã€ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã€ã‚¦ã‚©ãƒ¼ã‚¿ãƒ¼ãƒžãƒ¼ã‚¯ãŒå«ã¾ã‚Œã¾ã™ã€‚",
+                                                      "charCount":  "{current}/{max}æ–‡å­—",
+                                                      "button":  "AIã«ã‚ˆã‚‹å‡¦ç†",
+                                                      "processing":  "å‡¦ç†â€¦"
+                                                  },
+                                  "upload":  {
+                                                 "title":  "ãƒ¡ãƒ‡ã‚£ã‚¢ã®ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰",
+                                                 "description":  "ç”»åƒã¾ãŸã¯ãƒ“ãƒ‡ã‚ªã‚’ãƒ‰ãƒ©ãƒƒã‚°ã—ã¦é–‹å§‹ã—ã¾ã™",
+                                                 "dragActive":  "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¦ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ã™ã‚‹",
+                                                 "browse":  "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‚ç…§ã™ã‚‹",
+                                                 "supportedFormats":  "Formats: JPG, PNG, GIF, SVG, WebP, MP4, MOV, WebM",
+                                                 "maxSize":  "æœ€å¤§ã‚µã‚¤ã‚º: ãƒ•ã‚¡ã‚¤ãƒ«ã”ã¨ã« 100 MB",
+                                                 "batchInfo":  "{count} ãƒ•ã‚¡ã‚¤ãƒ«ãŒé¸æŠžã•ã‚Œã¾ã—ãŸ",
+                                                 "remove":  "å–ã‚Šé™¤ã"
+                                             },
+                                  "transformations":  {
+                                                          "title":  "å¤‰æ›",
+                                                          "description":  "ãƒ¡ãƒ‡ã‚£ã‚¢ã‚’ã©ã†ã™ã‚‹ã‹ã‚’é¸æŠžã—ã¦ãã ã•ã„",
+                                                          "resize":  "ã‚µã‚¤ã‚ºå¤‰æ›´",
+                                                          "resizeDescription":  "ç”»åƒã®å¯¸æ³•ã‚’å¤‰æ›´ã™ã‚‹",
+                                                          "width":  "Width",
+                                                          "height":  "èº«é•·",
+                                                          "maintainAspect":  "ã‚¢ã‚¹ãƒšã‚¯ãƒˆæ¯”ã‚’ç¶­æŒã™ã‚‹",
+                                                          "convertFormat":  "ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã‚’å¤‰æ›ã™ã‚‹",
+                                                          "convertDescription":  "åˆ¥ã®ãƒ•ã‚¡ã‚¤ãƒ«å½¢å¼ã«å¤‰æ›ã™ã‚‹",
+                                                          "targetFormat":  "å¯¾è±¡ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆ",
+                                                          "compress":  "åœ§ç¸®ã™ã‚‹",
+                                                          "compressDescription":  "ãƒ•ã‚¡ã‚¤ãƒ«ã‚µã‚¤ã‚ºã‚’æ¸›ã‚‰ã™",
+                                                          "quality":  "å“è³ª",
+                                                          "watermark":  "é€ã‹ã—",
+                                                          "watermarkDescription":  "ç”»åƒã«ãƒ†ã‚­ã‚¹ãƒˆã¾ãŸã¯ãƒ­ã‚´ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ¬ã‚¤ã‚’è¿½åŠ ã™ã‚‹",
+                                                          "watermarkText":  "é€ã‹ã—ãƒ†ã‚­ã‚¹ãƒˆ",
+                                                          "filters":  "ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã¨èª¿æ•´",
+                                                          "brightness":  "è¼åº¦",
+                                                          "contrast":  "å¯¾æ¯”",
+                                                          "saturation":  "é£½å’Œ",
+                                                          "blur":  "Blur"
+                                                      },
+                                  "preview":  {
+                                                  "title":  "ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼",
+                                                  "original":  "ã‚ªãƒªã‚¸ãƒŠãƒ«",
+                                                  "processed":  "åŠ å·¥æ¸ˆã¿",
+                                                  "noMedia":  "ãƒ¡ãƒ‡ã‚£ã‚¢ã‚’ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ã—ã¦ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼ã™ã‚‹"
+                                              },
+                                  "recentMedia":  {
+                                                      "title":  "æœ€è¿‘ã®ãƒ¡ãƒ‡ã‚£ã‚¢",
+                                                      "empty":  "ã¾ã ãƒ¡ãƒ‡ã‚£ã‚¢ãŒå‡¦ç†ã•ã‚Œã¦ã„ã¾ã›ã‚“"
+                                                  },
+                                  "actions":  {
+                                                  "process":  "ãƒ—ãƒ­ã‚»ã‚¹ãƒ¡ãƒ‡ã‚£ã‚¢",
+                                                  "processing":  "å‡¦ç†â€¦",
+                                                  "download":  "ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰çµæžœ",
+                                                  "downloadAll":  "ã™ã¹ã¦ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ï¼ˆZIPï¼‰",
+                                                  "batchProcess":  "ãƒãƒƒãƒå‡¦ç†",
+                                                  "filesCount":  "{count} ãƒ•ã‚¡ã‚¤ãƒ«"
+                                              },
+                                  "integrations":  {
+                                                       "googleDrive":  {
+                                                                           "title":  "Google Drive",
+                                                                           "description":  "Google Drive ã«ä¿å­˜ã•ã‚Œã¦ã„ã‚‹ç”»åƒã‚„ãƒ“ãƒ‡ã‚ªã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¾ã™ã€‚",
+                                                                           "connect":  "Google Drive ã‚’æŽ¥ç¶šã—ã¾ã™",
+                                                                           "connecting":  "æŽ¥ç¶šä¸­...",
+                                                                           "connected":  "Google Drive ã«æŽ¥ç¶šã•ã‚Œã¾ã—ãŸ",
+                                                                           "browse":  "ãƒ‰ãƒ©ã‚¤ãƒ–ã‚’å‚ç…§"
+                                                                       },
+                                                       "googlePhotos":  {
+                                                                            "title":  "Googleãƒ•ã‚©ãƒˆ",
+                                                                            "description":  "Google ãƒ•ã‚©ãƒˆã‹ã‚‰å†™çœŸã‚„ã‚¢ãƒ«ãƒãƒ ã«ç›´æŽ¥ã‚¢ã‚¯ã‚»ã‚¹ã—ã¾ã™ã€‚",
+                                                                            "connect":  "Google ãƒ•ã‚©ãƒˆã‚’æŽ¥ç¶šã™ã‚‹",
+                                                                            "connecting":  "æŽ¥ç¶šä¸­...",
+                                                                            "connected":  "Googleãƒ•ã‚©ãƒˆã«æŽ¥ç¶šã—ã¾ã—ãŸ",
+                                                                            "browse":  "å†™çœŸã‚’é–²è¦§ã™ã‚‹"
+                                                                        }
+                                                   },
+                                  "errors":  {
+                                                 "processFailed":  "ãƒ¡ãƒ‡ã‚£ã‚¢ã®å‡¦ç†ã«å¤±æ•—ã—ã¾ã—ãŸã€‚",
+                                                 "aiFailed":  "æŒ‡ç¤ºã®è§£é‡ˆã«å¤±æ•—ã—ã¾ã—ãŸã€‚"
+                                             },
+                                  "results":  {
+                                                  "processComplete":  "å‡¦ç†ãŒå®Œäº†ã—ã¾ã—ãŸï¼ {count} ãƒ•ã‚¡ã‚¤ãƒ«ã¯æ­£å¸¸ã«å¤‰æ›ã•ã‚Œã¾ã—ãŸã€‚",
+                                                  "aiInterpreted":  "å‘½ä»¤ã¯æ­£å¸¸ã«è§£é‡ˆã•ã‚Œã¾ã—ãŸã€‚ å¤‰æ›ã¯èª¬æ˜Žã©ãŠã‚Šã«äº‹å‰æ§‹æˆã•ã‚Œã¦ã„ã¾ã™ã€‚ ãƒ‘ãƒãƒ«å†…ã®èª¿æ•´ã‚’ç¢ºèªã—ã€ã€Œãƒ¡ãƒ‡ã‚£ã‚¢ã‚’å‡¦ç†ã€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã¦é©ç”¨ã—ã¾ã™ã€‚",
+                                                  "downloadSimulation":  "{count} å‡¦ç†ã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã‚’ ZIP å½¢å¼ã§ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã™ã‚‹ã“ã¨ã‚’ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆã—ã¾ã™ã€‚ \n\nãƒ•ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã§ã¯ã€ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒåœ§ç¸®ã•ã‚Œã¦ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¾ã™ã€‚",
+                                                  "downloadComplete":  "ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰å®Œäº†ï¼ ãƒ•ã‚¡ã‚¤ãƒ«ãŒãƒªã‚¹ãƒˆã‹ã‚‰å‰Šé™¤ã•ã‚Œã¾ã—ãŸã€‚"
+                                              }
+                              },
+                    "files":  {
+                                  "title":  "Files",
+                                  "subtitle":  "ãƒ•ã‚¡ã‚¤ãƒ«æ“ä½œã‚’ç®¡ç†ã€æ•´ç†ã€è‡ªå‹•åŒ–ã™ã‚‹",
+                                  "instruction":  {
+                                                      "title":  "AI ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã¯ãƒ•ã‚¡ã‚¤ãƒ«ã«å¯¾ã—ã¦ä½•ã‚’ã™ã¹ãã§ã—ã‚‡ã†ã‹?",
+                                                      "description":  "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã©ã®ã‚ˆã†ã«æ•´ç†ã€å‡¦ç†ã€ç®¡ç†ã™ã‚‹ã‹ã‚’è‡ªç„¶è¨€èªžã§èª¬æ˜Žã—ã¾ã™ã€‚",
+                                                      "label":  "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã®æŒ‡ç¤º",
+                                                      "placeholder":  "ãŸã¨ãˆã°ã€ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼å†…ã®ã™ã¹ã¦ã® PDF ã‚’ä½œæˆæ—¥é †ã«æ•´ç†ã—ã€ã€ŒYYYY-MM-DD - å…ƒã®åå‰ã€ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ä½¿ç”¨ã—ã¦åå‰ã‚’å¤‰æ›´ã—ã€è«‹æ±‚æ›¸ã‚’ /Finance/Invoices/{year}/{month} ã«ç§»å‹•ã—ã€6 ã‹æœˆä»¥ä¸Šå‰ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åœ§ç¸®ã—ã¾ã™ã€‚",
+                                                      "helper":  "å«ã¾ã‚Œã‚‹å†…å®¹: å½±éŸ¿ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã€ãã‚Œã‚‰ã®æ•´ç†æ–¹æ³•ã€åå‰å¤‰æ›´ãƒ‘ã‚¿ãƒ¼ãƒ³ã€å®›å…ˆãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã€è¿½åŠ ã®ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã€‚",
+                                                      "charCount":  "{current}/{max}æ–‡å­—",
+                                                      "button":  "AIã§å®Ÿè¡Œã™ã‚‹",
+                                                      "processing":  "å®Ÿè¡Œä¸­â€¦"
+                                                  },
+                                  "storage":  {
+                                                  "title":  "ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸",
+                                                  "used":  "Used",
+                                                  "total":  "{total}",
+                                                  "files":  "{count} ãƒ•ã‚¡ã‚¤ãƒ«",
+                                                  "folders":  "{count}ãƒ•ã‚©ãƒ«ãƒ€",
+                                                  "activeRules":  "ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãªãƒ«ãƒ¼ãƒ«",
+                                                  "rulesConfigured":  "{count}è¨­å®šæ¸ˆã¿",
+                                                  "lastFolder":  "æœ€å¾Œ: {name}",
+                                                  "progressLabel":  "{progress}%ä½¿ç”¨"
+                                              },
+                                  "upload":  {
+                                                 "title":  "ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰",
+                                                 "description":  "ãƒ•ã‚¡ã‚¤ãƒ«ã¾ãŸã¯ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã‚’ãƒ‰ãƒ©ãƒƒã‚°ã—ã¦ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ã—ã¾ã™",
+                                                 "dragActive":  "ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¦ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰",
+                                                 "browse":  "ãƒ–ãƒ©ã‚¦ã‚º",
+                                                 "createFolder":  "ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã®ä½œæˆ"
+                                             },
+                                  "browser":  {
+                                                  "title":  "ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ãƒ¼",
+                                                  "empty":  "ã“ã®ãƒ•ã‚©ãƒ«ãƒ€ã¯ç©ºã§ã™",
+                                                  "name":  "Name",
+                                                  "size":  "Size",
+                                                  "modified":  "ä¿®æ­£æ¸ˆã¿",
+                                                  "type":  "Type",
+                                                  "sortBy":  "ä¸¦ã¹æ›¿ãˆ",
+                                                  "search":  "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¤œç´¢â€¦",
+                                                  "gridView":  "ã‚°ãƒªãƒƒãƒ‰ãƒ“ãƒ¥ãƒ¼",
+                                                  "listView":  "ãƒªã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼",
+                                                  "folder":  "ãƒ•ã‚©ãƒ«ãƒ€"
+                                              },
+                                  "rules":  {
+                                                "title":  "çµ„ç¹”è¦å‰‡",
+                                                "description":  "ãƒ•ã‚¡ã‚¤ãƒ«æ•´ç†ã‚’è‡ªå‹•åŒ–ã™ã‚‹",
+                                                "ruleName":  "ãƒ«ãƒ¼ãƒ«å",
+                                                "ruleNamePlaceholder":  "ä¾‹: è«‹æ±‚æ›¸ã‚’æœˆã”ã¨ã«ä¸¦ã¹æ›¿ãˆã‚‹",
+                                                "condition":  "çŠ¶æ…‹",
+                                                "conditionPlaceholder":  "ä¾‹: ãƒ•ã‚¡ã‚¤ãƒ«åã«ã€Œè«‹æ±‚æ›¸ã€ãŒå«ã¾ã‚Œã¦ã„ã‚‹",
+                                                "action":  "ã‚¢ã‚¯ã‚·ãƒ§ãƒ³",
+                                                "actionPlaceholder":  "ä¾‹: /Finance/Invoices/{year}/{month} ã«ç§»å‹•ã—ã¾ã™",
+                                                "addRule":  "ãƒ«ãƒ¼ãƒ«ã®è¿½åŠ ",
+                                                "active":  "ã‚¢ã‚¯ãƒ†ã‚£ãƒ–",
+                                                "inactive":  "éžã‚¢ã‚¯ãƒ†ã‚£ãƒ–",
+                                                "empty":  "ãƒ«ãƒ¼ãƒ«ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“"
+                                            },
+                                  "actions":  {
+                                                  "label":  "ã‚¢ã‚¯ã‚·ãƒ§ãƒ³",
+                                                  "moreOptions":  "ãã®ä»–ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³",
+                                                  "upload":  "ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰",
+                                                  "newFolder":  "æ–°ã—ã„ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼",
+                                                  "delete":  "æ¶ˆåŽ»",
+                                                  "rename":  "åå‰ã®å¤‰æ›´",
+                                                  "move":  "Move",
+                                                  "copy":  "Copy",
+                                                  "share":  "Share",
+                                                  "download":  "ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰"
+                                              },
+                                  "aiPlaceholder":  "E.g.: Organize all PDFs from the Downloads folder by creation date, renomeie com o padrÃ£o \u0027YYYY-MM-DD - nome original\u0027, mova faturas para /Financeiro/Faturas/{ano}/{mÃªs} e compacte arquivos com mais de 6 meses.",
+                                  "integrations":  {
+                                                       "googleDrive":  {
+                                                                           "title":  "Google Drive",
+                                                                           "description":  "ãƒ­ãƒ¼ã‚«ãƒ« ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã§ã‚ã‚‹ã‹ã®ã‚ˆã†ã«ã€Google Drive ã‹ã‚‰ãƒ•ã‚¡ã‚¤ãƒ«ã«ç›´æŽ¥ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ç®¡ç†ã—ã¾ã™ã€‚",
+                                                                           "connect":  "Google Drive ã‚’æŽ¥ç¶šã—ã¾ã™",
+                                                                           "connecting":  "æŽ¥ç¶šä¸­...",
+                                                                           "connected":  "Google Drive ã«æŽ¥ç¶šã•ã‚Œã¾ã—ãŸ",
+                                                                           "browse":  "ãƒ‰ãƒ©ã‚¤ãƒ–ã‚’æŽ¢ç´¢ã™ã‚‹",
+                                                                           "disconnect":  "åˆ‡æ–­ã™ã‚‹"
+                                                                       }
+                                                   },
+                                  "dialogs":  {
+                                                  "newFolder":  "æ–°ã—ã„ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼å:",
+                                                  "rename":  "åå‰ã‚’æ¬¡ã®ã‚ˆã†ã«å¤‰æ›´ã—ã¾ã™:",
+                                                  "deleteConfirm":  "ã€Œ{name}ã€ã‚’å‰Šé™¤ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹? ã“ã®æ“ä½œã¯å…ƒã«æˆ»ã™ã“ã¨ãŒã§ãã¾ã›ã‚“ã€‚",
+                                                  "moveAlert":  "ã€Œ{name}ã€ã‚’ç§»å‹• â€” è£½å“ç‰ˆã§ã¯ã€ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ ã‚»ãƒ¬ã‚¯ã‚¿ãƒ¼ãŒè¡¨ç¤ºã•ã‚Œã¾ã™ã€‚",
+                                                  "copySuffix":  "ï¼ˆã‚³ãƒ”ãƒ¼ï¼‰",
+                                                  "shareLink":  "ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ã‚³ãƒ”ãƒ¼ã•ã‚ŒãŸã€Œ{name}ã€ã®ãƒªãƒ³ã‚¯ã‚’å…±æœ‰ã—ã¾ã™ã€‚ \n\nhttps://pytomatiza.app/share/{id}",
+                                                  "selectFile":  "ã€Œ{label}ã€ â€” ã“ã®ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚’ä½¿ç”¨ã™ã‚‹ã«ã¯ã€ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ãƒ¼ã§ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠžã—ã¾ã™ã€‚"
+                                              },
+                                  "results":  {
+                                                  "aiInterpreted":  "å‘½ä»¤ã¯æ­£å¸¸ã«è§£é‡ˆã•ã‚Œã¾ã—ãŸã€‚ çµ„ç¹”ãƒ«ãƒ¼ãƒ«ã¯è‡ªå‹•çš„ã«ä½œæˆã•ã‚Œã¾ã™ã€‚ ãƒ«ãƒ¼ãƒ«ãƒ‘ãƒãƒ«ã§ãã‚Œã‚‰ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚"
+                                              }
+                              },
+                    "architecture":  {
+                                         "title":  "å»ºç¯‰",
+                                         "subtitle":  "AI ã‚’ä½¿ç”¨ã—ã¦ã‚¢ãƒ¼ã‚­ãƒ†ã‚¯ãƒãƒ£å›³ã¨æŠ€è¡“æ–‡æ›¸ã‚’ç”Ÿæˆ",
+                                         "diagramBuilder":  {
+                                                                "title":  "ã‚¢ãƒ¼ã‚­ãƒ†ã‚¯ãƒãƒ£ã«ã¤ã„ã¦èª¬æ˜Žã—ã¦ãã ã•ã„",
+                                                                "description":  "è‡ªç„¶è¨€èªžã§ã‚·ã‚¹ãƒ†ãƒ ã‚’èª¬æ˜Žã™ã‚‹ã¨ã€AI ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆãŒå›³ã‚’ç”Ÿæˆã—ã¾ã™",
+                                                                "instructionLabel":  "ã‚¢ãƒ¼ã‚­ãƒ†ã‚¯ãƒãƒ£ã®èª¬æ˜Ž",
+                                                                "instructionPlaceholder":  "ä¾‹: ãƒ­ãƒ¼ãƒ‰ ãƒãƒ©ãƒ³ã‚µãƒ¼ (Nginx)ã€3 ã¤ã® API ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ (Kubernetes ã® Node.js)ã€ãƒ—ãƒ©ã‚¤ãƒžãƒª PostgreSQL + ãƒªãƒ¼ãƒ‰ ãƒ¬ãƒ—ãƒªã‚«ã€ã‚­ãƒ£ãƒƒã‚·ãƒ¥ç”¨ã® Redisã€æ³¨æ–‡ç”¨ã® RabbitMQ ã‚­ãƒ¥ãƒ¼ã€Python ãƒ¯ãƒ¼ã‚«ãƒ¼ã€ãŠã‚ˆã³è£½å“ç”»åƒç”¨ã® S3 ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ã‚’å‚™ãˆãŸé›»å­å•†å–å¼•ã‚·ã‚¹ãƒ†ãƒ ã€‚",
+                                                                "instructionHelper":  "ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã€æŽ¥ç¶šã€ãƒ—ãƒ­ãƒˆã‚³ãƒ«ã€ãƒ†ã‚¯ãƒŽãƒ­ã‚¸ãƒ¼ã€ãƒ‡ãƒ¼ã‚¿ ãƒ•ãƒ­ãƒ¼ãŒå«ã¾ã‚Œã¾ã™ã€‚",
+                                                                "charCount":  "{current}/{max}æ–‡å­—"
+                                                            },
+                                         "templates":  {
+                                                           "title":  "ã‚¢ãƒ¼ã‚­ãƒ†ã‚¯ãƒãƒ£ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆ",
+                                                           "description":  "å‡ºç™ºç‚¹ã¨ã—ã¦ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚’é¸æŠžã™ã‚‹",
+                                                           "aws":  "AWS ã‚¯ãƒ©ã‚¦ãƒ‰",
+                                                           "gcp":  "ã‚°ãƒ¼ã‚°ãƒ«ã‚¯ãƒ©ã‚¦ãƒ‰",
+                                                           "azure":  "ãƒžã‚¤ã‚¯ãƒ­ã‚½ãƒ•ãƒˆã‚¢ã‚¸ãƒ¥ãƒ¼ãƒ«",
+                                                           "microservices":  "ãƒžã‚¤ã‚¯ãƒ­ã‚µãƒ¼ãƒ“ã‚¹",
+                                                           "monolith":  "ãƒ¢ã‚¸ãƒ¥ãƒ©ãƒ¼ãƒ¢ãƒŽãƒªã‚¹",
+                                                           "serverless":  "ã‚µãƒ¼ãƒãƒ¼ãƒ¬ã‚¹",
+                                                           "eventDriven":  "ã‚¤ãƒ™ãƒ³ãƒˆé§†å‹•åž‹",
+                                                           "ciCd":  "CI/CD ãƒ‘ã‚¤ãƒ—ãƒ©ã‚¤ãƒ³",
+                                                           "network":  "ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ãƒˆãƒãƒ­ã‚¸ãƒ¼",
+                                                           "dataPipeline":  "ãƒ‡ãƒ¼ã‚¿ãƒ‘ã‚¤ãƒ—ãƒ©ã‚¤ãƒ³"
+                                                       },
+                                         "export":  {
+                                                        "title":  "ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆå½¢å¼",
+                                                        "description":  "å›³ã®ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆæ–¹æ³•ã‚’é¸æŠžã™ã‚‹",
+                                                        "png":  "PNGï¼ˆã‚¤ãƒ¡ãƒ¼ã‚¸ï¼‰",
+                                                        "svg":  "SVGï¼ˆãƒ™ã‚¯ã‚¿ãƒ¼ï¼‰",
+                                                        "pdf":  "PDFï¼ˆæ–‡æ›¸ï¼‰",
+                                                        "terraform":  "ãƒ†ãƒ©ãƒ•ã‚©ãƒ¼ãƒ  (IaC)"
+                                                    },
+                                         "recentDiagrams":  {
+                                                                "title":  "æœ€è¿‘ã®å›³",
+                                                                "empty":  "å›³ã¯ã¾ã ç”Ÿæˆã•ã‚Œã¦ã„ã¾ã›ã‚“",
+                                                                "createdAt":  "ã§ä½œæˆã•ã‚Œã¾ã—ãŸ",
+                                                                "components":  "{count} ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ",
+                                                                "download":  "ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰",
+                                                                "edit":  "Edit",
+                                                                "delete":  "æ¶ˆåŽ»"
+                                                            },
+                                         "actions":  {
+                                                         "generate":  "ãƒ€ã‚¤ã‚¢ã‚°ãƒ©ãƒ ã®ç”Ÿæˆ",
+                                                         "generating":  "å›³ã‚’ç”Ÿæˆä¸­â€¦",
+                                                         "generateDescription":  "ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ç”Ÿæˆ",
+                                                         "save":  "ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã®ä¿å­˜",
+                                                         "share":  "Share",
+                                                         "shareDescription":  "ãƒªãƒ³ã‚¯çµŒç”±ã§ãƒãƒ¼ãƒ ã¨å…±æœ‰ã™ã‚‹"
+                                                     },
+                                         "errors":  {
+                                                        "generateFailed":  "ãƒ€ã‚¤ã‚¢ã‚°ãƒ©ãƒ ã®ç”Ÿæˆã«å¤±æ•—ã—ã¾ã—ãŸã€‚ ã‚‚ã†ä¸€åº¦è©¦ã—ã¦ãã ã•ã„ã€‚"
+                                                    },
+                                         "dialogs":  {
+                                                         "deleteConfirm":  "ã“ã®å›³ã‚’å‰Šé™¤ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹?",
+                                                         "shareLink":  "ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ã‚³ãƒ”ãƒ¼ã•ã‚ŒãŸãƒªãƒ³ã‚¯ã‚’å…±æœ‰ã—ã¾ã™!\n\n ã“ã®ã‚¢ãƒ¼ã‚­ãƒ†ã‚¯ãƒãƒ£ ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’ãƒãƒ¼ãƒ ã¨å…±æœ‰ã—ã¾ã™ã€‚",
+                                                         "shareEmptyWarning":  "å…±æœ‰ã™ã‚‹ã«ã¯ã€ã¾ãšAIã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã§å›³ã‚’ä½œæˆã—ã¦ãã ã•ã„ï¼"
+                                                     }
+                                     }
+                },
+    "footer":  {
+                   "copyright":  "Â© {year} Pytomatiza+. ç„¡æ–­è»¢è¼‰ã‚’ç¦ã˜ã¾ã™ã€‚",
+                   "privacy":  "ãƒ—ãƒ©ã‚¤ãƒã‚·ãƒ¼ãƒãƒªã‚·ãƒ¼",
+                   "terms":  "åˆ©ç”¨è¦ç´„",
+                   "status":  "ã‚·ã‚¹ãƒ†ãƒ ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹"
+               },
+    "logs":  {
+                 "title":  "Logs \u0026 AprovaÃ§Ãµes",
+                 "subtitle":  "Monitore execuÃ§Ãµes de automaÃ§Ã£o e gerencie solicitaÃ§Ãµes de aprovaÃ§Ã£o pendentes.",
+                 "stats":  {
+                               "totalExecutions":  "Total de ExecuÃ§Ãµes",
+                               "successRate":  "Taxa de Success",
+                               "pendingApprovals":  "AprovaÃ§Ãµes Pendings",
+                               "errors24h":  "ã‚¨ãƒ©ãƒ¼ (24 æ™‚é–“)"
+                           },
+                 "tableHeader":  "ExecuÃ§Ãµes Recentes",
+                 "tableAriaLabel":  "Registros de execuÃ§Ã£o",
+                 "status":  {
+                                "success":  "æˆåŠŸ",
+                                "error":  "Error",
+                                "pending":  "AprovaÃ§Ã£o Pending",
+                                "running":  "Em ExecuÃ§Ã£o"
+                            },
+                 "agents":  {
+                                "emailSaver":  "Salvador de Anexos de E-mail",
+                                "reportGen":  "Gerador de RelatÃ³rios Semanais",
+                                "socialMonitor":  "Monitor de Redes Sociais",
+                                "dbBackup":  "Agente de Backup de Banco de Dados",
+                                "apiChecker":  "Verificador de SaÃºde de APIs",
+                                "invoiceProc":  "Processador de Faturas",
+                                "meetingSched":  "Agendador de ReuniÃµes",
+                                "contentTrans":  "Tradutor de ConteÃºdo"
+                            },
+                 "actions":  {
+                                 "log1":  "Processou 3 anexos de 2 e-mails",
+                                 "log2":  "Gerou relatÃ³rio semanal de vendas em PDF",
+                                 "log3":  "Respondeu automaticamente a 5 menÃ§Ãµes de suporte",
+                                 "log4":  "Backup noturno â€” verificaÃ§Ã£o de integridade falhou",
+                                 "log5":  "Verificou 12 endpoints â€” todos saudÃ¡veis",
+                                 "log6":  "Aguardando aprovaÃ§Ã£o de 3 faturas",
+                                 "log7":  "Agendou 2 sincronizaÃ§Ãµes de equipe para a prÃ³xima semana",
+                                 "log8":  "Traduzindo post do blog para 9 idiomas"
+                             },
+                 "duration":  {
+                                  "ongoing":  "em andamento"
+                              },
+                 "tableEmpty":  "å®Ÿè¡Œãƒ­ã‚°ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚",
+                 "loginPrompt":  "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã«ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ  ãƒ‡ãƒ¼ã‚¿ã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ãã ã•ã„ã€‚"
+             },
+    "landing":  {
+                    "nav":  {
+                                "features":  "Features",
+                                "howItWorks":  "How It Works",
+                                "signIn":  "Sign In",
+                                "getStarted":  "Get Started",
+                                "dashboard":  "Dashboard"
+                            },
+                    "hero":  {
+                                 "title":  "Automate repetitive tasks with Python in minutes",
+                                 "subtitle":  "Create powerful automations, bots, and workflows without leaving your browser. Pytomatiza+ turns complex Python scripting into visual, manageable processes.",
+                                 "cta":  "Start Automating",
+                                 "demo":  "Watch Demo"
+                             },
+                    "socialProof":  {
+                                        "title":  "Trusted by innovators",
+                                        "executions":  "Executions performed",
+                                        "companies":  "Companies trusting us",
+                                        "uptime":  "Uptime",
+                                        "integrations":  "Integrations"
+                                    },
+                    "howItWorks":  {
+                                       "title":  "How It Works",
+                                       "subtitle":  "Three simple steps to automate anything",
+                                       "step1":  {
+                                                     "title":  "Create Your Automation",
+                                                     "description":  "Describe what you need in natural language or use our visual builder. Our AI engine interprets your requirements and generates the perfect automation script."
+                                                 },
+                                       "step2":  {
+                                                     "title":  "Configure Parameters",
+                                                     "description":  "Fine-tune inputs, connect APIs, set schedules, and define conditions. Every parameter is customizable to match your exact workflow needs."
+                                                 },
+                                       "step3":  {
+                                                     "title":  "Execute \u0026 Monitor",
+                                                     "description":  "Run your automation instantly or schedule it. Monitor execution in real-time, review logs, and get instant notifications on completion."
+                                                 }
+                                   },
+                    "features":  {
+                                     "title":  "Everything You Need to Automate",
+                                     "subtitle":  "A complete platform for building, running, and monitoring automations",
+                                     "feature1":  {
+                                                      "title":  "Python Automations",
+                                                      "description":  "Write or generate Python scripts for any task. File processing, data transformation, API calls â€” all automated."
+                                                  },
+                                     "feature2":  {
+                                                      "title":  "Integrations",
+                                                      "description":  "Connect with Google Drive, Gmail, Google Sheets, and hundreds of APIs. Your tools, unified in one platform."
+                                                  },
+                                     "feature3":  {
+                                                      "title":  "Smart Scheduling",
+                                                      "description":  "Set precise schedules, recurring intervals, or trigger-based execution. Your automations run exactly when you need them."
+                                                  },
+                                     "feature4":  {
+                                                      "title":  "Real-time Monitoring",
+                                                      "description":  "Watch executions live, track performance metrics, and receive alerts. Complete visibility into every automation."
+                                                  },
+                                     "feature5":  {
+                                                      "title":  "Complete Audit Logs",
+                                                      "description":  "Every execution is logged with full details. Review, debug, and optimize your automations with comprehensive audit trails."
+                                                  },
+                                     "feature6":  {
+                                                      "title":  "Built to Scale",
+                                                      "description":  "From small tasks to enterprise workflows. Pytomatiza+ handles increased load without compromising performance."
+                                                  }
+                                 },
+                    "demo":  {
+                                 "title":  "See It in Action",
+                                 "subtitle":  "A visual platform designed for productivity",
+                                 "tabsLabel":  "Choose a view",
+                                 "workflows":  "Workflows",
+                                 "dashboard":  "Dashboard",
+                                 "editor":  "Editor",
+                                 "automations":  "Automations"
+                             },
+                    "benefits":  {
+                                     "title":  "Automation Without the Complexity",
+                                     "subtitle":  "See the difference Pytomatiza+ makes",
+                                     "withoutTitle":  "Without Pytomatiza+",
+                                     "withTitle":  "With Pytomatiza+",
+                                     "without":  {
+                                                     "manual":  "Manual, repetitive tasks",
+                                                     "errors":  "Error-prone processes",
+                                                     "delays":  "Slow execution times",
+                                                     "silos":  "Disconnected tools",
+                                                     "visibility":  "No visibility into execution"
+                                                 },
+                                     "with":  {
+                                                  "automation":  "Full automation of repetitive work",
+                                                  "accuracy":  "Zero human errors",
+                                                  "speed":  "Blazing fast execution",
+                                                  "integration":  "Unified platform",
+                                                  "insights":  "Complete visibility and control"
+                                              }
+                                 },
+                    "useCases":  {
+                                     "title":  "Automate Anything",
+                                     "subtitle":  "From simple tasks to complex enterprise workflows",
+                                     "case1":  {
+                                                   "title":  "Financial Automation",
+                                                   "description":  "Automate invoice processing, expense tracking, bank reconciliation, and financial report generation."
+                                               },
+                                     "case2":  {
+                                                   "title":  "Report Automation",
+                                                   "description":  "Generate and distribute automated reports from any data source. Scheduled, formatted, and delivered on time."
+                                               },
+                                     "case3":  {
+                                                   "title":  "Email Automation",
+                                                   "description":  "Automate email campaigns, notification sequences, attachment processing, and intelligent inbox management."
+                                               },
+                                     "case4":  {
+                                                   "title":  "API Automation",
+                                                   "description":  "Orchestrate multi-step API workflows. Connect services, transform data, and automate complex integrations."
+                                               },
+                                     "case5":  {
+                                                   "title":  "Spreadsheet Automation",
+                                                   "description":  "Process, transform, and analyze spreadsheet data automatically. Generate pivot tables, charts, and summaries."
+                                               },
+                                     "case6":  {
+                                                   "title":  "Business Process Automation",
+                                                   "description":  "Automate approval workflows, data entry, document processing, and compliance reporting for your entire organization."
+                                               }
+                                 },
+                    "cta":  {
+                                "title":  "Start Automating Today",
+                                "subtitle":  "Join thousands of professionals who have transformed their workflow with Pytomatiza+",
+                                "button":  "Enter Pytomatiza+"
+                            },
+                    "footer":  {
+                                   "description":  "The intelligent automation platform that thinks, learns, and executes.",
+                                   "copyright":  "Â© 2026 Pytomatiza+. All rights reserved.",
+                                   "product":  {
+                                                   "title":  "Product",
+                                                   "features":  "Features",
+                                                   "pricing":  "Pricing",
+                                                   "integrations":  "Integrations",
+                                                   "changelog":  "Changelog"
+                                               },
+                                   "resources":  {
+                                                     "title":  "Resources",
+                                                     "docs":  "Documentation",
+                                                     "api":  "API Reference",
+                                                     "blog":  "Blog",
+                                                     "help":  "Help Center"
+                                                 },
+                                   "company":  {
+                                                   "title":  "Company",
+                                                   "about":  "About",
+                                                   "careers":  "Careers",
+                                                   "blog":  "Blog",
+                                                   "contact":  "Contact"
+                                               },
+                                   "legal":  {
+                                                 "title":  "Legal",
+                                                 "privacy":  "Privacy Policy",
+                                                 "terms":  "Terms of Service",
+                                                 "cookies":  "Cookie Policy",
+                                                 "security":  "Security"
+                                             }
+                               },
+                    "a11y":  {
+                                 "mainNavigation":  "Main navigation",
+                                 "mobileNavigation":  "Mobile navigation",
+                                 "openMenu":  "Open menu",
+                                 "closeMenu":  "Close menu",
+                                 "heroIllustration":  "Pytomatiza+ platform illustration showing automation workflows and analytics dashboard"
+                             }
+                },
+    "brand":  {
+                  "tagline":  "AI ã‚’æ´»ç”¨ã—ãŸè‡ªå‹•åŒ–ã«ã‚ˆã‚Šã€è€ƒãˆã€å­¦ç¿’ã—ã€å®Ÿè¡Œã™ã‚‹ãŸã‚ã€ãã®å¿…è¦ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚",
+                  "feature1Title":  "è‡ªç„¶è¨€èªžãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼",
+                  "feature1Desc":  "ã‚ã‹ã‚Šã‚„ã™ã„è‹±èªžã§ã‚¿ã‚¹ã‚¯ã‚’èª¬æ˜Žã—ã¾ã™ã€‚ å½“ç¤¾ã® NLP ã‚¨ãƒ³ã‚¸ãƒ³ã¯è‡ªå‹•åŒ–ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚",
+                  "feature2Title":  "ãƒžãƒ«ãƒã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã‚ªãƒ¼ã‚±ã‚¹ãƒˆãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³",
+                  "feature2Desc":  "å°‚é–€ã® AI ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆãŒé€£æºã—ã¦ã€è¤‡é›‘ãªè¤‡æ•°ã‚¹ãƒ†ãƒƒãƒ—ã®ãƒ—ãƒ­ã‚»ã‚¹ã‚’å‡¦ç†ã—ã¾ã™ã€‚",
+                  "feature3Title":  "Enterprise-Grade ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£",
+                  "feature3Desc":  "End-to-end æš—å·åŒ–ã€ãƒ­ãƒ¼ãƒ«ãƒ™ãƒ¼ã‚¹ã®ã‚¢ã‚¯ã‚»ã‚¹ã€å®Œå…¨ãªç›£æŸ»è¨¼è·¡ã€‚"
+              }
 }

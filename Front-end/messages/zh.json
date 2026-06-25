@@ -1,1254 +1,1256 @@
-{
-  "a11y": {
-    "skipToMain": "跳至主要内容",
-    "themeToggle": "切换颜色主题",
-    "languageSwitcher": "选择语言",
-    "showPassword": "显示密码",
-    "hidePassword": "隐藏密码",
-    "closeModal": "关闭对话框",
-    "mainNavigation": "主导航",
-    "sidebarNavigation": "侧边栏导航",
-    "breadcrumb": "面包屑",
-    "pagination": "分页",
-    "currentPage": "当前页面，第 {page} 页",
-    "goToPage": "转到第{page}页",
-    "goToHome": "转到主页"
-  },
-  "common": {
-    "loading": "加载中…",
-    "error": "出了点问题",
-    "retry": "再试一次",
-    "save": "节省",
-    "cancel": "取消",
-    "delete": "删除",
-    "edit": "编辑",
-    "create": "创造",
-    "search": "搜索",
-    "filter": "筛选",
-    "noResults": "没有找到结果",
-    "back": "后退",
-    "next": "下一个",
-    "previous": "以前的",
-    "confirm": "确认",
-    "actions": "行动",
-    "more": "更多选择",
-    "copied": "已复制到剪贴板",
-    "enabled": "启用",
-    "disabled": "残疾人",
-    "increasedBy": "增加了",
-    "decreasedBy": "减少了"
-  },
-  "auth": {
-    "signIn": {
-      "title": "欢迎回来",
-      "subtitle": "登录您的 Pytomatiza+ 帐户",
-      "emailLabel": "电子邮件",
-      "emailPlaceholder": "你@example.com",
-      "passwordLabel": "密码",
-      "passwordPlaceholder": "输入您的密码",
-      "submit": "登入",
-      "forgotPassword": "忘记密码了吗？",
-      "noAccount": "没有帐户？",
-      "createOne": "创建一个"
-    },
-    "signUp": {
-      "title": "创建您的帐户",
-      "subtitle": "使用 Pytomatiza+ 开始自动化",
-      "nameLabel": "姓名",
-      "namePlaceholder": "简·史密斯",
-      "emailLabel": "电子邮件",
-      "emailPlaceholder": "你@example.com",
-      "passwordLabel": "密码",
-      "passwordPlaceholder": "至少 8 个字符",
-      "confirmPasswordLabel": "确认密码",
-      "confirmPasswordPlaceholder": "重新输入您的密码",
-      "submit": "创建账户",
-      "haveAccount": "已经有帐户？",
-      "signIn": "登入"
-    },
-    "google": "继续使用谷歌",
-    "divider": "or",
-    "errors": {
-      "invalidCredentials": "电子邮件或密码无效",
-      "emailExists": "使用此电子邮件的帐户已存在",
-      "invalidEmail": "请输入有效的电子邮件地址",
-      "passwordTooShort": "密码必须至少为 8 个字符",
-      "passwordUppercase": "密码必须包含至少一个大写字母",
-      "passwordNumber": "密码必须包含至少一个数字",
-      "passwordsDoNotMatch": "密码不匹配",
-      "nameTooShort": "名称必须至少有 2 个字符",
-      "generic": "发生意外错误。 请再试一次。",
-      "rateLimited": "尝试次数太多。 请稍等。"
-    },
-    "authenticationForm": "认证表格"
-  },
-  "meta": {
-    "login": {
-      "title": "登录 — Pytomatiza+",
-      "description": "登录您的 Pytomatiza+ 帐户来管理您的 AI 支持的自动化代理。"
-    },
-    "dashboard": {
-      "title": "仪表板 - Pytomatiza+",
-      "description": "Pytomatiza+ 自动化代理、最近活动和系统状态的概述。"
-    },
-    "agents": {
-      "title": "代理 - Pytomatiza+",
-      "description": "浏览和管理您的 AI 自动化代理。"
-    },
-    "automations": {
-      "title": "自动化 — Pytomatiza+",
-      "description": "创建和管理自然语言自动化工作流程。"
-    },
-    "settings": {
-      "title": "设置 - Pytomatiza+",
-      "description": "管理您的帐户、集成和通知首选项。"
-    },
-    "help": {
-      "title": "帮助与支持 — Pytomatiza+",
-      "description": "获取帮助、浏览文档并联系支持人员。"
-    },
-    "logs": {
-      "title": "Logs & Aprovações — Pytomatiza+",
-      "description": "Visualize execuções de automação, histórico de agentes e gerencie aprovações pendentes."
-    },
-    "documents": {
-      "title": "文件 — Pytomatiza+",
-      "description": "使用 AI 自动化文档处理。 提取数据、转换格式以及管理 PDF、DOCX 等。"
-    },
-    "data": {
-      "title": "数据和电子表格 — Pytomatiza+",
-      "description": "连接数据源、转换电子表格并使用 AI 代理自动分析。"
-    },
-    "communication": {
-      "title": "沟通 — Pytomatiza+",
-      "description": "通过智能工作流程自动化电子邮件、消息和多渠道通知。"
-    },
-    "media": {
-      "title": "媒体与图像 — Pytomatiza+",
-      "description": "通过智能自动化批量处理、转换和优化图像和媒体。"
-    },
-    "files": {
-      "title": "文件 — Pytomatiza+",
-      "description": "使用智能规则管理、组织和自动化文件操作。"
-    },
-    "architecture": {
-      "title": "建筑 — Pytomatiza+",
-      "description": "使用 AI 生成架构图、技术文档和系统流程。"
-    }
-  },
-  "navigation": {
-    "dashboard": "仪表板",
-    "agents": "代理商",
-    "automations": "自动化",
-    "settings": "设置",
-    "help": "帮助与支持",
-    "signOut": "登出",
-    "collapse": "折叠侧边栏",
-    "expand": "展开侧边栏",
-    "mainNavigation": "主导航",
-    "sidebarNavigation": "侧边栏导航"
-  },
-  "settings": {
-    "title": "设置",
-    "subtitle": "管理您的帐户、首选项和应用程序设置。",
-    "tabs": {
-      "appearance": "外貌",
-      "accessibility": "无障碍",
-      "languageRegion": "语言&地区",
-      "account": "帐户",
-      "security": "安全",
-      "notifications": "通知",
-      "advanced": "先进的"
-    },
-    "appearance": {
-      "title": "外貌",
-      "subtitle": "定制您的视觉体验。",
-      "accentColor": "强调色",
-      "accentColorDescription": "选择“+”和强调元素的突出显示颜色。",
-      "fontSize": "字体大小",
-      "fontSizeSmall": "小的",
-      "fontSizeMedium": "中等的",
-      "fontSizeLarge": "大的",
-      "boldMode": "粗体模式",
-      "boldModeDescription": "增加整个应用程序的字体粗细。",
-      "elementDensity": "元件尺寸",
-      "densitySmall": "小的",
-      "densityMedium": "中等的",
-      "densityLarge": "大的",
-      "systemColor": "系统颜色",
-      "themeLight": "光",
-      "themeDark": "黑暗的",
-      "themeSystem": "系统",
-      "backgroundColor": "背景颜色",
-      "bgPresetDefault": "默认",
-      "bgPresetWarm": "温暖的",
-      "bgPresetCool": "凉爽的",
-      "bgPresetForest": "森林",
-      "bgPresetLavender": "薰衣草",
-      "bgPresetSepia": "棕褐色",
-      "bgPresetMidnight": "午夜",
-      "bgPresetSlate": "石板",
-      "colorYellow": "黄色的",
-      "colorBlue": "Blue",
-      "colorGreen": "Green",
-      "colorPurple": "紫色的",
-      "colorOrange": "橙子",
-      "colorRed": "Red",
-      "colorPink": "Pink",
-      "accentColorAria": "{color} 强调色"
-    },
-    "accessibility": {
-      "title": "无障碍",
-      "subtitle": "配置选项以使应用程序更易于访问。",
-      "highContrast": "高对比度",
-      "highContrastDescription": "增加颜色对比度以获得更好的可读性。",
-      "reduceMotion": "减少动画",
-      "reduceMotionDescription": "最大限度地减少运动效果和过渡。",
-      "focusOutline": "放大的焦点轮廓",
-      "focusOutlineDescription": "增加键盘焦点轮廓的厚度。",
-      "skipLinks": "始终显示跳过链接",
-      "skipLinksDescription": "使跳过导航链接永久可见。",
-      "underlineLinks": "为所有链接添加下划线",
-      "underlineLinksDescription": "为所有链接添加下划线以便更好地识别。",
-      "screenReader": "屏幕阅读器优化",
-      "screenReaderDescription": "添加额外的描述和丰富的 ARIA 标签。"
-    },
-    "languageRegion": {
-      "title": "语言&地区",
-      "subtitle": "选择您的首选语言和时区。",
-      "language": "语言",
-      "languageDescription": "选择应用程序的显示语言。",
-      "timezone": "时区",
-      "timezoneDescription": "选择您当地的时区。"
-    },
-    "account": {
-      "title": "帐户",
-      "subtitle": "管理您的个人信息。",
-      "fullName": "姓名",
-      "fullNamePlaceholder": "你的全名",
-      "birthDate": "出生日期",
-      "profilePicture": "个人资料图片",
-      "uploadPhoto": "上传照片",
-      "removePhoto": "删除照片",
-      "saveChanges": "保存更改",
-      "lockedTitle": "禁区",
-      "lockedDescription": "登录以管理您的帐户信息。",
-      "login": "登入",
-      "register": "创建账户"
-    },
-    "security": {
-      "title": "安全",
-      "subtitle": "配置您的帐户安全选项。",
-      "twoFactor": "双因素身份验证 (2FA)",
-      "twoFactorDescription": "登录时添加额外的保护层。",
-      "changePassword": "更改密码",
-      "changePasswordDescription": "定期更新您的密码以确保您的帐户安全。",
-      "activeSessions": "活跃会话",
-      "activeSessionsDescription": "查看和结束其他设备上的会话。",
-      "configure": "配置",
-      "change": "改变",
-      "current": "当前的",
-      "revoke": "撤销",
-      "revokeAll": "结束所有其他会话"
-    },
-    "notifications": {
-      "title": "通知",
-      "subtitle": "选择您希望如何收到通知。",
-      "email": "电子邮件通知",
-      "emailDescription": "在您的电子邮件中接收摘要和重要警报。",
-      "inApp": "应用内通知",
-      "inAppDescription": "在应用程序内显示横幅和徽章。",
-      "push": "推送通知",
-      "pushDescription": "即使应用程序关闭也能收到警报。",
-      "sound": "警报声",
-      "soundDescription": "当通知到达时播放声音。"
-    },
-    "advanced": {
-      "title": "先进的",
-      "subtitle": "高级应用程序维护选项。",
-      "clearCache": "清除应用程序缓存",
-      "clearCacheDescription": "删除本地存储的临时数据。",
-      "clearCacheButton": "立即清除缓存",
-      "clearCacheConfirm": "你确定吗？ 这将删除所有临时本地数据。",
-      "resetSettings": "重置设置",
-      "resetSettingsDescription": "将所有设置恢复为默认值。",
-      "resetSettingsButton": "重置为默认值",
-      "resetSettingsConfirm": "你确定吗？ 您所有的偏好都将丢失。",
-      "appVersion": "应用程序版本"
-    }
-  },
-  "help": {
-    "title": "帮助与支持",
-    "subtitle": "获取帮助、浏览文档并联系我们的团队。",
-    "documentation": "文档",
-    "documentationDescription": "浏览指南、教程和 API 参考。",
-    "contactSupport": "联系支持人员",
-    "contactSupportDescription": "从我们的团队获得帮助。 通常会在 24 小时内回复。",
-    "faqTitle": "常见问题解答",
-    "faq0": {
-      "question": "如何创建自动化？",
-      "answer": "转到自动化页面并使用 Natural Language Workflow Builder。 用简单的英语描述您想要自动化的内容，Pytomatiza+将为您构建工作流程。"
-    },
-    "faq1": {
-      "question": "如何连接新的集成？",
-      "answer": "导航到设置→集成以连接第三方服务，例如Google Workspace、Slack或GitHub。"
-    },
-    "faq2": {
-      "question": "如果代理失败会发生什么？",
-      "answer": "失败的代理会被标记为错误状态。 您可以在代理卡中查看错误详细信息并重试执行。"
-    },
-    "faq3": {
-      "question": "如何更改我的语言？",
-      "answer": "单击标题中的地球图标可在 9 种支持的语言之间切换。"
-    }
-  },
-  "dashboard": {
-    "title": "仪表板",
-    "welcome": "好，{timeOfDay}，{name}",
-    "morning": "早晨",
-    "afternoon": "下午",
-    "evening": "晚上",
-    "subtitle": "以下是您今天的自动化所发生的情况。",
-    "stats": {
-      "activeAgents": "活性剂",
-      "automationsToday": "当今的自动化",
-      "successRate": "成功率",
-      "pendingApprovals": "待批准",
-      "increasedBy": "增加{value}",
-      "decreasedBy": "减少{value}"
-    },
-    "recentActivity": "最近的活动",
-    "quickActions": "快速行动",
-    "quickActionsDescription": "帮助您入门的常见任务",
-    "createAutomation": "新自动化",
-    "viewAgents": "查看所有代理",
-    "viewReports": "查看报告",
-    "error": {
-      "title": "数据加载错误",
-      "loadingFailed": "无法加载仪表板数据。请检查您的连接后重试。",
-      "retry": "重试",
-      "offlineBanner": "后端不可用——显示的数据可能已过时",
-      "unknown": "未知错误"
-    },
-    "empty": {
-      "title": "未找到代理",
-      "description": "创建您的第一个自动化代理以开始在此处查看活动。",
-      "offlineTitle": "后端离线",
-      "offlineDescription": "连接到后端以查看您的代理。 服务可用后，单击“重试”。"
-    },
-    "recentActivityEmpty": "清空历史记录...通过转到模块，使用 Pytomatiza+ 创建您的第一个自动化！",
-    "loginPrompt": "登录您的帐户以访问实时数据！",
-    "loginAction": "登入",
-    "user": "User"
-  },
-  "agents": {
-    "title": "代理商",
-    "subtitle": "浏览和管理您的 AI 自动化代理",
-    "searchPlaceholder": "按名称或类型搜索代理...",
-    "filterByType": "按类型过滤",
-    "filterByStatus": "按状态过滤",
-    "allTypes": "所有类型",
-    "allStatuses": "所有状态",
-    "types": {
-      "productivity": "生产率",
-      "data": "数据",
-      "content": "内容",
-      "admin": "行政",
-      "technical": "技术的"
-    },
-    "statuses": {
-      "idle": "闲置的",
-      "running": "跑步",
-      "error": "错误",
-      "paused": "已暂停"
-    },
-    "statusDescriptions": {
-      "idle": "状态：准备就绪，等待",
-      "running": "状态：正在执行",
-      "error": "状态：遇到错误",
-      "paused": "状态：已被用户暂停"
-    },
-    "card": {
-      "lastRun": "最后一次运行",
-      "successRate": "成功率",
-      "runNow": "立即运行",
-      "pause": "暂停",
-      "resume": "恢复",
-      "configure": "配置",
-      "never": "绝不"
-    },
-    "empty": "没有代理符合您当前的过滤条件。 尝试调整搜索或过滤条件。",
-    "error": "无法加载代理。 请检查您的连接并重试。",
-    "mock": {
-      "1": {
-        "name": "Salvador de Anexos de E-mail",
-        "desc": "Monitora a caixa de entrada em busca de anexos, salva-os no Google Drive e notifica via Slack."
-      },
-      "2": {
-        "name": "Gerador de Relat�rios Semanais",
-        "desc": "Compila dados de m�ltiplas fontes e gera um relat�rio PDF formatado toda segunda-feira."
-      },
-      "3": {
-        "name": "Monitor de Redes Sociais",
-        "desc": "Rastreia men��es � marca no Twitter, LinkedIn e Reddit. Responde automaticamente a consultas de suporte."
-      },
-      "4": {
-        "name": "Agente de Backup de Banco de Dados",
-        "desc": "Realiza backups noturnos do banco de dados e verifica a integridade. Alerta em caso de falha."
-      },
-      "5": {
-        "name": "Verificador de Sa�de de APIs",
-        "desc": "Faz ping em todas as APIs internas a cada minuto. Escala para o PagerDuty em caso de inatividade."
-      },
-      "6": {
-        "name": "Processador de Faturas",
-        "desc": "Extrai dados de faturas em PDF usando OCR e envia para o software de contabilidade."
-      },
-      "7": {
-        "name": "Agendador de Reuni�es",
-        "desc": "Coordena calend�rios entre equipes para encontrar hor�rios ideais e envia convites."
-      },
-      "8": {
-        "name": "Tradutor de Conte�do",
-        "desc": "Traduz posts de blog e documenta��o para 9 idiomas usando IA."
-      }
-    },
-    "agentsFound": "{count, plural, =1 {1 agente encontrado} other {{count} agentes encontrados}}",
-    "loginPrompt": "登录或注册以保存您的代理和历史记录！",
-    "resetFilters": "重置所有筛选条件"
-  },
-  "automations": {
-    "title": "自动化",
-    "subtitle": "创建和管理自然语言自动化工作流程",
-    "nlpBuilder": {
-      "title": "自然语言工作流程构建器",
-      "description": "用简单的英语描述您想要自动化的内容，Pytomatiza+ 将为您构建工作流程。",
-      "instructionLabel": "您想要自动化什么？",
-      "instructionPlaceholder": "例如，当我收到客户发来的带有附件的电子邮件时，将附件保存到 Google 云端硬盘并在 Slack 上通知我。",
-      "instructionHelper": "尽可能具体。 包括触发器、条件和所需的操作。",
-      "agentTypeLabel": "推荐代理类型",
-      "agentTypePlaceholder": "自动检测（推荐）",
-      "requireApprovalLabel": "执行前需要批准",
-      "requireApprovalHelper": "启用后，工作流程将在运行前暂停以供您查看。",
-      "build": "构建工作流程",
-      "building": "构建工作流程...",
-      "charCount": "{current}/{max} 个字符",
-      "suggestions": "尝试以下示例：",
-      "example1": "每周五下午 5 点向团队 Slack 频道发送所有已关闭工单的每周报告",
-      "example2": "监控我们的 Twitter 提及并通过帮助中心的链接自动回复支持问题",
-      "example3": "当新行添加到“潜在客户”Google 表格时，通过 Gmail 发送个性化欢迎电子邮件"
-    },
-    "workflowList": {
-      "title": "您的工作流程",
-      "empty": "还没有工作流程。 在上面创建您的第一个。",
-      "lastTriggered": "最后触发",
-      "executions": "处决",
-      "toggle": "切换工作流程",
-      "delete": "删除工作流程",
-      "deleteConfirm": "您确定要删除此工作流程吗？ 此操作无法撤消。",
-      "deleted": "工作流程删除成功",
-      "statusToggled": "工作流程{status}",
-      "label": "工作流程",
-      "neverTriggered": "从未触发过",
-      "status": "状态：{status}",
-      "created": "工作流程已创建！ 代理类型：{agentType}。 批准：{approval}。",
-      "required": "必需的",
-      "notRequired": "不需要"
-    },
-    "errors": {
-      "instructionTooShort": "说明必须至少 10 个字符",
-      "instructionTooLong": "说明不得超过 500 个字符",
-      "buildFailed": "无法构建工作流程。 请再试一次。"
-    },
-    "loginPrompt": "登录您的帐户即可访问实时数据！",
-    "agentTypes": {
-      "productivity": "生产率",
-      "data": "Data",
-      "content": "内容",
-      "admin": "Admin",
-      "technical": "技术的"
-    }
-  },
-  "theme": {
-    "light": "光",
-    "dark": "黑暗的",
-    "system": "系统"
-  },
-  "errors": {
-    "notFound": {
-      "title": "找不到页面",
-      "description": "您要查找的页面不存在或已被移动。",
-      "goHome": "转到仪表板"
-    },
-    "serverError": {
-      "title": "服务器错误",
-      "description": "发生意外错误。 我们的团队已收到通知。",
-      "retry": "再试一次"
-    },
-    "unauthorized": {
-      "title": "未经授权",
-      "description": "您需要登录才能访问此页面。",
-      "signIn": "登入"
-    },
-    "notFoundTitle": "找不到页面",
-    "notFoundDescription": "您要查找的页面不存在或已被移动。",
-    "notFoundAction": "转到仪表板",
-    "somethingWentWrong": "出了点问题",
-    "unexpectedError": "发生意外错误。 我们的团队已收到通知。",
-    "dashboardErrorDescription": "加载此页面时发生意外错误。",
-    "tryAgain": "再试一次",
-    "goHome": "回家吧",
-    "errorId": "错误ID：",
-    "loadingDashboard": "正在加载仪表板",
-    "loadingDashboardContent": "正在加载仪表板内容..."
-  },
-  "nav": {
-    "dashboard": "仪表板",
-    "home": "首页",
-    "automations": "自动化",
-    "agents": "代理商",
-    "logs": "日志和批准",
-    "modules": "模块",
-    "modulesPanel": "可用模块",
-    "openMenu": "打开导航菜单",
-    "closeMenu": "关闭导航菜单",
-    "closeModules": "关闭模块面板",
-    "primary": "主要导航",
-    "documents": "文件",
-    "documentsDesc": "管理和组织您的文档。",
-    "data": "数据和电子表格",
-    "dataDesc": "使用数据源和电子表格。",
-    "communication": "沟通",
-    "communicationDesc": "电子邮件、消息和通知。",
-    "media": "媒体与图像",
-    "mediaDesc": "图像和媒体资产管理。",
-    "files": "文件",
-    "filesDesc": "一般文件存储和管理。",
-    "architecture": "建筑学",
-    "architectureDesc": "系统图和架构文档。",
-    "settings": "设置",
-    "signOut": "登出",
-    "signIn": "登入",
-    "appearance": "外观",
-    "user": "User"
-  },
-  "modules": {
-    "documents": {
-      "title": "文件",
-      "subtitle": "使用 AI 代理自动执行智能文档处理",
-      "upload": {
-        "title": "附上文件",
-        "description": "将文件拖放到此处或单击以选择",
-        "dragActive": "删除要附加的文件",
-        "browse": "浏览文件",
-        "supportedFormats": "Supported formats: PDF, DOCX, XLSX, PPTX, TXT, CSV, images",
-        "maxSize": "最大大小：25 MB",
-        "fileSelected": "已选择文件",
-        "remove": "删除文件"
-      },
-      "instruction": {
-        "title": "AI代理应该做什么？",
-        "description": "用自然语言描述您希望代理如何处理此文档。",
-        "label": "代理指令",
-        "placeholder": "例如，从第 3 页的表格中提取所有数据并将其转换为 CSV 电子表格。 然后通过电子邮件将其发送至finance@company.com。",
-        "helper": "具体：包括要提取的数据、输出格式、收件人和后处理操作。",
-        "charCount": "{current}/{max} 个字符"
-      },
-      "quickActions": {
-        "title": "快速行动",
-        "extractData": "提取数据",
-        "convertFormat": "转换格式",
-        "mergeDocs": "合并文档",
-        "ocrScan": "光学字符识别扫描",
-        "summarize": "总结内容",
-        "translate": "翻译",
-        "presets": {
-          "extract": "从此文档中提取所有结构化数据并导出为 CSV。",
-          "convert": "将此文档转换为 PDF 格式，同时保留原始布局。",
-          "merge": "将此文档与文件夹中的其他文件合并并生成单个统一的 PDF。",
-          "ocr": "使用 OCR 扫描此文档并以可编辑格式提取所有文本。",
-          "summarize": "用一段话概括本文档的内容并列出要点。",
-          "translate": "将此文档翻译成英文，同时保留原始格式。"
-        }
-      },
-      "recentDocuments": {
-        "title": "最近的文件",
-        "empty": "尚未处理任何文件。 在上面上传您的第一个文档。",
-        "processed": "已加工",
-        "status": "地位",
-        "actions": "行动",
-        "download": "下载结果",
-        "reprocess": "再加工",
-        "delete": "删除"
-      },
-      "processing": {
-        "button": "工艺文件",
-        "processing": "加工…",
-        "success": "文件处理成功！",
-        "error": "处理文档失败。 请再试一次。",
-        "reprocessInstruction": "应用相同的先前转换重新处理文档 {name}。"
-      },
-      "integrations": {
-        "googleDrive": {
-          "title": "Google Drive",
-          "description": "直接从您的Google Drive访问和选择文档。",
-          "connect": "连接Google Drive",
-          "connecting": "正在连接...",
-          "connected": "连接到Google Drive",
-          "browse": "浏览驱动器"
-        }
-      },
-      "dialogs": {
-        "deleteConfirm": "您确定要删除该文档吗？ 此操作无法撤消。"
-      }
-    },
-    "data": {
-      "title": "数据和电子表格",
-      "subtitle": "连接数据源、转换电子表格并自动分析",
-      "source": {
-        "title": "数据来源",
-        "description": "选择如何连接您的数据",
-        "uploadCsv": "上传 CSV/Excel",
-        "googleSheets": "Google Sheets",
-        "database": "SQL数据库",
-        "api": "休息API",
-        "url": "公共网址",
-        "selectPlaceholder": "选择源类型...",
-        "connect": "连接",
-        "connecting": "正在连接…"
-      },
-      "instruction": {
-        "title": "如何处理数据？",
-        "description": "描述所需的转换、分析或自动化",
-        "label": "加工指令",
-        "placeholder": "例如，合并“名字”和“姓氏”列，过滤销售额超过 10,000 美元的记录，按区域分组并生成条形图。",
-        "helper": "包括过滤器、聚合、表连接和所需的输出格式。",
-        "charCount": "{current}/{max} 个字符"
-      },
-      "preview": {
-        "title": "预览",
-        "noData": "连接数据源进行预览",
-        "rows": "{count} 行",
-        "columns": "{count} 列",
-        "id": "ID",
-        "name": "Name",
-        "region": "地区",
-        "sales": "Sales",
-        "status": "地位",
-        "showingRecords": "显示第 {shown} 条记录，共 {total} 条记录"
-      },
-      "recentDatasets": {
-        "title": "最近的数据集",
-        "empty": "尚未处理数据集",
-        "source": "来源",
-        "lastUsed": "上次使用",
-        "info": "{rows} 行 · {cols} 列"
-      },
-      "actions": {
-        "transform": "转换数据",
-        "analyze": "分析数据",
-        "export": "导出结果",
-        "schedule": "日程自动化",
-        "sidebarTitle": "行动",
-        "dashboard": "仪表板",
-        "processing": "加工…"
-      },
-      "integrations": {
-        "googleDrive": {
-          "title": "Google Drive",
-          "description": "直接从您的Google Drive访问电子表格和数据文件。",
-          "connect": "连接Google Drive",
-          "connecting": "正在连接...",
-          "connected": "连接到Google Drive",
-          "browse": "浏览驱动器"
-        }
-      },
-      "errors": {
-        "connectFailed": "无法连接到数据源。",
-        "processFailed": "处理数据失败。"
-      },
-      "results": {
-        "connected": "连接成功！ 数据源已准备好进行处理。",
-        "transformComplete": "转型完成！ 已处理 {count} 条记录。 结果已可供下载。",
-        "analyzeInstruction": "分析关联数据并生成见解：趋势、异常值、相关性和建议。",
-        "scheduleAlert": "调度已配置！ 数据将被自动处理。",
-        "comingSoon": "功能即将推出。"
-      },
-      "presets": {
-        "merge": {
-          "label": "合并列",
-          "prompt": "将“姓名”和“姓氏”列合并为一个“全名”列。"
-        },
-        "filter": {
-          "label": "过滤记录",
-          "prompt": "过滤“销售额”列大于 10,000 美元的记录。"
-        },
-        "group": {
-          "label": "分组并总结",
-          "prompt": "按“区域”对数据进行分组，并计算“销售额”的总和和平均值。"
-        },
-        "pivot": {
-          "label": "数据透视表",
-          "prompt": "创建一个数据透视表，其中“类别”为行，“月份”为列，“收入”总和。"
-        },
-        "chart": {
-          "label": "生成图表",
-          "prompt": "生成按地区比较销售额的条形图。"
-        },
-        "export": {
-          "label": "出口结构化",
-          "prompt": "将转换后的数据导出到采用 UTF-8 编码的 CSV 文件。"
-        }
-      }
-    },
-    "communication": {
-      "title": "沟通",
-      "subtitle": "自动执行电子邮件、消息和多渠道通知",
-      "composer": {
-        "title": "撰写消息",
-        "description": "描述内容，AI 代理将起草消息",
-        "instructionLabel": "留言说明",
-        "instructionPlaceholder": "例如，使用专业而友好的语气向所有发票在 3 天内到期的客户发送提醒电子邮件，并包含付款链接。",
-        "instructionHelper": "指定：消息提示音、要包含的信息、个性化设置和号召性用语。",
-        "subjectLabel": "主题（适用于电子邮件）",
-        "subjectPlaceholder": "电子邮件主题...",
-        "charCount": "{current}/{max} 个字符",
-        "noSubject": "（无主题）"
-      },
-      "channels": {
-        "title": "发货渠道",
-        "email": "Email",
-        "slack": "Slack",
-        "whatsapp": "WhatsApp",
-        "teams": "微软团队",
-        "sms": "SMS",
-        "discord": "不和谐"
-      },
-      "recipients": {
-        "title": "收件人",
-        "description": "配置谁将接收消息",
-        "to": "To",
-        "toPlaceholder": "电子邮件@example.com",
-        "cc": "抄送（抄送）",
-        "ccPlaceholder": "电子邮件@example.com",
-        "addMore": "添加更多",
-        "list": "分发列表",
-        "condition": "按条件（例如，不活跃的客户端）"
-      },
-      "schedule": {
-        "title": "日程",
-        "sendNow": "立即发送",
-        "scheduleLater": "稍后安排",
-        "recurring": "再次发生的",
-        "dateTime": "日期和时间",
-        "frequency": "频率",
-        "daily": "Daily",
-        "weekly": "每周",
-        "monthly": "每月",
-        "dateTimePlaceholder": "完整版本中提供日期/时间选择器。"
-      },
-      "recentMessages": {
-        "title": "最近消息",
-        "empty": "尚未发送消息",
-        "channel": "渠道",
-        "sentAt": "发送于",
-        "status": "地位"
-      },
-      "actions": {
-        "send": "发送消息",
-        "sending": "正在发送...",
-        "preview": "预览",
-        "saveDraft": "保存草稿",
-        "testSend": "发送测试",
-        "testSendDescription": "发送测试以验证格式"
-      },
-      "status": {
-        "sent": "Sent",
-        "scheduled": "预定",
-        "failed": "失败的"
-      },
-      "results": {
-        "sent": "{channels}消息发送成功！",
-        "preview": "[预览]\n\n 频道：{channels}\n 主题：{subject}\n\n {instruction}\n\n （这是预览模拟）",
-        "draftSaved": "草稿保存成功！ 您可以在“消息 > 草稿”中访问它。",
-        "testSent": "测试已发送至{email}！ 检查您的收件箱。"
-      },
-      "errors": {
-        "sendFailed": "发送消息失败。",
-        "testNoRecipient": "请输入测试的收件人。"
-      }
-    },
-    "media": {
-      "title": "媒体与图像",
-      "subtitle": "批量处理、转换和优化图像和媒体",
-      "instruction": {
-        "title": "AI代理应该对媒体做什么？",
-        "description": "用自然语言描述您希望代理如何处理您的图像或视频。",
-        "label": "代理指令",
-        "placeholder": "例如，从所有图像中删除背景，将大小调整为 1200x800，保持纵横比，以 85% 质量转换为 WebP，应用亮度 +10 滤镜，并在右下角添加“© My Company”水印。",
-        "helper": "包括：要应用哪些转换、尺寸、输出格式、质量、过滤器和水印。",
-        "charCount": "{current}/{max} 个字符",
-        "button": "人工智能处理",
-        "processing": "加工…"
-      },
-      "upload": {
-        "title": "媒体上传",
-        "description": "拖动图像或视频即可开始",
-        "dragActive": "删除要上传的文件",
-        "browse": "浏览文件",
-        "supportedFormats": "Formats: JPG, PNG, GIF, SVG, WebP, MP4, MOV, WebM",
-        "maxSize": "最大大小：每个文件 100 MB",
-        "batchInfo": "已选择 {count} 文件",
-        "remove": "消除"
-      },
-      "transformations": {
-        "title": "转换",
-        "description": "选择如何处理您的媒体",
-        "resize": "调整大小",
-        "resizeDescription": "更改图像尺寸",
-        "width": "Width",
-        "height": "高度",
-        "maintainAspect": "保持纵横比",
-        "convertFormat": "转换格式",
-        "convertDescription": "转换为另一种文件格式",
-        "targetFormat": "目标格式",
-        "compress": "压缩",
-        "compressDescription": "减小文件大小",
-        "quality": "质量",
-        "watermark": "水印",
-        "watermarkDescription": "在图像上添加文本或徽标叠加",
-        "watermarkText": "水印文字",
-        "filters": "过滤器和调整",
-        "brightness": "亮度",
-        "contrast": "对比",
-        "saturation": "饱和",
-        "blur": "Blur"
-      },
-      "preview": {
-        "title": "预览",
-        "original": "原来的",
-        "processed": "已加工",
-        "noMedia": "上传媒体进行预览"
-      },
-      "recentMedia": {
-        "title": "最近的媒体",
-        "empty": "尚未处理任何媒体"
-      },
-      "actions": {
-        "process": "工艺介质",
-        "processing": "加工…",
-        "download": "下载结果",
-        "downloadAll": "下载全部 (ZIP)",
-        "batchProcess": "批量处理",
-        "filesCount": "{count} 文件"
-      },
-      "integrations": {
-        "googleDrive": {
-          "title": "Google Drive",
-          "description": "访问存储在您的Google Drive中的图像和视频。",
-          "connect": "连接Google Drive",
-          "connecting": "正在连接...",
-          "connected": "连接到Google Drive",
-          "browse": "浏览驱动器"
-        },
-        "googlePhotos": {
-          "title": "谷歌照片",
-          "description": "直接从 Google 相册访问您的照片和相册。",
-          "connect": "连接 Google 相册",
-          "connecting": "正在连接...",
-          "connected": "连接到 Google 相册",
-          "browse": "浏览照片"
-        }
-      },
-      "errors": {
-        "processFailed": "无法处理媒体。",
-        "aiFailed": "无法解释指令。"
-      },
-      "results": {
-        "processComplete": "处理完毕！ {count} 文件转换成功。",
-        "aiInterpreted": "指令解释成功！ 转换已按所述预先配置。 查看面板中的调整，然后单击“处理媒体”以应用。",
-        "downloadSimulation": "模拟下载 {count} 已处理文件作为 ZIP。 \n\n在完整版本中，所有文件都将被压缩并下载。",
-        "downloadComplete": "下载完成！ 从列表中删除的文件。"
-      }
-    },
-    "files": {
-      "title": "Files",
-      "subtitle": "管理、组织和自动化文件操作",
-      "instruction": {
-        "title": "AI 代理应该如何处理您的文件？",
-        "description": "用自然语言描述您希望如何组织、处理或管理文件。",
-        "label": "代理指令",
-        "placeholder": "例如，按创建日期组织“下载”文件夹中的所有 PDF，使用“YYYY-MM-DD - 原始名称”模式重命名它们，将发票移至 /Finance/Invoices/{year}/{month}，并压缩 6 个月以上的文件。",
-        "helper": "包括：影响哪些文件、如何组织它们、重命名模式、目标文件夹和其他操作。",
-        "charCount": "{current}/{max} 个字符",
-        "button": "用人工智能执行",
-        "processing": "正在执行..."
-      },
-      "storage": {
-        "title": "贮存",
-        "used": "Used",
-        "total": "{total}",
-        "files": "{count} 文件",
-        "folders": "{count} 文件夹",
-        "activeRules": "活动规则",
-        "rulesConfigured": "{count} 配置",
-        "lastFolder": "最后：{name}",
-        "progressLabel": "使用{progress}%"
-      },
-      "upload": {
-        "title": "文件上传",
-        "description": "拖动文件或文件夹上传",
-        "dragActive": "拖放即可上传",
-        "browse": "浏览",
-        "createFolder": "创建文件夹"
-      },
-      "browser": {
-        "title": "文件浏览器",
-        "empty": "该文件夹是空的",
-        "name": "Name",
-        "size": "Size",
-        "modified": "修改的",
-        "type": "Type",
-        "sortBy": "排序方式",
-        "search": "搜索文件...",
-        "gridView": "网格视图",
-        "listView": "列表视图",
-        "folder": "文件夹"
-      },
-      "rules": {
-        "title": "组织规则",
-        "description": "自动化文件组织",
-        "ruleName": "规则名称",
-        "ruleNamePlaceholder": "例如，按月份对发票进行排序",
-        "condition": "健康）状况",
-        "conditionPlaceholder": "例如，文件名包含“发票”",
-        "action": "行动",
-        "actionPlaceholder": "例如，移至 /Finance/Invoices/{year}/{month}",
-        "addRule": "添加规则",
-        "active": "积极的",
-        "inactive": "不活跃",
-        "empty": "没有配置规则"
-      },
-      "actions": {
-        "label": "行动",
-        "moreOptions": "更多选择",
-        "upload": "上传",
-        "newFolder": "新建文件夹",
-        "delete": "删除",
-        "rename": "重命名",
-        "move": "Move",
-        "copy": "Copy",
-        "share": "Share",
-        "download": "下载"
-      },
-      "aiPlaceholder": "E.g.: Organize all PDFs from the Downloads folder by creation date, renomeie com o padrão 'YYYY-MM-DD - nome original', mova faturas para /Financeiro/Faturas/{ano}/{mês} e compacte arquivos com mais de 6 meses.",
-      "integrations": {
-        "googleDrive": {
-          "title": "Google Drive",
-          "description": "直接从您的Google Drive访问和管理文件，就像本地文件夹一样。",
-          "connect": "连接Google Drive",
-          "connecting": "正在连接...",
-          "connected": "连接到Google Drive",
-          "browse": "探索驾驶",
-          "disconnect": "断开"
-        }
-      },
-      "dialogs": {
-        "newFolder": "新文件夹名称：",
-        "rename": "重命名为：",
-        "deleteConfirm": "您确定要删除“{name}”吗？ 此操作无法撤消。",
-        "moveAlert": "移动“{name}” - 在完整版本中，将显示文件夹选择器。",
-        "copySuffix": "（复制）",
-        "shareLink": "分享“{name}”的链接已复制到剪贴板！ \n\nhttps://pytomatiza.app/share/{id}",
-        "selectFile": "\"{label}\" — 在资源管理器中选择一个文件以使用此操作。"
-      },
-      "results": {
-        "aiInterpreted": "指令解释成功！ 组织规则已自动创建。 在规则面板中查看它们。"
-      }
-    },
-    "architecture": {
-      "title": "建筑学",
-      "subtitle": "使用 AI 生成架构图和技术文档",
-      "diagramBuilder": {
-        "title": "描述您的架构",
-        "description": "用自然语言描述系统，人工智能代理将生成图表",
-        "instructionLabel": "架构说明",
-        "instructionPlaceholder": "例如，电子商务系统具有：负载均衡器 (Nginx)、3 个 API 实例（Kubernetes 上的 Node.js）、主 PostgreSQL + 只读副本、用于缓存的 Redis、用于订单的 RabbitMQ 队列、Python 工作线程和用于产品图像的 S3 存储。",
-        "instructionHelper": "包括：组件、连接、协议、技术和数据流。",
-        "charCount": "{current}/{max} 个字符"
-      },
-      "templates": {
-        "title": "架构模板",
-        "description": "选择一个模板作为起点",
-        "aws": "AWS 云",
-        "gcp": "谷歌云",
-        "azure": "微软Azure",
-        "microservices": "微服务",
-        "monolith": "模块化整体结构",
-        "serverless": "无服务器",
-        "eventDriven": "事件驱动",
-        "ciCd": "持续集成/持续交付管道",
-        "network": "网络拓扑",
-        "dataPipeline": "数据管道"
-      },
-      "export": {
-        "title": "导出格式",
-        "description": "选择导出图表的方式",
-        "png": "PNG（图片）",
-        "svg": "SVG（矢量）",
-        "pdf": "PDF（文档）",
-        "terraform": "地形 (IaC)"
-      },
-      "recentDiagrams": {
-        "title": "最近的图表",
-        "empty": "尚未生成图表",
-        "createdAt": "创建于",
-        "components": "{count} 组件",
-        "download": "下载",
-        "edit": "Edit",
-        "delete": "删除"
-      },
-      "actions": {
-        "generate": "生成图表",
-        "generating": "生成图...",
-        "generateDescription": "生成文档",
-        "save": "保存项目",
-        "share": "Share",
-        "shareDescription": "通过链接与您的团队分享"
-      },
-      "errors": {
-        "generateFailed": "无法生成图表。 请再试一次。"
-      },
-      "dialogs": {
-        "deleteConfirm": "您确定要删除该图表吗？",
-        "shareLink": "分享链接已复制到剪贴板！ \n\n与您的团队分享此架构项目。",
-        "shareEmptyWarning": "请先使用AI代理创建您的图表，然后再分享！"
-      }
-    }
-  },
-  "footer": {
-    "copyright": "© {year} Pytomatiza+。 版权所有。",
-    "privacy": "隐私政策",
-    "terms": "服务条款",
-    "status": "系统状态"
-  },
-  "logs": {
-    "title": "Logs & Aprovações",
-    "subtitle": "Monitore execuções de automação e gerencie solicitações de aprovação pendentes.",
-    "stats": {
-      "totalExecutions": "Total de Execuções",
-      "successRate": "Taxa de Success",
-      "pendingApprovals": "Aprovações Pendings",
-      "errors24h": "错误（24 小时）"
-    },
-    "tableHeader": "Execuções Recentes",
-    "tableAriaLabel": "Registros de execução",
-    "status": {
-      "success": "成功",
-      "error": "Error",
-      "pending": "Aprovação Pending",
-      "running": "Em Execução"
-    },
-    "agents": {
-      "emailSaver": "Salvador de Anexos de E-mail",
-      "reportGen": "Gerador de Relatórios Semanais",
-      "socialMonitor": "Monitor de Redes Sociais",
-      "dbBackup": "Agente de Backup de Banco de Dados",
-      "apiChecker": "Verificador de Saúde de APIs",
-      "invoiceProc": "Processador de Faturas",
-      "meetingSched": "Agendador de Reuniões",
-      "contentTrans": "Tradutor de Conteúdo"
-    },
-    "actions": {
-      "log1": "Processou 3 anexos de 2 e-mails",
-      "log2": "Gerou relatório semanal de vendas em PDF",
-      "log3": "Respondeu automaticamente a 5 menções de suporte",
-      "log4": "Backup noturno — verificação de integridade falhou",
-      "log5": "Verificou 12 endpoints — todos saudáveis",
-      "log6": "Aguardando aprovação de 3 faturas",
-      "log7": "Agendou 2 sincronizações de equipe para a próxima semana",
-      "log8": "Traduzindo post do blog para 9 idiomas"
-    },
-    "duration": {
-      "ongoing": "em andamento"
-    },
-    "tableEmpty": "未找到执行日志。",
-    "loginPrompt": "登录您的帐户即可访问实时数据！"
-  },
-  "landing": {
-    "nav": {
-      "features": "Features",
-      "howItWorks": "How It Works",
-      "signIn": "Sign In",
-      "getStarted": "Get Started",
-      "dashboard": "Dashboard"
-    },
-    "hero": {
-      "title": "Automate repetitive tasks with Python in minutes",
-      "subtitle": "Create powerful automations, bots, and workflows without leaving your browser. Pytomatiza+ turns complex Python scripting into visual, manageable processes.",
-      "cta": "Start Automating",
-      "demo": "Watch Demo"
-    },
-    "socialProof": {
-      "title": "Trusted by innovators",
-      "executions": "Executions performed",
-      "companies": "Companies trusting us",
-      "uptime": "Uptime",
-      "integrations": "Integrations"
-    },
-    "howItWorks": {
-      "title": "How It Works",
-      "subtitle": "Three simple steps to automate anything",
-      "step1": {
-        "title": "Create Your Automation",
-        "description": "Describe what you need in natural language or use our visual builder. Our AI engine interprets your requirements and generates the perfect automation script."
-      },
-      "step2": {
-        "title": "Configure Parameters",
-        "description": "Fine-tune inputs, connect APIs, set schedules, and define conditions. Every parameter is customizable to match your exact workflow needs."
-      },
-      "step3": {
-        "title": "Execute & Monitor",
-        "description": "Run your automation instantly or schedule it. Monitor execution in real-time, review logs, and get instant notifications on completion."
-      }
-    },
-    "features": {
-      "title": "Everything You Need to Automate",
-      "subtitle": "A complete platform for building, running, and monitoring automations",
-      "feature1": {
-        "title": "Python Automations",
-        "description": "Write or generate Python scripts for any task. File processing, data transformation, API calls — all automated."
-      },
-      "feature2": {
-        "title": "Integrations",
-        "description": "Connect with Google Drive, Gmail, Google Sheets, and hundreds of APIs. Your tools, unified in one platform."
-      },
-      "feature3": {
-        "title": "Smart Scheduling",
-        "description": "Set precise schedules, recurring intervals, or trigger-based execution. Your automations run exactly when you need them."
-      },
-      "feature4": {
-        "title": "Real-time Monitoring",
-        "description": "Watch executions live, track performance metrics, and receive alerts. Complete visibility into every automation."
-      },
-      "feature5": {
-        "title": "Complete Audit Logs",
-        "description": "Every execution is logged with full details. Review, debug, and optimize your automations with comprehensive audit trails."
-      },
-      "feature6": {
-        "title": "Built to Scale",
-        "description": "From small tasks to enterprise workflows. Pytomatiza+ handles increased load without compromising performance."
-      }
-    },
-    "demo": {
-      "title": "See It in Action",
-      "subtitle": "A visual platform designed for productivity",
-      "tabsLabel": "Choose a view",
-      "workflows": "Workflows",
-      "dashboard": "Dashboard",
-      "editor": "Editor",
-      "automations": "Automations"
-    },
-    "benefits": {
-      "title": "Automation Without the Complexity",
-      "subtitle": "See the difference Pytomatiza+ makes",
-      "withoutTitle": "Without Pytomatiza+",
-      "withTitle": "With Pytomatiza+",
-      "without": {
-        "manual": "Manual, repetitive tasks",
-        "errors": "Error-prone processes",
-        "delays": "Slow execution times",
-        "silos": "Disconnected tools",
-        "visibility": "No visibility into execution"
-      },
-      "with": {
-        "automation": "Full automation of repetitive work",
-        "accuracy": "Zero human errors",
-        "speed": "Blazing fast execution",
-        "integration": "Unified platform",
-        "insights": "Complete visibility and control"
-      }
-    },
-    "useCases": {
-      "title": "Automate Anything",
-      "subtitle": "From simple tasks to complex enterprise workflows",
-      "case1": {
-        "title": "Financial Automation",
-        "description": "Automate invoice processing, expense tracking, bank reconciliation, and financial report generation."
-      },
-      "case2": {
-        "title": "Report Automation",
-        "description": "Generate and distribute automated reports from any data source. Scheduled, formatted, and delivered on time."
-      },
-      "case3": {
-        "title": "Email Automation",
-        "description": "Automate email campaigns, notification sequences, attachment processing, and intelligent inbox management."
-      },
-      "case4": {
-        "title": "API Automation",
-        "description": "Orchestrate multi-step API workflows. Connect services, transform data, and automate complex integrations."
-      },
-      "case5": {
-        "title": "Spreadsheet Automation",
-        "description": "Process, transform, and analyze spreadsheet data automatically. Generate pivot tables, charts, and summaries."
-      },
-      "case6": {
-        "title": "Business Process Automation",
-        "description": "Automate approval workflows, data entry, document processing, and compliance reporting for your entire organization."
-      }
-    },
-    "cta": {
-      "title": "Start Automating Today",
-      "subtitle": "Join thousands of professionals who have transformed their workflow with Pytomatiza+",
-      "button": "Enter Pytomatiza+"
-    },
-    "footer": {
-      "description": "The intelligent automation platform that thinks, learns, and executes.",
-      "copyright": "© 2026 Pytomatiza+. All rights reserved.",
-      "product": {
-        "title": "Product",
-        "features": "Features",
-        "pricing": "Pricing",
-        "integrations": "Integrations",
-        "changelog": "Changelog"
-      },
-      "resources": {
-        "title": "Resources",
-        "docs": "Documentation",
-        "api": "API Reference",
-        "blog": "Blog",
-        "help": "Help Center"
-      },
-      "company": {
-        "title": "Company",
-        "about": "About",
-        "careers": "Careers",
-        "blog": "Blog",
-        "contact": "Contact"
-      },
-      "legal": {
-        "title": "Legal",
-        "privacy": "Privacy Policy",
-        "terms": "Terms of Service",
-        "cookies": "Cookie Policy",
-        "security": "Security"
-      }
-    },
-    "a11y": {
-      "mainNavigation": "Main navigation",
-      "mobileNavigation": "Mobile navigation",
-      "openMenu": "Open menu",
-      "closeMenu": "Close menu",
-      "heroIllustration": "Pytomatiza+ platform illustration showing automation workflows and analytics dashboard"
-    }
-  },
-  "brand": {
-    "tagline": "人工智能驱动的自动化可以思考、学习和执行，因此您无需这样做。",
-    "feature1Title": "自然语言工作流程",
-    "feature1Desc": "用简单的英语描述任务。 我们的 NLP 引擎为您构建自动化。",
-    "feature2Title": "多代理编排",
-    "feature2Desc": "专业的人工智能代理协作处理复杂的多步骤流程。",
-    "feature3Title": "Enterprise-Grade 安全",
-    "feature3Desc": "End-to-end 加密、基于角色的访问和完整的审计跟踪。"
-  }
+﻿{
+    "a11y":  {
+                 "skipToMain":  "è·³è‡³ä¸»è¦å†…å®¹",
+                 "themeToggle":  "åˆ‡æ¢é¢œè‰²ä¸»é¢˜",
+                 "languageSwitcher":  "é€‰æ‹©è¯­è¨€",
+                 "showPassword":  "æ˜¾ç¤ºå¯†ç ",
+                 "hidePassword":  "éšè—å¯†ç ",
+                 "closeModal":  "å…³é—­å¯¹è¯æ¡†",
+                 "mainNavigation":  "ä¸»å¯¼èˆª",
+                 "sidebarNavigation":  "ä¾§è¾¹æ å¯¼èˆª",
+                 "breadcrumb":  "é¢åŒ…å±‘",
+                 "pagination":  "åˆ†é¡µ",
+                 "currentPage":  "å½“å‰é¡µé¢ï¼Œç¬¬ {page} é¡µ",
+                 "goToPage":  "è½¬åˆ°ç¬¬{page}é¡µ",
+                 "goToHome":  "è½¬åˆ°ä¸»é¡µ"
+             },
+    "common":  {
+                   "loading":  "åŠ è½½ä¸­â€¦",
+                   "error":  "å‡ºäº†ç‚¹é—®é¢˜",
+                   "retry":  "å†è¯•ä¸€æ¬¡",
+                   "save":  "èŠ‚çœ",
+                   "cancel":  "å–æ¶ˆ",
+                   "delete":  "åˆ é™¤",
+                   "edit":  "ç¼–è¾‘",
+                   "create":  "åˆ›é€ ",
+                   "search":  "æœç´¢",
+                   "filter":  "ç­›é€‰",
+                   "noResults":  "æ²¡æœ‰æ‰¾åˆ°ç»“æžœ",
+                   "back":  "åŽé€€",
+                   "next":  "ä¸‹ä¸€ä¸ª",
+                   "previous":  "ä»¥å‰çš„",
+                   "confirm":  "ç¡®è®¤",
+                   "actions":  "è¡ŒåŠ¨",
+                   "more":  "æ›´å¤šé€‰æ‹©",
+                   "copied":  "å·²å¤åˆ¶åˆ°å‰ªè´´æ¿",
+                   "enabled":  "å¯ç”¨",
+                   "disabled":  "æ®‹ç–¾äºº",
+                   "increasedBy":  "å¢žåŠ äº†",
+                   "decreasedBy":  "å‡å°‘äº†"
+               },
+    "auth":  {
+                 "signIn":  {
+                                "title":  "æ¬¢è¿Žå›žæ¥",
+                                "subtitle":  "ç™»å½•æ‚¨çš„ Pytomatiza+ å¸æˆ·",
+                                "emailLabel":  "ç”µå­é‚®ä»¶",
+                                "emailPlaceholder":  "ä½ @example.com",
+                                "passwordLabel":  "å¯†ç ",
+                                "passwordPlaceholder":  "è¾“å…¥æ‚¨çš„å¯†ç ",
+                                "submit":  "ç™»å…¥",
+                                "forgotPassword":  "å¿˜è®°å¯†ç äº†å—ï¼Ÿ",
+                                "noAccount":  "æ²¡æœ‰å¸æˆ·ï¼Ÿ",
+                                "createOne":  "åˆ›å»ºä¸€ä¸ª"
+                            },
+                 "signUp":  {
+                                "title":  "åˆ›å»ºæ‚¨çš„å¸æˆ·",
+                                "subtitle":  "ä½¿ç”¨ Pytomatiza+ å¼€å§‹è‡ªåŠ¨åŒ–",
+                                "nameLabel":  "å§“å",
+                                "namePlaceholder":  "ç®€Â·å²å¯†æ–¯",
+                                "emailLabel":  "ç”µå­é‚®ä»¶",
+                                "emailPlaceholder":  "ä½ @example.com",
+                                "passwordLabel":  "å¯†ç ",
+                                "passwordPlaceholder":  "è‡³å°‘ 8 ä¸ªå­—ç¬¦",
+                                "confirmPasswordLabel":  "ç¡®è®¤å¯†ç ",
+                                "confirmPasswordPlaceholder":  "é‡æ–°è¾“å…¥æ‚¨çš„å¯†ç ",
+                                "submit":  "åˆ›å»ºè´¦æˆ·",
+                                "haveAccount":  "å·²ç»æœ‰å¸æˆ·ï¼Ÿ",
+                                "signIn":  "ç™»å…¥"
+                            },
+                 "google":  "ç»§ç»­ä½¿ç”¨è°·æ­Œ",
+                 "divider":  "or",
+                 "errors":  {
+                                "invalidCredentials":  "ç”µå­é‚®ä»¶æˆ–å¯†ç æ— æ•ˆ",
+                                "emailExists":  "ä½¿ç”¨æ­¤ç”µå­é‚®ä»¶çš„å¸æˆ·å·²å­˜åœ¨",
+                                "invalidEmail":  "è¯·è¾“å…¥æœ‰æ•ˆçš„ç”µå­é‚®ä»¶åœ°å€",
+                                "passwordTooShort":  "å¯†ç å¿…é¡»è‡³å°‘ä¸º 8 ä¸ªå­—ç¬¦",
+                                "passwordUppercase":  "å¯†ç å¿…é¡»åŒ…å«è‡³å°‘ä¸€ä¸ªå¤§å†™å­—æ¯",
+                                "passwordNumber":  "å¯†ç å¿…é¡»åŒ…å«è‡³å°‘ä¸€ä¸ªæ•°å­—",
+                                "passwordsDoNotMatch":  "å¯†ç ä¸åŒ¹é…",
+                                "nameTooShort":  "åç§°å¿…é¡»è‡³å°‘æœ‰ 2 ä¸ªå­—ç¬¦",
+                                "generic":  "å‘ç”Ÿæ„å¤–é”™è¯¯ã€‚ è¯·å†è¯•ä¸€æ¬¡ã€‚",
+                                "rateLimited":  "å°è¯•æ¬¡æ•°å¤ªå¤šã€‚ è¯·ç¨ç­‰ã€‚"
+                            },
+                 "authenticationForm":  "è®¤è¯è¡¨æ ¼"
+             },
+    "meta":  {
+                 "login":  {
+                               "title":  "ç™»å½• â€” Pytomatiza+",
+                               "description":  "ç™»å½•æ‚¨çš„ Pytomatiza+ å¸æˆ·æ¥ç®¡ç†æ‚¨çš„ AI æ”¯æŒçš„è‡ªåŠ¨åŒ–ä»£ç†ã€‚"
+                           },
+                 "dashboard":  {
+                                   "title":  "ä»ªè¡¨æ¿ - Pytomatiza+",
+                                   "description":  "Pytomatiza+ è‡ªåŠ¨åŒ–ä»£ç†ã€æœ€è¿‘æ´»åŠ¨å’Œç³»ç»ŸçŠ¶æ€çš„æ¦‚è¿°ã€‚"
+                               },
+                 "agents":  {
+                                "title":  "ä»£ç† - Pytomatiza+",
+                                "description":  "æµè§ˆå’Œç®¡ç†æ‚¨çš„ AI è‡ªåŠ¨åŒ–ä»£ç†ã€‚"
+                            },
+                 "automations":  {
+                                     "title":  "è‡ªåŠ¨åŒ– â€” Pytomatiza+",
+                                     "description":  "åˆ›å»ºå’Œç®¡ç†è‡ªç„¶è¯­è¨€è‡ªåŠ¨åŒ–å·¥ä½œæµç¨‹ã€‚"
+                                 },
+                 "settings":  {
+                                  "title":  "è®¾ç½® - Pytomatiza+",
+                                  "description":  "ç®¡ç†æ‚¨çš„å¸æˆ·ã€é›†æˆå’Œé€šçŸ¥é¦–é€‰é¡¹ã€‚"
+                              },
+                 "help":  {
+                              "title":  "å¸®åŠ©ä¸Žæ”¯æŒ â€” Pytomatiza+",
+                              "description":  "èŽ·å–å¸®åŠ©ã€æµè§ˆæ–‡æ¡£å¹¶è”ç³»æ”¯æŒäººå‘˜ã€‚"
+                          },
+                 "logs":  {
+                              "title":  "Logs \u0026 AprovaÃ§Ãµes â€” Pytomatiza+",
+                              "description":  "Visualize execuÃ§Ãµes de automaÃ§Ã£o, histÃ³rico de agentes e gerencie aprovaÃ§Ãµes pendentes."
+                          },
+                 "documents":  {
+                                   "title":  "æ–‡ä»¶ â€” Pytomatiza+",
+                                   "description":  "ä½¿ç”¨ AI è‡ªåŠ¨åŒ–æ–‡æ¡£å¤„ç†ã€‚ æå–æ•°æ®ã€è½¬æ¢æ ¼å¼ä»¥åŠç®¡ç† PDFã€DOCX ç­‰ã€‚"
+                               },
+                 "data":  {
+                              "title":  "æ•°æ®å’Œç”µå­è¡¨æ ¼ â€” Pytomatiza+",
+                              "description":  "è¿žæŽ¥æ•°æ®æºã€è½¬æ¢ç”µå­è¡¨æ ¼å¹¶ä½¿ç”¨ AI ä»£ç†è‡ªåŠ¨åˆ†æžã€‚"
+                          },
+                 "communication":  {
+                                       "title":  "æ²Ÿé€š â€” Pytomatiza+",
+                                       "description":  "é€šè¿‡æ™ºèƒ½å·¥ä½œæµç¨‹è‡ªåŠ¨åŒ–ç”µå­é‚®ä»¶ã€æ¶ˆæ¯å’Œå¤šæ¸ é“é€šçŸ¥ã€‚"
+                                   },
+                 "media":  {
+                               "title":  "åª’ä½“ä¸Žå›¾åƒ â€” Pytomatiza+",
+                               "description":  "é€šè¿‡æ™ºèƒ½è‡ªåŠ¨åŒ–æ‰¹é‡å¤„ç†ã€è½¬æ¢å’Œä¼˜åŒ–å›¾åƒå’Œåª’ä½“ã€‚"
+                           },
+                 "files":  {
+                               "title":  "æ–‡ä»¶ â€” Pytomatiza+",
+                               "description":  "ä½¿ç”¨æ™ºèƒ½è§„åˆ™ç®¡ç†ã€ç»„ç»‡å’Œè‡ªåŠ¨åŒ–æ–‡ä»¶æ“ä½œã€‚"
+                           },
+                 "architecture":  {
+                                      "title":  "å»ºç­‘ â€” Pytomatiza+",
+                                      "description":  "ä½¿ç”¨ AI ç”Ÿæˆæž¶æž„å›¾ã€æŠ€æœ¯æ–‡æ¡£å’Œç³»ç»Ÿæµç¨‹ã€‚"
+                                  }
+             },
+    "navigation":  {
+                       "dashboard":  "ä»ªè¡¨æ¿",
+                       "agents":  "ä»£ç†å•†",
+                       "automations":  "è‡ªåŠ¨åŒ–",
+                       "settings":  "è®¾ç½®",
+                       "help":  "å¸®åŠ©ä¸Žæ”¯æŒ",
+                       "signOut":  "ç™»å‡º",
+                       "collapse":  "æŠ˜å ä¾§è¾¹æ ",
+                       "expand":  "å±•å¼€ä¾§è¾¹æ ",
+                       "mainNavigation":  "ä¸»å¯¼èˆª",
+                       "sidebarNavigation":  "ä¾§è¾¹æ å¯¼èˆª"
+                   },
+    "settings":  {
+                     "title":  "è®¾ç½®",
+                     "subtitle":  "ç®¡ç†æ‚¨çš„å¸æˆ·ã€é¦–é€‰é¡¹å’Œåº”ç”¨ç¨‹åºè®¾ç½®ã€‚",
+                     "tabs":  {
+                                  "appearance":  "å¤–è²Œ",
+                                  "accessibility":  "æ— éšœç¢",
+                                  "languageRegion":  "è¯­è¨€\u0026åœ°åŒº",
+                                  "account":  "å¸æˆ·",
+                                  "security":  "å®‰å…¨",
+                                  "notifications":  "é€šçŸ¥",
+                                  "advanced":  "å…ˆè¿›çš„"
+                              },
+                     "appearance":  {
+                                        "title":  "å¤–è²Œ",
+                                        "subtitle":  "å®šåˆ¶æ‚¨çš„è§†è§‰ä½“éªŒã€‚",
+                                        "accentColor":  "å¼ºè°ƒè‰²",
+                                        "accentColorDescription":  "é€‰æ‹©â€œ+â€å’Œå¼ºè°ƒå…ƒç´ çš„çªå‡ºæ˜¾ç¤ºé¢œè‰²ã€‚",
+                                        "fontSize":  "å­—ä½“å¤§å°",
+                                        "fontSizeSmall":  "å°çš„",
+                                        "fontSizeMedium":  "ä¸­ç­‰çš„",
+                                        "fontSizeLarge":  "å¤§çš„",
+                                        "boldMode":  "ç²—ä½“æ¨¡å¼",
+                                        "boldModeDescription":  "å¢žåŠ æ•´ä¸ªåº”ç”¨ç¨‹åºçš„å­—ä½“ç²—ç»†ã€‚",
+                                        "elementDensity":  "å…ƒä»¶å°ºå¯¸",
+                                        "densitySmall":  "å°çš„",
+                                        "densityMedium":  "ä¸­ç­‰çš„",
+                                        "densityLarge":  "å¤§çš„",
+                                        "systemColor":  "ç³»ç»Ÿé¢œè‰²",
+                                        "themeLight":  "å…‰",
+                                        "themeDark":  "é»‘æš—çš„",
+                                        "themeSystem":  "ç³»ç»Ÿ",
+                                        "backgroundColor":  "èƒŒæ™¯é¢œè‰²",
+                                        "bgPresetDefault":  "é»˜è®¤",
+                                        "bgPresetWarm":  "æ¸©æš–çš„",
+                                        "bgPresetCool":  "å‡‰çˆ½çš„",
+                                        "bgPresetForest":  "æ£®æž—",
+                                        "bgPresetLavender":  "è–°è¡£è‰",
+                                        "bgPresetSepia":  "æ£•è¤è‰²",
+                                        "bgPresetMidnight":  "åˆå¤œ",
+                                        "bgPresetSlate":  "çŸ³æ¿",
+                                        "colorYellow":  "é»„è‰²çš„",
+                                        "colorBlue":  "Blue",
+                                        "colorGreen":  "Green",
+                                        "colorPurple":  "ç´«è‰²çš„",
+                                        "colorOrange":  "æ©™å­",
+                                        "colorRed":  "Red",
+                                        "colorPink":  "Pink",
+                                        "accentColorAria":  "{color} å¼ºè°ƒè‰²"
+                                    },
+                     "accessibility":  {
+                                           "title":  "æ— éšœç¢",
+                                           "subtitle":  "é…ç½®é€‰é¡¹ä»¥ä½¿åº”ç”¨ç¨‹åºæ›´æ˜“äºŽè®¿é—®ã€‚",
+                                           "highContrast":  "é«˜å¯¹æ¯”åº¦",
+                                           "highContrastDescription":  "å¢žåŠ é¢œè‰²å¯¹æ¯”åº¦ä»¥èŽ·å¾—æ›´å¥½çš„å¯è¯»æ€§ã€‚",
+                                           "reduceMotion":  "å‡å°‘åŠ¨ç”»",
+                                           "reduceMotionDescription":  "æœ€å¤§é™åº¦åœ°å‡å°‘è¿åŠ¨æ•ˆæžœå’Œè¿‡æ¸¡ã€‚",
+                                           "focusOutline":  "æ”¾å¤§çš„ç„¦ç‚¹è½®å»“",
+                                           "focusOutlineDescription":  "å¢žåŠ é”®ç›˜ç„¦ç‚¹è½®å»“çš„åŽšåº¦ã€‚",
+                                           "skipLinks":  "å§‹ç»ˆæ˜¾ç¤ºè·³è¿‡é“¾æŽ¥",
+                                           "skipLinksDescription":  "ä½¿è·³è¿‡å¯¼èˆªé“¾æŽ¥æ°¸ä¹…å¯è§ã€‚",
+                                           "underlineLinks":  "ä¸ºæ‰€æœ‰é“¾æŽ¥æ·»åŠ ä¸‹åˆ’çº¿",
+                                           "underlineLinksDescription":  "ä¸ºæ‰€æœ‰é“¾æŽ¥æ·»åŠ ä¸‹åˆ’çº¿ä»¥ä¾¿æ›´å¥½åœ°è¯†åˆ«ã€‚",
+                                           "screenReader":  "å±å¹•é˜…è¯»å™¨ä¼˜åŒ–",
+                                           "screenReaderDescription":  "æ·»åŠ é¢å¤–çš„æè¿°å’Œä¸°å¯Œçš„ ARIA æ ‡ç­¾ã€‚"
+                                       },
+                     "languageRegion":  {
+                                            "title":  "è¯­è¨€\u0026åœ°åŒº",
+                                            "subtitle":  "é€‰æ‹©æ‚¨çš„é¦–é€‰è¯­è¨€å’Œæ—¶åŒºã€‚",
+                                            "language":  "è¯­è¨€",
+                                            "languageDescription":  "é€‰æ‹©åº”ç”¨ç¨‹åºçš„æ˜¾ç¤ºè¯­è¨€ã€‚",
+                                            "timezone":  "æ—¶åŒº",
+                                            "timezoneDescription":  "é€‰æ‹©æ‚¨å½“åœ°çš„æ—¶åŒºã€‚"
+                                        },
+                     "account":  {
+                                     "title":  "å¸æˆ·",
+                                     "subtitle":  "ç®¡ç†æ‚¨çš„ä¸ªäººä¿¡æ¯ã€‚",
+                                     "fullName":  "å§“å",
+                                     "fullNamePlaceholder":  "ä½ çš„å…¨å",
+                                     "birthDate":  "å‡ºç”Ÿæ—¥æœŸ",
+                                     "profilePicture":  "ä¸ªäººèµ„æ–™å›¾ç‰‡",
+                                     "uploadPhoto":  "ä¸Šä¼ ç…§ç‰‡",
+                                     "removePhoto":  "åˆ é™¤ç…§ç‰‡",
+                                     "saveChanges":  "ä¿å­˜æ›´æ”¹",
+                                     "lockedTitle":  "ç¦åŒº",
+                                     "lockedDescription":  "ç™»å½•ä»¥ç®¡ç†æ‚¨çš„å¸æˆ·ä¿¡æ¯ã€‚",
+                                     "login":  "ç™»å…¥",
+                                     "register":  "åˆ›å»ºè´¦æˆ·"
+                                 },
+                     "security":  {
+                                      "title":  "å®‰å…¨",
+                                      "subtitle":  "é…ç½®æ‚¨çš„å¸æˆ·å®‰å…¨é€‰é¡¹ã€‚",
+                                      "twoFactor":  "åŒå› ç´ èº«ä»½éªŒè¯ (2FA)",
+                                      "twoFactorDescription":  "ç™»å½•æ—¶æ·»åŠ é¢å¤–çš„ä¿æŠ¤å±‚ã€‚",
+                                      "changePassword":  "æ›´æ”¹å¯†ç ",
+                                      "changePasswordDescription":  "å®šæœŸæ›´æ–°æ‚¨çš„å¯†ç ä»¥ç¡®ä¿æ‚¨çš„å¸æˆ·å®‰å…¨ã€‚",
+                                      "activeSessions":  "æ´»è·ƒä¼šè¯",
+                                      "activeSessionsDescription":  "æŸ¥çœ‹å’Œç»“æŸå…¶ä»–è®¾å¤‡ä¸Šçš„ä¼šè¯ã€‚",
+                                      "configure":  "é…ç½®",
+                                      "change":  "æ”¹å˜",
+                                      "current":  "å½“å‰çš„",
+                                      "revoke":  "æ’¤é”€",
+                                      "revokeAll":  "ç»“æŸæ‰€æœ‰å…¶ä»–ä¼šè¯"
+                                  },
+                     "notifications":  {
+                                           "title":  "é€šçŸ¥",
+                                           "subtitle":  "é€‰æ‹©æ‚¨å¸Œæœ›å¦‚ä½•æ”¶åˆ°é€šçŸ¥ã€‚",
+                                           "email":  "ç”µå­é‚®ä»¶é€šçŸ¥",
+                                           "emailDescription":  "åœ¨æ‚¨çš„ç”µå­é‚®ä»¶ä¸­æŽ¥æ”¶æ‘˜è¦å’Œé‡è¦è­¦æŠ¥ã€‚",
+                                           "inApp":  "åº”ç”¨å†…é€šçŸ¥",
+                                           "inAppDescription":  "åœ¨åº”ç”¨ç¨‹åºå†…æ˜¾ç¤ºæ¨ªå¹…å’Œå¾½ç« ã€‚",
+                                           "push":  "æŽ¨é€é€šçŸ¥",
+                                           "pushDescription":  "å³ä½¿åº”ç”¨ç¨‹åºå…³é—­ä¹Ÿèƒ½æ”¶åˆ°è­¦æŠ¥ã€‚",
+                                           "sound":  "è­¦æŠ¥å£°",
+                                           "soundDescription":  "å½“é€šçŸ¥åˆ°è¾¾æ—¶æ’­æ”¾å£°éŸ³ã€‚"
+                                       },
+                     "advanced":  {
+                                      "title":  "å…ˆè¿›çš„",
+                                      "subtitle":  "é«˜çº§åº”ç”¨ç¨‹åºç»´æŠ¤é€‰é¡¹ã€‚",
+                                      "clearCache":  "æ¸…é™¤åº”ç”¨ç¨‹åºç¼“å­˜",
+                                      "clearCacheDescription":  "åˆ é™¤æœ¬åœ°å­˜å‚¨çš„ä¸´æ—¶æ•°æ®ã€‚",
+                                      "clearCacheButton":  "ç«‹å³æ¸…é™¤ç¼“å­˜",
+                                      "clearCacheConfirm":  "ä½ ç¡®å®šå—ï¼Ÿ è¿™å°†åˆ é™¤æ‰€æœ‰ä¸´æ—¶æœ¬åœ°æ•°æ®ã€‚",
+                                      "resetSettings":  "é‡ç½®è®¾ç½®",
+                                      "resetSettingsDescription":  "å°†æ‰€æœ‰è®¾ç½®æ¢å¤ä¸ºé»˜è®¤å€¼ã€‚",
+                                      "resetSettingsButton":  "é‡ç½®ä¸ºé»˜è®¤å€¼",
+                                      "resetSettingsConfirm":  "ä½ ç¡®å®šå—ï¼Ÿ æ‚¨æ‰€æœ‰çš„åå¥½éƒ½å°†ä¸¢å¤±ã€‚",
+                                      "appVersion":  "åº”ç”¨ç¨‹åºç‰ˆæœ¬"
+                                  }
+                 },
+    "help":  {
+                 "title":  "å¸®åŠ©ä¸Žæ”¯æŒ",
+                 "subtitle":  "èŽ·å–å¸®åŠ©ã€æµè§ˆæ–‡æ¡£å¹¶è”ç³»æˆ‘ä»¬çš„å›¢é˜Ÿã€‚",
+                 "documentation":  "æ–‡æ¡£",
+                 "documentationDescription":  "æµè§ˆæŒ‡å—ã€æ•™ç¨‹å’Œ API å‚è€ƒã€‚",
+                 "contactSupport":  "è”ç³»æ”¯æŒäººå‘˜",
+                 "contactSupportDescription":  "ä»Žæˆ‘ä»¬çš„å›¢é˜ŸèŽ·å¾—å¸®åŠ©ã€‚ é€šå¸¸ä¼šåœ¨ 24 å°æ—¶å†…å›žå¤ã€‚",
+                 "faqTitle":  "å¸¸è§é—®é¢˜è§£ç­”",
+                 "faq0":  {
+                              "question":  "å¦‚ä½•åˆ›å»ºè‡ªåŠ¨åŒ–ï¼Ÿ",
+                              "answer":  "è½¬åˆ°è‡ªåŠ¨åŒ–é¡µé¢å¹¶ä½¿ç”¨ Natural Language Workflow Builderã€‚ ç”¨ç®€å•çš„è‹±è¯­æè¿°æ‚¨æƒ³è¦è‡ªåŠ¨åŒ–çš„å†…å®¹ï¼ŒPytomatiza+å°†ä¸ºæ‚¨æž„å»ºå·¥ä½œæµç¨‹ã€‚"
+                          },
+                 "faq1":  {
+                              "question":  "å¦‚ä½•è¿žæŽ¥æ–°çš„é›†æˆï¼Ÿ",
+                              "answer":  "å¯¼èˆªåˆ°è®¾ç½®â†’é›†æˆä»¥è¿žæŽ¥ç¬¬ä¸‰æ–¹æœåŠ¡ï¼Œä¾‹å¦‚Google Workspaceã€Slackæˆ–GitHubã€‚"
+                          },
+                 "faq2":  {
+                              "question":  "å¦‚æžœä»£ç†å¤±è´¥ä¼šå‘ç”Ÿä»€ä¹ˆï¼Ÿ",
+                              "answer":  "å¤±è´¥çš„ä»£ç†ä¼šè¢«æ ‡è®°ä¸ºé”™è¯¯çŠ¶æ€ã€‚ æ‚¨å¯ä»¥åœ¨ä»£ç†å¡ä¸­æŸ¥çœ‹é”™è¯¯è¯¦ç»†ä¿¡æ¯å¹¶é‡è¯•æ‰§è¡Œã€‚"
+                          },
+                 "faq3":  {
+                              "question":  "å¦‚ä½•æ›´æ”¹æˆ‘çš„è¯­è¨€ï¼Ÿ",
+                              "answer":  "å•å‡»æ ‡é¢˜ä¸­çš„åœ°çƒå›¾æ ‡å¯åœ¨ 9 ç§æ”¯æŒçš„è¯­è¨€ä¹‹é—´åˆ‡æ¢ã€‚"
+                          }
+             },
+    "dashboard":  {
+                      "title":  "ä»ªè¡¨æ¿",
+                      "welcome":  "å¥½ï¼Œ{timeOfDay}ï¼Œ{name}",
+                      "morning":  "æ—©æ™¨",
+                      "afternoon":  "ä¸‹åˆ",
+                      "evening":  "æ™šä¸Š",
+                      "subtitle":  "ä»¥ä¸‹æ˜¯æ‚¨ä»Šå¤©çš„è‡ªåŠ¨åŒ–æ‰€å‘ç”Ÿçš„æƒ…å†µã€‚",
+                      "stats":  {
+                                    "activeAgents":  "æ´»æ€§å‰‚",
+                                    "automationsToday":  "å½“ä»Šçš„è‡ªåŠ¨åŒ–",
+                                    "successRate":  "æˆåŠŸçŽ‡",
+                                    "pendingApprovals":  "å¾…æ‰¹å‡†",
+                                    "increasedBy":  "å¢žåŠ {value}",
+                                    "decreasedBy":  "å‡å°‘{value}"
+                                },
+                      "recentActivity":  "æœ€è¿‘çš„æ´»åŠ¨",
+                      "quickActions":  "å¿«é€Ÿè¡ŒåŠ¨",
+                      "quickActionsDescription":  "å¸®åŠ©æ‚¨å…¥é—¨çš„å¸¸è§ä»»åŠ¡",
+                      "createAutomation":  "æ–°è‡ªåŠ¨åŒ–",
+                      "viewAgents":  "æŸ¥çœ‹æ‰€æœ‰ä»£ç†",
+                      "viewReports":  "æŸ¥çœ‹æŠ¥å‘Š",
+                      "error":  {
+                                    "title":  "æ•°æ®åŠ è½½é”™è¯¯",
+                                    "loadingFailed":  "æ— æ³•åŠ è½½ä»ªè¡¨æ¿æ•°æ®ã€‚è¯·æ£€æŸ¥æ‚¨çš„è¿žæŽ¥åŽé‡è¯•ã€‚",
+                                    "retry":  "é‡è¯•",
+                                    "offlineBanner":  "åŽç«¯ä¸å¯ç”¨â€”â€”æ˜¾ç¤ºçš„æ•°æ®å¯èƒ½å·²è¿‡æ—¶",
+                                    "unknown":  "æœªçŸ¥é”™è¯¯"
+                                },
+                      "empty":  {
+                                    "title":  "æœªæ‰¾åˆ°ä»£ç†",
+                                    "description":  "åˆ›å»ºæ‚¨çš„ç¬¬ä¸€ä¸ªè‡ªåŠ¨åŒ–ä»£ç†ä»¥å¼€å§‹åœ¨æ­¤å¤„æŸ¥çœ‹æ´»åŠ¨ã€‚",
+                                    "offlineTitle":  "åŽç«¯ç¦»çº¿",
+                                    "offlineDescription":  "è¿žæŽ¥åˆ°åŽç«¯ä»¥æŸ¥çœ‹æ‚¨çš„ä»£ç†ã€‚ æœåŠ¡å¯ç”¨åŽï¼Œå•å‡»â€œé‡è¯•â€ã€‚"
+                                },
+                      "recentActivityEmpty":  "æ¸…ç©ºåŽ†å²è®°å½•...é€šè¿‡è½¬åˆ°æ¨¡å—ï¼Œä½¿ç”¨ Pytomatiza+ åˆ›å»ºæ‚¨çš„ç¬¬ä¸€ä¸ªè‡ªåŠ¨åŒ–ï¼",
+                      "loginPrompt":  "ç™»å½•æ‚¨çš„å¸æˆ·ä»¥è®¿é—®å®žæ—¶æ•°æ®ï¼",
+                      "loginAction":  "ç™»å…¥",
+                      "user":  "User"
+                  },
+    "agents":  {
+                   "title":  "ä»£ç†å•†",
+                   "subtitle":  "æµè§ˆå’Œç®¡ç†æ‚¨çš„ AI è‡ªåŠ¨åŒ–ä»£ç†",
+                   "searchPlaceholder":  "æŒ‰åç§°æˆ–ç±»åž‹æœç´¢ä»£ç†...",
+                   "filterByType":  "æŒ‰ç±»åž‹è¿‡æ»¤",
+                   "filterByStatus":  "æŒ‰çŠ¶æ€è¿‡æ»¤",
+                   "allTypes":  "æ‰€æœ‰ç±»åž‹",
+                   "allStatuses":  "æ‰€æœ‰çŠ¶æ€",
+                   "types":  {
+                                 "productivity":  "ç”Ÿäº§çŽ‡",
+                                 "data":  "æ•°æ®",
+                                 "content":  "å†…å®¹",
+                                 "admin":  "è¡Œæ”¿",
+                                 "technical":  "æŠ€æœ¯çš„"
+                             },
+                   "statuses":  {
+                                    "idle":  "é—²ç½®çš„",
+                                    "running":  "è·‘æ­¥",
+                                    "error":  "é”™è¯¯",
+                                    "paused":  "å·²æš‚åœ"
+                                },
+                   "statusDescriptions":  {
+                                              "idle":  "çŠ¶æ€ï¼šå‡†å¤‡å°±ç»ªï¼Œç­‰å¾…",
+                                              "running":  "çŠ¶æ€ï¼šæ­£åœ¨æ‰§è¡Œ",
+                                              "error":  "çŠ¶æ€ï¼šé‡åˆ°é”™è¯¯",
+                                              "paused":  "çŠ¶æ€ï¼šå·²è¢«ç”¨æˆ·æš‚åœ"
+                                          },
+                   "card":  {
+                                "lastRun":  "æœ€åŽä¸€æ¬¡è¿è¡Œ",
+                                "successRate":  "æˆåŠŸçŽ‡",
+                                "runNow":  "ç«‹å³è¿è¡Œ",
+                                "pause":  "æš‚åœ",
+                                "resume":  "æ¢å¤",
+                                "configure":  "é…ç½®",
+                                "never":  "ç»ä¸"
+                            },
+                   "empty":  "æ²¡æœ‰ä»£ç†ç¬¦åˆæ‚¨å½“å‰çš„è¿‡æ»¤æ¡ä»¶ã€‚ å°è¯•è°ƒæ•´æœç´¢æˆ–è¿‡æ»¤æ¡ä»¶ã€‚",
+                   "error":  "æ— æ³•åŠ è½½ä»£ç†ã€‚ è¯·æ£€æŸ¥æ‚¨çš„è¿žæŽ¥å¹¶é‡è¯•ã€‚",
+                   "mock":  {
+                                "1":  {
+                                          "name":  "Salvador de Anexos de E-mail",
+                                          "desc":  "Monitora a caixa de entrada em busca de anexos, salva-os no Google Drive e notifica via Slack."
+                                      },
+                                "2":  {
+                                          "name":  "Gerador de Relatï¿½rios Semanais",
+                                          "desc":  "Compila dados de mï¿½ltiplas fontes e gera um relatï¿½rio PDF formatado toda segunda-feira."
+                                      },
+                                "3":  {
+                                          "name":  "Monitor de Redes Sociais",
+                                          "desc":  "Rastreia menï¿½ï¿½es ï¿½ marca no Twitter, LinkedIn e Reddit. Responde automaticamente a consultas de suporte."
+                                      },
+                                "4":  {
+                                          "name":  "Agente de Backup de Banco de Dados",
+                                          "desc":  "Realiza backups noturnos do banco de dados e verifica a integridade. Alerta em caso de falha."
+                                      },
+                                "5":  {
+                                          "name":  "Verificador de Saï¿½de de APIs",
+                                          "desc":  "Faz ping em todas as APIs internas a cada minuto. Escala para o PagerDuty em caso de inatividade."
+                                      },
+                                "6":  {
+                                          "name":  "Processador de Faturas",
+                                          "desc":  "Extrai dados de faturas em PDF usando OCR e envia para o software de contabilidade."
+                                      },
+                                "7":  {
+                                          "name":  "Agendador de Reuniï¿½es",
+                                          "desc":  "Coordena calendï¿½rios entre equipes para encontrar horï¿½rios ideais e envia convites."
+                                      },
+                                "8":  {
+                                          "name":  "Tradutor de Conteï¿½do",
+                                          "desc":  "Traduz posts de blog e documentaï¿½ï¿½o para 9 idiomas usando IA."
+                                      }
+                            },
+                   "agentsFound":  "{count, plural, =1 {1 agente encontrado} other {{count} agentes encontrados}}",
+                   "loginPrompt":  "ç™»å½•æˆ–æ³¨å†Œä»¥ä¿å­˜æ‚¨çš„ä»£ç†å’ŒåŽ†å²è®°å½•ï¼",
+                   "resetFilters":  "é‡ç½®æ‰€æœ‰ç­›é€‰æ¡ä»¶"
+               },
+    "automations":  {
+                        "title":  "è‡ªåŠ¨åŒ–",
+                        "subtitle":  "åˆ›å»ºå’Œç®¡ç†è‡ªç„¶è¯­è¨€è‡ªåŠ¨åŒ–å·¥ä½œæµç¨‹",
+                        "nlpBuilder":  {
+                                           "title":  "è‡ªç„¶è¯­è¨€å·¥ä½œæµç¨‹æž„å»ºå™¨",
+                                           "description":  "ç”¨ç®€å•çš„è‹±è¯­æè¿°æ‚¨æƒ³è¦è‡ªåŠ¨åŒ–çš„å†…å®¹ï¼ŒPytomatiza+ å°†ä¸ºæ‚¨æž„å»ºå·¥ä½œæµç¨‹ã€‚",
+                                           "instructionLabel":  "æ‚¨æƒ³è¦è‡ªåŠ¨åŒ–ä»€ä¹ˆï¼Ÿ",
+                                           "instructionPlaceholder":  "ä¾‹å¦‚ï¼Œå½“æˆ‘æ”¶åˆ°å®¢æˆ·å‘æ¥çš„å¸¦æœ‰é™„ä»¶çš„ç”µå­é‚®ä»¶æ—¶ï¼Œå°†é™„ä»¶ä¿å­˜åˆ° Google äº‘ç«¯ç¡¬ç›˜å¹¶åœ¨ Slack ä¸Šé€šçŸ¥æˆ‘ã€‚",
+                                           "instructionHelper":  "å°½å¯èƒ½å…·ä½“ã€‚ åŒ…æ‹¬è§¦å‘å™¨ã€æ¡ä»¶å’Œæ‰€éœ€çš„æ“ä½œã€‚",
+                                           "agentTypeLabel":  "æŽ¨èä»£ç†ç±»åž‹",
+                                           "agentTypePlaceholder":  "è‡ªåŠ¨æ£€æµ‹ï¼ˆæŽ¨èï¼‰",
+                                           "requireApprovalLabel":  "æ‰§è¡Œå‰éœ€è¦æ‰¹å‡†",
+                                           "requireApprovalHelper":  "å¯ç”¨åŽï¼Œå·¥ä½œæµç¨‹å°†åœ¨è¿è¡Œå‰æš‚åœä»¥ä¾›æ‚¨æŸ¥çœ‹ã€‚",
+                                           "build":  "æž„å»ºå·¥ä½œæµç¨‹",
+                                           "building":  "æž„å»ºå·¥ä½œæµç¨‹...",
+                                           "charCount":  "{current}/{max} ä¸ªå­—ç¬¦",
+                                           "suggestions":  "å°è¯•ä»¥ä¸‹ç¤ºä¾‹ï¼š",
+                                           "example1":  "æ¯å‘¨äº”ä¸‹åˆ 5 ç‚¹å‘å›¢é˜Ÿ Slack é¢‘é“å‘é€æ‰€æœ‰å·²å…³é—­å·¥å•çš„æ¯å‘¨æŠ¥å‘Š",
+                                           "example2":  "ç›‘æŽ§æˆ‘ä»¬çš„ Twitter æåŠå¹¶é€šè¿‡å¸®åŠ©ä¸­å¿ƒçš„é“¾æŽ¥è‡ªåŠ¨å›žå¤æ”¯æŒé—®é¢˜",
+                                           "example3":  "å½“æ–°è¡Œæ·»åŠ åˆ°â€œæ½œåœ¨å®¢æˆ·â€Google è¡¨æ ¼æ—¶ï¼Œé€šè¿‡ Gmail å‘é€ä¸ªæ€§åŒ–æ¬¢è¿Žç”µå­é‚®ä»¶"
+                                       },
+                        "workflowList":  {
+                                             "title":  "æ‚¨çš„å·¥ä½œæµç¨‹",
+                                             "empty":  "è¿˜æ²¡æœ‰å·¥ä½œæµç¨‹ã€‚ åœ¨ä¸Šé¢åˆ›å»ºæ‚¨çš„ç¬¬ä¸€ä¸ªã€‚",
+                                             "lastTriggered":  "æœ€åŽè§¦å‘",
+                                             "executions":  "å¤„å†³",
+                                             "toggle":  "åˆ‡æ¢å·¥ä½œæµç¨‹",
+                                             "delete":  "åˆ é™¤å·¥ä½œæµç¨‹",
+                                             "deleteConfirm":  "æ‚¨ç¡®å®šè¦åˆ é™¤æ­¤å·¥ä½œæµç¨‹å—ï¼Ÿ æ­¤æ“ä½œæ— æ³•æ’¤æ¶ˆã€‚",
+                                             "deleted":  "å·¥ä½œæµç¨‹åˆ é™¤æˆåŠŸ",
+                                             "statusToggled":  "å·¥ä½œæµç¨‹{status}",
+                                             "label":  "å·¥ä½œæµç¨‹",
+                                             "neverTriggered":  "ä»Žæœªè§¦å‘è¿‡",
+                                             "status":  "çŠ¶æ€ï¼š{status}",
+                                             "created":  "å·¥ä½œæµç¨‹å·²åˆ›å»ºï¼ ä»£ç†ç±»åž‹ï¼š{agentType}ã€‚ æ‰¹å‡†ï¼š{approval}ã€‚",
+                                             "required":  "å¿…éœ€çš„",
+                                             "notRequired":  "ä¸éœ€è¦"
+                                         },
+                        "errors":  {
+                                       "instructionTooShort":  "è¯´æ˜Žå¿…é¡»è‡³å°‘ 10 ä¸ªå­—ç¬¦",
+                                       "instructionTooLong":  "è¯´æ˜Žä¸å¾—è¶…è¿‡ 500 ä¸ªå­—ç¬¦",
+                                       "buildFailed":  "æ— æ³•æž„å»ºå·¥ä½œæµç¨‹ã€‚ è¯·å†è¯•ä¸€æ¬¡ã€‚"
+                                   },
+                        "loginPrompt":  "ç™»å½•æ‚¨çš„å¸æˆ·å³å¯è®¿é—®å®žæ—¶æ•°æ®ï¼",
+                        "agentTypes":  {
+                                           "productivity":  "ç”Ÿäº§çŽ‡",
+                                           "data":  "Data",
+                                           "content":  "å†…å®¹",
+                                           "admin":  "Admin",
+                                           "technical":  "æŠ€æœ¯çš„"
+                                       }
+                    },
+    "theme":  {
+                  "light":  "å…‰",
+                  "dark":  "é»‘æš—çš„",
+                  "system":  "ç³»ç»Ÿ"
+              },
+    "errors":  {
+                   "notFound":  {
+                                    "title":  "æ‰¾ä¸åˆ°é¡µé¢",
+                                    "description":  "æ‚¨è¦æŸ¥æ‰¾çš„é¡µé¢ä¸å­˜åœ¨æˆ–å·²è¢«ç§»åŠ¨ã€‚",
+                                    "goHome":  "è½¬åˆ°ä»ªè¡¨æ¿"
+                                },
+                   "serverError":  {
+                                       "title":  "æœåŠ¡å™¨é”™è¯¯",
+                                       "description":  "å‘ç”Ÿæ„å¤–é”™è¯¯ã€‚ æˆ‘ä»¬çš„å›¢é˜Ÿå·²æ”¶åˆ°é€šçŸ¥ã€‚",
+                                       "retry":  "å†è¯•ä¸€æ¬¡"
+                                   },
+                   "unauthorized":  {
+                                        "title":  "æœªç»æŽˆæƒ",
+                                        "description":  "æ‚¨éœ€è¦ç™»å½•æ‰èƒ½è®¿é—®æ­¤é¡µé¢ã€‚",
+                                        "signIn":  "ç™»å…¥"
+                                    },
+                   "notFoundTitle":  "æ‰¾ä¸åˆ°é¡µé¢",
+                   "notFoundDescription":  "æ‚¨è¦æŸ¥æ‰¾çš„é¡µé¢ä¸å­˜åœ¨æˆ–å·²è¢«ç§»åŠ¨ã€‚",
+                   "notFoundAction":  "è½¬åˆ°ä»ªè¡¨æ¿",
+                   "somethingWentWrong":  "å‡ºäº†ç‚¹é—®é¢˜",
+                   "unexpectedError":  "å‘ç”Ÿæ„å¤–é”™è¯¯ã€‚ æˆ‘ä»¬çš„å›¢é˜Ÿå·²æ”¶åˆ°é€šçŸ¥ã€‚",
+                   "dashboardErrorDescription":  "åŠ è½½æ­¤é¡µé¢æ—¶å‘ç”Ÿæ„å¤–é”™è¯¯ã€‚",
+                   "tryAgain":  "å†è¯•ä¸€æ¬¡",
+                   "goHome":  "å›žå®¶å§",
+                   "errorId":  "é”™è¯¯IDï¼š",
+                   "loadingDashboard":  "æ­£åœ¨åŠ è½½ä»ªè¡¨æ¿",
+                   "loadingDashboardContent":  "æ­£åœ¨åŠ è½½ä»ªè¡¨æ¿å†…å®¹..."
+               },
+    "nav":  {
+                "dashboard":  "ä»ªè¡¨æ¿",
+                "home":  "é¦–é¡µ",
+                "automations":  "è‡ªåŠ¨åŒ–",
+                "agents":  "ä»£ç†å•†",
+                "logs":  "æ—¥å¿—å’Œæ‰¹å‡†",
+                "modules":  "æ¨¡å—",
+                "modulesPanel":  "å¯ç”¨æ¨¡å—",
+                "openMenu":  "æ‰“å¼€å¯¼èˆªèœå•",
+                "closeMenu":  "å…³é—­å¯¼èˆªèœå•",
+                "closeModules":  "å…³é—­æ¨¡å—é¢æ¿",
+                "primary":  "ä¸»è¦å¯¼èˆª",
+                "documents":  "æ–‡ä»¶",
+                "documentsDesc":  "ç®¡ç†å’Œç»„ç»‡æ‚¨çš„æ–‡æ¡£ã€‚",
+                "data":  "æ•°æ®å’Œç”µå­è¡¨æ ¼",
+                "dataDesc":  "ä½¿ç”¨æ•°æ®æºå’Œç”µå­è¡¨æ ¼ã€‚",
+                "communication":  "æ²Ÿé€š",
+                "communicationDesc":  "ç”µå­é‚®ä»¶ã€æ¶ˆæ¯å’Œé€šçŸ¥ã€‚",
+                "media":  "åª’ä½“ä¸Žå›¾åƒ",
+                "mediaDesc":  "å›¾åƒå’Œåª’ä½“èµ„äº§ç®¡ç†ã€‚",
+                "files":  "æ–‡ä»¶",
+                "filesDesc":  "ä¸€èˆ¬æ–‡ä»¶å­˜å‚¨å’Œç®¡ç†ã€‚",
+                "architecture":  "å»ºç­‘å­¦",
+                "architectureDesc":  "ç³»ç»Ÿå›¾å’Œæž¶æž„æ–‡æ¡£ã€‚",
+                "settings":  "è®¾ç½®",
+                "signOut":  "ç™»å‡º",
+                "signIn":  "ç™»å…¥",
+                "appearance":  "å¤–è§‚",
+                "user":  "User"
+            },
+    "modules":  {
+                    "documents":  {
+                                      "title":  "æ–‡ä»¶",
+                                      "subtitle":  "ä½¿ç”¨ AI ä»£ç†è‡ªåŠ¨æ‰§è¡Œæ™ºèƒ½æ–‡æ¡£å¤„ç†",
+                                      "upload":  {
+                                                     "title":  "é™„ä¸Šæ–‡ä»¶",
+                                                     "description":  "å°†æ–‡ä»¶æ‹–æ”¾åˆ°æ­¤å¤„æˆ–å•å‡»ä»¥é€‰æ‹©",
+                                                     "dragActive":  "åˆ é™¤è¦é™„åŠ çš„æ–‡ä»¶",
+                                                     "browse":  "æµè§ˆæ–‡ä»¶",
+                                                     "supportedFormats":  "Supported formats: PDF, DOCX, XLSX, PPTX, TXT, CSV, images",
+                                                     "maxSize":  "æœ€å¤§å¤§å°ï¼š25 MB",
+                                                     "fileSelected":  "å·²é€‰æ‹©æ–‡ä»¶",
+                                                     "remove":  "åˆ é™¤æ–‡ä»¶"
+                                                 },
+                                      "instruction":  {
+                                                          "title":  "AIä»£ç†åº”è¯¥åšä»€ä¹ˆï¼Ÿ",
+                                                          "description":  "ç”¨è‡ªç„¶è¯­è¨€æè¿°æ‚¨å¸Œæœ›ä»£ç†å¦‚ä½•å¤„ç†æ­¤æ–‡æ¡£ã€‚",
+                                                          "label":  "ä»£ç†æŒ‡ä»¤",
+                                                          "placeholder":  "ä¾‹å¦‚ï¼Œä»Žç¬¬ 3 é¡µçš„è¡¨æ ¼ä¸­æå–æ‰€æœ‰æ•°æ®å¹¶å°†å…¶è½¬æ¢ä¸º CSV ç”µå­è¡¨æ ¼ã€‚ ç„¶åŽé€šè¿‡ç”µå­é‚®ä»¶å°†å…¶å‘é€è‡³finance@company.comã€‚",
+                                                          "helper":  "å…·ä½“ï¼šåŒ…æ‹¬è¦æå–çš„æ•°æ®ã€è¾“å‡ºæ ¼å¼ã€æ”¶ä»¶äººå’ŒåŽå¤„ç†æ“ä½œã€‚",
+                                                          "charCount":  "{current}/{max} ä¸ªå­—ç¬¦"
+                                                      },
+                                      "quickActions":  {
+                                                           "title":  "å¿«é€Ÿè¡ŒåŠ¨",
+                                                           "extractData":  "æå–æ•°æ®",
+                                                           "convertFormat":  "è½¬æ¢æ ¼å¼",
+                                                           "mergeDocs":  "åˆå¹¶æ–‡æ¡£",
+                                                           "ocrScan":  "å…‰å­¦å­—ç¬¦è¯†åˆ«æ‰«æ",
+                                                           "summarize":  "æ€»ç»“å†…å®¹",
+                                                           "translate":  "ç¿»è¯‘",
+                                                           "presets":  {
+                                                                           "extract":  "ä»Žæ­¤æ–‡æ¡£ä¸­æå–æ‰€æœ‰ç»“æž„åŒ–æ•°æ®å¹¶å¯¼å‡ºä¸º CSVã€‚",
+                                                                           "convert":  "å°†æ­¤æ–‡æ¡£è½¬æ¢ä¸º PDF æ ¼å¼ï¼ŒåŒæ—¶ä¿ç•™åŽŸå§‹å¸ƒå±€ã€‚",
+                                                                           "merge":  "å°†æ­¤æ–‡æ¡£ä¸Žæ–‡ä»¶å¤¹ä¸­çš„å…¶ä»–æ–‡ä»¶åˆå¹¶å¹¶ç”Ÿæˆå•ä¸ªç»Ÿä¸€çš„ PDFã€‚",
+                                                                           "ocr":  "ä½¿ç”¨ OCR æ‰«ææ­¤æ–‡æ¡£å¹¶ä»¥å¯ç¼–è¾‘æ ¼å¼æå–æ‰€æœ‰æ–‡æœ¬ã€‚",
+                                                                           "summarize":  "ç”¨ä¸€æ®µè¯æ¦‚æ‹¬æœ¬æ–‡æ¡£çš„å†…å®¹å¹¶åˆ—å‡ºè¦ç‚¹ã€‚",
+                                                                           "translate":  "å°†æ­¤æ–‡æ¡£ç¿»è¯‘æˆè‹±æ–‡ï¼ŒåŒæ—¶ä¿ç•™åŽŸå§‹æ ¼å¼ã€‚"
+                                                                       }
+                                                       },
+                                      "recentDocuments":  {
+                                                              "title":  "æœ€è¿‘çš„æ–‡ä»¶",
+                                                              "empty":  "å°šæœªå¤„ç†ä»»ä½•æ–‡ä»¶ã€‚ åœ¨ä¸Šé¢ä¸Šä¼ æ‚¨çš„ç¬¬ä¸€ä¸ªæ–‡æ¡£ã€‚",
+                                                              "processed":  "å·²åŠ å·¥",
+                                                              "status":  "åœ°ä½",
+                                                              "actions":  "è¡ŒåŠ¨",
+                                                              "download":  "ä¸‹è½½ç»“æžœ",
+                                                              "reprocess":  "å†åŠ å·¥",
+                                                              "delete":  "åˆ é™¤"
+                                                          },
+                                      "processing":  {
+                                                         "button":  "å·¥è‰ºæ–‡ä»¶",
+                                                         "processing":  "åŠ å·¥â€¦",
+                                                         "success":  "æ–‡ä»¶å¤„ç†æˆåŠŸï¼",
+                                                         "error":  "å¤„ç†æ–‡æ¡£å¤±è´¥ã€‚ è¯·å†è¯•ä¸€æ¬¡ã€‚",
+                                                         "reprocessInstruction":  "åº”ç”¨ç›¸åŒçš„å…ˆå‰è½¬æ¢é‡æ–°å¤„ç†æ–‡æ¡£ {name}ã€‚",
+                                                         "resultTitle":  "分析结果",
+                                                         "unsupportedFormat":  "OCR不支持的文件格式。请使用PDF、PNG、JPG或WebP。"
+                                                     },
+                                      "integrations":  {
+                                                           "googleDrive":  {
+                                                                               "title":  "Google Drive",
+                                                                               "description":  "ç›´æŽ¥ä»Žæ‚¨çš„Google Driveè®¿é—®å’Œé€‰æ‹©æ–‡æ¡£ã€‚",
+                                                                               "connect":  "è¿žæŽ¥Google Drive",
+                                                                               "connecting":  "æ­£åœ¨è¿žæŽ¥...",
+                                                                               "connected":  "è¿žæŽ¥åˆ°Google Drive",
+                                                                               "browse":  "æµè§ˆé©±åŠ¨å™¨"
+                                                                           }
+                                                       },
+                                      "dialogs":  {
+                                                      "deleteConfirm":  "æ‚¨ç¡®å®šè¦åˆ é™¤è¯¥æ–‡æ¡£å—ï¼Ÿ æ­¤æ“ä½œæ— æ³•æ’¤æ¶ˆã€‚"
+                                                  }
+                                  },
+                    "data":  {
+                                 "title":  "æ•°æ®å’Œç”µå­è¡¨æ ¼",
+                                 "subtitle":  "è¿žæŽ¥æ•°æ®æºã€è½¬æ¢ç”µå­è¡¨æ ¼å¹¶è‡ªåŠ¨åˆ†æž",
+                                 "source":  {
+                                                "title":  "æ•°æ®æ¥æº",
+                                                "description":  "é€‰æ‹©å¦‚ä½•è¿žæŽ¥æ‚¨çš„æ•°æ®",
+                                                "uploadCsv":  "ä¸Šä¼  CSV/Excel",
+                                                "googleSheets":  "Google Sheets",
+                                                "database":  "SQLæ•°æ®åº“",
+                                                "api":  "ä¼‘æ¯API",
+                                                "url":  "å…¬å…±ç½‘å€",
+                                                "selectPlaceholder":  "é€‰æ‹©æºç±»åž‹...",
+                                                "connect":  "è¿žæŽ¥",
+                                                "connecting":  "æ­£åœ¨è¿žæŽ¥â€¦"
+                                            },
+                                 "instruction":  {
+                                                     "title":  "å¦‚ä½•å¤„ç†æ•°æ®ï¼Ÿ",
+                                                     "description":  "æè¿°æ‰€éœ€çš„è½¬æ¢ã€åˆ†æžæˆ–è‡ªåŠ¨åŒ–",
+                                                     "label":  "åŠ å·¥æŒ‡ä»¤",
+                                                     "placeholder":  "ä¾‹å¦‚ï¼Œåˆå¹¶â€œåå­—â€å’Œâ€œå§“æ°â€åˆ—ï¼Œè¿‡æ»¤é”€å”®é¢è¶…è¿‡ 10,000 ç¾Žå…ƒçš„è®°å½•ï¼ŒæŒ‰åŒºåŸŸåˆ†ç»„å¹¶ç”Ÿæˆæ¡å½¢å›¾ã€‚",
+                                                     "helper":  "åŒ…æ‹¬è¿‡æ»¤å™¨ã€èšåˆã€è¡¨è¿žæŽ¥å’Œæ‰€éœ€çš„è¾“å‡ºæ ¼å¼ã€‚",
+                                                     "charCount":  "{current}/{max} ä¸ªå­—ç¬¦"
+                                                 },
+                                 "preview":  {
+                                                 "title":  "é¢„è§ˆ",
+                                                 "noData":  "è¿žæŽ¥æ•°æ®æºè¿›è¡Œé¢„è§ˆ",
+                                                 "rows":  "{count} è¡Œ",
+                                                 "columns":  "{count} åˆ—",
+                                                 "id":  "ID",
+                                                 "name":  "Name",
+                                                 "region":  "åœ°åŒº",
+                                                 "sales":  "Sales",
+                                                 "status":  "åœ°ä½",
+                                                 "showingRecords":  "æ˜¾ç¤ºç¬¬ {shown} æ¡è®°å½•ï¼Œå…± {total} æ¡è®°å½•"
+                                             },
+                                 "recentDatasets":  {
+                                                        "title":  "æœ€è¿‘çš„æ•°æ®é›†",
+                                                        "empty":  "å°šæœªå¤„ç†æ•°æ®é›†",
+                                                        "source":  "æ¥æº",
+                                                        "lastUsed":  "ä¸Šæ¬¡ä½¿ç”¨",
+                                                        "info":  "{rows} è¡Œ Â· {cols} åˆ—"
+                                                    },
+                                 "actions":  {
+                                                 "transform":  "è½¬æ¢æ•°æ®",
+                                                 "analyze":  "åˆ†æžæ•°æ®",
+                                                 "export":  "å¯¼å‡ºç»“æžœ",
+                                                 "schedule":  "æ—¥ç¨‹è‡ªåŠ¨åŒ–",
+                                                 "sidebarTitle":  "è¡ŒåŠ¨",
+                                                 "dashboard":  "ä»ªè¡¨æ¿",
+                                                 "processing":  "åŠ å·¥â€¦"
+                                             },
+                                 "integrations":  {
+                                                      "googleDrive":  {
+                                                                          "title":  "Google Drive",
+                                                                          "description":  "ç›´æŽ¥ä»Žæ‚¨çš„Google Driveè®¿é—®ç”µå­è¡¨æ ¼å’Œæ•°æ®æ–‡ä»¶ã€‚",
+                                                                          "connect":  "è¿žæŽ¥Google Drive",
+                                                                          "connecting":  "æ­£åœ¨è¿žæŽ¥...",
+                                                                          "connected":  "è¿žæŽ¥åˆ°Google Drive",
+                                                                          "browse":  "æµè§ˆé©±åŠ¨å™¨"
+                                                                      }
+                                                  },
+                                 "errors":  {
+                                                "connectFailed":  "æ— æ³•è¿žæŽ¥åˆ°æ•°æ®æºã€‚",
+                                                "processFailed":  "å¤„ç†æ•°æ®å¤±è´¥ã€‚"
+                                            },
+                                 "results":  {
+                                                 "connected":  "è¿žæŽ¥æˆåŠŸï¼ æ•°æ®æºå·²å‡†å¤‡å¥½è¿›è¡Œå¤„ç†ã€‚",
+                                                 "transformComplete":  "è½¬åž‹å®Œæˆï¼ å·²å¤„ç† {count} æ¡è®°å½•ã€‚ ç»“æžœå·²å¯ä¾›ä¸‹è½½ã€‚",
+                                                 "analyzeInstruction":  "åˆ†æžå…³è”æ•°æ®å¹¶ç”Ÿæˆè§è§£ï¼šè¶‹åŠ¿ã€å¼‚å¸¸å€¼ã€ç›¸å…³æ€§å’Œå»ºè®®ã€‚",
+                                                 "scheduleAlert":  "è°ƒåº¦å·²é…ç½®ï¼ æ•°æ®å°†è¢«è‡ªåŠ¨å¤„ç†ã€‚",
+                                                 "comingSoon":  "åŠŸèƒ½å³å°†æŽ¨å‡ºã€‚"
+                                             },
+                                 "presets":  {
+                                                 "merge":  {
+                                                               "label":  "åˆå¹¶åˆ—",
+                                                               "prompt":  "å°†â€œå§“åâ€å’Œâ€œå§“æ°â€åˆ—åˆå¹¶ä¸ºä¸€ä¸ªâ€œå…¨åâ€åˆ—ã€‚"
+                                                           },
+                                                 "filter":  {
+                                                                "label":  "è¿‡æ»¤è®°å½•",
+                                                                "prompt":  "è¿‡æ»¤â€œé”€å”®é¢â€åˆ—å¤§äºŽ 10,000 ç¾Žå…ƒçš„è®°å½•ã€‚"
+                                                            },
+                                                 "group":  {
+                                                               "label":  "åˆ†ç»„å¹¶æ€»ç»“",
+                                                               "prompt":  "æŒ‰â€œåŒºåŸŸâ€å¯¹æ•°æ®è¿›è¡Œåˆ†ç»„ï¼Œå¹¶è®¡ç®—â€œé”€å”®é¢â€çš„æ€»å’Œå’Œå¹³å‡å€¼ã€‚"
+                                                           },
+                                                 "pivot":  {
+                                                               "label":  "æ•°æ®é€è§†è¡¨",
+                                                               "prompt":  "åˆ›å»ºä¸€ä¸ªæ•°æ®é€è§†è¡¨ï¼Œå…¶ä¸­â€œç±»åˆ«â€ä¸ºè¡Œï¼Œâ€œæœˆä»½â€ä¸ºåˆ—ï¼Œâ€œæ”¶å…¥â€æ€»å’Œã€‚"
+                                                           },
+                                                 "chart":  {
+                                                               "label":  "ç”Ÿæˆå›¾è¡¨",
+                                                               "prompt":  "ç”ŸæˆæŒ‰åœ°åŒºæ¯”è¾ƒé”€å”®é¢çš„æ¡å½¢å›¾ã€‚"
+                                                           },
+                                                 "export":  {
+                                                                "label":  "å‡ºå£ç»“æž„åŒ–",
+                                                                "prompt":  "å°†è½¬æ¢åŽçš„æ•°æ®å¯¼å‡ºåˆ°é‡‡ç”¨ UTF-8 ç¼–ç çš„ CSV æ–‡ä»¶ã€‚"
+                                                            }
+                                             }
+                             },
+                    "communication":  {
+                                          "title":  "æ²Ÿé€š",
+                                          "subtitle":  "è‡ªåŠ¨æ‰§è¡Œç”µå­é‚®ä»¶ã€æ¶ˆæ¯å’Œå¤šæ¸ é“é€šçŸ¥",
+                                          "composer":  {
+                                                           "title":  "æ’°å†™æ¶ˆæ¯",
+                                                           "description":  "æè¿°å†…å®¹ï¼ŒAI ä»£ç†å°†èµ·è‰æ¶ˆæ¯",
+                                                           "instructionLabel":  "ç•™è¨€è¯´æ˜Ž",
+                                                           "instructionPlaceholder":  "ä¾‹å¦‚ï¼Œä½¿ç”¨ä¸“ä¸šè€Œå‹å¥½çš„è¯­æ°”å‘æ‰€æœ‰å‘ç¥¨åœ¨ 3 å¤©å†…åˆ°æœŸçš„å®¢æˆ·å‘é€æé†’ç”µå­é‚®ä»¶ï¼Œå¹¶åŒ…å«ä»˜æ¬¾é“¾æŽ¥ã€‚",
+                                                           "instructionHelper":  "æŒ‡å®šï¼šæ¶ˆæ¯æç¤ºéŸ³ã€è¦åŒ…å«çš„ä¿¡æ¯ã€ä¸ªæ€§åŒ–è®¾ç½®å’Œå·å¬æ€§ç”¨è¯­ã€‚",
+                                                           "subjectLabel":  "ä¸»é¢˜ï¼ˆé€‚ç”¨äºŽç”µå­é‚®ä»¶ï¼‰",
+                                                           "subjectPlaceholder":  "ç”µå­é‚®ä»¶ä¸»é¢˜...",
+                                                           "charCount":  "{current}/{max} ä¸ªå­—ç¬¦",
+                                                           "noSubject":  "ï¼ˆæ— ä¸»é¢˜ï¼‰"
+                                                       },
+                                          "channels":  {
+                                                           "title":  "å‘è´§æ¸ é“",
+                                                           "email":  "Email",
+                                                           "slack":  "Slack",
+                                                           "whatsapp":  "WhatsApp",
+                                                           "teams":  "å¾®è½¯å›¢é˜Ÿ",
+                                                           "sms":  "SMS",
+                                                           "discord":  "ä¸å’Œè°"
+                                                       },
+                                          "recipients":  {
+                                                             "title":  "æ”¶ä»¶äºº",
+                                                             "description":  "é…ç½®è°å°†æŽ¥æ”¶æ¶ˆæ¯",
+                                                             "to":  "To",
+                                                             "toPlaceholder":  "ç”µå­é‚®ä»¶@example.com",
+                                                             "cc":  "æŠ„é€ï¼ˆæŠ„é€ï¼‰",
+                                                             "ccPlaceholder":  "ç”µå­é‚®ä»¶@example.com",
+                                                             "addMore":  "æ·»åŠ æ›´å¤š",
+                                                             "list":  "åˆ†å‘åˆ—è¡¨",
+                                                             "condition":  "æŒ‰æ¡ä»¶ï¼ˆä¾‹å¦‚ï¼Œä¸æ´»è·ƒçš„å®¢æˆ·ç«¯ï¼‰"
+                                                         },
+                                          "schedule":  {
+                                                           "title":  "æ—¥ç¨‹",
+                                                           "sendNow":  "ç«‹å³å‘é€",
+                                                           "scheduleLater":  "ç¨åŽå®‰æŽ’",
+                                                           "recurring":  "å†æ¬¡å‘ç”Ÿçš„",
+                                                           "dateTime":  "æ—¥æœŸå’Œæ—¶é—´",
+                                                           "frequency":  "é¢‘çŽ‡",
+                                                           "daily":  "Daily",
+                                                           "weekly":  "æ¯å‘¨",
+                                                           "monthly":  "æ¯æœˆ",
+                                                           "dateTimePlaceholder":  "å®Œæ•´ç‰ˆæœ¬ä¸­æä¾›æ—¥æœŸ/æ—¶é—´é€‰æ‹©å™¨ã€‚"
+                                                       },
+                                          "recentMessages":  {
+                                                                 "title":  "æœ€è¿‘æ¶ˆæ¯",
+                                                                 "empty":  "å°šæœªå‘é€æ¶ˆæ¯",
+                                                                 "channel":  "æ¸ é“",
+                                                                 "sentAt":  "å‘é€äºŽ",
+                                                                 "status":  "åœ°ä½"
+                                                             },
+                                          "actions":  {
+                                                          "send":  "å‘é€æ¶ˆæ¯",
+                                                          "sending":  "æ­£åœ¨å‘é€...",
+                                                          "preview":  "é¢„è§ˆ",
+                                                          "saveDraft":  "ä¿å­˜è‰ç¨¿",
+                                                          "testSend":  "å‘é€æµ‹è¯•",
+                                                          "testSendDescription":  "å‘é€æµ‹è¯•ä»¥éªŒè¯æ ¼å¼"
+                                                      },
+                                          "status":  {
+                                                         "sent":  "Sent",
+                                                         "scheduled":  "é¢„å®š",
+                                                         "failed":  "å¤±è´¥çš„"
+                                                     },
+                                          "results":  {
+                                                          "sent":  "{channels}æ¶ˆæ¯å‘é€æˆåŠŸï¼",
+                                                          "preview":  "[é¢„è§ˆ]\n\n é¢‘é“ï¼š{channels}\n ä¸»é¢˜ï¼š{subject}\n\n {instruction}\n\n ï¼ˆè¿™æ˜¯é¢„è§ˆæ¨¡æ‹Ÿï¼‰",
+                                                          "draftSaved":  "è‰ç¨¿ä¿å­˜æˆåŠŸï¼ æ‚¨å¯ä»¥åœ¨â€œæ¶ˆæ¯ \u003e è‰ç¨¿â€ä¸­è®¿é—®å®ƒã€‚",
+                                                          "testSent":  "æµ‹è¯•å·²å‘é€è‡³{email}ï¼ æ£€æŸ¥æ‚¨çš„æ”¶ä»¶ç®±ã€‚"
+                                                      },
+                                          "errors":  {
+                                                         "sendFailed":  "å‘é€æ¶ˆæ¯å¤±è´¥ã€‚",
+                                                         "testNoRecipient":  "è¯·è¾“å…¥æµ‹è¯•çš„æ”¶ä»¶äººã€‚"
+                                                     }
+                                      },
+                    "media":  {
+                                  "title":  "åª’ä½“ä¸Žå›¾åƒ",
+                                  "subtitle":  "æ‰¹é‡å¤„ç†ã€è½¬æ¢å’Œä¼˜åŒ–å›¾åƒå’Œåª’ä½“",
+                                  "instruction":  {
+                                                      "title":  "AIä»£ç†åº”è¯¥å¯¹åª’ä½“åšä»€ä¹ˆï¼Ÿ",
+                                                      "description":  "ç”¨è‡ªç„¶è¯­è¨€æè¿°æ‚¨å¸Œæœ›ä»£ç†å¦‚ä½•å¤„ç†æ‚¨çš„å›¾åƒæˆ–è§†é¢‘ã€‚",
+                                                      "label":  "ä»£ç†æŒ‡ä»¤",
+                                                      "placeholder":  "ä¾‹å¦‚ï¼Œä»Žæ‰€æœ‰å›¾åƒä¸­åˆ é™¤èƒŒæ™¯ï¼Œå°†å¤§å°è°ƒæ•´ä¸º 1200x800ï¼Œä¿æŒçºµæ¨ªæ¯”ï¼Œä»¥ 85% è´¨é‡è½¬æ¢ä¸º WebPï¼Œåº”ç”¨äº®åº¦ +10 æ»¤é•œï¼Œå¹¶åœ¨å³ä¸‹è§’æ·»åŠ â€œÂ© My Companyâ€æ°´å°ã€‚",
+                                                      "helper":  "åŒ…æ‹¬ï¼šè¦åº”ç”¨å“ªäº›è½¬æ¢ã€å°ºå¯¸ã€è¾“å‡ºæ ¼å¼ã€è´¨é‡ã€è¿‡æ»¤å™¨å’Œæ°´å°ã€‚",
+                                                      "charCount":  "{current}/{max} ä¸ªå­—ç¬¦",
+                                                      "button":  "äººå·¥æ™ºèƒ½å¤„ç†",
+                                                      "processing":  "åŠ å·¥â€¦"
+                                                  },
+                                  "upload":  {
+                                                 "title":  "åª’ä½“ä¸Šä¼ ",
+                                                 "description":  "æ‹–åŠ¨å›¾åƒæˆ–è§†é¢‘å³å¯å¼€å§‹",
+                                                 "dragActive":  "åˆ é™¤è¦ä¸Šä¼ çš„æ–‡ä»¶",
+                                                 "browse":  "æµè§ˆæ–‡ä»¶",
+                                                 "supportedFormats":  "Formats: JPG, PNG, GIF, SVG, WebP, MP4, MOV, WebM",
+                                                 "maxSize":  "æœ€å¤§å¤§å°ï¼šæ¯ä¸ªæ–‡ä»¶ 100 MB",
+                                                 "batchInfo":  "å·²é€‰æ‹© {count} æ–‡ä»¶",
+                                                 "remove":  "æ¶ˆé™¤"
+                                             },
+                                  "transformations":  {
+                                                          "title":  "è½¬æ¢",
+                                                          "description":  "é€‰æ‹©å¦‚ä½•å¤„ç†æ‚¨çš„åª’ä½“",
+                                                          "resize":  "è°ƒæ•´å¤§å°",
+                                                          "resizeDescription":  "æ›´æ”¹å›¾åƒå°ºå¯¸",
+                                                          "width":  "Width",
+                                                          "height":  "é«˜åº¦",
+                                                          "maintainAspect":  "ä¿æŒçºµæ¨ªæ¯”",
+                                                          "convertFormat":  "è½¬æ¢æ ¼å¼",
+                                                          "convertDescription":  "è½¬æ¢ä¸ºå¦ä¸€ç§æ–‡ä»¶æ ¼å¼",
+                                                          "targetFormat":  "ç›®æ ‡æ ¼å¼",
+                                                          "compress":  "åŽ‹ç¼©",
+                                                          "compressDescription":  "å‡å°æ–‡ä»¶å¤§å°",
+                                                          "quality":  "è´¨é‡",
+                                                          "watermark":  "æ°´å°",
+                                                          "watermarkDescription":  "åœ¨å›¾åƒä¸Šæ·»åŠ æ–‡æœ¬æˆ–å¾½æ ‡å åŠ ",
+                                                          "watermarkText":  "æ°´å°æ–‡å­—",
+                                                          "filters":  "è¿‡æ»¤å™¨å’Œè°ƒæ•´",
+                                                          "brightness":  "äº®åº¦",
+                                                          "contrast":  "å¯¹æ¯”",
+                                                          "saturation":  "é¥±å’Œ",
+                                                          "blur":  "Blur"
+                                                      },
+                                  "preview":  {
+                                                  "title":  "é¢„è§ˆ",
+                                                  "original":  "åŽŸæ¥çš„",
+                                                  "processed":  "å·²åŠ å·¥",
+                                                  "noMedia":  "ä¸Šä¼ åª’ä½“è¿›è¡Œé¢„è§ˆ"
+                                              },
+                                  "recentMedia":  {
+                                                      "title":  "æœ€è¿‘çš„åª’ä½“",
+                                                      "empty":  "å°šæœªå¤„ç†ä»»ä½•åª’ä½“"
+                                                  },
+                                  "actions":  {
+                                                  "process":  "å·¥è‰ºä»‹è´¨",
+                                                  "processing":  "åŠ å·¥â€¦",
+                                                  "download":  "ä¸‹è½½ç»“æžœ",
+                                                  "downloadAll":  "ä¸‹è½½å…¨éƒ¨ (ZIP)",
+                                                  "batchProcess":  "æ‰¹é‡å¤„ç†",
+                                                  "filesCount":  "{count} æ–‡ä»¶"
+                                              },
+                                  "integrations":  {
+                                                       "googleDrive":  {
+                                                                           "title":  "Google Drive",
+                                                                           "description":  "è®¿é—®å­˜å‚¨åœ¨æ‚¨çš„Google Driveä¸­çš„å›¾åƒå’Œè§†é¢‘ã€‚",
+                                                                           "connect":  "è¿žæŽ¥Google Drive",
+                                                                           "connecting":  "æ­£åœ¨è¿žæŽ¥...",
+                                                                           "connected":  "è¿žæŽ¥åˆ°Google Drive",
+                                                                           "browse":  "æµè§ˆé©±åŠ¨å™¨"
+                                                                       },
+                                                       "googlePhotos":  {
+                                                                            "title":  "è°·æ­Œç…§ç‰‡",
+                                                                            "description":  "ç›´æŽ¥ä»Ž Google ç›¸å†Œè®¿é—®æ‚¨çš„ç…§ç‰‡å’Œç›¸å†Œã€‚",
+                                                                            "connect":  "è¿žæŽ¥ Google ç›¸å†Œ",
+                                                                            "connecting":  "æ­£åœ¨è¿žæŽ¥...",
+                                                                            "connected":  "è¿žæŽ¥åˆ° Google ç›¸å†Œ",
+                                                                            "browse":  "æµè§ˆç…§ç‰‡"
+                                                                        }
+                                                   },
+                                  "errors":  {
+                                                 "processFailed":  "æ— æ³•å¤„ç†åª’ä½“ã€‚",
+                                                 "aiFailed":  "æ— æ³•è§£é‡ŠæŒ‡ä»¤ã€‚"
+                                             },
+                                  "results":  {
+                                                  "processComplete":  "å¤„ç†å®Œæ¯•ï¼ {count} æ–‡ä»¶è½¬æ¢æˆåŠŸã€‚",
+                                                  "aiInterpreted":  "æŒ‡ä»¤è§£é‡ŠæˆåŠŸï¼ è½¬æ¢å·²æŒ‰æ‰€è¿°é¢„å…ˆé…ç½®ã€‚ æŸ¥çœ‹é¢æ¿ä¸­çš„è°ƒæ•´ï¼Œç„¶åŽå•å‡»â€œå¤„ç†åª’ä½“â€ä»¥åº”ç”¨ã€‚",
+                                                  "downloadSimulation":  "æ¨¡æ‹Ÿä¸‹è½½ {count} å·²å¤„ç†æ–‡ä»¶ä½œä¸º ZIPã€‚ \n\nåœ¨å®Œæ•´ç‰ˆæœ¬ä¸­ï¼Œæ‰€æœ‰æ–‡ä»¶éƒ½å°†è¢«åŽ‹ç¼©å¹¶ä¸‹è½½ã€‚",
+                                                  "downloadComplete":  "ä¸‹è½½å®Œæˆï¼ ä»Žåˆ—è¡¨ä¸­åˆ é™¤çš„æ–‡ä»¶ã€‚"
+                                              }
+                              },
+                    "files":  {
+                                  "title":  "Files",
+                                  "subtitle":  "ç®¡ç†ã€ç»„ç»‡å’Œè‡ªåŠ¨åŒ–æ–‡ä»¶æ“ä½œ",
+                                  "instruction":  {
+                                                      "title":  "AI ä»£ç†åº”è¯¥å¦‚ä½•å¤„ç†æ‚¨çš„æ–‡ä»¶ï¼Ÿ",
+                                                      "description":  "ç”¨è‡ªç„¶è¯­è¨€æè¿°æ‚¨å¸Œæœ›å¦‚ä½•ç»„ç»‡ã€å¤„ç†æˆ–ç®¡ç†æ–‡ä»¶ã€‚",
+                                                      "label":  "ä»£ç†æŒ‡ä»¤",
+                                                      "placeholder":  "ä¾‹å¦‚ï¼ŒæŒ‰åˆ›å»ºæ—¥æœŸç»„ç»‡â€œä¸‹è½½â€æ–‡ä»¶å¤¹ä¸­çš„æ‰€æœ‰ PDFï¼Œä½¿ç”¨â€œYYYY-MM-DD - åŽŸå§‹åç§°â€æ¨¡å¼é‡å‘½åå®ƒä»¬ï¼Œå°†å‘ç¥¨ç§»è‡³ /Finance/Invoices/{year}/{month}ï¼Œå¹¶åŽ‹ç¼© 6 ä¸ªæœˆä»¥ä¸Šçš„æ–‡ä»¶ã€‚",
+                                                      "helper":  "åŒ…æ‹¬ï¼šå½±å“å“ªäº›æ–‡ä»¶ã€å¦‚ä½•ç»„ç»‡å®ƒä»¬ã€é‡å‘½åæ¨¡å¼ã€ç›®æ ‡æ–‡ä»¶å¤¹å’Œå…¶ä»–æ“ä½œã€‚",
+                                                      "charCount":  "{current}/{max} ä¸ªå­—ç¬¦",
+                                                      "button":  "ç”¨äººå·¥æ™ºèƒ½æ‰§è¡Œ",
+                                                      "processing":  "æ­£åœ¨æ‰§è¡Œ..."
+                                                  },
+                                  "storage":  {
+                                                  "title":  "è´®å­˜",
+                                                  "used":  "Used",
+                                                  "total":  "{total}",
+                                                  "files":  "{count} æ–‡ä»¶",
+                                                  "folders":  "{count} æ–‡ä»¶å¤¹",
+                                                  "activeRules":  "æ´»åŠ¨è§„åˆ™",
+                                                  "rulesConfigured":  "{count} é…ç½®",
+                                                  "lastFolder":  "æœ€åŽï¼š{name}",
+                                                  "progressLabel":  "ä½¿ç”¨{progress}%"
+                                              },
+                                  "upload":  {
+                                                 "title":  "æ–‡ä»¶ä¸Šä¼ ",
+                                                 "description":  "æ‹–åŠ¨æ–‡ä»¶æˆ–æ–‡ä»¶å¤¹ä¸Šä¼ ",
+                                                 "dragActive":  "æ‹–æ”¾å³å¯ä¸Šä¼ ",
+                                                 "browse":  "æµè§ˆ",
+                                                 "createFolder":  "åˆ›å»ºæ–‡ä»¶å¤¹"
+                                             },
+                                  "browser":  {
+                                                  "title":  "æ–‡ä»¶æµè§ˆå™¨",
+                                                  "empty":  "è¯¥æ–‡ä»¶å¤¹æ˜¯ç©ºçš„",
+                                                  "name":  "Name",
+                                                  "size":  "Size",
+                                                  "modified":  "ä¿®æ”¹çš„",
+                                                  "type":  "Type",
+                                                  "sortBy":  "æŽ’åºæ–¹å¼",
+                                                  "search":  "æœç´¢æ–‡ä»¶...",
+                                                  "gridView":  "ç½‘æ ¼è§†å›¾",
+                                                  "listView":  "åˆ—è¡¨è§†å›¾",
+                                                  "folder":  "æ–‡ä»¶å¤¹"
+                                              },
+                                  "rules":  {
+                                                "title":  "ç»„ç»‡è§„åˆ™",
+                                                "description":  "è‡ªåŠ¨åŒ–æ–‡ä»¶ç»„ç»‡",
+                                                "ruleName":  "è§„åˆ™åç§°",
+                                                "ruleNamePlaceholder":  "ä¾‹å¦‚ï¼ŒæŒ‰æœˆä»½å¯¹å‘ç¥¨è¿›è¡ŒæŽ’åº",
+                                                "condition":  "å¥åº·ï¼‰çŠ¶å†µ",
+                                                "conditionPlaceholder":  "ä¾‹å¦‚ï¼Œæ–‡ä»¶ååŒ…å«â€œå‘ç¥¨â€",
+                                                "action":  "è¡ŒåŠ¨",
+                                                "actionPlaceholder":  "ä¾‹å¦‚ï¼Œç§»è‡³ /Finance/Invoices/{year}/{month}",
+                                                "addRule":  "æ·»åŠ è§„åˆ™",
+                                                "active":  "ç§¯æžçš„",
+                                                "inactive":  "ä¸æ´»è·ƒ",
+                                                "empty":  "æ²¡æœ‰é…ç½®è§„åˆ™"
+                                            },
+                                  "actions":  {
+                                                  "label":  "è¡ŒåŠ¨",
+                                                  "moreOptions":  "æ›´å¤šé€‰æ‹©",
+                                                  "upload":  "ä¸Šä¼ ",
+                                                  "newFolder":  "æ–°å»ºæ–‡ä»¶å¤¹",
+                                                  "delete":  "åˆ é™¤",
+                                                  "rename":  "é‡å‘½å",
+                                                  "move":  "Move",
+                                                  "copy":  "Copy",
+                                                  "share":  "Share",
+                                                  "download":  "ä¸‹è½½"
+                                              },
+                                  "aiPlaceholder":  "E.g.: Organize all PDFs from the Downloads folder by creation date, renomeie com o padrÃ£o \u0027YYYY-MM-DD - nome original\u0027, mova faturas para /Financeiro/Faturas/{ano}/{mÃªs} e compacte arquivos com mais de 6 meses.",
+                                  "integrations":  {
+                                                       "googleDrive":  {
+                                                                           "title":  "Google Drive",
+                                                                           "description":  "ç›´æŽ¥ä»Žæ‚¨çš„Google Driveè®¿é—®å’Œç®¡ç†æ–‡ä»¶ï¼Œå°±åƒæœ¬åœ°æ–‡ä»¶å¤¹ä¸€æ ·ã€‚",
+                                                                           "connect":  "è¿žæŽ¥Google Drive",
+                                                                           "connecting":  "æ­£åœ¨è¿žæŽ¥...",
+                                                                           "connected":  "è¿žæŽ¥åˆ°Google Drive",
+                                                                           "browse":  "æŽ¢ç´¢é©¾é©¶",
+                                                                           "disconnect":  "æ–­å¼€"
+                                                                       }
+                                                   },
+                                  "dialogs":  {
+                                                  "newFolder":  "æ–°æ–‡ä»¶å¤¹åç§°ï¼š",
+                                                  "rename":  "é‡å‘½åä¸ºï¼š",
+                                                  "deleteConfirm":  "æ‚¨ç¡®å®šè¦åˆ é™¤â€œ{name}â€å—ï¼Ÿ æ­¤æ“ä½œæ— æ³•æ’¤æ¶ˆã€‚",
+                                                  "moveAlert":  "ç§»åŠ¨â€œ{name}â€ - åœ¨å®Œæ•´ç‰ˆæœ¬ä¸­ï¼Œå°†æ˜¾ç¤ºæ–‡ä»¶å¤¹é€‰æ‹©å™¨ã€‚",
+                                                  "copySuffix":  "ï¼ˆå¤åˆ¶ï¼‰",
+                                                  "shareLink":  "åˆ†äº«â€œ{name}â€çš„é“¾æŽ¥å·²å¤åˆ¶åˆ°å‰ªè´´æ¿ï¼ \n\nhttps://pytomatiza.app/share/{id}",
+                                                  "selectFile":  "\"{label}\" â€” åœ¨èµ„æºç®¡ç†å™¨ä¸­é€‰æ‹©ä¸€ä¸ªæ–‡ä»¶ä»¥ä½¿ç”¨æ­¤æ“ä½œã€‚"
+                                              },
+                                  "results":  {
+                                                  "aiInterpreted":  "æŒ‡ä»¤è§£é‡ŠæˆåŠŸï¼ ç»„ç»‡è§„åˆ™å·²è‡ªåŠ¨åˆ›å»ºã€‚ åœ¨è§„åˆ™é¢æ¿ä¸­æŸ¥çœ‹å®ƒä»¬ã€‚"
+                                              }
+                              },
+                    "architecture":  {
+                                         "title":  "å»ºç­‘å­¦",
+                                         "subtitle":  "ä½¿ç”¨ AI ç”Ÿæˆæž¶æž„å›¾å’ŒæŠ€æœ¯æ–‡æ¡£",
+                                         "diagramBuilder":  {
+                                                                "title":  "æè¿°æ‚¨çš„æž¶æž„",
+                                                                "description":  "ç”¨è‡ªç„¶è¯­è¨€æè¿°ç³»ç»Ÿï¼Œäººå·¥æ™ºèƒ½ä»£ç†å°†ç”Ÿæˆå›¾è¡¨",
+                                                                "instructionLabel":  "æž¶æž„è¯´æ˜Ž",
+                                                                "instructionPlaceholder":  "ä¾‹å¦‚ï¼Œç”µå­å•†åŠ¡ç³»ç»Ÿå…·æœ‰ï¼šè´Ÿè½½å‡è¡¡å™¨ (Nginx)ã€3 ä¸ª API å®žä¾‹ï¼ˆKubernetes ä¸Šçš„ Node.jsï¼‰ã€ä¸» PostgreSQL + åªè¯»å‰¯æœ¬ã€ç”¨äºŽç¼“å­˜çš„ Redisã€ç”¨äºŽè®¢å•çš„ RabbitMQ é˜Ÿåˆ—ã€Python å·¥ä½œçº¿ç¨‹å’Œç”¨äºŽäº§å“å›¾åƒçš„ S3 å­˜å‚¨ã€‚",
+                                                                "instructionHelper":  "åŒ…æ‹¬ï¼šç»„ä»¶ã€è¿žæŽ¥ã€åè®®ã€æŠ€æœ¯å’Œæ•°æ®æµã€‚",
+                                                                "charCount":  "{current}/{max} ä¸ªå­—ç¬¦"
+                                                            },
+                                         "templates":  {
+                                                           "title":  "æž¶æž„æ¨¡æ¿",
+                                                           "description":  "é€‰æ‹©ä¸€ä¸ªæ¨¡æ¿ä½œä¸ºèµ·ç‚¹",
+                                                           "aws":  "AWS äº‘",
+                                                           "gcp":  "è°·æ­Œäº‘",
+                                                           "azure":  "å¾®è½¯Azure",
+                                                           "microservices":  "å¾®æœåŠ¡",
+                                                           "monolith":  "æ¨¡å—åŒ–æ•´ä½“ç»“æž„",
+                                                           "serverless":  "æ— æœåŠ¡å™¨",
+                                                           "eventDriven":  "äº‹ä»¶é©±åŠ¨",
+                                                           "ciCd":  "æŒç»­é›†æˆ/æŒç»­äº¤ä»˜ç®¡é“",
+                                                           "network":  "ç½‘ç»œæ‹“æ‰‘",
+                                                           "dataPipeline":  "æ•°æ®ç®¡é“"
+                                                       },
+                                         "export":  {
+                                                        "title":  "å¯¼å‡ºæ ¼å¼",
+                                                        "description":  "é€‰æ‹©å¯¼å‡ºå›¾è¡¨çš„æ–¹å¼",
+                                                        "png":  "PNGï¼ˆå›¾ç‰‡ï¼‰",
+                                                        "svg":  "SVGï¼ˆçŸ¢é‡ï¼‰",
+                                                        "pdf":  "PDFï¼ˆæ–‡æ¡£ï¼‰",
+                                                        "terraform":  "åœ°å½¢ (IaC)"
+                                                    },
+                                         "recentDiagrams":  {
+                                                                "title":  "æœ€è¿‘çš„å›¾è¡¨",
+                                                                "empty":  "å°šæœªç”Ÿæˆå›¾è¡¨",
+                                                                "createdAt":  "åˆ›å»ºäºŽ",
+                                                                "components":  "{count} ç»„ä»¶",
+                                                                "download":  "ä¸‹è½½",
+                                                                "edit":  "Edit",
+                                                                "delete":  "åˆ é™¤"
+                                                            },
+                                         "actions":  {
+                                                         "generate":  "ç”Ÿæˆå›¾è¡¨",
+                                                         "generating":  "ç”Ÿæˆå›¾...",
+                                                         "generateDescription":  "ç”Ÿæˆæ–‡æ¡£",
+                                                         "save":  "ä¿å­˜é¡¹ç›®",
+                                                         "share":  "Share",
+                                                         "shareDescription":  "é€šè¿‡é“¾æŽ¥ä¸Žæ‚¨çš„å›¢é˜Ÿåˆ†äº«"
+                                                     },
+                                         "errors":  {
+                                                        "generateFailed":  "æ— æ³•ç”Ÿæˆå›¾è¡¨ã€‚ è¯·å†è¯•ä¸€æ¬¡ã€‚"
+                                                    },
+                                         "dialogs":  {
+                                                         "deleteConfirm":  "æ‚¨ç¡®å®šè¦åˆ é™¤è¯¥å›¾è¡¨å—ï¼Ÿ",
+                                                         "shareLink":  "åˆ†äº«é“¾æŽ¥å·²å¤åˆ¶åˆ°å‰ªè´´æ¿ï¼ \n\nä¸Žæ‚¨çš„å›¢é˜Ÿåˆ†äº«æ­¤æž¶æž„é¡¹ç›®ã€‚",
+                                                         "shareEmptyWarning":  "è¯·å…ˆä½¿ç”¨AIä»£ç†åˆ›å»ºæ‚¨çš„å›¾è¡¨ï¼Œç„¶åŽå†åˆ†äº«ï¼"
+                                                     }
+                                     }
+                },
+    "footer":  {
+                   "copyright":  "Â© {year} Pytomatiza+ã€‚ ç‰ˆæƒæ‰€æœ‰ã€‚",
+                   "privacy":  "éšç§æ”¿ç­–",
+                   "terms":  "æœåŠ¡æ¡æ¬¾",
+                   "status":  "ç³»ç»ŸçŠ¶æ€"
+               },
+    "logs":  {
+                 "title":  "Logs \u0026 AprovaÃ§Ãµes",
+                 "subtitle":  "Monitore execuÃ§Ãµes de automaÃ§Ã£o e gerencie solicitaÃ§Ãµes de aprovaÃ§Ã£o pendentes.",
+                 "stats":  {
+                               "totalExecutions":  "Total de ExecuÃ§Ãµes",
+                               "successRate":  "Taxa de Success",
+                               "pendingApprovals":  "AprovaÃ§Ãµes Pendings",
+                               "errors24h":  "é”™è¯¯ï¼ˆ24 å°æ—¶ï¼‰"
+                           },
+                 "tableHeader":  "ExecuÃ§Ãµes Recentes",
+                 "tableAriaLabel":  "Registros de execuÃ§Ã£o",
+                 "status":  {
+                                "success":  "æˆåŠŸ",
+                                "error":  "Error",
+                                "pending":  "AprovaÃ§Ã£o Pending",
+                                "running":  "Em ExecuÃ§Ã£o"
+                            },
+                 "agents":  {
+                                "emailSaver":  "Salvador de Anexos de E-mail",
+                                "reportGen":  "Gerador de RelatÃ³rios Semanais",
+                                "socialMonitor":  "Monitor de Redes Sociais",
+                                "dbBackup":  "Agente de Backup de Banco de Dados",
+                                "apiChecker":  "Verificador de SaÃºde de APIs",
+                                "invoiceProc":  "Processador de Faturas",
+                                "meetingSched":  "Agendador de ReuniÃµes",
+                                "contentTrans":  "Tradutor de ConteÃºdo"
+                            },
+                 "actions":  {
+                                 "log1":  "Processou 3 anexos de 2 e-mails",
+                                 "log2":  "Gerou relatÃ³rio semanal de vendas em PDF",
+                                 "log3":  "Respondeu automaticamente a 5 menÃ§Ãµes de suporte",
+                                 "log4":  "Backup noturno â€” verificaÃ§Ã£o de integridade falhou",
+                                 "log5":  "Verificou 12 endpoints â€” todos saudÃ¡veis",
+                                 "log6":  "Aguardando aprovaÃ§Ã£o de 3 faturas",
+                                 "log7":  "Agendou 2 sincronizaÃ§Ãµes de equipe para a prÃ³xima semana",
+                                 "log8":  "Traduzindo post do blog para 9 idiomas"
+                             },
+                 "duration":  {
+                                  "ongoing":  "em andamento"
+                              },
+                 "tableEmpty":  "æœªæ‰¾åˆ°æ‰§è¡Œæ—¥å¿—ã€‚",
+                 "loginPrompt":  "ç™»å½•æ‚¨çš„å¸æˆ·å³å¯è®¿é—®å®žæ—¶æ•°æ®ï¼"
+             },
+    "landing":  {
+                    "nav":  {
+                                "features":  "Features",
+                                "howItWorks":  "How It Works",
+                                "signIn":  "Sign In",
+                                "getStarted":  "Get Started",
+                                "dashboard":  "Dashboard"
+                            },
+                    "hero":  {
+                                 "title":  "Automate repetitive tasks with Python in minutes",
+                                 "subtitle":  "Create powerful automations, bots, and workflows without leaving your browser. Pytomatiza+ turns complex Python scripting into visual, manageable processes.",
+                                 "cta":  "Start Automating",
+                                 "demo":  "Watch Demo"
+                             },
+                    "socialProof":  {
+                                        "title":  "Trusted by innovators",
+                                        "executions":  "Executions performed",
+                                        "companies":  "Companies trusting us",
+                                        "uptime":  "Uptime",
+                                        "integrations":  "Integrations"
+                                    },
+                    "howItWorks":  {
+                                       "title":  "How It Works",
+                                       "subtitle":  "Three simple steps to automate anything",
+                                       "step1":  {
+                                                     "title":  "Create Your Automation",
+                                                     "description":  "Describe what you need in natural language or use our visual builder. Our AI engine interprets your requirements and generates the perfect automation script."
+                                                 },
+                                       "step2":  {
+                                                     "title":  "Configure Parameters",
+                                                     "description":  "Fine-tune inputs, connect APIs, set schedules, and define conditions. Every parameter is customizable to match your exact workflow needs."
+                                                 },
+                                       "step3":  {
+                                                     "title":  "Execute \u0026 Monitor",
+                                                     "description":  "Run your automation instantly or schedule it. Monitor execution in real-time, review logs, and get instant notifications on completion."
+                                                 }
+                                   },
+                    "features":  {
+                                     "title":  "Everything You Need to Automate",
+                                     "subtitle":  "A complete platform for building, running, and monitoring automations",
+                                     "feature1":  {
+                                                      "title":  "Python Automations",
+                                                      "description":  "Write or generate Python scripts for any task. File processing, data transformation, API calls â€” all automated."
+                                                  },
+                                     "feature2":  {
+                                                      "title":  "Integrations",
+                                                      "description":  "Connect with Google Drive, Gmail, Google Sheets, and hundreds of APIs. Your tools, unified in one platform."
+                                                  },
+                                     "feature3":  {
+                                                      "title":  "Smart Scheduling",
+                                                      "description":  "Set precise schedules, recurring intervals, or trigger-based execution. Your automations run exactly when you need them."
+                                                  },
+                                     "feature4":  {
+                                                      "title":  "Real-time Monitoring",
+                                                      "description":  "Watch executions live, track performance metrics, and receive alerts. Complete visibility into every automation."
+                                                  },
+                                     "feature5":  {
+                                                      "title":  "Complete Audit Logs",
+                                                      "description":  "Every execution is logged with full details. Review, debug, and optimize your automations with comprehensive audit trails."
+                                                  },
+                                     "feature6":  {
+                                                      "title":  "Built to Scale",
+                                                      "description":  "From small tasks to enterprise workflows. Pytomatiza+ handles increased load without compromising performance."
+                                                  }
+                                 },
+                    "demo":  {
+                                 "title":  "See It in Action",
+                                 "subtitle":  "A visual platform designed for productivity",
+                                 "tabsLabel":  "Choose a view",
+                                 "workflows":  "Workflows",
+                                 "dashboard":  "Dashboard",
+                                 "editor":  "Editor",
+                                 "automations":  "Automations"
+                             },
+                    "benefits":  {
+                                     "title":  "Automation Without the Complexity",
+                                     "subtitle":  "See the difference Pytomatiza+ makes",
+                                     "withoutTitle":  "Without Pytomatiza+",
+                                     "withTitle":  "With Pytomatiza+",
+                                     "without":  {
+                                                     "manual":  "Manual, repetitive tasks",
+                                                     "errors":  "Error-prone processes",
+                                                     "delays":  "Slow execution times",
+                                                     "silos":  "Disconnected tools",
+                                                     "visibility":  "No visibility into execution"
+                                                 },
+                                     "with":  {
+                                                  "automation":  "Full automation of repetitive work",
+                                                  "accuracy":  "Zero human errors",
+                                                  "speed":  "Blazing fast execution",
+                                                  "integration":  "Unified platform",
+                                                  "insights":  "Complete visibility and control"
+                                              }
+                                 },
+                    "useCases":  {
+                                     "title":  "Automate Anything",
+                                     "subtitle":  "From simple tasks to complex enterprise workflows",
+                                     "case1":  {
+                                                   "title":  "Financial Automation",
+                                                   "description":  "Automate invoice processing, expense tracking, bank reconciliation, and financial report generation."
+                                               },
+                                     "case2":  {
+                                                   "title":  "Report Automation",
+                                                   "description":  "Generate and distribute automated reports from any data source. Scheduled, formatted, and delivered on time."
+                                               },
+                                     "case3":  {
+                                                   "title":  "Email Automation",
+                                                   "description":  "Automate email campaigns, notification sequences, attachment processing, and intelligent inbox management."
+                                               },
+                                     "case4":  {
+                                                   "title":  "API Automation",
+                                                   "description":  "Orchestrate multi-step API workflows. Connect services, transform data, and automate complex integrations."
+                                               },
+                                     "case5":  {
+                                                   "title":  "Spreadsheet Automation",
+                                                   "description":  "Process, transform, and analyze spreadsheet data automatically. Generate pivot tables, charts, and summaries."
+                                               },
+                                     "case6":  {
+                                                   "title":  "Business Process Automation",
+                                                   "description":  "Automate approval workflows, data entry, document processing, and compliance reporting for your entire organization."
+                                               }
+                                 },
+                    "cta":  {
+                                "title":  "Start Automating Today",
+                                "subtitle":  "Join thousands of professionals who have transformed their workflow with Pytomatiza+",
+                                "button":  "Enter Pytomatiza+"
+                            },
+                    "footer":  {
+                                   "description":  "The intelligent automation platform that thinks, learns, and executes.",
+                                   "copyright":  "Â© 2026 Pytomatiza+. All rights reserved.",
+                                   "product":  {
+                                                   "title":  "Product",
+                                                   "features":  "Features",
+                                                   "pricing":  "Pricing",
+                                                   "integrations":  "Integrations",
+                                                   "changelog":  "Changelog"
+                                               },
+                                   "resources":  {
+                                                     "title":  "Resources",
+                                                     "docs":  "Documentation",
+                                                     "api":  "API Reference",
+                                                     "blog":  "Blog",
+                                                     "help":  "Help Center"
+                                                 },
+                                   "company":  {
+                                                   "title":  "Company",
+                                                   "about":  "About",
+                                                   "careers":  "Careers",
+                                                   "blog":  "Blog",
+                                                   "contact":  "Contact"
+                                               },
+                                   "legal":  {
+                                                 "title":  "Legal",
+                                                 "privacy":  "Privacy Policy",
+                                                 "terms":  "Terms of Service",
+                                                 "cookies":  "Cookie Policy",
+                                                 "security":  "Security"
+                                             }
+                               },
+                    "a11y":  {
+                                 "mainNavigation":  "Main navigation",
+                                 "mobileNavigation":  "Mobile navigation",
+                                 "openMenu":  "Open menu",
+                                 "closeMenu":  "Close menu",
+                                 "heroIllustration":  "Pytomatiza+ platform illustration showing automation workflows and analytics dashboard"
+                             }
+                },
+    "brand":  {
+                  "tagline":  "äººå·¥æ™ºèƒ½é©±åŠ¨çš„è‡ªåŠ¨åŒ–å¯ä»¥æ€è€ƒã€å­¦ä¹ å’Œæ‰§è¡Œï¼Œå› æ­¤æ‚¨æ— éœ€è¿™æ ·åšã€‚",
+                  "feature1Title":  "è‡ªç„¶è¯­è¨€å·¥ä½œæµç¨‹",
+                  "feature1Desc":  "ç”¨ç®€å•çš„è‹±è¯­æè¿°ä»»åŠ¡ã€‚ æˆ‘ä»¬çš„ NLP å¼•æ“Žä¸ºæ‚¨æž„å»ºè‡ªåŠ¨åŒ–ã€‚",
+                  "feature2Title":  "å¤šä»£ç†ç¼–æŽ’",
+                  "feature2Desc":  "ä¸“ä¸šçš„äººå·¥æ™ºèƒ½ä»£ç†åä½œå¤„ç†å¤æ‚çš„å¤šæ­¥éª¤æµç¨‹ã€‚",
+                  "feature3Title":  "Enterprise-Grade å®‰å…¨",
+                  "feature3Desc":  "End-to-end åŠ å¯†ã€åŸºäºŽè§’è‰²çš„è®¿é—®å’Œå®Œæ•´çš„å®¡è®¡è·Ÿè¸ªã€‚"
+              }
 }

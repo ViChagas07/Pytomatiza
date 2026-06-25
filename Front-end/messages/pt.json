@@ -657,8 +657,10 @@
       "processing": {
         "button": "Processar documento",
         "processing": "Processando…",
+        "resultTitle": "Resultado da análise",
         "success": "Documento processado com sucesso!",
         "error": "Falha ao processar o documento. Tente novamente.",
+        "unsupportedFormat": "Formato de arquivo não suportado pelo OCR. Use PDF, PNG, JPG ou WebP.",
         "reprocessInstruction": "Reprocesse o documento {name} aplicando as mesmas transformações anteriores.",
         "confidence": "Confiança",
         "extractedText": "Texto extraído",

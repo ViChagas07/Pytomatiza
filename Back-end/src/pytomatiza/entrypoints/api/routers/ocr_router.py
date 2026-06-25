@@ -3,14 +3,18 @@
 from __future__ import annotations
 
 import logging
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Annotated
+from uuid import uuid4
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile, status
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from pytomatiza.application.dtos.ocr_dtos import OCRHealthResponse, OCRResponse
 from pytomatiza.application.services.ocr import OCRService
 from pytomatiza.config import settings
+from pytomatiza.domain.entities.automation_run import AutomationRun, RunStatus
 from pytomatiza.domain.entities.user import User
 from pytomatiza.domain.services.ocr.exceptions import (
     OCRError,
@@ -18,13 +22,16 @@ from pytomatiza.domain.services.ocr.exceptions import (
     OCRUnsupportedFormat,
 )
 from pytomatiza.domain.services.ocr.models import OCRHealth
-from pytomatiza.entrypoints.api.deps import get_current_user
+from pytomatiza.entrypoints.api.deps import get_current_user, get_db
 from pytomatiza.infrastructure.monitoring.prometheus_setup import (
     OCR_FAILURES_TOTAL,
     OCR_PAGES_PROCESSED,
     OCR_PROCESSING_SECONDS,
     OCR_PROVIDER_USAGE,
     OCR_REQUESTS_TOTAL,
+)
+from pytomatiza.infrastructure.repositories.sqlalchemy_automation_run_repository import (
+    SQLAlchemyAutomationRunRepository,
 )
 
 logger = logging.getLogger(__name__)
@@ -44,6 +51,7 @@ async def ocr_extract(
     extract: Annotated[bool, Form()] = True,
     current_user: Annotated[User, Depends(get_current_user)] = None,  # optional
     service: Annotated[OCRService, Depends(_get_ocr_service)] = None,
+    db: Annotated[AsyncSession, Depends(get_db)] = None,
 ) -> OCRResponse:
     """Upload an image or PDF and extract text via OCR.
 
@@ -84,6 +92,24 @@ async def ocr_extract(
 
     # ── Record success metrics ──────────────────────────────────────
     _record_success(file.filename or "unknown", result)
+
+    # ── Save execution record ─────────────────────────────────────
+    if current_user is not None and db is not None:
+        run_repo = SQLAlchemyAutomationRunRepository(db)
+        run = AutomationRun(
+            id=uuid4(),
+            workflow_id=None,
+            agent_id=None,
+            user_id=current_user.id,
+            status=RunStatus.SUCCESS,
+            input_payload={"filename": file.filename or "unknown", "language": language, "extract": extract},
+            output_result={"provider": result.get("provider", ""), "confidence": result.get("confidence", 0)},
+            error_message=None,
+            started_at=datetime.now(timezone.utc),
+            finished_at=datetime.now(timezone.utc),
+            created_at=datetime.now(timezone.utc),
+        )
+        await run_repo.save(run)
 
     return OCRResponse(**result)
 

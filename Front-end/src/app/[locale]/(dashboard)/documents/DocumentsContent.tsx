@@ -17,6 +17,7 @@ import {
   X,
   File,
   Download,
+  Copy,
   RefreshCw,
   Trash2,
   ScanText,
@@ -86,6 +87,7 @@ export function DocumentsContent() {
     extracted_fields?: Record<string, unknown> | null;
   } | null>(null);
   const [error, setError] = React.useState<string | null>(null);
+  const [copied, setCopied] = React.useState(false);
   const drive = useGoogleIntegration("drive");
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
@@ -180,10 +182,15 @@ export function DocumentsContent() {
         status: "completed",
       };
       setRecentDocs((prev) => [newDoc, ...prev]);
-    } catch {
+    } catch (err) {
       clearInterval(stageInterval);
       setProcessingStage("");
-      setError(t("processing.error"));
+      const message = err instanceof Error ? err.message : String(err);
+      if (message.includes("[-9")) {
+        setError(t("processing.unsupportedFormat"));
+      } else {
+        setError(t("processing.error"));
+      }
     } finally {
       setIsProcessing(false);
     }
@@ -242,6 +249,13 @@ export function DocumentsContent() {
     if (window.confirm(t("dialogs.deleteConfirm"))) {
       setRecentDocs((prev) => prev.filter((d) => d.id !== id));
     }
+  };
+
+  const handleCopyText = (text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
   };
 
   if (!loaded) return null;
@@ -446,6 +460,11 @@ export function DocumentsContent() {
               )}
               {result && ocrResult && (
                 <div className="mt-4 space-y-3">
+                  {/* Section header */}
+                  <h3 className="text-sm font-semibold text-[var(--text-primary)]">
+                    {t("processing.resultTitle")}
+                  </h3>
+
                   {/* Success banner */}
                   <div
                     className="flex items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-success)]/10 border border-[var(--color-success)]/30 px-4 py-3 text-sm text-[var(--color-success)]"
@@ -453,17 +472,35 @@ export function DocumentsContent() {
                   >
                     <CheckCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
                     {result}
-                    <span className="text-xs text-[var(--text-tertiary)] ml-auto">
-                      {t("processing.confidence")}: {ocrResult.confidence}% —{" "}
-                      {ocrResult.processing_time.toFixed(1)}s
+                    <span className="text-xs text-[var(--text-tertiary)] ml-auto flex items-center gap-2">
+                      <span>{t("processing.confidence")}: {ocrResult.confidence}%</span>
+                      <span>—</span>
+                      <span>{ocrResult.processing_time.toFixed(1)}s</span>
+                      <span>—</span>
+                      <span>{new Date().toLocaleString("pt-BR")}</span>
                     </span>
                   </div>
 
                   {/* Extracted text preview */}
                   <details className="rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--surface-0)]">
-                    <summary className="px-4 py-2.5 text-sm font-medium text-[var(--text-primary)] cursor-pointer hover:bg-[var(--surface-1)] select-none">
-                      {t("processing.extractedText")} ({ocrResult.pages.length}{" "}
-                      {ocrResult.pages.length === 1 ? "página" : "páginas"})
+                    <summary className="px-4 py-2.5 text-sm font-medium text-[var(--text-primary)] cursor-pointer hover:bg-[var(--surface-1)] select-none flex items-center gap-2">
+                      <span>{t("processing.extractedText")} ({ocrResult.pages.length}{" "}
+                        {ocrResult.pages.length === 1 ? "página" : "páginas"})</span>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleCopyText(ocrResult.text);
+                        }}
+                        aria-label="Copiar texto extraído"
+                        className="ml-auto inline-flex h-6 w-6 items-center justify-center rounded-[var(--radius-sm)] text-[var(--text-tertiary)] hover:bg-[var(--surface-2)] hover:text-[var(--text-primary)] transition-colors"
+                      >
+                        {copied ? (
+                          <CheckCircle className="h-3.5 w-3.5 text-[var(--color-success)]" aria-hidden="true" />
+                        ) : (
+                          <Copy className="h-3.5 w-3.5" aria-hidden="true" />
+                        )}
+                      </button>
                     </summary>
                     <div className="px-4 pb-3">
                       <pre className="text-xs text-[var(--text-secondary)] whitespace-pre-wrap font-mono max-h-48 overflow-y-auto bg-[var(--surface-1)] rounded p-3">

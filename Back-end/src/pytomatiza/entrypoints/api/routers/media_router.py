@@ -4,14 +4,21 @@ from __future__ import annotations
 
 import io
 import logging
+from datetime import datetime, timezone
 from typing import Annotated
+from uuid import uuid4
 
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
 from fastapi.responses import StreamingResponse
 from PIL import Image, ImageFilter
+from sqlalchemy.ext.asyncio import AsyncSession
 
+from pytomatiza.domain.entities.automation_run import AutomationRun, RunStatus
 from pytomatiza.domain.entities.user import User
-from pytomatiza.entrypoints.api.deps import get_current_user
+from pytomatiza.entrypoints.api.deps import get_current_user, get_db
+from pytomatiza.infrastructure.repositories.sqlalchemy_automation_run_repository import (
+    SQLAlchemyAutomationRunRepository,
+)
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -28,6 +35,7 @@ async def transform_media(
     quality: int = 85,
     format: str = "png",
     current_user: Annotated[User, Depends(get_current_user)] = None,
+    db: Annotated[AsyncSession, Depends(get_db)] = None,
 ):
     """Resize, convert format, compress, or apply filters to an image."""
     if file.content_type not in ALLOWED_MEDIA:
@@ -59,5 +67,23 @@ async def transform_media(
         save_kwargs["quality"] = quality
     img.save(buf, **save_kwargs)
     buf.seek(0)
+
+    # ── Save execution record ─────────────────────────────────────
+    if current_user is not None and db is not None:
+        run_repo = SQLAlchemyAutomationRunRepository(db)
+        run = AutomationRun(
+            id=uuid4(),
+            workflow_id=None,
+            agent_id=None,
+            user_id=current_user.id,
+            status=RunStatus.SUCCESS,
+            input_payload={"action": action, "filename": file.filename or "unknown"},
+            output_result={"format": fmt},
+            error_message=None,
+            started_at=datetime.now(timezone.utc),
+            finished_at=datetime.now(timezone.utc),
+            created_at=datetime.now(timezone.utc),
+        )
+        await run_repo.save(run)
 
     return StreamingResponse(buf, media_type=mime, headers={"Content-Disposition": f"attachment; filename=transformed.{format.lower()}"})
