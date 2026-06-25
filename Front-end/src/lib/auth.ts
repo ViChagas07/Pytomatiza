@@ -194,34 +194,56 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
   callbacks: {
     async jwt({ token, user, account }) {
-      // ── Initial sign-in ──────────────────────────────────────────
+      // ── Login via Google OAuth ───────────────────────────────────
+      if (account?.provider === "google" && account.id_token) {
+        token.id = user.id ?? token.id;
+        try {
+          // Troca o Google id_token por um JWT do backend FastAPI
+          const res = await fetch(`${getBackendUrl()}/api/v1/auth/google`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id_token: account.id_token }),
+          });
+          if (res.ok) {
+            const data = await res.json() as {
+              access_token: string;
+              refresh_token?: string;
+            };
+            token.backendToken = data.access_token;
+            token.refreshToken = data.refresh_token;
+            token.backendTokenExpires = Date.now() + 25 * 60 * 1000;
+            console.log("[auth] Google OAuth: backendToken obtained");
+          } else {
+            console.error("[auth] Google OAuth: backend exchange failed", res.status);
+            token.error = "GoogleBackendExchangeFailed";
+          }
+        } catch (err) {
+          console.error("[auth] Google OAuth: network error", err);
+          token.error = "GoogleBackendExchangeFailed";
+        }
+        return token;
+      }
+
+      // ── Login via Credentials ────────────────────────────────────
       if (user) {
         token.id = user.id;
         if (user.backendToken) {
           token.backendToken = user.backendToken;
-          // Set a self-managed 25-min expiry to proactively refresh
-          // before the backend's actual 7-day JWT expires.
           token.backendTokenExpires = Date.now() + 25 * 60 * 1000;
         }
         if (user.refreshToken) {
           token.refreshToken = user.refreshToken;
         }
-        // Also handle Google OAuth sign-in (account.provider === "google")
-        if (account?.provider === "google" && account.id_token) {
-          // Google users get backendToken from the backend via OAuth flow
-          // The backend redirect already handled this — nothing extra needed.
-        }
         return token;
       }
 
-      // ── Subsequent calls (user is undefined) ─────────────────────
-      // If the backend token is still fresh, return it as-is.
+      // ── Chamadas subsequentes — verifica expiração ───────────────
       const expiresAt = token.backendTokenExpires as number | undefined;
       if (token.backendToken && expiresAt && Date.now() < expiresAt) {
         return token;
       }
 
-      // ── Token expired or expiring soon — try to refresh ─────────
+      // ── Token expirado — tenta refresh ──────────────────────────
       if (token.backendToken && token.refreshToken) {
         const result = await tryRefreshToken(
           token.backendToken as string,
@@ -230,17 +252,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         if (result.access_token) {
           token.backendToken = result.access_token;
           token.backendTokenExpires = Date.now() + 25 * 60 * 1000;
-          if (result.refresh_token) {
-            token.refreshToken = result.refresh_token;
-          }
-          // Clear any previous error
+          if (result.refresh_token) token.refreshToken = result.refresh_token;
           delete token.error;
         } else {
-          // Refresh failed — mark the session as errored.
-          // The client can read session.error to show a "re-login" banner.
           token.error = "RefreshTokenExpired";
-          // Keep the old (possibly expired) backendToken intact so the
-          // client can still attempt a request (and get a 401).
         }
       }
 

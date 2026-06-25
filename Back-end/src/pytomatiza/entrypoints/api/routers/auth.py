@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import time
+import uuid
 from datetime import datetime, timedelta, timezone
 from typing import Annotated, Any
 
@@ -214,6 +215,84 @@ async def confirm_password_reset(
 
     return result.model_dump()
 
+
+_GOOGLE_TOKENINFO_URL = "https://oauth2.googleapis.com/tokeninfo"
+
+
+@router.post("/google", response_model=None)
+async def google_auth(
+    body: dict[str, str],
+    db: Annotated[AsyncSession, Depends(get_db)],
+) -> dict[str, str]:
+    """Exchange a Google id_token for a backend JWT access token.
+
+    Validates the id_token with Google's tokeninfo endpoint, then
+    looks up or creates a user by email. Returns backend JWT tokens
+    that the frontend can use to authenticate subsequent API calls.
+    """
+    import httpx
+
+    from pytomatiza.domain.entities.user import User
+    from pytomatiza.domain.value_objects.email import Email
+
+    id_token: str | None = body.get("id_token")
+    if not id_token:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="id_token is required",
+        )
+
+    # ── Validate id_token via Google's tokeninfo endpoint ────────
+    async with httpx.AsyncClient() as client:
+        resp = await client.get(
+            _GOOGLE_TOKENINFO_URL,
+            params={"id_token": id_token},
+        )
+        if resp.status_code != 200:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Invalid Google id_token",
+            )
+        claims: dict[str, Any] = resp.json()
+
+    if claims.get("aud") != settings.GOOGLE_CLIENT_ID:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Google id_token audience mismatch",
+        )
+    if not claims.get("email_verified", False):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Google account email is not verified",
+        )
+
+    email_str: str = claims["email"]
+    name: str = claims.get("name", email_str.split("@")[0])
+
+    # ── Find or create user ─────────────────────────────────────
+    repo = SQLAlchemyUserRepository(db)
+    user: User | None = await repo.find_by_email(email_str)
+    if user is None:
+        user = User(
+            id=uuid.uuid4(),
+            email=Email(email_str),
+            hashed_password=None,
+            name=name,
+            is_active=True,
+            is_verified=True,
+            oauth_provider="google",
+            created_at=datetime.now(timezone.utc),
+        )
+        await repo.save(user)
+
+    # ── Generate backend JWT tokens ─────────────────────────────
+    token_service = JWTTokenService()
+    tokens: TokenResponse = token_service.generate_tokens(str(user.id))
+    return {
+        "access_token": tokens.access_token,
+        "refresh_token": tokens.refresh_token,
+        "token_type": "bearer",
+    }
 
 
 @router.get("/me", response_model=UserResponse)
