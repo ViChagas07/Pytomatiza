@@ -73,7 +73,11 @@ class IntegrationTokenModel(Base):
     )
 
     # Relationship
-    user = relationship("UserModel", backref="integration_tokens")
+    user = relationship(
+        "UserModel",
+        foreign_keys="[IntegrationTokenModel.user_id]",
+        backref="integration_tokens",
+    )
 
     def __repr__(self) -> str:
         return (
