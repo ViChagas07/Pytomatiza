@@ -419,6 +419,46 @@ interface ClientFetchOptions extends Omit<RequestInit, "body"> {
  *   - componente/página     → trata 401 específico (ex: IntegrationPanel)
  * ═══════════════════════════════════════════════════════════════════════
  */
+/**
+ * Raw fetch sem autenticação — usado apenas para endpoints públicos
+ * como login e register, que não exigem Bearer token.
+ */
+async function publicFetch<T>(
+  endpoint: string,
+  options: { method?: string; body?: unknown } = {}
+): Promise<ApiResponse<T>> {
+  try {
+    const response = await fetch(`${API_BASE}${endpoint}`, {
+      method: options.method ?? "GET",
+      headers: { "Content-Type": "application/json" },
+      body: options.body ? JSON.stringify(options.body) : undefined,
+    });
+
+    const status = response.status;
+
+    if (!response.ok) {
+      let message = "Request failed";
+      try {
+        const err = await response.json() as { detail?: string; message?: string };
+        message = err.detail ?? err.message ?? message;
+      } catch { /* ignore */ }
+      return { data: null, error: { code: "API_ERROR", message }, status };
+    }
+
+    const data = await response.json() as T;
+    return { data, error: null, status };
+  } catch (err) {
+    return {
+      data: null,
+      error: {
+        code: "NETWORK_ERROR",
+        message: err instanceof Error ? err.message : "Network error",
+      },
+      status: 0,
+    };
+  }
+}
+
 export async function clientFetch<T>(
   endpoint: string,
   options: ClientFetchOptions = {}
@@ -520,14 +560,14 @@ export async function clientFetch<T>(
 export const api = {
   /* Auth */
   login: (email: string, password: string) =>
-    clientFetch<{
+    publicFetch<{
       access_token: string;
       refresh_token: string;
       token_type: string;
     }>("/auth/login", { method: "POST", body: { email, password } }),
 
   register: (data: { name: string; email: string; password: string }) =>
-    clientFetch<{
+    publicFetch<{
       access_token: string;
       refresh_token: string;
       token_type: string;
