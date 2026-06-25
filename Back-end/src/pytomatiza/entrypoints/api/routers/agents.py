@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
+from datetime import datetime, timezone
 from typing import Annotated
-from uuid import UUID
+from uuid import UUID, uuid4
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -19,11 +20,15 @@ from pytomatiza.application.use_cases.agents.activate_agent import (
 )
 from pytomatiza.application.use_cases.agents.list_agents import ListAgentsUseCase
 from pytomatiza.application.use_cases.agents.run_agent import RunAgentUseCase
+from pytomatiza.domain.entities.automation_run import AutomationRun, RunStatus
 from pytomatiza.domain.entities.user import User
 from pytomatiza.domain.exceptions.base import EntityNotFound
 from pytomatiza.entrypoints.api.deps import get_current_user, get_db
 from pytomatiza.infrastructure.repositories.sqlalchemy_agent_repository import (
     SQLAlchemyAgentRepository,
+)
+from pytomatiza.infrastructure.repositories.sqlalchemy_automation_run_repository import (
+    SQLAlchemyAutomationRunRepository,
 )
 
 router = APIRouter()
@@ -96,12 +101,44 @@ async def run_agent(
     repo = SQLAlchemyAgentRepository(db)
     agent = await repo.find_by_id(agent_id)
     if agent is None or agent.owner_id != current_user.id:
+        if current_user is not None:
+            run_repo = SQLAlchemyAutomationRunRepository(db)
+            run = AutomationRun(
+                id=uuid4(),
+                workflow_id=None,
+                agent_id=agent_id,
+                user_id=current_user.id,
+                status=RunStatus.FAILED,
+                input_payload={"prompt": command.prompt},
+                output_result=None,
+                error_message="Agent not found.",
+                started_at=datetime.now(timezone.utc),
+                finished_at=datetime.now(timezone.utc),
+                created_at=datetime.now(timezone.utc),
+            )
+            await run_repo.save(run)
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Agent not found.",
         )
     use_case = RunAgentUseCase(agent_repo=repo)
-    return await use_case.execute(agent_id=agent_id, command=command)
+    result = await use_case.execute(agent_id=agent_id, command=command)
+    run_repo = SQLAlchemyAutomationRunRepository(db)
+    run = AutomationRun(
+        id=uuid4(),
+        workflow_id=None,
+        agent_id=agent_id,
+        user_id=current_user.id,
+        status=RunStatus.SUCCESS if result.accepted else RunStatus.FAILED,
+        input_payload={"prompt": command.prompt},
+        output_result={"response": result.response_text} if result.accepted else None,
+        error_message=result.refusal_reason if not result.accepted else None,
+        started_at=datetime.now(timezone.utc),
+        finished_at=datetime.now(timezone.utc),
+        created_at=datetime.now(timezone.utc),
+    )
+    await run_repo.save(run)
+    return result
 
 
 @router.post("/{agent_id}/pause", response_model=AgentResponse)
@@ -114,6 +151,22 @@ async def pause_agent(
     repo = SQLAlchemyAgentRepository(db)
     agent = await repo.find_by_id(agent_id)
     if agent is None or agent.owner_id != current_user.id:
+        if current_user is not None:
+            run_repo = SQLAlchemyAutomationRunRepository(db)
+            run = AutomationRun(
+                id=uuid4(),
+                workflow_id=None,
+                agent_id=agent_id,
+                user_id=current_user.id,
+                status=RunStatus.FAILED,
+                input_payload={"action": "pause"},
+                output_result=None,
+                error_message="Agent not found.",
+                started_at=datetime.now(timezone.utc),
+                finished_at=datetime.now(timezone.utc),
+                created_at=datetime.now(timezone.utc),
+            )
+            await run_repo.save(run)
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Agent not found.",
@@ -121,6 +174,21 @@ async def pause_agent(
     # TODO: Integrate with CrewAI agent pause mechanism
     agent.deactivate()
     await repo.save(agent)
+    run_repo = SQLAlchemyAutomationRunRepository(db)
+    run = AutomationRun(
+        id=uuid4(),
+        workflow_id=None,
+        agent_id=agent_id,
+        user_id=current_user.id,
+        status=RunStatus.SUCCESS,
+        input_payload={"action": "pause"},
+        output_result=None,
+        error_message=None,
+        started_at=datetime.now(timezone.utc),
+        finished_at=datetime.now(timezone.utc),
+        created_at=datetime.now(timezone.utc),
+    )
+    await run_repo.save(run)
     return AgentResponse.model_validate(agent, from_attributes=True)
 
 
@@ -134,6 +202,22 @@ async def resume_agent(
     repo = SQLAlchemyAgentRepository(db)
     agent = await repo.find_by_id(agent_id)
     if agent is None or agent.owner_id != current_user.id:
+        if current_user is not None:
+            run_repo = SQLAlchemyAutomationRunRepository(db)
+            run = AutomationRun(
+                id=uuid4(),
+                workflow_id=None,
+                agent_id=agent_id,
+                user_id=current_user.id,
+                status=RunStatus.FAILED,
+                input_payload={"action": "resume"},
+                output_result=None,
+                error_message="Agent not found.",
+                started_at=datetime.now(timezone.utc),
+                finished_at=datetime.now(timezone.utc),
+                created_at=datetime.now(timezone.utc),
+            )
+            await run_repo.save(run)
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Agent not found.",
@@ -141,4 +225,19 @@ async def resume_agent(
     # TODO: Integrate with CrewAI agent resume mechanism
     agent.activate()
     await repo.save(agent)
+    run_repo = SQLAlchemyAutomationRunRepository(db)
+    run = AutomationRun(
+        id=uuid4(),
+        workflow_id=None,
+        agent_id=agent_id,
+        user_id=current_user.id,
+        status=RunStatus.SUCCESS,
+        input_payload={"action": "resume"},
+        output_result=None,
+        error_message=None,
+        started_at=datetime.now(timezone.utc),
+        finished_at=datetime.now(timezone.utc),
+        created_at=datetime.now(timezone.utc),
+    )
+    await run_repo.save(run)
     return AgentResponse.model_validate(agent, from_attributes=True)
