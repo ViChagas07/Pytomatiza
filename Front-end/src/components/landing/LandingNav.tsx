@@ -92,7 +92,7 @@ export function LandingNav() {
             </Button>
           )}
           <Link href={isLoggedIn ? "/dashboard" : "/login"}>
-            <Button variant="primary" size="sm" className="!text-[var(--text-primary)] inline-flex items-center gap-1">
+            <Button variant="primary" size="sm" className="!text-black font-bold inline-flex items-center gap-1">
               {isLoggedIn && <LayoutDashboard className="h-3.5 w-3.5" />}
               {isLoggedIn ? t("nav.dashboard") : t("nav.getStarted")}
             </Button>
@@ -103,7 +103,7 @@ export function LandingNav() {
         <div className="flex items-center gap-2 md:hidden">
           <Link
             href={isLoggedIn ? "/dashboard" : "/login"}
-            className="text-[11px] font-semibold rounded-[var(--radius-md)] bg-[var(--brand-accent)] text-black px-3 py-1.5 hover:bg-[var(--brand-accent-hover)] transition-colors whitespace-nowrap inline-flex items-center gap-1"
+            className="text-[11px] font-bold rounded-[var(--radius-md)] bg-[var(--brand-accent)] text-black px-3 py-1.5 hover:bg-[var(--brand-accent-hover)] transition-colors whitespace-nowrap inline-flex items-center gap-1"
           >
             {isLoggedIn && <LayoutDashboard className="h-3.5 w-3.5" />}
             {isLoggedIn ? t("nav.dashboard") : t("nav.getStarted") || "Começar agora"}
