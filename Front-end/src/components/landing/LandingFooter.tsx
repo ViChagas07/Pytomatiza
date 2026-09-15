@@ -34,9 +34,9 @@ const resourceLinks = ["footer.resources.docs", "footer.resources.api", "footer.
 const legalLinks = ["footer.legal.privacy", "footer.legal.terms", "footer.legal.cookies", "footer.legal.security"];
 
 const socialLinks = [
-  { key: "footer.social.github", Icon: GithubGlyph, href: "https://github.com" },
-  { key: "footer.social.linkedin", Icon: LinkedinGlyph, href: "https://linkedin.com" },
-  { key: "footer.social.instagram", Icon: InstagramGlyph, href: "https://instagram.com" },
+  { key: "footer.social.github", Icon: GithubGlyph, href: "https://github.com/ViChagas07" },
+  { key: "footer.social.linkedin", Icon: LinkedinGlyph, href: "https://www.linkedin.com/in/alisson-davi-0819242a7/" },
+  { key: "footer.social.instagram", Icon: InstagramGlyph, href: "https://www.instagram.com/vi_chagas7/" },
 ];
 
 const columns = [

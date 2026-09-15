@@ -1280,7 +1280,8 @@
       "mobileNavigation": "Mobile navigation",
       "openMenu": "Open menu",
       "closeMenu": "Close menu",
-      "heroIllustration": "Pytomatiza+ platform illustration showing automation workflows and analytics dashboard"
+      "heroIllustration": "Pytomatiza+ platform illustration showing automation workflows and analytics dashboard",
+      "scrollToTop": "Back to top"
     },
     "trust": {
       "label": "Integrations with the tools you already use"

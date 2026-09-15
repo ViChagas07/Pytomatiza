@@ -3,7 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Menu, X, LayoutDashboard } from "lucide-react";
+import { Menu, X, LayoutDashboard, ArrowUp } from "lucide-react";
 import { useSession, signIn } from "next-auth/react";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
@@ -15,6 +15,7 @@ export function LandingNav() {
   const isLoggedIn = !!session?.user;
   const [scrolled, setScrolled] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [pastHero, setPastHero] = React.useState(false);
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
@@ -22,10 +23,28 @@ export function LandingNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  /* ── Show floating controls only after passing the Hero section ── */
+  React.useEffect(() => {
+    const hero = document.getElementById("hero-heading");
+    const section = hero?.closest("section");
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setPastHero(!entry.isIntersecting),
+      { rootMargin: "0px 0px -8% 0px", threshold: 0 }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   React.useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const navLinks = [
     { href: "#features", label: t("nav.features") },
@@ -103,7 +122,14 @@ export function LandingNav() {
         <div className="flex items-center gap-2 md:hidden">
           <Link
             href={isLoggedIn ? "/dashboard" : "/login"}
-            className="text-[11px] font-bold rounded-[var(--radius-md)] bg-[var(--brand-accent)] text-black px-3 py-1.5 hover:bg-[var(--brand-accent-hover)] transition-colors whitespace-nowrap inline-flex items-center gap-1"
+            className={cn(
+              "text-[11px] font-bold rounded-[var(--radius-md)] bg-[var(--brand-accent)] text-black px-3 py-1.5 hover:bg-[var(--brand-accent-hover)] transition-all duration-300 whitespace-nowrap inline-flex items-center gap-1",
+              pastHero && !mobileOpen
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 -translate-y-2 pointer-events-none"
+            )}
+            aria-hidden={!pastHero || mobileOpen}
+            tabIndex={pastHero && !mobileOpen ? 0 : -1}
           >
             {isLoggedIn && <LayoutDashboard className="h-3.5 w-3.5" />}
             {isLoggedIn ? t("nav.dashboard") : t("nav.getStarted") || "Começar agora"}
@@ -119,6 +145,23 @@ export function LandingNav() {
           </button>
         </div>
       </div>
+
+      {/* ── Scroll-to-top floating button (mobile) ─────────────────── */}
+      <button
+        type="button"
+        onClick={scrollToTop}
+        aria-label={t("a11y.scrollToTop")}
+        className={cn(
+          "fixed bottom-5 right-5 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--brand-accent)] text-black shadow-[var(--shadow-md)] transition-all duration-300 md:hidden",
+          pastHero
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-3 pointer-events-none"
+        )}
+        aria-hidden={!pastHero}
+        tabIndex={pastHero ? 0 : -1}
+      >
+        <ArrowUp className="h-5 w-5" aria-hidden="true" />
+      </button>
 
       {mobileOpen && (
         <div className="border-t border-[var(--border-default)] bg-[var(--surface-0)] md:hidden">
