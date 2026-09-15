@@ -3,7 +3,6 @@
 import { SectionWrapper } from "./SectionWrapper";
 import { LandingNav } from "./LandingNav";
 import { HeroSection } from "./HeroSection";
-import { SocialProofSection } from "./SocialProofSection";
 import { HowItWorksSection } from "./HowItWorksSection";
 import { FeaturesSection } from "./FeaturesSection";
 import { DemoSection } from "./DemoSection";
@@ -20,10 +19,6 @@ export function LandingPage() {
       <main id="main-content" className="pt-14">
         <SectionWrapper>
           <HeroSection />
-        </SectionWrapper>
-
-        <SectionWrapper>
-          <SocialProofSection />
         </SectionWrapper>
 
         <SectionWrapper>
