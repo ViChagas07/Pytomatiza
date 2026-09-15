@@ -52,13 +52,14 @@ export function LandingNav() {
   ];
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 z-50 h-14 w-full border-b border-[var(--border-default)]",
-        scrolled ? "bg-[var(--surface-0)]/85 backdrop-blur-[8px]" : "bg-[var(--surface-0)]"
-      )}
-      role="banner"
-    >
+    <>
+      <header
+        className={cn(
+          "fixed top-0 z-50 h-14 w-full border-b border-[var(--border-default)]",
+          scrolled ? "bg-[var(--surface-0)]/85 backdrop-blur-[8px]" : "bg-[var(--surface-0)]"
+        )}
+        role="banner"
+      >
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 lg:px-6">
         {/* Logo — compact on mobile, full on desktop */}
         <Link href={isLoggedIn ? "/dashboard" : "/"} className="flex items-center gap-2 shrink-0">
@@ -142,23 +143,6 @@ export function LandingNav() {
         </div>
       </div>
 
-      {/* ── Scroll-to-top floating button (mobile) ─────────────────── */}
-      <button
-        type="button"
-        onClick={scrollToTop}
-        aria-label={t("a11y.scrollToTop")}
-        className={cn(
-          "fixed bottom-5 right-5 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--brand-accent)] text-black shadow-[var(--shadow-md)] transition-all duration-300 md:hidden",
-          pastHero
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-3 pointer-events-none"
-        )}
-        aria-hidden={!pastHero}
-        tabIndex={pastHero ? 0 : -1}
-      >
-        <ArrowUp className="h-5 w-5" aria-hidden="true" />
-      </button>
-
       {mobileOpen && (
         <div className="border-t border-[var(--border-default)] bg-[var(--surface-0)] md:hidden">
           <nav className="flex flex-col gap-2 p-4" aria-label={t("a11y.mobileNavigation")}>
@@ -192,6 +176,24 @@ export function LandingNav() {
           </nav>
         </div>
       )}
-    </header>
+      </header>
+
+      {/* ── Scroll-to-top floating button (mobile) ─────────────────── */}
+      <button
+        type="button"
+        onClick={scrollToTop}
+        aria-label={t("a11y.scrollToTop")}
+        className={cn(
+          "fixed bottom-4 right-4 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--brand-accent)] text-black shadow-[var(--shadow-md)] transition-all duration-300 md:hidden",
+          pastHero
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-3 pointer-events-none"
+        )}
+        aria-hidden={!pastHero}
+        tabIndex={pastHero ? 0 : -1}
+      >
+        <ArrowUp className="h-5 w-5" aria-hidden="true" />
+      </button>
+    </>
   );
 }
