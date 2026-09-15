@@ -21,7 +21,7 @@ export function HighlightSection() {
     <section
       id="highlights"
       aria-labelledby="highlights-heading"
-      className="relative py-16 md:py-24"
+      className="relative overflow-hidden py-16 md:py-24"
     >
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-1/4 left-1/2 h-[36rem] w-[60rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,120,60,0.10),transparent_60%)] blur-2xl" />
@@ -83,18 +83,18 @@ interface HighlightBlockProps {
 function HighlightBlock({ title, description, checks, cta, mockup, reversed }: HighlightBlockProps) {
   return (
     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-      <div className={reversed ? "lg:order-2" : ""}>
+      <div className={`text-center lg:text-left ${reversed ? "lg:order-2" : ""}`}>
         <h3
           className="text-2xl font-bold md:text-3xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
           {title}
         </h3>
-        <p className="mt-4 text-base text-[var(--text-secondary)]">
+        <p className="mx-auto mt-4 max-w-xl text-base text-[var(--text-secondary)] lg:mx-0">
           {description}
         </p>
 
-        <ul className="mt-6 space-y-3">
+        <ul className="mx-auto mt-6 max-w-sm space-y-3 text-left lg:mx-0">
           {checks.map((check) => (
             <li key={check} className="flex items-start gap-3">
               <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-success)]" aria-hidden="true" />

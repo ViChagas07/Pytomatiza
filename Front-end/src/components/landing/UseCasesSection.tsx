@@ -11,7 +11,7 @@ export function UseCasesSection() {
   return (
     <section
       aria-labelledby="use-cases-heading"
-      className="relative py-16 md:py-24"
+      className="relative overflow-hidden py-16 md:py-24"
     >
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-0 left-[-5%] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(255,140,70,0.08),transparent_65%)] blur-2xl" />

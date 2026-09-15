@@ -89,7 +89,7 @@ export function LandingNav() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          {isLoggedIn ? (
+          {isLoggedIn && (
             <Link href="/dashboard">
               {session.user.image ? (
                 <Image
@@ -105,10 +105,6 @@ export function LandingNav() {
                 </Button>
               )}
             </Link>
-          ) : (
-            <Button variant="ghost" size="sm" onClick={() => signIn()}>
-              {t("nav.signIn")}
-            </Button>
           )}
           <Link href={isLoggedIn ? "/dashboard" : "/login"}>
             <Button variant="primary" size="sm" className="!text-black font-bold inline-flex items-center gap-1">

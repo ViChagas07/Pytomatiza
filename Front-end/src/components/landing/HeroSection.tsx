@@ -2,11 +2,14 @@
 
 import { useTranslations } from "next-intl";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { useSession } from "next-auth/react";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
 
 export function HeroSection() {
   const t = useTranslations("landing");
+  const { data: session } = useSession();
+  const isLoggedIn = !!session?.user;
 
   return (
     <section
@@ -22,7 +25,7 @@ export function HeroSection() {
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-6">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
-          <div>
+          <div className="text-center sm:text-left">
             {/* ── "What's New" style badge ──────────────────────── */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--border-default)] bg-[var(--surface-0)]/70 py-1 pl-2 pr-3 text-xs font-medium text-[var(--text-secondary)] shadow-[var(--shadow-xs)] backdrop-blur-sm">
               <span className="inline-flex items-center rounded-full bg-[var(--brand-accent)]/15 px-2 py-0.5 text-[var(--brand-accent-dynamic)]">
@@ -39,15 +42,15 @@ export function HeroSection() {
             >
               {t("hero.title")}
             </h1>
-            <p className="mt-5 max-w-xl text-lg text-[var(--text-secondary)] md:text-xl">
+            <p className="mx-auto mt-5 max-w-xl text-lg text-[var(--text-secondary)] sm:mx-0 md:text-xl">
               {t("hero.subtitle")}
             </p>
 
             {/* ── Dual CTAs ────────────────────────────────────── */}
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link href="/login">
+            <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row sm:justify-start">
+              <Link href={isLoggedIn ? "/dashboard" : "/login"}>
                 <Button variant="primary" size="lg" className="w-full sm:w-auto">
-                  {t("hero.cta")}
+                  {isLoggedIn ? t("nav.dashboard") : t("hero.cta")}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Button>
               </Link>

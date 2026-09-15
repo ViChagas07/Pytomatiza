@@ -12,7 +12,7 @@ export function HowItWorksSection() {
     <section
       id="how-it-works"
       aria-labelledby="how-it-works-heading"
-      className="relative py-16 md:py-24"
+      className="relative overflow-hidden py-16 md:py-24"
     >
       {/* ── Subtle section glow ─────────────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">

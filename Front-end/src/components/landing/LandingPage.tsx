@@ -14,7 +14,7 @@ import { LandingFooter } from "./LandingFooter";
 
 export function LandingPage() {
   return (
-    <div className="min-h-screen bg-[var(--surface-0)]">
+    <div className="min-h-screen overflow-x-hidden bg-[var(--surface-0)]">
       <LandingNav />
 
       <main id="main-content" className="pt-14">
