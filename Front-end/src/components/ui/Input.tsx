@@ -22,6 +22,8 @@ export interface InputProps
   wrapperClassName?: string;
   /** Class name for the label element */
   labelClassName?: string;
+  /** Node rendered inside the input, on the right edge */
+  endAdornment?: React.ReactNode;
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -33,6 +35,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       hideLabel = false,
       wrapperClassName,
       labelClassName,
+      endAdornment,
       className,
       id,
       ...props
@@ -65,27 +68,34 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {label}
         </label>
 
-        <input
-          ref={ref}
-          id={inputId}
-          aria-invalid={hasError ? true : undefined}
-          aria-describedby={describedBy}
-          data-testid="input"
-          className={cn(
-            "flex h-11 w-full rounded-[var(--radius-md)]",
-            "bg-[var(--surface-0)] px-3 py-2 text-sm",
-            "border transition-colors",
-            "placeholder:text-[var(--text-tertiary)]",
-            "focus-visible:outline-2 focus-visible:outline-offset-1",
-            "focus-visible:outline-[var(--brand-accent)]",
-            "disabled:cursor-not-allowed disabled:opacity-50",
-            hasError
-              ? "border-[var(--color-danger)] focus-visible:outline-[var(--color-danger)]"
-              : "border-[var(--border-default)] hover:border-[var(--border-strong)]",
-            className
+        <div className="relative">
+          <input
+            ref={ref}
+            id={inputId}
+            aria-invalid={hasError ? true : undefined}
+            aria-describedby={describedBy}
+            data-testid="input"
+            className={cn(
+              "flex h-11 w-full rounded-[var(--radius-md)]",
+              "bg-[var(--surface-0)] px-3 py-2 text-sm",
+              "border transition-colors",
+              "placeholder:text-[var(--text-tertiary)]",
+              "focus-visible:outline-2 focus-visible:outline-offset-1",
+              "focus-visible:outline-[var(--brand-accent)]",
+              "disabled:cursor-not-allowed disabled:opacity-50",
+              hasError
+                ? "border-[var(--color-danger)] focus-visible:outline-[var(--color-danger)]"
+                : "border-[var(--border-default)] hover:border-[var(--border-strong)]",
+              className
+            )}
+            {...props}
+          />
+          {endAdornment && (
+            <div className="absolute inset-y-0 right-1 flex items-center">
+              {endAdornment}
+            </div>
           )}
-          {...props}
-        />
+        </div>
 
         {hasError && (
           <p

@@ -367,11 +367,11 @@ export function AuthForm() {
                   />
                   <label htmlFor="consent-checkbox" className="text-xs text-white/80 leading-relaxed cursor-pointer">
                     Li e concordo com os{" "}
-                    <a href="/privacy-policy" target="_blank" className="text-[var(--brand-accent-light)] hover:underline font-medium">
+                    <a href="/privacy-policy" target="_blank" className="text-white hover:underline font-medium">
                       Termos de Uso
                     </a>{" "}
                     e a{" "}
-                    <a href="/privacy-policy" target="_blank" className="text-[var(--brand-accent-light)] hover:underline font-medium">
+                    <a href="/privacy-policy" target="_blank" className="text-white hover:underline font-medium">
                       Política de Privacidade
                     </a>{" "}
                     do Pytomatiza+.
@@ -499,11 +499,11 @@ export function AuthForm() {
                   />
                   <label htmlFor="consent-checkbox-signup" className="text-xs text-white/80 leading-relaxed cursor-pointer">
                     Li e concordo com os{" "}
-                    <a href="/privacy-policy" target="_blank" className="text-[var(--brand-accent-light)] hover:underline font-medium">
+                    <a href="/privacy-policy" target="_blank" className="text-white hover:underline font-medium">
                       Termos de Uso
                     </a>{" "}
                     e a{" "}
-                    <a href="/privacy-policy" target="_blank" className="text-[var(--brand-accent-light)] hover:underline font-medium">
+                    <a href="/privacy-policy" target="_blank" className="text-white hover:underline font-medium">
                       Política de Privacidade
                     </a>{" "}
                     do Pytomatiza+.
