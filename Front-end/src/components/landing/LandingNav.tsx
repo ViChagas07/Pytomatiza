@@ -184,7 +184,7 @@ export function LandingNav() {
         onClick={scrollToTop}
         aria-label={t("a11y.scrollToTop")}
         className={cn(
-          "fixed bottom-4 right-4 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--brand-accent)] text-black shadow-[var(--shadow-md)] transition-all duration-300 md:hidden",
+          "fixed bottom-4 right-4 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--brand-accent)] text-black shadow-[var(--shadow-md)] transition-all duration-300",
           pastHero
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-3 pointer-events-none"
