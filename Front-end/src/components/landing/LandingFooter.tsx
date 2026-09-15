@@ -19,7 +19,7 @@ export function LandingFooter() {
   return (
     <footer className="border-t border-[var(--border-default)] bg-[var(--surface-0)] py-12 md:py-16" role="contentinfo">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-3">
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-2 text-lg font-bold tracking-tight">
               <Image
@@ -40,28 +40,30 @@ export function LandingFooter() {
             </p>
           </div>
 
-          {columns.map((col) => (
-            <div key={col.title}>
-              <h3 className="text-sm font-semibold text-[var(--text-primary)]">{t(col.title)}</h3>
-              <ul className="mt-4 space-y-3">
-                {col.links.map((key) => {
-                  const href = key.includes("privacy") || key.includes("terms") || key.includes("cookies") || key.includes("security")
-                    ? "/privacy-policy"
-                    : "#";
-                  return (
-                    <li key={key}>
-                      <Link
-                        href={href}
-                        className="text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
-                      >
-                        {t(key)}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
+          <div className="grid grid-cols-2 gap-8 md:col-span-2 md:grid-cols-2">
+            {columns.map((col) => (
+              <div key={col.title}>
+                <h3 className="text-sm font-semibold text-[var(--text-primary)]">{t(col.title)}</h3>
+                <ul className="mt-4 space-y-3">
+                  {col.links.map((key) => {
+                    const href = key.includes("privacy") || key.includes("terms") || key.includes("cookies") || key.includes("security")
+                      ? "/privacy-policy"
+                      : "#";
+                    return (
+                      <li key={key}>
+                        <Link
+                          href={href}
+                          className="text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                        >
+                          {t(key)}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-12 border-t border-[var(--border-default)] pt-6 text-center text-sm text-[var(--text-tertiary)]">

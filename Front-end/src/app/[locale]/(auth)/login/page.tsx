@@ -7,7 +7,6 @@
 import { type Metadata } from "next";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { SkipLink } from "@/components/ui/SkipLink";
 import { AuthForm } from "@/components/auth";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -54,8 +53,6 @@ export default async function LoginPage({ params }: LoginPageProps) {
 
   return (
     <>
-      <SkipLink />
-
       {/* ── Full-screen background image ────────────────────────── */}
       <div className="fixed inset-0 -z-10" aria-hidden="true">
         <Image

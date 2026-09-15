@@ -11,7 +11,7 @@ export function CTASection() {
   const { data: session } = useSession();
 
   return (
-    <section aria-labelledby="cta-heading" className="py-16 md:py-24">
+    <section aria-labelledby="cta-heading" className="pt-16 pb-8 md:py-24">
       <div className="mx-auto max-w-4xl px-4 lg:px-6">
         <div className="relative overflow-hidden rounded-[var(--radius-lg)] bg-gradient-to-br from-[var(--brand-python-blue)] to-[var(--brand-python-blue-dark,#2E5F8A)] p-8 text-center md:p-16">
           <div className="absolute inset-0 bg-[var(--brand-accent)]/5 pointer-events-none" />
