@@ -1,7 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Play } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
 
 export function HeroSection() {
@@ -10,35 +11,55 @@ export function HeroSection() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24"
+      className="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-[var(--brand-accent-light)]/30 to-transparent pointer-events-none" />
-      <div className="absolute top-[-10%] left-[-10%] h-[60%] w-[60%] rounded-full bg-[var(--brand-accent)]/5 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] h-[50%] w-[50%] rounded-full bg-[var(--brand-python-blue)]/5 blur-3xl pointer-events-none" />
+      {/* ── Ambient radial glow (dark + warm, RedSun-inspired) ──── */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute top-[-15%] left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,120,60,0.18),transparent_60%)] blur-2xl" />
+        <div className="absolute bottom-[-20%] right-[-10%] h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,rgba(255,180,60,0.14),transparent_60%)] blur-2xl" />
+        <div className="absolute bottom-[-10%] left-[-10%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgba(55,118,171,0.16),transparent_60%)] blur-2xl" />
+      </div>
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-6">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
           <div>
+            {/* ── "What's New" style badge ──────────────────────── */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-[var(--border-default)] bg-[var(--surface-0)]/70 py-1 pl-2 pr-3 text-xs font-medium text-[var(--text-secondary)] shadow-[var(--shadow-xs)] backdrop-blur-sm">
+              <span className="inline-flex items-center rounded-full bg-[var(--brand-accent)]/15 px-2 py-0.5 text-[var(--brand-accent-dynamic)]">
+                <Sparkles className="mr-1 h-3 w-3" aria-hidden="true" />
+                {t("hero.badge")}
+              </span>
+              <ArrowRight className="h-3.5 w-3.5 text-[var(--text-tertiary)]" aria-hidden="true" />
+            </div>
+
             <h1
               id="hero-heading"
-              className="text-4xl leading-tight font-bold tracking-tight md:text-5xl lg:text-6xl"
+              className="mt-6 text-4xl leading-[1.1] font-bold tracking-tight md:text-5xl lg:text-6xl"
               style={{ fontFamily: "var(--font-display)" }}
             >
               {t("hero.title")}
             </h1>
-            <p className="mt-4 text-lg text-[var(--text-secondary)] md:text-xl">
+            <p className="mt-5 max-w-xl text-lg text-[var(--text-secondary)] md:text-xl">
               {t("hero.subtitle")}
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+
+            {/* ── Dual CTAs ────────────────────────────────────── */}
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Link href="/login">
+                <Button variant="primary" size="lg" className="w-full sm:w-auto">
+                  {t("hero.cta")}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Button>
+              </Link>
               <Button
-                variant="primary"
+                variant="outline"
                 size="lg"
+                className="w-full sm:w-auto"
                 onClick={() => {
-                  const el = document.getElementById("demo-section");
+                  const el = document.getElementById("highlights");
                   el?.scrollIntoView({ behavior: "smooth", block: "start" });
                 }}
               >
-                <Play className="h-4 w-4" aria-hidden="true" />
                 {t("hero.demo")}
               </Button>
             </div>
@@ -60,6 +81,9 @@ export function HeroSection() {
 function DashboardMockup() {
   return (
     <div className="relative mx-auto w-full max-w-lg min-h-[220px] sm:aspect-[4/3]">
+      {/* ── Glow halo behind the mockup ─────────────────────────── */}
+      <div className="absolute inset-0 -z-10 scale-110 rounded-[var(--radius-lg)] bg-[radial-gradient(circle,rgba(255,140,70,0.28),rgba(255,180,60,0.10)_45%,transparent_70%)] blur-2xl" aria-hidden="true" />
+
       <div className="absolute inset-0 rounded-[var(--radius-lg)] bg-gradient-to-br from-[var(--brand-python-blue)]/10 to-[var(--brand-accent)]/10 shadow-[var(--shadow-md)] backdrop-blur-sm border border-[var(--border-default)] overflow-hidden">
         <div className="flex h-full flex-col">
           {/* Browser chrome */}
@@ -128,8 +152,8 @@ function DashboardMockup() {
         </div>
       </div>
 
-      <div className="absolute -top-3 -right-3 h-24 w-24 rounded-full bg-[var(--brand-accent)]/10 blur-xl animate-pulse pointer-events-none" style={{ animationDuration: "4s" }} />
-      <div className="absolute -bottom-2 -left-2 h-20 w-20 rounded-full bg-[var(--brand-python-blue)]/10 blur-xl animate-pulse pointer-events-none" style={{ animationDuration: "5s" }} />
+      <div className="absolute -top-3 -right-3 h-24 w-24 rounded-full bg-[radial-gradient(circle,rgba(255,140,70,0.5),transparent_70%)] blur-xl animate-pulse pointer-events-none" style={{ animationDuration: "4s" }} />
+      <div className="absolute -bottom-2 -left-2 h-20 w-20 rounded-full bg-[radial-gradient(circle,rgba(55,118,171,0.5),transparent_70%)] blur-xl animate-pulse pointer-events-none" style={{ animationDuration: "5s" }} />
     </div>
   );
 }

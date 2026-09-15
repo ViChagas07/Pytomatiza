@@ -1125,10 +1125,14 @@
       "dashboard": "Painel"
     },
     "hero": {
+      "badge": "Novo: Agentes de IA com CrewAI",
       "title": "Automatize tarefas repetitivas com Python em minutos",
       "subtitle": "Crie automações poderosas, bots e fluxos de trabalho sem sair do navegador. O Pytomatiza+ transforma scripts Python complexos em processos visuais e gerenciáveis.",
-      "cta": "Começar a Automatizar",
+      "cta": "Começar Agora",
       "demo": "Ver Demonstração"
+    },
+    "trust": {
+      "label": "Integrações com as ferramentas que você já usa"
     },
     "howItWorks": {
       "title": "Como Funciona?",
@@ -1174,14 +1178,24 @@
         "description": "De pequenas tarefas a fluxos empresariais. O Pytomatiza+ lida com aumento de carga sem comprometer o desempenho."
       }
     },
-    "demo": {
-      "title": "Veja em Ação",
-      "subtitle": "Uma plataforma visual projetada para produtividade",
-      "tabsLabel": "Escolha uma visualização",
-      "workflows": "Fluxos de Trabalho",
-      "dashboard": "Painel",
-      "editor": "Editor",
-      "automations": "Automações"
+    "highlights": {
+      "title": "Recursos que Fazem a Diferença",
+      "subtitle": "Do documento à decisão: automações visuais, auditáveis e prontas para produção",
+      "learnMore": "Saiba mais",
+      "block1": {
+        "title": "Processamento de Faturas PDF sem esforço",
+        "description": "Extraia dados de qualquer fatura automaticamente, salve no Google Drive e notifique sua equipe no Slack — sem digitar uma linha de código.",
+        "check1": "Extração de dados com OCR inteligente",
+        "check2": "Integração nativa com Gmail, Drive e Slack",
+        "check3": "Execução agendada ou disparada por evento"
+      },
+      "block2": {
+        "title": "Relatórios de Vendas sempre prontos",
+        "description": "Toda segunda-feira, compile dados do Google Sheets, gere o relatório em PDF e envie por e-mail para a diretoria — no piloto automático.",
+        "check1": "Consolidação automática de planilhas",
+        "check2": "Análise com IA e resumo executivo",
+        "check3": "Entrega pontual para toda a equipe"
+      }
     },
     "benefits": {
       "title": "Automação Sem Complexidade",
@@ -1266,6 +1280,12 @@
         "terms": "Termos de Serviço",
         "cookies": "Política de Cookies",
         "security": "Segurança"
+      },
+      "social": {
+        "title": "Redes Sociais",
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "instagram": "Instagram"
       }
     },
     "a11y": {

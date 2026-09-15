@@ -165,7 +165,7 @@
       "notifications": "Notifications",
       "advanced": "Advanced",
       "privacy": "Privacy & Data",
-"integrations": "Integrations"
+      "integrations": "Integrations"
     },
     "appearance": {
       "title": "Appearance",
@@ -1052,7 +1052,8 @@
           "disconnect": "Disconnect"
         }
       },
-      "aiPlaceholder": "E.g.: Organize all PDFs from the Downloads folder by creation date, rename with the pattern 'YYYY-MM-DD - original name', move invoices to /Finance/Invoices/{year}/{month} and compress files older than 6 months."
+      "aiPlaceholder": "E.g.: Organize all PDFs from the Downloads folder by creation date, rename with the pattern 'YYYY-MM-DD - original name', move invoices to /Finance/Invoices/{year}/{month} and compress files older than 6 months.",
+      "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!"
     },
     "architecture": {
       "title": "Architecture",
@@ -1124,10 +1125,14 @@
       "dashboard": "Dashboard"
     },
     "hero": {
+      "badge": "New: AI Agents with CrewAI",
       "title": "Automate repetitive tasks with Python in minutes",
       "subtitle": "Create powerful automations, bots, and workflows without leaving your browser. Pytomatiza+ turns complex Python scripting into visual, manageable processes.",
-      "cta": "Start Automating",
+      "cta": "Get Started",
       "demo": "Watch Demo"
+    },
+    "trust": {
+      "label": "Integrations with the tools you already use"
     },
     "howItWorks": {
       "title": "How It Works",
@@ -1173,14 +1178,24 @@
         "description": "From small tasks to enterprise workflows. Pytomatiza+ handles increased load without compromising performance."
       }
     },
-    "demo": {
-      "title": "See It in Action",
-      "subtitle": "A visual platform designed for productivity",
-      "tabsLabel": "Choose a view",
-      "workflows": "Workflows",
-      "dashboard": "Dashboard",
-      "editor": "Editor",
-      "automations": "Automations"
+    "highlights": {
+      "title": "Features That Make the Difference",
+      "subtitle": "From document to decision: visual, auditable, production-ready automations",
+      "learnMore": "Learn more",
+      "block1": {
+        "title": "Effortless PDF Invoice Processing",
+        "description": "Extract data from any invoice automatically, save it to Google Drive, and notify your team on Slack — without writing a single line of code.",
+        "check1": "Smart OCR data extraction",
+        "check2": "Native Gmail, Drive, and Slack integration",
+        "check3": "Scheduled or event-triggered runs"
+      },
+      "block2": {
+        "title": "Sales Reports Always Ready",
+        "description": "Every Monday, compile data from Google Sheets, generate a PDF report, and email it to management — on autopilot.",
+        "check1": "Automatic spreadsheet consolidation",
+        "check2": "AI analysis with executive summary",
+        "check3": "On-time delivery to the whole team"
+      }
     },
     "benefits": {
       "title": "Automation Without the Complexity",
@@ -1265,6 +1280,12 @@
         "terms": "Terms of Service",
         "cookies": "Cookie Policy",
         "security": "Security"
+      },
+      "social": {
+        "title": "Social Media",
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "instagram": "Instagram"
       }
     },
     "a11y": {

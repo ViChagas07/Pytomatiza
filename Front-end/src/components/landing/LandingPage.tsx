@@ -3,9 +3,10 @@
 import { SectionWrapper } from "./SectionWrapper";
 import { LandingNav } from "./LandingNav";
 import { HeroSection } from "./HeroSection";
+import { TrustBar } from "./TrustBar";
 import { HowItWorksSection } from "./HowItWorksSection";
 import { FeaturesSection } from "./FeaturesSection";
-import { DemoSection } from "./DemoSection";
+import { HighlightSection } from "./HighlightSection";
 import { BenefitsSection } from "./BenefitsSection";
 import { UseCasesSection } from "./UseCasesSection";
 import { CTASection } from "./CTASection";
@@ -22,6 +23,10 @@ export function LandingPage() {
         </SectionWrapper>
 
         <SectionWrapper>
+          <TrustBar />
+        </SectionWrapper>
+
+        <SectionWrapper>
           <HowItWorksSection />
         </SectionWrapper>
 
@@ -30,7 +35,7 @@ export function LandingPage() {
         </SectionWrapper>
 
         <SectionWrapper>
-          <DemoSection />
+          <HighlightSection />
         </SectionWrapper>
 
         <SectionWrapper>
