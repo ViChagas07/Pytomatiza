@@ -30,7 +30,6 @@ function InstagramGlyph({ className = "h-4 w-4" }: { className?: string }) {
   );
 }
 
-const resourceLinks = ["footer.resources.docs", "footer.resources.api", "footer.resources.blog", "footer.resources.help"];
 const legalLinks = ["footer.legal.privacy", "footer.legal.terms", "footer.legal.cookies", "footer.legal.security"];
 
 const socialLinks = [
@@ -40,7 +39,6 @@ const socialLinks = [
 ];
 
 const columns = [
-  { title: "footer.resources.title", links: resourceLinks },
   { title: "footer.legal.title", links: legalLinks },
 ];
 

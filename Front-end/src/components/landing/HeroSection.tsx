@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
@@ -26,15 +26,6 @@ export function HeroSection() {
       <div className="relative mx-auto max-w-7xl px-4 lg:px-6">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
           <div className="text-center sm:text-left">
-            {/* ── "What's New" style badge ──────────────────────── */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[var(--border-default)] bg-[var(--surface-0)]/70 py-1 pl-2 pr-3 text-xs font-medium text-[var(--text-secondary)] shadow-[var(--shadow-xs)] backdrop-blur-sm">
-              <span className="inline-flex items-center rounded-full bg-[var(--brand-accent)]/15 px-2 py-0.5 text-[var(--brand-accent-dynamic)]">
-                <Sparkles className="mr-1 h-3 w-3" aria-hidden="true" />
-                {t("hero.badge")}
-              </span>
-              <ArrowRight className="h-3.5 w-3.5 text-[var(--text-tertiary)]" aria-hidden="true" />
-            </div>
-
             <h1
               id="hero-heading"
               className="mt-6 text-4xl leading-[1.1] font-bold tracking-tight md:text-5xl lg:text-6xl"
