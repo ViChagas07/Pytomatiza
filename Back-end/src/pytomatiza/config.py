@@ -153,6 +153,12 @@ class Settings(BaseSettings):
     OCR_MAX_PAGES: int = 50
     """Maximum PDF pages to process in a single request."""
     
+    # ── Development / Mock Mode ─────────────────────────────────────────────
+    MOCK_INTEGRATIONS: bool = False
+    """When true, use mock providers for Slack, Jira, Discord, etc.
+    Enables full workflow demos without real API credentials.
+    Only for local development and interviews."""
+
     # ── Integration Tokens ────────────────────────────────────────────────
     DISCORD_BOT_TOKEN: str = ""
     TELEGRAM_BOT_TOKEN: str = ""

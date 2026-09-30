@@ -6,6 +6,7 @@ import logging
 from typing import Any
 from uuid import UUID
 
+from pytomatiza.config import settings
 from pytomatiza.domain.services.integrations.provider import (
     IntegrationHealth,
     IntegrationProvider,
@@ -26,6 +27,10 @@ from pytomatiza.infrastructure.integrations import (
     WhatsAppProvider,
     ZoomProvider,
 )
+from pytomatiza.infrastructure.integrations.mock_providers import (
+    get_mock_provider,
+    list_mock_providers,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -45,6 +50,29 @@ class IntegrationService:
         self._register_defaults()
 
     def _register_defaults(self) -> None:
+        # If MOCK_INTEGRATIONS is enabled, use mock providers for all supported services
+        if settings.MOCK_INTEGRATIONS:
+            logger.info("MOCK_INTEGRATIONS=true — registrando providers mock para desenvolvimento")
+            mock_services = list_mock_providers()
+            for service in mock_services:
+                mock_provider = get_mock_provider(service)
+                if mock_provider:
+                    self._providers[service] = mock_provider
+
+            # Still register providers that don't have mocks yet (Google Calendar, Sheets, Meet, Maps, Facebook)
+            # These will fail gracefully if not configured
+            remaining_providers = [
+                GoogleCalendarProvider(),
+                GoogleSheetsProvider(),
+                GoogleMeetProvider(),
+                GoogleMapsProvider(),
+                FacebookProvider(),
+            ]
+            for p in remaining_providers:
+                self._providers[p.service_name] = p
+            return
+
+        # Production mode — use real providers
         providers = [
             DiscordProvider(),
             TelegramProvider(),
@@ -124,9 +152,15 @@ class IntegrationService:
         result = []
         for name in self.list_all():
             meta = meta_map.get(name, {"label": name, "icon": name, "color": "#666", "category": "other"})
-            result.append({"service": name, **meta, "available": True})
+            is_mock = settings.MOCK_INTEGRATIONS and name in list_mock_providers()
+            result.append({
+                "service": name,
+                **meta,
+                "available": True,
+                "mock": is_mock,
+            })
         for future in _FUTURE_PROVIDERS:
-            result.append({**future, "available": False, "color": "#999", "category": "coming_soon"})
+            result.append({**future, "available": False, "color": "#999", "category": "coming_soon", "mock": False})
         return result
 
 

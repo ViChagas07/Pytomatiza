@@ -3,6 +3,8 @@
 Individual Google service providers (Drive, Gmail, Calendar, Sheets, Meet)
 are now unified in ``google_provider.py`` and re-exported here for backward
 compatibility.
+
+Mock providers for local development are in ``mock_providers.py``.
 """
 
 from pytomatiza.infrastructure.integrations.discord_provider import DiscordProvider
@@ -22,6 +24,19 @@ from pytomatiza.infrastructure.integrations.google_provider import (
 from pytomatiza.infrastructure.integrations.maps_provider import GoogleMapsProvider
 from pytomatiza.infrastructure.integrations.slack_provider import SlackProvider
 from pytomatiza.infrastructure.integrations.zoom_provider import ZoomProvider
+from pytomatiza.infrastructure.integrations.mock_providers import (
+    get_mock_provider,
+    list_mock_providers,
+    MockSlackProvider,
+    MockJiraProvider,
+    MockDiscordProvider,
+    MockTrelloProvider,
+    MockZoomProvider,
+    MockGoogleDriveProvider,
+    MockGmailProvider,
+    MockWhatsAppProvider,
+    MockTelegramProvider,
+)
 
 __all__ = [
     "DiscordProvider",
@@ -39,4 +54,16 @@ __all__ = [
     "GoogleMapsProvider",
     "SlackProvider",
     "ZoomProvider",
+    # Mock providers
+    "get_mock_provider",
+    "list_mock_providers",
+    "MockSlackProvider",
+    "MockJiraProvider",
+    "MockDiscordProvider",
+    "MockTrelloProvider",
+    "MockZoomProvider",
+    "MockGoogleDriveProvider",
+    "MockGmailProvider",
+    "MockWhatsAppProvider",
+    "MockTelegramProvider",
 ]
