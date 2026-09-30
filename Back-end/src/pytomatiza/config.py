@@ -29,9 +29,44 @@ class Settings(BaseSettings):
     )
 
     # ── Application ──────────────────────────────────────────────────────
-    ENVIRONMENT: str = "development"  # development | staging | production
+    ENVIRONMENT: str = "development"  # development | demo | production
     DEBUG: bool = False
     LOG_LEVEL: str = "INFO"
+
+    # ── Derived settings based on ENVIRONMENT ────────────────────────────
+    @property
+    def is_demo(self) -> bool:
+        """True when ENVIRONMENT=demo — uses Ollama + mock integrations."""
+        return self.ENVIRONMENT.lower() == "demo"
+
+    @property
+    def is_production(self) -> bool:
+        """True when ENVIRONMENT=production — uses real APIs."""
+        return self.ENVIRONMENT.lower() == "production"
+
+    @property
+    def is_development(self) -> bool:
+        """True when ENVIRONMENT=development — normal dev mode."""
+        return self.ENVIRONMENT.lower() == "development"
+
+    @property
+    def effective_llm_provider(self) -> str:
+        """LLM provider based on environment."""
+        if self.is_demo:
+            return "ollama"
+        return self.LLM_PROVIDER
+
+    @property
+    def effective_ollama_model(self) -> str:
+        """Ollama model for demo mode."""
+        if self.is_demo:
+            return "qwen3:4b"
+        return self.OLLAMA_MODEL
+
+    @property
+    def use_mock_integrations(self) -> bool:
+        """Use mock providers for external APIs in demo mode."""
+        return self.is_demo
 
     # ── Security / JWT ───────────────────────────────────────────────────
     JWT_SECRET: str
@@ -100,6 +135,7 @@ class Settings(BaseSettings):
     RATE_LIMIT_AUTH_PER_MINUTE: int = 10
 
     # ── AI / LLM Provider ────────────────────────────────────────────────
+    # In demo mode, these are overridden by effective_llm_provider / effective_ollama_model
     LLM_PROVIDER: str = "gemini"        # "gemini" | "ollama" | "openai"
     AI_TEMPERATURE: float = 0.1
     AI_MAX_TOKENS: int = 4096
@@ -152,12 +188,6 @@ class Settings(BaseSettings):
     }
     OCR_MAX_PAGES: int = 50
     """Maximum PDF pages to process in a single request."""
-    
-    # ── Development / Mock Mode ─────────────────────────────────────────────
-    MOCK_INTEGRATIONS: bool = False
-    """When true, use mock providers for Slack, Jira, Discord, etc.
-    Enables full workflow demos without real API credentials.
-    Only for local development and interviews."""
 
     # ── Integration Tokens ────────────────────────────────────────────────
     DISCORD_BOT_TOKEN: str = ""

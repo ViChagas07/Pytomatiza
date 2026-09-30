@@ -20,17 +20,18 @@ class OllamaProvider:
     """LLM provider backed by a local Ollama server.
 
     Connects to ``OLLAMA_BASE_URL`` (default ``http://localhost:11434``)
-    and uses the model specified by ``OLLAMA_MODEL`` (default ``llama3``).
+    and uses the model specified by ``effective_ollama_model`` (default ``qwen3:4b`` in demo).
     """
 
     def __init__(self) -> None:
         self._base_url = (settings.OLLAMA_BASE_URL or
                           "http://localhost:11434").rstrip("/")
-        self._model = settings.OLLAMA_MODEL or "llama3"
+        self._model = settings.effective_ollama_model
         logger.info(
-            "Ollama provider initialised (url=%s, model=%s)",
+            "Ollama provider initialised (url=%s, model=%s, ENVIRONMENT=%s)",
             self._base_url,
             self._model,
+            settings.ENVIRONMENT,
         )
 
     async def generate(

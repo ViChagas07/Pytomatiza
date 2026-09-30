@@ -50,9 +50,9 @@ class IntegrationService:
         self._register_defaults()
 
     def _register_defaults(self) -> None:
-        # If MOCK_INTEGRATIONS is enabled, use mock providers for all supported services
-        if settings.MOCK_INTEGRATIONS:
-            logger.info("MOCK_INTEGRATIONS=true — registrando providers mock para desenvolvimento")
+        # In demo mode (ENVIRONMENT=demo), use mock providers for supported services
+        if settings.use_mock_integrations:
+            logger.info("ENVIRONMENT=demo — registrando providers mock para demonstração")
             mock_services = list_mock_providers()
             for service in mock_services:
                 mock_provider = get_mock_provider(service)
@@ -72,7 +72,7 @@ class IntegrationService:
                 self._providers[p.service_name] = p
             return
 
-        # Production mode — use real providers
+        # Production / Development mode — use real providers
         providers = [
             DiscordProvider(),
             TelegramProvider(),
@@ -152,7 +152,7 @@ class IntegrationService:
         result = []
         for name in self.list_all():
             meta = meta_map.get(name, {"label": name, "icon": name, "color": "#666", "category": "other"})
-            is_mock = settings.MOCK_INTEGRATIONS and name in list_mock_providers()
+            is_mock = settings.use_mock_integrations and name in list_mock_providers()
             result.append({
                 "service": name,
                 **meta,

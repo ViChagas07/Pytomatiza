@@ -1,11 +1,11 @@
 version: "3.9"
 
-# Docker Compose Override for Local Development
-# This file is automatically loaded by `docker compose up` and extends the base docker-compose.yaml
-# Usage: docker compose -f docker-compose.yaml -f docker-compose.override.yml up -d
+# Docker Compose Override for Demo/Development Environment
+# Automatically loaded by `docker compose up` when present
+# For demo mode: ENVIRONMENT=demo in .env file
 
 services:
-  # Ollama LLM Server (Local AI for development)
+  # Ollama LLM Server (Local AI for demo mode)
   # Qwen3 4B fits perfectly on RX 6500 XT 8GB + 16GB RAM
   ollama:
     image: ollama/ollama:latest
@@ -33,36 +33,11 @@ services:
     networks:
       - pytomatiza-net
     restart: unless-stopped
-    profiles:
-      - gpu
 
-  # Ollama CPU-only fallback (if no GPU or for CI)
-  ollama-cpu:
-    image: ollama/ollama:latest
-    container_name: pytomatiza-ollama-cpu
-    ports:
-      - "11435:11434"
-    volumes:
-      - ollama_data:/root/.ollama
-    environment:
-      - OLLAMA_HOST=0.0.0.0
-      - OLLAMA_ORIGINS=*
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 60s
-    networks:
-      - pytomatiza-net
-    restart: unless-stopped
-    profiles:
-      - cpu
-
-  # Optional: Local PostgreSQL for development (if not using Supabase)
-  postgres-dev:
+  # Local PostgreSQL for demo/development
+  postgres:
     image: postgres:16-alpine
-    container_name: pytomatiza-postgres-dev
+    container_name: pytomatiza-postgres
     ports:
       - "5432:5432"
     environment:
@@ -70,7 +45,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: Pytomatiza
     volumes:
-      - postgres_dev_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     networks:
       - pytomatiza-net
     restart: unless-stopped
@@ -79,18 +54,16 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    profiles:
-      - local-db
 
-  # Optional: Local Redis for development
-  redis-dev:
+  # Local Redis for demo/development
+  redis:
     image: redis:7-alpine
-    container_name: pytomatiza-redis-dev
+    container_name: pytomatiza-redis
     ports:
       - "6379:6379"
     command: redis-server --requirepass redis
     volumes:
-      - redis_dev_data:/data
+      - redis_data:/data
     networks:
       - pytomatiza-net
     restart: unless-stopped
@@ -99,14 +72,12 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
-    profiles:
-      - local-db
 
 volumes:
   ollama_data:
-  postgres_dev_data:
-  redis_dev_data:
+  postgres_data:
+  redis_data:
 
 networks:
   pytomatiza-net:
-    external: true
+    driver: bridge

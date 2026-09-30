@@ -24,14 +24,36 @@ from pytomatiza.domain.services.integrations.provider import (
 logger = logging.getLogger(__name__)
 
 
-@dataclass
 class MockProviderBase(IntegrationProvider):
     """Base class for mock providers with common behavior."""
 
-    service_name: str
-    label: str
-    icon: str
-    category: str
+    def __init__(
+        self,
+        service_name: str,
+        label: str,
+        icon: str,
+        category: str,
+    ) -> None:
+        self._service_name = service_name
+        self._label = label
+        self._icon = icon
+        self._category = category
+
+    @property
+    def service_name(self) -> str:
+        return self._service_name
+
+    @property
+    def label(self) -> str:
+        return self._label
+
+    @property
+    def icon(self) -> str:
+        return self._icon
+
+    @property
+    def category(self) -> str:
+        return self._category
 
     def _mock_token(self, user_id: UUID | None = None) -> IntegrationToken | None:
         """Return a fake token for development."""
@@ -512,8 +534,8 @@ _MOCK_PROVIDERS: dict[str, type[MockProviderBase]] = {
 
 
 def get_mock_provider(service: str) -> MockProviderBase | None:
-    """Get a mock provider instance if MOCK_INTEGRATIONS is enabled."""
-    if not settings.MOCK_INTEGRATIONS:
+    """Get a mock provider instance if demo mode is enabled (ENVIRONMENT=demo)."""
+    if not settings.use_mock_integrations:
         return None
     provider_cls = _MOCK_PROVIDERS.get(service)
     if provider_cls:

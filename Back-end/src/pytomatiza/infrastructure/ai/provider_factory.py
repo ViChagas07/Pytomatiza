@@ -40,23 +40,23 @@ _PROVIDER_MAP: dict[str, type[GeminiProvider | OllamaProvider]] = {
 
 
 def _create_provider() -> GeminiProvider | OllamaProvider:
-    """Instantiate the LLM provider indicated by ``settings.LLM_PROVIDER``.
+    """Instantiate the LLM provider indicated by ``settings.effective_llm_provider``.
 
     Raises:
         ValueError: If ``LLM_PROVIDER`` is not a recognised provider name.
     """
-    provider_name = settings.LLM_PROVIDER.lower().strip()
+    provider_name = settings.effective_llm_provider.lower().strip()
     provider_cls = _PROVIDER_MAP.get(provider_name)
 
     if provider_cls is None:
         msg = (
-            f"Unknown LLM_PROVIDER {settings.LLM_PROVIDER!r}. "
+            f"Unknown LLM_PROVIDER {settings.effective_llm_provider!r}. "
             f"Must be one of: {', '.join(_PROVIDER_MAP)}"
         )
         logger.critical(msg)
         raise ValueError(msg)
 
-    logger.info("Active LLM provider: %s", provider_name)
+    logger.info("Active LLM provider: %s (ENVIRONMENT=%s)", provider_name, settings.ENVIRONMENT)
     return provider_cls()
 
 
