@@ -191,7 +191,7 @@ export function CommunicationContent() {
       </div>
 
       <LoginOverlay label={t("loginPrompt")}>
-      <div className="grid gap-6 lg:grid-cols-[1fr_340px]">
+      <div className="relative grid gap-6 lg:grid-cols-[1fr_340px]">
         {/* Main column */}
         <div className="space-y-6">
           {/* Channel selector */}
@@ -535,6 +535,19 @@ export function CommunicationContent() {
       </section>
 
       <IntegrationChips />
+      {/* ── Overlay "Em breve" ────────────────────────────────────── */}
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4">
+        <div className="rounded-2xl bg-black/70 backdrop-blur-md px-10 py-8 flex flex-col items-center gap-3 shadow-2xl border border-white/10">
+          <span className="text-4xl">🚀</span>
+          <h2 className="text-2xl font-semibold text-white tracking-tight">
+            Em breve
+          </h2>
+          <p className="text-white/60 text-sm text-center max-w-xs">
+            Estamos preparando automações inteligentes movidas por IA.
+            Mais novidades em breve!
+          </p>
+        </div>
+      </div>
     </LoginOverlay>
     </>
   );
