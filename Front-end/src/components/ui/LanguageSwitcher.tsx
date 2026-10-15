@@ -9,23 +9,9 @@
 import * as React from "react";
 import { Globe } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { locales, type Locale } from "@/i18n/config";
 import { cn } from "@/lib/utils";
-
-const localeLabels: Record<Locale, string> = {
-  pt: "Português",
-  en: "English",
-  es: "Español",
-  fr: "Français",
-  de: "Deutsch",
-  it: "Italiano",
-  ru: "Русский",
-  ja: "日本語",
-  zh: "中文",
-  ar: "العربية",
-  hi: "हिन्दी",
-};
 
 interface LanguageSwitcherProps {
   className?: string;
@@ -38,6 +24,7 @@ export function LanguageSwitcher({
   variant = "icon",
 }: LanguageSwitcherProps) {
   const t = useTranslations("a11y");
+  const tCommon = useTranslations("common");
   const currentLocale = useLocale() as Locale;
   const pathname = usePathname();
   const router = useRouter();
@@ -101,7 +88,7 @@ export function LanguageSwitcher({
       >
         {locales.map((loc) => (
           <option key={loc} value={loc}>
-            {localeLabels[loc]}
+            {tCommon(`languages.${loc}`)}
           </option>
         ))}
       </select>
@@ -163,7 +150,7 @@ export function LanguageSwitcher({
                   )}
                   aria-hidden="true"
                 />
-                {localeLabels[loc]}
+                {tCommon(`languages.${loc}`)}
               </button>
             </li>
           ))}

@@ -36,7 +36,24 @@
     "enabled": "Ù…Ù…ÙƒÙ‘Ù†",
     "disabled": "Ø¹Ø§Ø¬Ø²",
     "increasedBy": "Ø²ÙŠØ§Ø¯Ø© Ø¨Ù†Ø³Ø¨Ø©",
-    "decreasedBy": "Ø§Ù†Ø®ÙØ¶ Ø¨Ù†Ø³Ø¨Ø©"
+    "decreasedBy": "Ø§Ù†Ø®ÙØ¶ Ø¨Ù†Ø³Ø¨Ø©",
+    "comingSoon": {
+      "title": "قريبا",
+      "description": "نحن نجهز عمليات أتمتة ذكية مدعومة بالذكاء الاصطناعي. المزيد من الأخبار قريبا!"
+    },
+    "languages": {
+      "pt": "Português",
+      "en": "English",
+      "es": "Español",
+      "fr": "Français",
+      "de": "Deutsch",
+      "it": "Italiano",
+      "ru": "Русский",
+      "ja": "日本語",
+      "zh": "中文",
+      "ar": "العربية",
+      "hi": "हिन्दी"
+    }
   },
   "auth": {
     "signIn": {
@@ -78,10 +95,15 @@
       "passwordsDoNotMatch": "ÙƒÙ„Ù…Ø§Øª Ø§Ù„Ù…Ø±ÙˆØ± ØºÙŠØ± Ù…ØªØ·Ø§Ø¨Ù‚Ø©",
       "nameTooShort": "ÙŠØ¬Ø¨ Ø£Ù† ÙŠØªÙƒÙˆÙ† Ø§Ù„Ø§Ø³Ù… Ù…Ù† Ø­Ø±ÙÙŠÙ† Ø¹Ù„Ù‰ Ø§Ù„Ø£Ù‚Ù„",
       "generic": "Ø­Ø¯Ø« Ø®Ø·Ø£ ØºÙŠØ± Ù…ØªÙˆÙ‚Ø¹. ÙŠØ±Ø¬Ù‰ Ø§Ù„Ù…Ø­Ø§ÙˆÙ„Ø© Ù…Ø±Ø© Ø£Ø®Ø±Ù‰.",
-      "rateLimited": "Ù…Ø­Ø§ÙˆÙ„Ø§Øª ÙƒØ«ÙŠØ±Ø© Ø¬Ø¯Ù‹Ø§. Ù…Ù† ÙØ¶Ù„Ùƒ Ø§Ù†ØªØ¸Ø± Ù„Ø­Ø¸Ø©."
+      "rateLimited": "Ù…Ø­Ø§ÙˆÙ„Ø§Øª ÙƒØ«ÙŠØ±Ø© Ø¬Ø¯Ù‹Ø§. Ù…Ù† ÙØ¶Ù„Ùƒ Ø§Ù†ØªØ¸Ø± Ù„Ø­Ø¸Ø©.",
+      "consentRequired": "يجب عليك قبول شروط الاستخدام وسياسة الخصوصية للمتابعة."
     },
     "authenticationForm": "Ù†Ù…ÙˆØ°Ø¬ Ø§Ù„Ù…ØµØ§Ø¯Ù‚Ø©",
-    "rememberMe": "ØªØ°ÙƒØ±Ù†ÙŠ"
+    "rememberMe": "ØªØ°ÙƒØ±Ù†ÙŠ",
+    "consent": {
+      "terms": "شروط الاستخدام",
+      "privacy": "سياسة الخصوصية"
+    }
   },
   "meta": {
     "login": {
@@ -298,8 +320,50 @@
         "exportTitle": "Export my data",
         "export": "Export",
         "deleteTitle": "Delete my account",
-        "delete": "Delete account"
+        "delete": "Delete account",
+        "exportFailed": "فشل تصدير البيانات. يرجى المحاولة مرة أخرى.",
+        "deleteFailed": "فشل في حذف الحساب. يرجى المحاولة مرة أخرى.",
+        "deleteConfirmPlaceholder": "اكتب \"حذف\" للتأكيد"
       }
+    },
+    "integrations": {
+      "categories": {
+        "storage": "تخزين",
+        "productivity": "إنتاجية",
+        "communication": "تواصل",
+        "project_management": "إدارة المشاريع",
+        "utilities": "المرافق",
+        "social": "وسائل التواصل الاجتماعي",
+        "coming_soon": "قريبا"
+      },
+      "header": {
+        "title": "التكامل",
+        "description": "قم بتوصيل خدمات الطرف الثالث لتوسيع قدرات وكلائك."
+      },
+      "errors": {
+        "saveToken": "حدث خطأ أثناء حفظ الرمز المميز"
+      },
+      "status": {
+        "connected": "متصل",
+        "error": "خطأ",
+        "disconnected": "غير متصل"
+      },
+      "actions": {
+        "connect": "يتصل",
+        "save": "يحفظ",
+        "authorizeTrello": "تفويض على Trello",
+        "validate": "التحقق من صحة",
+        "disconnect": "قطع الاتصال",
+        "refresh": "للتحديث",
+        "connectViaProvider": "الاتصال عبر تطبيق الموفر"
+      },
+      "telegram": {
+        "tokenPlaceholder": "رمز الروبوت (على سبيل المثال: 123456:ABC-DEF...)"
+      },
+      "trello": {
+        "tokenPlaceholder": "الصق الرمز المميز Trello هنا"
+      },
+      "loading": "جارٍ تحميل عمليات التكامل…"
     }
   },
   "help": {
@@ -400,7 +464,14 @@
       "pause": "ÙŠÙˆÙ‚Ù",
       "resume": "Ø³ÙŠØ±Ø© Ø°Ø§ØªÙŠØ©",
       "configure": "ØªÙƒÙˆÙŠÙ†",
-      "never": "Ø£Ø¨Ø¯Ø§Ù‹"
+      "never": "Ø£Ø¨Ø¯Ø§Ù‹",
+      "promptPlaceholder": "ماذا تريد مني أن أفعل؟ (أدخل = إرسال، Esc = إلغاء)",
+      "cancel": "يلغي",
+      "closeResponse": "إغلاق الرد",
+      "close": "للإغلاق",
+      "aiResponseTitle": "استجابة الوكيل (Gemini AI)",
+      "refusalTitle": "رفض الوكيل المهمة",
+      "recommendationPrefix": "توصية: حاول أ"
     },
     "empty": "Ù„Ø§ ÙŠÙˆØ¬Ø¯ ÙˆÙƒÙ„Ø§Ø¡ ÙŠØªØ·Ø§Ø¨Ù‚ÙˆÙ† Ù…Ø¹ Ø¹ÙˆØ§Ù…Ù„ Ø§Ù„ØªØµÙÙŠØ© Ø§Ù„Ø­Ø§Ù„ÙŠØ©. Ø­Ø§ÙˆÙ„ ØªØ¹Ø¯ÙŠÙ„ Ù…Ø¹Ø§ÙŠÙŠØ± Ø§Ù„Ø¨Ø­Ø« Ø£Ùˆ Ø§Ù„ØªØµÙÙŠØ©.",
     "error": "ØºÙŠØ± Ù‚Ø§Ø¯Ø± Ø¹Ù„Ù‰ ØªØ­Ù…ÙŠÙ„ Ø§Ù„ÙˆÙƒÙ„Ø§Ø¡. ÙŠØ±Ø¬Ù‰ Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§ØªØµØ§Ù„Ùƒ ÙˆØ§Ù„Ù…Ø­Ø§ÙˆÙ„Ø© Ù…Ø±Ø© Ø£Ø®Ø±Ù‰.",
@@ -478,7 +549,11 @@
       "status": "Ø§Ù„Ø­Ø§Ù„Ø©: {status}",
       "created": "ØªÙ… Ø¥Ù†Ø´Ø§Ø¡ Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„! Ù†ÙˆØ¹ Ø§Ù„ÙˆÙƒÙŠÙ„: {agentType}. Ø§Ù„Ù…ÙˆØ§ÙÙ‚Ø©: {approval}.",
       "required": "Ù…Ø·Ù„ÙˆØ¨",
-      "notRequired": "ØºÙŠØ± Ù…Ø·Ù„ÙˆØ¨"
+      "notRequired": "ØºÙŠØ± Ù…Ø·Ù„ÙˆØ¨",
+      "approve": "يعتمد",
+      "deny": "أن ينكر",
+      "execute": "للتنفيذ",
+      "running": "جري…"
     },
     "errors": {
       "instructionTooShort": "ÙŠØ¬Ø¨ Ø£Ù† ØªØªÙƒÙˆÙ† Ø§Ù„ØªØ¹Ù„ÙŠÙ…Ø§Øª Ù…Ù† 10 Ø£Ø­Ø±Ù Ø¹Ù„Ù‰ Ø§Ù„Ø£Ù‚Ù„",
@@ -602,7 +677,10 @@
         "actions": "Ø§Ù„Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª",
         "download": "ØªÙ†Ø²ÙŠÙ„ Ø§Ù„Ù†ØªÙŠØ¬Ø©",
         "reprocess": "Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„Ù…Ø¹Ø§Ù„Ø¬Ø©",
-        "delete": "ÙŠÙ…Ø³Ø­"
+        "delete": "ÙŠÙ…Ø³Ø­",
+        "statusCompleted": "مكتمل",
+        "statusProcessing": "يعالج",
+        "statusFailed": "فشل"
       },
       "processing": {
         "button": "ÙˆØ«ÙŠÙ‚Ø© Ø§Ù„Ø¹Ù…Ù„ÙŠØ©",
@@ -917,7 +995,7 @@
         "title": "Ù…Ø§Ø°Ø§ ÙŠØ¬Ø¨ Ø£Ù† ÙŠÙØ¹Ù„ ÙˆÙƒÙŠÙ„ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø¨Ù…Ù„ÙØ§ØªÙƒØŸ",
         "description": "ØµÙ Ø¨Ø§Ù„Ù„ØºØ© Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠØ© ÙƒÙŠÙ ØªØ±ÙŠØ¯ ØªÙ†Ø¸ÙŠÙ… Ù…Ù„ÙØ§ØªÙƒ Ø£Ùˆ Ù…Ø¹Ø§Ù„Ø¬ØªÙ‡Ø§ Ø£Ùˆ Ø¥Ø¯Ø§Ø±ØªÙ‡Ø§.",
         "label": "ØªØ¹Ù„ÙŠÙ…Ø§Øª Ø§Ù„ÙˆÙƒÙŠÙ„",
-        "placeholder": "Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ ØªÙ†Ø¸ÙŠÙ… Ø¬Ù…ÙŠØ¹ Ù…Ù„ÙØ§Øª PDF ÙÙŠ Ù…Ø¬Ù„Ø¯ Ø§Ù„ØªÙ†Ø²ÙŠÙ„Ø§Øª Ø­Ø³Ø¨ ØªØ§Ø±ÙŠØ® Ø§Ù„Ø¥Ù†Ø´Ø§Ø¡ØŒ ÙˆØ¥Ø¹Ø§Ø¯Ø© ØªØ³Ù…ÙŠØªÙ‡Ø§ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ù†Ù…Ø· 'YYYY-MM-DD - Ø§Ù„Ø§Ø³Ù… Ø§Ù„Ø£ØµÙ„ÙŠ'ØŒ ÙˆÙ†Ù‚Ù„ Ø§Ù„ÙÙˆØ§ØªÙŠØ± Ø¥Ù„Ù‰ /Finance/Invoices/{year}/{month}ØŒ ÙˆØ¶ØºØ· Ø§Ù„Ù…Ù„ÙØ§Øª Ø§Ù„Ø£Ù‚Ø¯Ù… Ù…Ù† 6 Ø£Ø´Ù‡Ø±.",
+        "placeholder": "Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ ØªÙ†Ø¸ÙŠÙ… Ø¬Ù…ÙŠØ¹ Ù…Ù„ÙØ§Øª PDF ÙÙŠ Ù…Ø¬Ù„Ø¯ Ø§Ù„ØªÙ†Ø²ÙŠÙ„Ø§Øª Ø­Ø³Ø¨ ØªØ§Ø±ÙŠØ® Ø§Ù„Ø¥Ù†Ø´Ø§Ø¡ØŒ ÙˆØ¥Ø¹Ø§Ø¯Ø© ØªØ³Ù…ÙŠØªÙ‡Ø§ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ù†Ù…Ø· 'YYYY-MM-DD - Ø§Ù„Ø§Ø³Ù… Ø§Ù„Ø£ØµÙ„ÙŠ'ØŒ ÙˆÙ†Ù‚Ù„ Ø§Ù„ÙÙˆØ§ØªÙŠØ± Ø¥Ù„Ù‰ /Finance/Invoices/{ano}/{mês}ØŒ ÙˆØ¶ØºØ· Ø§Ù„Ù…Ù„ÙØ§Øª Ø§Ù„Ø£Ù‚Ø¯Ù… Ù…Ù† 6 Ø£Ø´Ù‡Ø±.",
         "helper": "Ù‚Ù… Ø¨ØªØ¶Ù…ÙŠÙ†: Ø§Ù„Ù…Ù„ÙØ§Øª Ø§Ù„ØªÙŠ Ø³ØªØ¤Ø«Ø± Ø¹Ù„ÙŠÙ‡Ø§ØŒ ÙˆÙƒÙŠÙÙŠØ© ØªÙ†Ø¸ÙŠÙ…Ù‡Ø§ØŒ ÙˆØ¥Ø¹Ø§Ø¯Ø© ØªØ³Ù…ÙŠØ© Ø§Ù„Ù†Ù…Ø·ØŒ ÙˆØ§Ù„Ù…Ø¬Ù„Ø¯Ø§Øª Ø§Ù„ÙˆØ¬Ù‡Ø©ØŒ ÙˆØ§Ù„Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª Ø§Ù„Ø¥Ø¶Ø§ÙÙŠØ©.",
         "charCount": "{current}/{max} Ø£Ø­Ø±Ù",
         "button": "Ø§Ù„ØªÙ†ÙÙŠØ° Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ",
@@ -962,7 +1040,7 @@
         "condition": "Ø­Ø§Ù„Ø©",
         "conditionPlaceholder": "Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ Ø§Ø³Ù… Ø§Ù„Ù…Ù„Ù ÙŠØ­ØªÙˆÙŠ Ø¹Ù„Ù‰ \"ÙØ§ØªÙˆØ±Ø©\"",
         "action": "ÙØ¹Ù„",
-        "actionPlaceholder": "Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ Ø§Ù†ØªÙ‚Ù„ Ø¥Ù„Ù‰ /Finance/Invoices/{year}/{month}",
+        "actionPlaceholder": "Ø¹Ù„Ù‰ Ø³Ø¨ÙŠÙ„ Ø§Ù„Ù…Ø«Ø§Ù„ØŒ Ø§Ù†ØªÙ‚Ù„ Ø¥Ù„Ù‰ /Finance/Invoices/{ano}/{mes}",
         "addRule": "Ø£Ø¶Ù Ø§Ù„Ù‚Ø§Ø¹Ø¯Ø©",
         "active": "Ù†Ø´ÙŠØ·",
         "inactive": "ØºÙŠØ± Ù†Ø´Ø·",
@@ -980,7 +1058,7 @@
         "share": "Share",
         "download": "ØªØ­Ù…ÙŠÙ„"
       },
-      "aiPlaceholder": "E.g.: Organize all PDFs from the Downloads folder by creation date, renomeie com o padrÃ£o 'YYYY-MM-DD - nome original', mova faturas para /Financeiro/Faturas/{ano}/{mÃªs} e compacte arquivos com mais de 6 meses.",
+      "aiPlaceholder": "مثال: نظّم جميع ملفات PDF في مجلد التنزيلات حسب تاريخ الإنشاء، وأعد تسميتها بالنمط 'YYYY-MM-DD - الاسم الأصلي'، وانقل الفواتير إلى /Finance/Invoices/{ano}/{mês}، واضغط الملفات الأقدم من 6 أشهر.",
       "integrations": {
         "googleDrive": {
           "title": "Google Drive",
@@ -1004,7 +1082,12 @@
       "results": {
         "aiInterpreted": "ØªÙ… ØªÙØ³ÙŠØ± Ø§Ù„ØªØ¹Ù„ÙŠÙ…Ø§Øª Ø¨Ù†Ø¬Ø§Ø­! ØªÙ… Ø¥Ù†Ø´Ø§Ø¡ Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ù…Ù†Ø¸Ù…Ø© ØªÙ„Ù‚Ø§Ø¦ÙŠÙ‹Ø§. Ù‚Ù… Ø¨Ù…Ø±Ø§Ø¬Ø¹ØªÙ‡Ø§ ÙÙŠ Ù„ÙˆØ­Ø© Ø§Ù„Ù‚ÙˆØ§Ø¹Ø¯."
       },
-      "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!"
+      "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!",
+      "aiActions": {
+        "rename": "إعادة التسمية إلى 'YYYY-MM-DD - الاسم الأصلي'",
+        "move": "انتقل إلى /المالية/الفواتير/{ano}/{mes}",
+        "compress": "اضغط على ZIP وانتقل إلى /ملف"
+      }
     },
     "architecture": {
       "title": "Ø¨Ù†ÙŠØ§Ù†",
@@ -1114,7 +1197,8 @@
       "ongoing": "em andamento"
     },
     "tableEmpty": "Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ø³Ø¬Ù„Ø§Øª Ø§Ù„ØªÙ†ÙÙŠØ°.",
-    "loginPrompt": "Ù‚Ù… Ø¨ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ Ø¥Ù„Ù‰ Ø­Ø³Ø§Ø¨Ùƒ Ù„Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙÙŠ Ø§Ù„ÙˆÙ‚Øª Ø§Ù„Ø­Ù‚ÙŠÙ‚ÙŠ!"
+    "loginPrompt": "Ù‚Ù… Ø¨ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ Ø¥Ù„Ù‰ Ø­Ø³Ø§Ø¨Ùƒ Ù„Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙÙŠ Ø§Ù„ÙˆÙ‚Øª Ø§Ù„Ø­Ù‚ÙŠÙ‚ÙŠ!",
+    "loading": "تحميل…"
   },
   "landing": {
     "nav": {
@@ -1129,7 +1213,28 @@
       "subtitle": "Create powerful automations, bots, and workflows without leaving your browser. Pytomatiza+ turns complex Python scripting into visual, manageable processes.",
       "cta": "Start Automating",
       "demo": "Watch Demo",
-      "badge": "New: AI Agents with CrewAI"
+      "badge": "New: AI Agents with CrewAI",
+      "mock": {
+        "kpi": {
+          "agents": "الوكلاء",
+          "automations": "الأتمتة",
+          "success": "نجاح",
+          "pending": "المعلقات"
+        },
+        "activity": {
+          "items": [
+            {
+              "name": "معالجة الفاتورة",
+              "time": "09:45"
+            },
+            {
+              "name": "التقرير الأسبوعي",
+              "time": "07:00"
+            }
+          ],
+          "label": "النشاط الأخير"
+        }
+      }
     },
     "howItWorks": {
       "title": "How It Works",
@@ -1174,15 +1279,6 @@
         "title": "Built to Scale",
         "description": "From small tasks to enterprise workflows. Pytomatiza+ handles increased load without compromising performance."
       }
-    },
-    "demo": {
-      "title": "See It in Action",
-      "subtitle": "A visual platform designed for productivity",
-      "tabsLabel": "Choose a view",
-      "workflows": "Workflows",
-      "dashboard": "Dashboard",
-      "editor": "Editor",
-      "automations": "Automations"
     },
     "benefits": {
       "title": "Automation Without the Complexity",
@@ -1235,7 +1331,14 @@
     "cta": {
       "title": "Start Automating Today",
       "subtitle": "Join thousands of professionals who have transformed their workflow with Pytomatiza+",
-      "button": "Enter Pytomatiza+"
+      "button": "Enter Pytomatiza+",
+      "mock": {
+        "kpi": {
+          "agents": "الوكلاء",
+          "success": "نجاح",
+          "today": "اليوم"
+        }
+      }
     },
     "footer": {
       "description": "The intelligent automation platform that thinks, learns, and executes.",
@@ -1295,14 +1398,25 @@
         "description": "Extract data from any invoice automatically, save it to Google Drive, and notify your team on Slack — without writing a single line of code.",
         "check1": "Smart OCR data extraction",
         "check2": "Native Gmail, Drive, and Slack integration",
-        "check3": "Scheduled or event-triggered runs"
+        "check3": "Scheduled or event-triggered runs",
+        "steps": [
+          "البريد الإلكتروني مع PDF تم استلامه",
+          "استخراج البيانات (OCR)",
+          "حفظ إلى Google Drive",
+          "أبلغ الفريق على Slack"
+        ]
       },
       "block2": {
         "title": "Sales Reports Always Ready",
         "description": "Every Monday, compile data from Google Sheets, generate a PDF report, and email it to management — on autopilot.",
         "check1": "Automatic spreadsheet consolidation",
         "check2": "AI analysis with executive summary",
-        "check3": "On-time delivery to the whole team"
+        "check3": "On-time delivery to the whole team",
+        "chips": [
+          "صفائح",
+          "اي ايه Gemini",
+          "بريد إلكتروني"
+        ]
       }
     }
   },
@@ -1314,5 +1428,331 @@
     "feature2Desc": "ÙŠØªØ¹Ø§ÙˆÙ† ÙˆÙƒÙ„Ø§Ø¡ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø§Ù„Ù…ØªØ®ØµØµÙˆÙ† Ù„Ù„ØªØ¹Ø§Ù…Ù„ Ù…Ø¹ Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ù…Ø¹Ù‚Ø¯Ø© ÙˆÙ…ØªØ¹Ø¯Ø¯Ø© Ø§Ù„Ø®Ø·ÙˆØ§Øª.",
     "feature3Title": "Enterprise-Grade Ø§Ù„Ø£Ù…Ø§Ù†",
     "feature3Desc": "End-to-end Ø§Ù„ØªØ´ÙÙŠØ± ÙˆØ§Ù„ÙˆØµÙˆÙ„ Ø§Ù„Ù‚Ø§Ø¦Ù… Ø¹Ù„Ù‰ Ø§Ù„Ø£Ø¯ÙˆØ§Ø± ÙˆÙ…Ø³Ø§Ø±Ø§Øª Ø§Ù„ØªØ¯Ù‚ÙŠÙ‚ Ø§Ù„ÙƒØ§Ù…Ù„Ø©."
+  },
+  "integrationChips": {
+    "availableTitle": "التكاملات المتاحة",
+    "availableBadge": "متاح",
+    "futureTitle": "الخدمات المستقبلية",
+    "comingSoonBadge": "قريبا",
+    "discord": "Discord",
+    "telegram": "Telegram",
+    "trello": "Trello",
+    "jira": "Jira",
+    "googleDrive": "Google Drive",
+    "gmail": "Gmail",
+    "googleCalendar": "Google Calendar",
+    "googlePhotos": "Google Photos",
+    "googleMaps": "Google Maps",
+    "slack": "Slack",
+    "zoom": "Zoom",
+    "googleMeet": "Google Meet",
+    "facebookPages": "Facebook الصفحات",
+    "whatsappBusiness": "WhatsApp الأعمال",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "microsoftTeams": "Microsoft Teams"
+  },
+  "integrationPanel": {
+    "categories": {
+      "communication": "تواصل",
+      "projectManagement": "إدارة المشاريع",
+      "storage": "تخزين",
+      "productivity": "إنتاجية",
+      "utilities": "المرافق",
+      "social": "وسائل التواصل الاجتماعي"
+    },
+    "services": {
+      "discord": {
+        "label": "Discord",
+        "category": "communication",
+        "capabilities": [
+          "إرسال الرسائل",
+          "إرسال التنبيهات",
+          "إنشاء إشعارات عبر webhook"
+        ]
+      },
+      "telegram": {
+        "label": "Telegram",
+        "category": "communication",
+        "capabilities": [
+          "إرسال الرسائل",
+          "إرسال المستندات",
+          "إرسال الصور",
+          "إخطار المستخدمين"
+        ]
+      },
+      "trello": {
+        "label": "Trello",
+        "category": "projectManagement",
+        "capabilities": [
+          "إنشاء بطاقات",
+          "نقل البطاقات بين القوائم",
+          "تحديث البطاقات"
+        ]
+      },
+      "jira": {
+        "label": "Jira",
+        "category": "projectManagement",
+        "capabilities": [
+          "إنشاء القضايا / الأخطاء / المهام",
+          "تحديث التذاكر",
+          "التعليق على القضايا"
+        ]
+      },
+      "google_drive": {
+        "label": "Google Drive",
+        "category": "storage",
+        "capabilities": [
+          "تحميل الملف",
+          "إنشاء المجلدات",
+          "البحث في الملفات",
+          "قائمة الملفات"
+        ]
+      },
+      "gmail": {
+        "label": "Gmail",
+        "category": "communication",
+        "capabilities": [
+          "إرسال رسائل البريد الإلكتروني",
+          "قائمة الرسائل",
+          "قراءة رسائل البريد الإلكتروني",
+          "البحث عن طريق المرسل"
+        ]
+      },
+      "google_calendar": {
+        "label": "Google Calendar",
+        "category": "productivity",
+        "capabilities": [
+          "قائمة الأحداث",
+          "إنشاء الأحداث",
+          "إدارة التقويمات"
+        ]
+      },
+      "google_photos": {
+        "label": "Google Photos",
+        "category": "storage",
+        "capabilities": [
+          "تخزين الصور",
+          "إنشاء ألبومات",
+          "البحث حسب التاريخ",
+          "مشاركة الوسائط"
+        ]
+      },
+      "google_maps": {
+        "label": "Google Maps",
+        "category": "utilities",
+        "capabilities": [
+          "عناوين الترميز الجغرافي",
+          "عكس الترميز الجغرافي",
+          "حساب الطرق"
+        ]
+      },
+      "slack": {
+        "label": "Slack",
+        "category": "communication",
+        "capabilities": [
+          "إرسال الرسائل في القنوات",
+          "قائمة القنوات",
+          "إخطار الفرق"
+        ]
+      },
+      "zoom": {
+        "label": "Zoom",
+        "category": "communication",
+        "capabilities": [
+          "إنشاء الاجتماعات",
+          "قائمة الاجتماعات",
+          "جدولة الندوات عبر الإنترنت"
+        ]
+      },
+      "google_meet": {
+        "label": "Google Meet",
+        "category": "communication",
+        "capabilities": [
+          "إنشاء مكالمات فيديو",
+          "قائمة الاجتماعات",
+          "الجدول الزمني مع Google Meet"
+        ]
+      },
+      "facebook": {
+        "label": "Facebook Pages",
+        "category": "social"
+      },
+      "whatsapp": {
+        "label": "WhatsApp Business",
+        "category": "communication"
+      },
+      "instagram": {
+        "label": "Instagram",
+        "category": "social"
+      },
+      "linkedin": {
+        "label": "LinkedIn",
+        "category": "social"
+      },
+      "teams": {
+        "label": "Microsoft Teams",
+        "category": "communication"
+      }
+    },
+    "title": "التكاملات المتاحة",
+    "subtitle": "قم بتوصيل Pytomatiza+ بخدماتك المفضلة. يمكن لسير العمل الاستفادة من أي تكامل متصل.",
+    "futureTitle": "الخدمات المستقبلية",
+    "futureDescription": "سيتم إضافة هذا التكامل في الإصدارات المستقبلية من Pytomatiza+.",
+    "availableBadge": "متاح",
+    "comingSoonBadge": "قريبا",
+    "catalogTitle": "ما Pytomatiza+ يمكن أتمتة اليوم"
+  },
+  "loginOverlay": {
+    "title": "قم بتسجيل الدخول للوصول إلى هذه الوظيفة",
+    "ctaLabel": "للدخول"
+  },
+  "loginAlert": {
+    "label": "تسجيل الدخول للوصول"
+  },
+  "privacy": {
+    "footer": {
+      "copyright": "© {year} Pytomatiza+. جميع الحقوق محفوظة.",
+      "contact": "لطلبات الخصوصية، يرجى الاتصال بنا على privacy@pytomatiza.com."
+    },
+    "intro": {
+      "title": "سياسة الخصوصية وشروط الاستخدام",
+      "description": "توضح هذه السياسة كيفية قيام Pytomatiza+ بجمع معلوماتك الشخصية واستخدامها وحمايتها عند استخدام خدماتنا. باستخدام Pytomatiza+، فإنك توافق على جمع واستخدام المعلومات وفقًا لهذه السياسة.",
+      "effectiveDate": "تاريخ السريان: 18 يونيو 2026",
+      "contact": "شكوك؟ للتواصل : privacy@pytomatiza.com"
+    },
+    "dataCollection": {
+      "personalInfo": {
+        "items": [
+          "الاسم الكامل",
+          "عنوان البريد الإلكتروني",
+          "كلمة المرور (المخزنة مع التجزئة الآمنة)",
+          "بيانات الملف الشخصي (الصورة، تاريخ الميلاد)",
+          "تفضيلات الحساب (اللغة، المنطقة الزمنية، الموضوع)"
+        ],
+        "title": "معلومات شخصية"
+      },
+      "usageData": {
+        "items": [
+          "سجلات الأتمتة والتنفيذ",
+          "التفاعلات مع وكلاء الذكاء الاصطناعي",
+          "الملفات المرسلة للمعالجة",
+          "إعدادات التكامل المتصلة",
+          "مقاييس الأداء والأخطاء"
+        ],
+        "title": "بيانات الاستخدام"
+      },
+      "automaticData": {
+        "items": [
+          "عنوان IP والموقع التقريبي",
+          "نوع المتصفح وإصداره",
+          "نظام التشغيل",
+          "أوقات الوصول ومدد الجلسة",
+          "معرفات الجهاز"
+        ],
+        "title": "البيانات المجمعة تلقائيا"
+      },
+      "title": "1. البيانات التي نجمعها",
+      "description": "نقوم بجمع المعلومات التي تقدمها لنا مباشرة والمعلومات التي نجمعها تلقائيًا عند استخدامك لخدماتنا."
+    },
+    "dataUsage": {
+      "purposes": [
+        "تقديم وصيانة الخدمة Pytomatiza+",
+        "أتمتة العمليات وتشغيل وكلاء الذكاء الاصطناعي",
+        "إدارة حسابك وتفضيلاتك",
+        "إرسال إشعارات مهمة (الأمان، الفوترة)",
+        "تحسين تجربة المستخدم وتطوير ميزات جديدة",
+        "كشف ومنع الاحتيال وسوء الاستخدام",
+        "الامتثال للالتزامات القانونية والتنظيمية"
+      ],
+      "title": "2. كيف نستخدم بياناتك",
+      "description": "نحن نستخدم بياناتك لتقديم خدماتنا وتحسينها وحمايتها."
+    },
+    "dataSharing": {
+      "cases": [
+        "مع موفري الذكاء الاصطناعي (مثل Google Gemini) لتشغيل عمليات التشغيل الآلي — البيانات الضرورية فقط",
+        "من خلال عمليات التكامل التي قمت بتوصيلها (Google، Slack، وما إلى ذلك) - اعتمادًا على إعداداتك",
+        "مع مزودي البنية التحتية (الاستضافة، قاعدة البيانات) بموجب عقود معالجة البيانات",
+        "عندما يقتضي القانون أو أمر المحكمة أو لحماية الحقوق والسلامة",
+        "في حالة الاندماج أو الاستحواذ أو بيع الأصول – مع إشعار مسبق"
+      ],
+      "title": "3. مشاركة البيانات",
+      "description": "نحن لا نبيع بياناتك الشخصية. لا نشارك إلا في الحالات التالية:"
+    },
+    "dataRetention": {
+      "periods": [
+        "بيانات الحساب: عندما يكون الحساب نشطا",
+        "سجلات الأتمتة: 12 شهرًا (افتراضي)، قابلة للتكوين",
+        "الملفات التي تمت معالجتها: يتم حذفها خلال 24 ساعة من المعالجة، ما لم يتم تكوينها بطريقة أخرى",
+        "النسخ الاحتياطية: 30 يومًا بعد حذف الحساب",
+        "بيانات الفواتير: كما هو مطلوب بموجب قانون الضرائب (5 سنوات على الأقل في البرازيل)"
+      ],
+      "title": "4. الاحتفاظ بالبيانات",
+      "description": "نحن نحتفظ ببياناتك فقط طالما كان ذلك ضروريًا للأغراض الموضحة في هذه السياسة."
+    },
+    "userRights": {
+      "rights": [
+        "الوصول: اطلب نسخة من بياناتك",
+        "التصحيح: تصحيح البيانات غير الكاملة أو غير الصحيحة",
+        "الحذف: طلب حذف بياناتك (باستثناء الالتزامات القانونية)",
+        "قابلية النقل: احصل على بياناتك بتنسيق منظم",
+        "التقييد: تقييد المعالجة في ظروف معينة",
+        "المعارضة: الاعتراض على المعالجة على أساس المصلحة المشروعة",
+        "سحب الموافقة: في أي وقت للمعالجة القائمة على الموافقة"
+      ],
+      "title": "5. حقوقك (LGPD / GDPR)",
+      "description": "لديك السيطرة على بياناتك الشخصية.",
+      "howToExercise": "لممارسة حقوقك، استخدم لوحة الخصوصية والبيانات في الإعدادات أو أرسل بريدًا إلكترونيًا إلى privacy@pytomatiza.com. سوف نقوم بالرد خلال 15 يوما."
+    },
+    "security": {
+      "measures": [
+        "التشفير أثناء النقل (TLS 1.3) وفي حالة الراحة (AES-256)",
+        "المصادقة الثنائية الاختيارية (2FA)",
+        "JWT الرموز المميزة مع التدوير التلقائي والإلغاء",
+        "التحكم في الوصول القائم على الدور (RBAC)",
+        "تدقيق الوصول إلى البيانات الحساسة",
+        "اختبارات أمنية منتظمة واختبارات القلم",
+        "خطة الاستجابة للحوادث وإخطار التسرب"
+      ],
+      "title": "6. أمن البيانات",
+      "description": "نقوم بتنفيذ التدابير الفنية والتنظيمية لحماية بياناتك."
+    },
+    "cookies": {
+      "categories": [
+        "الأساسيات: المصادقة، الأمان، الجلسة (لا يمكن تعطيلها)",
+        "التفضيلات: اللغة، الموضوع، المنطقة الزمنية",
+        "التحليلات: مقاييس الاستخدام مجهولة المصدر (Google Analytics، اختياري)"
+      ],
+      "title": "7. ملفات تعريف الارتباط والتقنيات المشابهة",
+      "description": "نحن نستخدم ملفات تعريف الارتباط الأساسية لتشغيل موقع الويب، وملفات تعريف الارتباط المفضلة لتذكر إعداداتك وملفات تعريف الارتباط التحليلية مجهولة المصدر لتحسين الخدمة.",
+      "management": "قم بإدارة ملفات تعريف الارتباط في إعدادات المتصفح الخاص بك أو لوحة الخصوصية والبيانات."
+    },
+    "internationalTransfers": {
+      "safeguards": [
+        "الشروط التعاقدية القياسية للمفوضية الأوروبية (SCCs)",
+        "شهادات الملاءمة (على سبيل المثال: EU-U.S. Data Privacy Framework)",
+        "قواعد الشركة الملزمة (BCRs) حيثما ينطبق ذلك"
+      ],
+      "title": "8. التحويلات الدولية",
+      "description": "قد تتم معالجة بياناتك على خوادم موجودة خارج البرازيل (الولايات المتحدة الأمريكية وأوروبا). نحن نضمن الحماية الكافية من خلال:"
+    },
+    "children": {
+      "title": "9. خصوصية الأطفال",
+      "description": "Pytomatiza+ غير موجه للأطفال أقل من 16 سنة. نحن لا نجمع البيانات من الأطفال عن قصد. إذا اكتشفت أننا قمنا بجمع بيانات من قاصر دون موافقة الوالدين، فيرجى الاتصال بنا للحذف الفوري."
+    },
+    "changes": {
+      "title": "10. التغييرات في هذه السياسة",
+      "description": "قد نقوم بتحديث هذه السياسة من وقت لآخر. سنخطرك بالتغييرات المادية عبر البريد الإلكتروني أو إشعار داخل التطبيق قبل 30 يومًا. استمرار الاستخدام بعد التغييرات يشكل القبول."
+    },
+    "contact": {
+      "title": "11. الاتصال",
+      "description": "الأسئلة أو الطلبات أو الشكاوى المتعلقة بالخصوصية:",
+      "email": "privacy@pytomatiza.com",
+      "address": "Pytomatiza+ — DPO (مسؤول حماية البيانات)\nشارع. das Automações, 1000 - ساو باولو، SP - البرازيل",
+      "dpo": "مسؤول حماية البيانات (DPO): privacy@pytomatiza.com"
+    },
+    "lastUpdated": "آخر تحديث: 18 يونيو 2026",
+    "complianceBadges": "LGPD · GDPR · SaaS الامتثال",
+    "navAriaLabel": "التنقل في السياسة"
   }
 }

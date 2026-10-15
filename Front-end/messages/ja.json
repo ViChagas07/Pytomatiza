@@ -36,7 +36,24 @@
     "enabled": "æœ‰åŠ¹",
     "disabled": "ç„¡åŠ¹",
     "increasedBy": "å¢—åŠ ",
-    "decreasedBy": "æ¸›å°‘"
+    "decreasedBy": "æ¸›å°‘",
+    "comingSoon": {
+      "title": "間もなく",
+      "description": "私たちは AI を活用したインテリジェントな自動化を準備しています。 さらに詳しいニュースは近日公開予定です!"
+    },
+    "languages": {
+      "pt": "Português",
+      "en": "English",
+      "es": "Español",
+      "fr": "Français",
+      "de": "Deutsch",
+      "it": "Italiano",
+      "ru": "Русский",
+      "ja": "日本語",
+      "zh": "中文",
+      "ar": "العربية",
+      "hi": "हिन्दी"
+    }
   },
   "auth": {
     "signIn": {
@@ -78,10 +95,15 @@
       "passwordsDoNotMatch": "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒä¸€è‡´ã—ã¾ã›ã‚“",
       "nameTooShort": "åå‰ã¯å°‘ãªãã¨ã‚‚ 2 æ–‡å­—ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™",
       "generic": "äºˆæœŸã—ãªã„ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ ã‚‚ã†ä¸€åº¦è©¦ã—ã¦ãã ã•ã„ã€‚",
-      "rateLimited": "è©¦è¡Œå›žæ•°ãŒå¤šã™ãŽã¾ã™ã€‚ ã—ã°ã‚‰ããŠå¾…ã¡ãã ã•ã„ã€‚"
+      "rateLimited": "è©¦è¡Œå›žæ•°ãŒå¤šã™ãŽã¾ã™ã€‚ ã—ã°ã‚‰ããŠå¾…ã¡ãã ã•ã„ã€‚",
+      "consentRequired": "続行するには、利用規約とプライバシー ポリシーに同意する必要があります。"
     },
     "authenticationForm": "èªè¨¼ãƒ•ã‚©ãƒ¼ãƒ ",
-    "rememberMe": "ãƒ­ã‚°ã‚¤ãƒ³çŠ¶æ…‹ã‚’ä¿æŒã™ã‚‹"
+    "rememberMe": "ãƒ­ã‚°ã‚¤ãƒ³çŠ¶æ…‹ã‚’ä¿æŒã™ã‚‹",
+    "consent": {
+      "terms": "利用規約",
+      "privacy": "プライバシーポリシー"
+    }
   },
   "meta": {
     "login": {
@@ -298,8 +320,50 @@
         "exportTitle": "Export my data",
         "export": "Export",
         "deleteTitle": "Delete my account",
-        "delete": "Delete account"
+        "delete": "Delete account",
+        "exportFailed": "データのエクスポートに失敗しました。 もう一度試してください。",
+        "deleteFailed": "アカウントの削除に失敗しました。 もう一度試してください。",
+        "deleteConfirmPlaceholder": "「削除」と入力して確認します"
       }
+    },
+    "integrations": {
+      "categories": {
+        "storage": "ストレージ",
+        "productivity": "生産性",
+        "communication": "コミュニケーション",
+        "project_management": "プロジェクト管理",
+        "utilities": "公共事業",
+        "social": "ソーシャルメディア",
+        "coming_soon": "間もなく"
+      },
+      "header": {
+        "title": "統合",
+        "description": "サードパーティのサービスを接続して、エージェントの機能を拡張します。"
+      },
+      "errors": {
+        "saveToken": "トークンの保存中にエラーが発生しました"
+      },
+      "status": {
+        "connected": "接続済み",
+        "error": "エラー",
+        "disconnected": "切断されました"
+      },
+      "actions": {
+        "connect": "接続する",
+        "save": "保存",
+        "authorizeTrello": "Trello で承認",
+        "validate": "検証する",
+        "disconnect": "切断する",
+        "refresh": "更新するには",
+        "connectViaProvider": "プロバイダーのアプリ経由で接続する"
+      },
+      "telegram": {
+        "tokenPlaceholder": "ボットトークン (例: 123456:ABC-DEF…)"
+      },
+      "trello": {
+        "tokenPlaceholder": "Trello トークンをここに貼り付けます"
+      },
+      "loading": "統合を読み込み中…"
     }
   },
   "help": {
@@ -400,7 +464,14 @@
       "pause": "ä¸€æ™‚åœæ­¢",
       "resume": "å†é–‹ã™ã‚‹",
       "configure": "è¨­å®šã™ã‚‹",
-      "never": "ä¸€åº¦ã‚‚ãªã„"
+      "never": "ä¸€åº¦ã‚‚ãªã„",
+      "promptPlaceholder": "私に何をしてほしいのですか？ (Enter = 送信、Esc = キャンセル)",
+      "cancel": "キャンセル",
+      "closeResponse": "返信を閉じる",
+      "close": "閉じるには",
+      "aiResponseTitle": "エージェントの応答 (Gemini AI)",
+      "refusalTitle": "エージェントがタスクを拒否しました",
+      "recommendationPrefix": "推奨事項: 試してみてください"
     },
     "empty": "ç¾åœ¨ã®ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã«ä¸€è‡´ã™ã‚‹ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã¯ã‚ã‚Šã¾ã›ã‚“ã€‚ æ¤œç´¢ã¾ãŸã¯ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼æ¡ä»¶ã‚’èª¿æ•´ã—ã¦ã¿ã¦ãã ã•ã„ã€‚",
     "error": "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã‚’ãƒ­ãƒ¼ãƒ‰ã§ãã¾ã›ã‚“ã€‚ æŽ¥ç¶šã‚’ç¢ºèªã—ã¦ã€ã‚‚ã†ä¸€åº¦è©¦ã—ã¦ãã ã•ã„ã€‚",
@@ -478,7 +549,11 @@
       "status": "ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹: {status}",
       "created": "ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ãŒä½œæˆã•ã‚Œã¾ã—ãŸ! ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã®ç¨®é¡ž: {agentType}ã€‚ æ‰¿èª: {approval}ã€‚",
       "required": "å¿…é ˆ",
-      "notRequired": "å¿…è¦ã‚ã‚Šã¾ã›ã‚“"
+      "notRequired": "å¿…è¦ã‚ã‚Šã¾ã›ã‚“",
+      "approve": "承認する",
+      "deny": "否定するには",
+      "execute": "実行するには",
+      "running": "実行中…"
     },
     "errors": {
       "instructionTooShort": "æŒ‡ç¤ºã¯ 10 æ–‡å­—ä»¥ä¸Šã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™",
@@ -602,7 +677,10 @@
         "actions": "ã‚¢ã‚¯ã‚·ãƒ§ãƒ³",
         "download": "ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰çµæžœ",
         "reprocess": "å†å‡¦ç†",
-        "delete": "æ¶ˆåŽ»"
+        "delete": "æ¶ˆåŽ»",
+        "statusCompleted": "完了しました",
+        "statusProcessing": "処理",
+        "statusFailed": "失敗した"
       },
       "processing": {
         "button": "ãƒ—ãƒ­ã‚»ã‚¹æ–‡æ›¸",
@@ -917,7 +995,7 @@
         "title": "AI ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã¯ãƒ•ã‚¡ã‚¤ãƒ«ã«å¯¾ã—ã¦ä½•ã‚’ã™ã¹ãã§ã—ã‚‡ã†ã‹?",
         "description": "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã©ã®ã‚ˆã†ã«æ•´ç†ã€å‡¦ç†ã€ç®¡ç†ã™ã‚‹ã‹ã‚’è‡ªç„¶è¨€èªžã§èª¬æ˜Žã—ã¾ã™ã€‚",
         "label": "ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆã®æŒ‡ç¤º",
-        "placeholder": "ãŸã¨ãˆã°ã€ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼å†…ã®ã™ã¹ã¦ã® PDF ã‚’ä½œæˆæ—¥é †ã«æ•´ç†ã—ã€ã€ŒYYYY-MM-DD - å…ƒã®åå‰ã€ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ä½¿ç”¨ã—ã¦åå‰ã‚’å¤‰æ›´ã—ã€è«‹æ±‚æ›¸ã‚’ /Finance/Invoices/{year}/{month} ã«ç§»å‹•ã—ã€6 ã‹æœˆä»¥ä¸Šå‰ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åœ§ç¸®ã—ã¾ã™ã€‚",
+        "placeholder": "ãŸã¨ãˆã°ã€ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼å†…ã®ã™ã¹ã¦ã® PDF ã‚’ä½œæˆæ—¥é †ã«æ•´ç†ã—ã€ã€ŒYYYY-MM-DD - å…ƒã®åå‰ã€ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ä½¿ç”¨ã—ã¦åå‰ã‚’å¤‰æ›´ã—ã€è«‹æ±‚æ›¸ã‚’ /Finance/Invoices/{ano}/{mês} ã«ç§»å‹•ã—ã€6 ã‹æœˆä»¥ä¸Šå‰ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åœ§ç¸®ã—ã¾ã™ã€‚",
         "helper": "å«ã¾ã‚Œã‚‹å†…å®¹: å½±éŸ¿ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã€ãã‚Œã‚‰ã®æ•´ç†æ–¹æ³•ã€åå‰å¤‰æ›´ãƒ‘ã‚¿ãƒ¼ãƒ³ã€å®›å…ˆãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã€è¿½åŠ ã®ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã€‚",
         "charCount": "{current}/{max}æ–‡å­—",
         "button": "AIã§å®Ÿè¡Œã™ã‚‹",
@@ -962,7 +1040,7 @@
         "condition": "çŠ¶æ…‹",
         "conditionPlaceholder": "ä¾‹: ãƒ•ã‚¡ã‚¤ãƒ«åã«ã€Œè«‹æ±‚æ›¸ã€ãŒå«ã¾ã‚Œã¦ã„ã‚‹",
         "action": "ã‚¢ã‚¯ã‚·ãƒ§ãƒ³",
-        "actionPlaceholder": "ä¾‹: /Finance/Invoices/{year}/{month} ã«ç§»å‹•ã—ã¾ã™",
+        "actionPlaceholder": "ä¾‹: /Finance/Invoices/{ano}/{mes} ã«ç§»å‹•ã—ã¾ã™",
         "addRule": "ãƒ«ãƒ¼ãƒ«ã®è¿½åŠ ",
         "active": "ã‚¢ã‚¯ãƒ†ã‚£ãƒ–",
         "inactive": "éžã‚¢ã‚¯ãƒ†ã‚£ãƒ–",
@@ -980,7 +1058,7 @@
         "share": "Share",
         "download": "ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰"
       },
-      "aiPlaceholder": "E.g.: Organize all PDFs from the Downloads folder by creation date, renomeie com o padrÃ£o 'YYYY-MM-DD - nome original', mova faturas para /Financeiro/Faturas/{ano}/{mÃªs} e compacte arquivos com mais de 6 meses.",
+      "aiPlaceholder": "例: ダウンロードフォルダ内のすべての PDF を作成日順に整理し、「YYYY-MM-DD - 元の名前」のパターンで名前を変更し、請求書を /Finance/Invoices/{ano}/{mês} に移動し、6 か月以上前のファイルを圧縮します。",
       "integrations": {
         "googleDrive": {
           "title": "Google Drive",
@@ -1004,7 +1082,12 @@
       "results": {
         "aiInterpreted": "å‘½ä»¤ã¯æ­£å¸¸ã«è§£é‡ˆã•ã‚Œã¾ã—ãŸã€‚ çµ„ç¹”ãƒ«ãƒ¼ãƒ«ã¯è‡ªå‹•çš„ã«ä½œæˆã•ã‚Œã¾ã™ã€‚ ãƒ«ãƒ¼ãƒ«ãƒ‘ãƒãƒ«ã§ãã‚Œã‚‰ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚"
       },
-      "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!"
+      "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!",
+      "aiActions": {
+        "rename": "名前を「YYYY-MM-DD - 元の名前」に変更します",
+        "move": "/財務/請求書/{ano}/{mes}に移動します",
+        "compress": "ZIP に圧縮して /File に移動します"
+      }
     },
     "architecture": {
       "title": "å»ºç¯‰",
@@ -1114,7 +1197,8 @@
       "ongoing": "em andamento"
     },
     "tableEmpty": "å®Ÿè¡Œãƒ­ã‚°ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚",
-    "loginPrompt": "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã«ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ  ãƒ‡ãƒ¼ã‚¿ã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ãã ã•ã„ã€‚"
+    "loginPrompt": "ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã«ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ  ãƒ‡ãƒ¼ã‚¿ã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ãã ã•ã„ã€‚",
+    "loading": "読み込み中…"
   },
   "landing": {
     "nav": {
@@ -1129,7 +1213,28 @@
       "subtitle": "Create powerful automations, bots, and workflows without leaving your browser. Pytomatiza+ turns complex Python scripting into visual, manageable processes.",
       "cta": "Start Automating",
       "demo": "Watch Demo",
-      "badge": "New: AI Agents with CrewAI"
+      "badge": "New: AI Agents with CrewAI",
+      "mock": {
+        "kpi": {
+          "agents": "エージェント",
+          "automations": "自動化",
+          "success": "成功",
+          "pending": "ペンダント"
+        },
+        "activity": {
+          "items": [
+            {
+              "name": "請求書の処理",
+              "time": "09:45"
+            },
+            {
+              "name": "週報",
+              "time": "07:00"
+            }
+          ],
+          "label": "最近の活動"
+        }
+      }
     },
     "howItWorks": {
       "title": "How It Works",
@@ -1174,15 +1279,6 @@
         "title": "Built to Scale",
         "description": "From small tasks to enterprise workflows. Pytomatiza+ handles increased load without compromising performance."
       }
-    },
-    "demo": {
-      "title": "See It in Action",
-      "subtitle": "A visual platform designed for productivity",
-      "tabsLabel": "Choose a view",
-      "workflows": "Workflows",
-      "dashboard": "Dashboard",
-      "editor": "Editor",
-      "automations": "Automations"
     },
     "benefits": {
       "title": "Automation Without the Complexity",
@@ -1235,7 +1331,14 @@
     "cta": {
       "title": "Start Automating Today",
       "subtitle": "Join thousands of professionals who have transformed their workflow with Pytomatiza+",
-      "button": "Enter Pytomatiza+"
+      "button": "Enter Pytomatiza+",
+      "mock": {
+        "kpi": {
+          "agents": "エージェント",
+          "success": "成功",
+          "today": "今日"
+        }
+      }
     },
     "footer": {
       "description": "The intelligent automation platform that thinks, learns, and executes.",
@@ -1295,14 +1398,25 @@
         "description": "Extract data from any invoice automatically, save it to Google Drive, and notify your team on Slack — without writing a single line of code.",
         "check1": "Smart OCR data extraction",
         "check2": "Native Gmail, Drive, and Slack integration",
-        "check3": "Scheduled or event-triggered runs"
+        "check3": "Scheduled or event-triggered runs",
+        "steps": [
+          "PDFを含むメールを受信しました",
+          "データ抽出 (OCR)",
+          "Google Drive に保存",
+          "Slack でチームに通知"
+        ]
       },
       "block2": {
         "title": "Sales Reports Always Ready",
         "description": "Every Monday, compile data from Google Sheets, generate a PDF report, and email it to management — on autopilot.",
         "check1": "Automatic spreadsheet consolidation",
         "check2": "AI analysis with executive summary",
-        "check3": "On-time delivery to the whole team"
+        "check3": "On-time delivery to the whole team",
+        "chips": [
+          "シート",
+          "IA Gemini",
+          "電子メール"
+        ]
       }
     }
   },
@@ -1314,5 +1428,331 @@
     "feature2Desc": "å°‚é–€ã® AI ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆãŒé€£æºã—ã¦ã€è¤‡é›‘ãªè¤‡æ•°ã‚¹ãƒ†ãƒƒãƒ—ã®ãƒ—ãƒ­ã‚»ã‚¹ã‚’å‡¦ç†ã—ã¾ã™ã€‚",
     "feature3Title": "Enterprise-Grade ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£",
     "feature3Desc": "End-to-end æš—å·åŒ–ã€ãƒ­ãƒ¼ãƒ«ãƒ™ãƒ¼ã‚¹ã®ã‚¢ã‚¯ã‚»ã‚¹ã€å®Œå…¨ãªç›£æŸ»è¨¼è·¡ã€‚"
+  },
+  "integrationChips": {
+    "availableTitle": "利用可能な統合",
+    "availableBadge": "利用可能",
+    "futureTitle": "今後のサービス",
+    "comingSoonBadge": "間もなく",
+    "discord": "Discord",
+    "telegram": "Telegram",
+    "trello": "Trello",
+    "jira": "Jira",
+    "googleDrive": "Google Drive",
+    "gmail": "Gmail",
+    "googleCalendar": "Google Calendar",
+    "googlePhotos": "Google Photos",
+    "googleMaps": "Google Maps",
+    "slack": "Slack",
+    "zoom": "Zoom",
+    "googleMeet": "Google Meet",
+    "facebookPages": "Facebook ページ",
+    "whatsappBusiness": "WhatsApp ビジネス",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "microsoftTeams": "Microsoft Teams"
+  },
+  "integrationPanel": {
+    "categories": {
+      "communication": "コミュニケーション",
+      "projectManagement": "プロジェクト管理",
+      "storage": "ストレージ",
+      "productivity": "生産性",
+      "utilities": "公共事業",
+      "social": "ソーシャルメディア"
+    },
+    "services": {
+      "discord": {
+        "label": "Discord",
+        "category": "communication",
+        "capabilities": [
+          "メッセージを送信する",
+          "アラートを送信する",
+          "Webhook 経由で通知を作成する"
+        ]
+      },
+      "telegram": {
+        "label": "Telegram",
+        "category": "communication",
+        "capabilities": [
+          "メッセージを送信する",
+          "書類の送信",
+          "写真を送信する",
+          "ユーザーに通知する"
+        ]
+      },
+      "trello": {
+        "label": "Trello",
+        "category": "projectManagement",
+        "capabilities": [
+          "カードを作成する",
+          "リスト間でカードを移動する",
+          "カードを更新する"
+        ]
+      },
+      "jira": {
+        "label": "Jira",
+        "category": "projectManagement",
+        "capabilities": [
+          "問題/バグ/タスクを作成する",
+          "チケットを更新する",
+          "問題についてコメントする"
+        ]
+      },
+      "google_drive": {
+        "label": "Google Drive",
+        "category": "storage",
+        "capabilities": [
+          "ファイルのアップロード",
+          "フォルダーの作成",
+          "ファイルの検索",
+          "ファイルのリストを表示する"
+        ]
+      },
+      "gmail": {
+        "label": "Gmail",
+        "category": "communication",
+        "capabilities": [
+          "メールを送信する",
+          "メッセージの一覧表示",
+          "メールを読む",
+          "差出人で検索"
+        ]
+      },
+      "google_calendar": {
+        "label": "Google Calendar",
+        "category": "productivity",
+        "capabilities": [
+          "イベントの一覧表示",
+          "イベントの作成",
+          "カレンダーの管理"
+        ]
+      },
+      "google_photos": {
+        "label": "Google Photos",
+        "category": "storage",
+        "capabilities": [
+          "写真を保存する",
+          "アルバムを作成する",
+          "日付で検索する",
+          "メディアを共有する"
+        ]
+      },
+      "google_maps": {
+        "label": "Google Maps",
+        "category": "utilities",
+        "capabilities": [
+          "住所の地理コード化",
+          "リバースジオコーディング",
+          "ルートを計算する"
+        ]
+      },
+      "slack": {
+        "label": "Slack",
+        "category": "communication",
+        "capabilities": [
+          "チャネルでメッセージを送信する",
+          "チャンネルをリストする",
+          "チームに通知する"
+        ]
+      },
+      "zoom": {
+        "label": "Zoom",
+        "category": "communication",
+        "capabilities": [
+          "会議を作成する",
+          "会議のリストを作成する",
+          "ウェビナーをスケジュールする"
+        ]
+      },
+      "google_meet": {
+        "label": "Google Meet",
+        "category": "communication",
+        "capabilities": [
+          "ビデオ通話を作成する",
+          "会議のリストを作成する",
+          "Google Meet でスケジュールを立てる"
+        ]
+      },
+      "facebook": {
+        "label": "Facebook Pages",
+        "category": "social"
+      },
+      "whatsapp": {
+        "label": "WhatsApp Business",
+        "category": "communication"
+      },
+      "instagram": {
+        "label": "Instagram",
+        "category": "social"
+      },
+      "linkedin": {
+        "label": "LinkedIn",
+        "category": "social"
+      },
+      "teams": {
+        "label": "Microsoft Teams",
+        "category": "communication"
+      }
+    },
+    "title": "利用可能な統合",
+    "subtitle": "Pytomatiza+ をお気に入りのサービスに接続します。 ワークフローでは、接続されたあらゆる統合を利用できます。",
+    "futureTitle": "今後のサービス",
+    "futureDescription": "この統合は、Pytomatiza+ の将来のバージョンに追加される予定です。",
+    "availableBadge": "利用可能",
+    "comingSoonBadge": "間もなく",
+    "catalogTitle": "Pytomatiza+ が今日自動化できるもの"
+  },
+  "loginOverlay": {
+    "title": "この機能にアクセスするにはログインしてください",
+    "ctaLabel": "入るには"
+  },
+  "loginAlert": {
+    "label": "ログインしてアクセスしてください"
+  },
+  "privacy": {
+    "footer": {
+      "copyright": "© {year} Pytomatiza+.無断転載を禁じます。",
+      "contact": "プライバシーに関するリクエストについては、privacy@pytomatiza.com までご連絡ください。"
+    },
+    "intro": {
+      "title": "プライバシーポリシーと利用規約",
+      "description": "このポリシーでは、お客様が当社のサービスを使用する際に、Pytomatiza+ がお客様の個人情報をどのように収集、使用、保護するかについて説明します。 Pytomatiza+ を使用すると、このポリシーに従って情報が収集および使用されることに同意したことになります。",
+      "effectiveDate": "発効日：2026年6月18日",
+      "contact": "疑問がありますか？ 連絡先: privacy@pytomatiza.com"
+    },
+    "dataCollection": {
+      "personalInfo": {
+        "items": [
+          "フルネーム",
+          "電子メールアドレス",
+          "パスワード (安全なハッシュで保存)",
+          "プロフィールデータ（写真、生年月日）",
+          "アカウントの設定 (言語、タイムゾーン、テーマ)"
+        ],
+        "title": "個人情報"
+      },
+      "usageData": {
+        "items": [
+          "自動化と実行のログ",
+          "AIエージェントとのインタラクション",
+          "処理のために送信されたファイル",
+          "接続された統合の設定",
+          "パフォーマンス指標とエラー"
+        ],
+        "title": "使用状況データ"
+      },
+      "automaticData": {
+        "items": [
+          "IPアドレスとおおよその位置",
+          "ブラウザの種類とバージョン",
+          "オペレーティング·システム",
+          "アクセス時間とセッション期間",
+          "デバイス識別子"
+        ],
+        "title": "自動的に収集されるデータ"
+      },
+      "title": "1. 当社が収集するデータ",
+      "description": "当社は、お客様が当社に直接提供する情報と、お客様が当社のサービスを使用するときに自動的に収集する情報を収集します。"
+    },
+    "dataUsage": {
+      "purposes": [
+        "サービスの提供と維持 Pytomatiza+",
+        "プロセスの自動化と AI エージェントの実行",
+        "アカウントと設定を管理する",
+        "重要な通知を送信する (セキュリティ、請求)",
+        "ユーザーエクスペリエンスの向上と新機能の開発",
+        "詐欺や不正行為を検出して防止する",
+        "法的および規制上の義務を遵守する"
+      ],
+      "title": "2. お客様のデータの使用方法",
+      "description": "当社は、サービスを提供、改善、保護するためにお客様のデータを使用します。"
+    },
+    "dataSharing": {
+      "cases": [
+        "AI プロバイダー (例: Google Gemini) を使用して自動化を実行 - 必要なデータのみ",
+        "あなたが接続した統合 (Google、Slack など) を使用 - 設定に応じて",
+        "データ処理契約に基づくインフラストラクチャプロバイダー（ホスティング、データベース）との契約",
+        "法律、裁判所命令、または権利と安全を保護するために必要な場合",
+        "合併、資産の取得または売却の場合 - 事前通知あり"
+      ],
+      "title": "3. データ共有",
+      "description": "当社はあなたの個人データを販売しません。 次の状況でのみ共有します。"
+    },
+    "dataRetention": {
+      "periods": [
+        "アカウントデータ: アカウントがアクティブな間",
+        "自動化ログ: 12 か月 (デフォルト)、構成可能",
+        "処理されたファイル: 別途設定されていない限り、処理後 24 時間以内に削除されます",
+        "バックアップ: アカウント削除後 30 日間",
+        "請求データ: 税法で義務付けられているもの (ブラジルでは最低 5 年)"
+      ],
+      "title": "4. データの保持",
+      "description": "当社は、このポリシーに記載されている目的に必要な期間のみお客様のデータを保管します。"
+    },
+    "userRights": {
+      "rights": [
+        "アクセス: データのコピーをリクエストします",
+        "修正: 不完全または不正確なデータを修正します。",
+        "削除: データの削除をリクエストします (法的義務を除く)",
+        "移植性: データを構造化された形式で受信します",
+        "制限: 特定の状況での処理の制限",
+        "反対派: 正当な利益に基づく処理に反対",
+        "同意の撤回: 同意に基づいて処理する場合はいつでも"
+      ],
+      "title": "5. お客様の権利 (LGPD / GDPR)",
+      "description": "あなたは自分の個人データを管理することができます。",
+      "howToExercise": "権利を行使するには、[設定] の [プライバシーとデータ] パネルを使用するか、privacy@pytomatiza.com に電子メールを送信してください。 15日以内にご返答させていただきます。"
+    },
+    "security": {
+      "measures": [
+        "転送中 (TLS 1.3) および保存中 (AES-256) の暗号化",
+        "オプションの 2 要素認証 (2FA)",
+        "自動ローテーションと失効を備えたJWT トークン",
+        "役割ベースのアクセス制御 (RBAC)",
+        "機密データへのアクセスの監査",
+        "定期的なセキュリティテストと侵入テスト",
+        "インシデント対応計画と漏洩通知"
+      ],
+      "title": "6. データセキュリティ",
+      "description": "当社は、お客様のデータを保護するために技術的および組織的な対策を実施します。"
+    },
+    "cookies": {
+      "categories": [
+        "Essentials: 認証、セキュリティ、セッション (無効にすることはできません)",
+        "設定: 言語、テーマ、タイムゾーン",
+        "分析: 匿名化された使用状況指標 (Google Analytics、オプション)"
+      ],
+      "title": "7. Cookie および類似のテクノロジー",
+      "description": "当社はウェブサイトを機能させるために必須 Cookie を使用し、設定を記憶するために設定 Cookie を使用し、サービスを向上させるために匿名化された分析 Cookie を使用します。",
+      "management": "ブラウザの設定またはプライバシーとデータ パネルで Cookie を管理します。"
+    },
+    "internationalTransfers": {
+      "safeguards": [
+        "欧州委員会の標準契約条項 (SCCs)",
+        "適合性認定 (例: EU-U.S. Data Privacy Framework)",
+        "拘束力のある企業規則 (BCRs) (該当する場合)"
+      ],
+      "title": "8. 国際送金",
+      "description": "お客様のデータはブラジル国外 (米国、ヨーロッパ) にあるサーバーで処理される場合があります。 当社は以下を通じて適切な保護を保証します。"
+    },
+    "children": {
+      "title": "9. 子供のプライバシー",
+      "description": "Pytomatiza+ は 16 歳未満の子供を対象としていません。 当社は故意に子供からデータを収集しません。 当社が保護者の同意なしに未成年者からデータを収集したことが判明した場合は、直ちに削除するよう当社にご連絡ください。"
+    },
+    "changes": {
+      "title": "10. 本ポリシーの変更",
+      "description": "当社はこのポリシーを随時更新することがあります。 重要な変更については、30 日前に電子メールまたはアプリ内通知でお知らせします。 変更後も継続して使用することにより、承認されたとみなされます。"
+    },
+    "contact": {
+      "title": "11. 連絡先",
+      "description": "プライバシーに関する質問、リクエスト、苦情:",
+      "email": "privacy@pytomatiza.com",
+      "address": "Pytomatiza+ — DPO (データ保護責任者)\n平均das Automações、1000 — サンパウロ、SP — ブラジル",
+      "dpo": "データ保護責任者 (DPO): privacy@pytomatiza.com"
+    },
+    "lastUpdated": "最終更新日: 2026 年 6 月 18 日",
+    "complianceBadges": "LGPD · GDPR · SaaS コンプライアンス",
+    "navAriaLabel": "ポリシーのナビゲーション"
   }
 }

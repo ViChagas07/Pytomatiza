@@ -5,7 +5,7 @@
 "use client";
 
 import * as React from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { AlertTriangle, RefreshCw, Home } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 
@@ -16,6 +16,7 @@ interface GlobalErrorProps {
 
 export default function GlobalError({ error, reset }: GlobalErrorProps) {
   const t = useTranslations("errors");
+  const locale = useLocale();
   React.useEffect(() => {
     if (process.env.NODE_ENV === "development") {
       console.error("Global error:", error);
@@ -23,7 +24,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
   }, [error]);
 
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className="min-h-screen bg-[var(--surface-0)] text-[var(--text-primary)] font-sans">
         <main className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
           <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-danger)]/10 mb-4">

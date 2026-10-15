@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "i18n:check": "node scripts/check-i18n.js",
+    "i18n:sync": "node scripts/i18n-sync.js",
+    "i18n:fix-tokens": "node scripts/fix-i18n-tokens.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

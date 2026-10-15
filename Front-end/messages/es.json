@@ -36,7 +36,24 @@
     "enabled": "Activado",
     "disabled": "Desactivado",
     "increasedBy": "Incrementado por",
-    "decreasedBy": "Disminuido por"
+    "decreasedBy": "Disminuido por",
+    "comingSoon": {
+      "title": "Dentro de poco",
+      "description": "Estamos preparando automatizaciones inteligentes impulsadas por IA. ¡Más noticias próximamente!"
+    },
+    "languages": {
+      "pt": "Português",
+      "en": "English",
+      "es": "Español",
+      "fr": "Français",
+      "de": "Deutsch",
+      "it": "Italiano",
+      "ru": "Русский",
+      "ja": "日本語",
+      "zh": "中文",
+      "ar": "العربية",
+      "hi": "हिन्दी"
+    }
   },
   "auth": {
     "signIn": {
@@ -78,10 +95,15 @@
       "passwordsDoNotMatch": "Las contraseÃ±as no coinciden",
       "nameTooShort": "El nombre debe tener al menos 2 caracteres.",
       "generic": "Se produjo un error inesperado. Por favor intÃ©ntalo de nuevo.",
-      "rateLimited": "Demasiados intentos. Espere un momento."
+      "rateLimited": "Demasiados intentos. Espere un momento.",
+      "consentRequired": "Debe aceptar los Términos de uso y la Política de privacidad para continuar."
     },
     "authenticationForm": "Formulario de autenticaciÃ³n",
-    "rememberMe": "Recordarme"
+    "rememberMe": "Recordarme",
+    "consent": {
+      "terms": "Condiciones de uso",
+      "privacy": "política de privacidad"
+    }
   },
   "meta": {
     "login": {
@@ -298,8 +320,50 @@
         "exportTitle": "Export my data",
         "export": "Export",
         "deleteTitle": "Delete my account",
-        "delete": "Delete account"
+        "delete": "Delete account",
+        "exportFailed": "No se pudieron exportar los datos. Por favor inténtalo de nuevo.",
+        "deleteFailed": "No se pudo eliminar la cuenta. Por favor inténtalo de nuevo.",
+        "deleteConfirmPlaceholder": "Escribe \"BORRAR\" para confirmar"
       }
+    },
+    "integrations": {
+      "categories": {
+        "storage": "Almacenamiento",
+        "productivity": "Productividad",
+        "communication": "Comunicación",
+        "project_management": "Gestión de proyectos",
+        "utilities": "Utilidades",
+        "social": "redes sociales",
+        "coming_soon": "Dentro de poco"
+      },
+      "header": {
+        "title": "Integraciones",
+        "description": "Conecte servicios de terceros para ampliar las capacidades de sus agentes."
+      },
+      "errors": {
+        "saveToken": "Error al guardar el token"
+      },
+      "status": {
+        "connected": "Conectado",
+        "error": "Error",
+        "disconnected": "Desconectado"
+      },
+      "actions": {
+        "connect": "Conectar",
+        "save": "Ahorrar",
+        "authorizeTrello": "Autorizar en Trello",
+        "validate": "Validar",
+        "disconnect": "Desconectar",
+        "refresh": "Para actualizar",
+        "connectViaProvider": "Conéctese a través de la aplicación del proveedor"
+      },
+      "telegram": {
+        "tokenPlaceholder": "Token de robot (ej: 123456:ABC-DEF…)"
+      },
+      "trello": {
+        "tokenPlaceholder": "Pega el token Trello aquí"
+      },
+      "loading": "Cargando integraciones…"
     }
   },
   "help": {
@@ -400,7 +464,14 @@
       "pause": "Pausa",
       "resume": "Reanudar",
       "configure": "Configurar",
-      "never": "Nunca"
+      "never": "Nunca",
+      "promptPlaceholder": "¿Qué quieres que haga? (Entrar = enviar, Esc = cancelar)",
+      "cancel": "Cancelar",
+      "closeResponse": "Cerrar respuesta",
+      "close": "para cerrar",
+      "aiResponseTitle": "Respuesta del agente (Gemini AI)",
+      "refusalTitle": "El agente rechazó la tarea.",
+      "recommendationPrefix": "Recomendación: Pruebe un"
     },
     "empty": "NingÃºn agente coincide con sus filtros actuales. Intente ajustar los criterios de bÃºsqueda o filtrado.",
     "error": "No se pueden cargar agentes. Por favor verifique su conexiÃ³n e intÃ©ntelo nuevamente.",
@@ -478,7 +549,11 @@
       "status": "Estado: {status}",
       "created": "Â¡Flujo de trabajo creado! Tipo de agente: {agentType}. AprobaciÃ³n: {approval}.",
       "required": "requerida",
-      "notRequired": "no requerido"
+      "notRequired": "no requerido",
+      "approve": "Aprobar",
+      "deny": "negar",
+      "execute": "para ejecutar",
+      "running": "Correr…"
     },
     "errors": {
       "instructionTooShort": "La instrucciÃ³n debe tener al menos 10 caracteres.",
@@ -602,7 +677,10 @@
         "actions": "Comportamiento",
         "download": "Descargar resultado",
         "reprocess": "reprocesar",
-        "delete": "Borrar"
+        "delete": "Borrar",
+        "statusCompleted": "Terminado",
+        "statusProcessing": "Tratamiento",
+        "statusFailed": "Fallido"
       },
       "processing": {
         "button": "Documento de proceso",
@@ -917,7 +995,7 @@
         "title": "Â¿QuÃ© debe hacer el agente de IA con sus archivos?",
         "description": "Describe en lenguaje natural cÃ³mo quieres organizar, procesar o gestionar tus archivos.",
         "label": "InstrucciÃ³n del agente",
-        "placeholder": "por ejemplo, organice todos los archivos PDF en la carpeta Descargas por fecha de creaciÃ³n, cÃ¡mbieles el nombre usando el patrÃ³n 'YYYY-MM-DD - nombre original', mueva las facturas a /Finanzas/Facturas/{year}/{month} y comprima archivos de mÃ¡s de 6 meses.",
+        "placeholder": "por ejemplo, organice todos los archivos PDF en la carpeta Descargas por fecha de creaciÃ³n, cÃ¡mbieles el nombre usando el patrÃ³n 'YYYY-MM-DD - nombre original', mueva las facturas a /Finanzas/Facturas/{ano}/{mês} y comprima archivos de mÃ¡s de 6 meses.",
         "helper": "Incluye: quÃ© archivos afectar, cÃ³mo organizarlos, cambio de nombre, carpetas de destino y acciones adicionales.",
         "charCount": "{current}/{max} caracteres",
         "button": "Ejecutar con IA",
@@ -962,7 +1040,7 @@
         "condition": "CondiciÃ³n",
         "conditionPlaceholder": "por ejemplo, el nombre del archivo contiene 'factura'",
         "action": "AcciÃ³n",
-        "actionPlaceholder": "por ejemplo, vaya a /Finanzas/Facturas/{year}/{month}",
+        "actionPlaceholder": "por ejemplo, vaya a /Finanzas/Facturas/{ano}/{mes}",
         "addRule": "Agregar regla",
         "active": "Activa",
         "inactive": "Inactiva",
@@ -980,7 +1058,7 @@
         "share": "Share",
         "download": "Descargar"
       },
-      "aiPlaceholder": "E.g.: Organize all PDFs from the Downloads folder by creation date, renomeie com o padrÃ£o 'YYYY-MM-DD - nome original', mova faturas para /Financeiro/Faturas/{ano}/{mÃªs} e compacte arquivos com mais de 6 meses.",
+      "aiPlaceholder": "Ej.: Organiza todos los PDF de la carpeta Descargas por fecha de creación, renómbralos con el patrón «YYYY-MM-DD - nombre original», mueve las facturas a /Finance/Invoices/{ano}/{mês} y comprime los archivos con más de 6 meses.",
       "integrations": {
         "googleDrive": {
           "title": "Google Drive",
@@ -1004,7 +1082,12 @@
       "results": {
         "aiInterpreted": "Â¡InstrucciÃ³n interpretada exitosamente! Las reglas de organizaciÃ³n se han creado automÃ¡ticamente. RevÃ­salas en el panel de reglas."
       },
-      "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!"
+      "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!",
+      "aiActions": {
+        "rename": "Cambiar el nombre a 'YYYY-MM-DD - nombre original'",
+        "move": "Mover a /Finanzas/Facturas/{ano}/{mes}",
+        "compress": "Comprima a ZIP y muévase a /Archivo"
+      }
     },
     "architecture": {
       "title": "Arquitectura",
@@ -1114,7 +1197,8 @@
       "ongoing": "en curso"
     },
     "tableEmpty": "No se encontraron registros de ejecuciÃ³n.",
-    "loginPrompt": "Â¡Inicie sesiÃ³n en su cuenta para acceder a datos en tiempo real!"
+    "loginPrompt": "Â¡Inicie sesiÃ³n en su cuenta para acceder a datos en tiempo real!",
+    "loading": "Cargando…"
   },
   "landing": {
     "nav": {
@@ -1129,7 +1213,28 @@
       "subtitle": "Create powerful automations, bots, and workflows without leaving your browser. Pytomatiza+ turns complex Python scripting into visual, manageable processes.",
       "cta": "Start Automating",
       "demo": "Watch Demo",
-      "badge": "New: AI Agents with CrewAI"
+      "badge": "New: AI Agents with CrewAI",
+      "mock": {
+        "kpi": {
+          "agents": "Agentes",
+          "automations": "Automatizaciones",
+          "success": "Éxito",
+          "pending": "Colgantes"
+        },
+        "activity": {
+          "items": [
+            {
+              "name": "Procesamiento de facturas",
+              "time": "09:45"
+            },
+            {
+              "name": "Informe Semanal",
+              "time": "07:00"
+            }
+          ],
+          "label": "Actividad reciente"
+        }
+      }
     },
     "howItWorks": {
       "title": "How It Works",
@@ -1174,15 +1279,6 @@
         "title": "Built to Scale",
         "description": "From small tasks to enterprise workflows. Pytomatiza+ handles increased load without compromising performance."
       }
-    },
-    "demo": {
-      "title": "See It in Action",
-      "subtitle": "A visual platform designed for productivity",
-      "tabsLabel": "Choose a view",
-      "workflows": "Workflows",
-      "dashboard": "Dashboard",
-      "editor": "Editor",
-      "automations": "Automations"
     },
     "benefits": {
       "title": "Automation Without the Complexity",
@@ -1235,7 +1331,14 @@
     "cta": {
       "title": "Start Automating Today",
       "subtitle": "Join thousands of professionals who have transformed their workflow with Pytomatiza+",
-      "button": "Enter Pytomatiza+"
+      "button": "Enter Pytomatiza+",
+      "mock": {
+        "kpi": {
+          "agents": "Agentes",
+          "success": "Éxito",
+          "today": "Hoy"
+        }
+      }
     },
     "footer": {
       "description": "The intelligent automation platform that thinks, learns, and executes.",
@@ -1295,14 +1398,25 @@
         "description": "Extract data from any invoice automatically, save it to Google Drive, and notify your team on Slack — without writing a single line of code.",
         "check1": "Smart OCR data extraction",
         "check2": "Native Gmail, Drive, and Slack integration",
-        "check3": "Scheduled or event-triggered runs"
+        "check3": "Scheduled or event-triggered runs",
+        "steps": [
+          "Correo electrónico con PDF recibido",
+          "Extracción de datos (OCR)",
+          "Guardar en Google Drive",
+          "Notificar al equipo el Slack"
+        ]
       },
       "block2": {
         "title": "Sales Reports Always Ready",
         "description": "Every Monday, compile data from Google Sheets, generate a PDF report, and email it to management — on autopilot.",
         "check1": "Automatic spreadsheet consolidation",
         "check2": "AI analysis with executive summary",
-        "check3": "On-time delivery to the whole team"
+        "check3": "On-time delivery to the whole team",
+        "chips": [
+          "Hojas",
+          "IA Gemini",
+          "Correo electrónico"
+        ]
       }
     }
   },
@@ -1314,5 +1428,331 @@
     "feature2Desc": "Agentes de IA especializados colaboran para manejar procesos complejos de varios pasos.",
     "feature3Title": "Enterprise-Grade Seguridad",
     "feature3Desc": "End-to-end cifrado, acceso basado en roles y pistas de auditorÃ­a completas."
+  },
+  "integrationChips": {
+    "availableTitle": "Integraciones disponibles",
+    "availableBadge": "Disponible",
+    "futureTitle": "Servicios futuros",
+    "comingSoonBadge": "Dentro de poco",
+    "discord": "Discord",
+    "telegram": "Telegram",
+    "trello": "Trello",
+    "jira": "Jira",
+    "googleDrive": "Google Drive",
+    "gmail": "Gmail",
+    "googleCalendar": "Google Calendar",
+    "googlePhotos": "Google Photos",
+    "googleMaps": "Google Maps",
+    "slack": "Slack",
+    "zoom": "Zoom",
+    "googleMeet": "Google Meet",
+    "facebookPages": "Facebook Páginas",
+    "whatsappBusiness": "WhatsApp Negocios",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "microsoftTeams": "Microsoft Teams"
+  },
+  "integrationPanel": {
+    "categories": {
+      "communication": "Comunicación",
+      "projectManagement": "Gestión de proyectos",
+      "storage": "Almacenamiento",
+      "productivity": "Productividad",
+      "utilities": "Utilidades",
+      "social": "redes sociales"
+    },
+    "services": {
+      "discord": {
+        "label": "Discord",
+        "category": "communication",
+        "capabilities": [
+          "enviar mensajes",
+          "Enviar alertas",
+          "Crear notificaciones a través de webhook"
+        ]
+      },
+      "telegram": {
+        "label": "Telegram",
+        "category": "communication",
+        "capabilities": [
+          "enviar mensajes",
+          "Enviar documentos",
+          "enviar fotos",
+          "Notificar a los usuarios"
+        ]
+      },
+      "trello": {
+        "label": "Trello",
+        "category": "projectManagement",
+        "capabilities": [
+          "crear tarjetas",
+          "Mover tarjetas entre listas",
+          "Actualizar tarjetas"
+        ]
+      },
+      "jira": {
+        "label": "Jira",
+        "category": "projectManagement",
+        "capabilities": [
+          "Crear problemas/errores/tareas",
+          "Actualizar entradas",
+          "Comenta sobre problemas"
+        ]
+      },
+      "google_drive": {
+        "label": "Google Drive",
+        "category": "storage",
+        "capabilities": [
+          "Carga de archivos",
+          "Crear carpetas",
+          "Buscar archivos",
+          "Listar archivos"
+        ]
+      },
+      "gmail": {
+        "label": "Gmail",
+        "category": "communication",
+        "capabilities": [
+          "enviar correos electrónicos",
+          "Listar mensajes",
+          "Leer correos electrónicos",
+          "Buscar por remitente"
+        ]
+      },
+      "google_calendar": {
+        "label": "Google Calendar",
+        "category": "productivity",
+        "capabilities": [
+          "Listar eventos",
+          "Crear eventos",
+          "Administrar calendarios"
+        ]
+      },
+      "google_photos": {
+        "label": "Google Photos",
+        "category": "storage",
+        "capabilities": [
+          "almacenar fotos",
+          "Crear álbumes",
+          "Buscar por fecha",
+          "compartir medios"
+        ]
+      },
+      "google_maps": {
+        "label": "Google Maps",
+        "category": "utilities",
+        "capabilities": [
+          "Direcciones geográficas",
+          "Geocodificación inversa",
+          "Calcular rutas"
+        ]
+      },
+      "slack": {
+        "label": "Slack",
+        "category": "communication",
+        "capabilities": [
+          "Enviar mensajes en canales",
+          "Listar canales",
+          "Notificar a los equipos"
+        ]
+      },
+      "zoom": {
+        "label": "Zoom",
+        "category": "communication",
+        "capabilities": [
+          "Crear reuniones",
+          "Listar reuniones",
+          "Programar seminarios web"
+        ]
+      },
+      "google_meet": {
+        "label": "Google Meet",
+        "category": "communication",
+        "capabilities": [
+          "Crear videollamadas",
+          "Listar reuniones",
+          "Agenda con Google Meet"
+        ]
+      },
+      "facebook": {
+        "label": "Facebook Pages",
+        "category": "social"
+      },
+      "whatsapp": {
+        "label": "WhatsApp Business",
+        "category": "communication"
+      },
+      "instagram": {
+        "label": "Instagram",
+        "category": "social"
+      },
+      "linkedin": {
+        "label": "LinkedIn",
+        "category": "social"
+      },
+      "teams": {
+        "label": "Microsoft Teams",
+        "category": "communication"
+      }
+    },
+    "title": "Integraciones disponibles",
+    "subtitle": "Conéctate Pytomatiza+ a tus servicios favoritos. Los flujos de trabajo pueden utilizar cualquier integración conectada.",
+    "futureTitle": "Servicios futuros",
+    "futureDescription": "Esta integración se agregará en futuras versiones de Pytomatiza+.",
+    "availableBadge": "Disponible",
+    "comingSoonBadge": "Dentro de poco",
+    "catalogTitle": "¿Qué puede automatizar Pytomatiza+ hoy?"
+  },
+  "loginOverlay": {
+    "title": "Inicia sesión para acceder a esta funcionalidad",
+    "ctaLabel": "para entrar"
+  },
+  "loginAlert": {
+    "label": "Inicia sesión para acceder"
+  },
+  "privacy": {
+    "footer": {
+      "copyright": "© {year} Pytomatiza+. Reservados todos los derechos.",
+      "contact": "Para solicitudes de privacidad, contáctenos al privacy@pytomatiza.com."
+    },
+    "intro": {
+      "title": "Política de privacidad y términos de uso",
+      "description": "Esta política describe cómo Pytomatiza+ recopila, usa y protege su información personal cuando utiliza nuestros servicios. Al utilizar Pytomatiza+, acepta la recopilación y el uso de información de acuerdo con esta política.",
+      "effectiveDate": "Fecha de vigencia: 18 de junio de 2026",
+      "contact": "¿Dudas? Ponte en contacto: privacy@pytomatiza.com"
+    },
+    "dataCollection": {
+      "personalInfo": {
+        "items": [
+          "nombre completo",
+          "Dirección de correo electrónico",
+          "Contraseña (almacenada con hash seguro)",
+          "Datos de perfil (foto, fecha de nacimiento)",
+          "Preferencias de la cuenta (idioma, zona horaria, tema)"
+        ],
+        "title": "Información personal"
+      },
+      "usageData": {
+        "items": [
+          "Registros de automatización y ejecución.",
+          "Interacciones con agentes de IA",
+          "Archivos enviados para su procesamiento.",
+          "Configuración de integraciones conectadas",
+          "Métricas de rendimiento y errores."
+        ],
+        "title": "Datos de uso"
+      },
+      "automaticData": {
+        "items": [
+          "Dirección IP y ubicación aproximada",
+          "Tipo y versión del navegador",
+          "Sistema operativo",
+          "Horarios de acceso y duración de las sesiones",
+          "Identificadores de dispositivos"
+        ],
+        "title": "Datos recopilados automáticamente"
+      },
+      "title": "1. Datos que recopilamos",
+      "description": "Recopilamos información que usted nos proporciona directamente e información que recopilamos automáticamente cuando utiliza nuestros Servicios."
+    },
+    "dataUsage": {
+      "purposes": [
+        "Proporcionar y mantener el servicio Pytomatiza+",
+        "Automatizaciones de procesos y ejecución de agentes de IA",
+        "Gestiona tu cuenta y preferencias",
+        "Enviar notificaciones importantes (seguridad, facturación)",
+        "Mejorar la experiencia del usuario y desarrollar nuevas funciones.",
+        "Detectar y prevenir fraudes y abusos",
+        "Cumplir con las obligaciones legales y reglamentarias."
+      ],
+      "title": "2. Cómo utilizamos sus datos",
+      "description": "Utilizamos sus datos para proporcionar, mejorar y proteger nuestros servicios."
+    },
+    "dataSharing": {
+      "cases": [
+        "Con proveedores de IA (por ejemplo, Google Gemini) para ejecutar automatizaciones: solo los datos necesarios",
+        "Con integraciones conectadas por usted (Google, Slack, etc.), según su configuración",
+        "Con proveedores de infraestructura (hosting, base de datos) bajo contratos de procesamiento de datos",
+        "Cuando lo exija la ley, orden judicial o para proteger derechos y seguridad",
+        "En caso de fusión, adquisición o venta de activos, con previo aviso"
+      ],
+      "title": "3. Intercambio de datos",
+      "description": "No vendemos sus datos personales. Sólo compartimos en las siguientes situaciones:"
+    },
+    "dataRetention": {
+      "periods": [
+        "Datos de la cuenta: mientras la cuenta está activa",
+        "Registros de automatización: 12 meses (predeterminado), configurables",
+        "Archivos procesados: eliminados dentro de las 24 horas posteriores al procesamiento, a menos que se configure lo contrario",
+        "Copias de seguridad: 30 días después de la eliminación de la cuenta",
+        "Datos de facturación: según lo exige la ley tributaria (mínimo 5 años en Brasil)"
+      ],
+      "title": "4. Retención de datos",
+      "description": "Sólo conservamos sus datos durante el tiempo necesario para las finalidades descritas en esta política."
+    },
+    "userRights": {
+      "rights": [
+        "Acceso: solicita una copia de tus datos",
+        "Rectificación: corregir datos incompletos o incorrectos",
+        "Supresión: solicitar la supresión de tus datos (salvo obligaciones legales)",
+        "Portabilidad: recibe tus datos en un formato estructurado",
+        "Restricción: limitar el procesamiento en determinadas circunstancias",
+        "Oposición: oponerse al tratamiento basado en el interés legítimo",
+        "Retiro del consentimiento: en cualquier momento para el procesamiento basado en el consentimiento"
+      ],
+      "title": "5. Tus derechos (LGPD / GDPR)",
+      "description": "Usted tiene control sobre sus datos personales.",
+      "howToExercise": "Para ejercer sus derechos, utilice el panel Privacidad y datos en Configuración o envíe un correo electrónico a privacy@pytomatiza.com. Le responderemos dentro de los 15 días."
+    },
+    "security": {
+      "measures": [
+        "Cifrado en tránsito (TLS 1.3) y en reposo (AES-256)",
+        "Autenticación de dos factores opcional (2FA)",
+        "JWT tokens con rotación automática y revocación",
+        "Control de acceso basado en roles (RBAC)",
+        "Auditoría de acceso a datos sensibles",
+        "Pruebas de seguridad periódicas y pruebas de penetración",
+        "Plan de respuesta a incidentes y notificación de fugas"
+      ],
+      "title": "6. Seguridad de los datos",
+      "description": "Implementamos medidas técnicas y organizativas para proteger sus datos."
+    },
+    "cookies": {
+      "categories": [
+        "Elementos esenciales: autenticación, seguridad, sesión (no se puede desactivar)",
+        "Preferencias: idioma, tema, zona horaria",
+        "Analytics: métricas de uso anónimas (Google Analytics, opcional)"
+      ],
+      "title": "7. Cookies y tecnologías similares",
+      "description": "Utilizamos cookies esenciales para que el sitio web funcione, cookies de preferencias para recordar su configuración y cookies analíticas anónimas para mejorar el servicio.",
+      "management": "Administre las cookies en la configuración de su navegador o en el panel de Privacidad y Datos."
+    },
+    "internationalTransfers": {
+      "safeguards": [
+        "Cláusulas contractuales tipo de la Comisión Europea (SCCs)",
+        "Certificaciones de idoneidad (ej.: EU-U.S. Data Privacy Framework)",
+        "Normas corporativas vinculantes (BCRs) cuando corresponda"
+      ],
+      "title": "8. Transferencias Internacionales",
+      "description": "Sus datos podrán ser procesados ​​en servidores ubicados fuera de Brasil (EE.UU., Europa). Garantizamos una protección adecuada a través de:"
+    },
+    "children": {
+      "title": "9. Privacidad de los niños",
+      "description": "Pytomatiza+ no está dirigido a niños menores de 16 años. No recopilamos conscientemente datos de niños. Si descubre que hemos recopilado datos de un menor sin el consentimiento de sus padres, comuníquese con nosotros para eliminarlos inmediatamente."
+    },
+    "changes": {
+      "title": "10. Cambios a esta Política",
+      "description": "Podemos actualizar esta política de vez en cuando. Le notificaremos los cambios materiales por correo electrónico o aviso en la aplicación con 30 días de anticipación. El uso continuo después de los cambios constituye aceptación."
+    },
+    "contact": {
+      "title": "11. Contacto",
+      "description": "Preguntas, solicitudes o quejas sobre privacidad:",
+      "email": "privacy@pytomatiza.com",
+      "address": "Pytomatiza+ — DPO (Delegado de Protección de Datos)\nAv. das Automações, 1000 — São Paulo, SP — Brasil",
+      "dpo": "Delegado de Protección de Datos (DPO): privacy@pytomatiza.com"
+    },
+    "lastUpdated": "Última actualización: 18 de junio de 2026",
+    "complianceBadges": "LGPD · GDPR · SaaS Cumplimiento",
+    "navAriaLabel": "Navegación de políticas"
   }
 }

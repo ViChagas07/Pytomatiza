@@ -36,7 +36,24 @@
     "enabled": "å¯ç”¨",
     "disabled": "æ®‹ç–¾äºº",
     "increasedBy": "å¢žåŠ äº†",
-    "decreasedBy": "å‡å°‘äº†"
+    "decreasedBy": "å‡å°‘äº†",
+    "comingSoon": {
+      "title": "不久",
+      "description": "我们正在准备由人工智能驱动的智能自动化。 更多消息即将推出！"
+    },
+    "languages": {
+      "pt": "Português",
+      "en": "English",
+      "es": "Español",
+      "fr": "Français",
+      "de": "Deutsch",
+      "it": "Italiano",
+      "ru": "Русский",
+      "ja": "日本語",
+      "zh": "中文",
+      "ar": "العربية",
+      "hi": "हिन्दी"
+    }
   },
   "auth": {
     "signIn": {
@@ -78,10 +95,15 @@
       "passwordsDoNotMatch": "å¯†ç ä¸åŒ¹é…",
       "nameTooShort": "åç§°å¿…é¡»è‡³å°‘æœ‰ 2 ä¸ªå­—ç¬¦",
       "generic": "å‘ç”Ÿæ„å¤–é”™è¯¯ã€‚ è¯·å†è¯•ä¸€æ¬¡ã€‚",
-      "rateLimited": "å°è¯•æ¬¡æ•°å¤ªå¤šã€‚ è¯·ç¨ç­‰ã€‚"
+      "rateLimited": "å°è¯•æ¬¡æ•°å¤ªå¤šã€‚ è¯·ç¨ç­‰ã€‚",
+      "consentRequired": "您必须接受使用条款和隐私政策才能继续。"
     },
     "authenticationForm": "è®¤è¯è¡¨æ ¼",
-    "rememberMe": "è®°ä½æˆ‘"
+    "rememberMe": "è®°ä½æˆ‘",
+    "consent": {
+      "terms": "使用条款",
+      "privacy": "隐私政策"
+    }
   },
   "meta": {
     "login": {
@@ -298,8 +320,50 @@
         "exportTitle": "Export my data",
         "export": "Export",
         "deleteTitle": "Delete my account",
-        "delete": "Delete account"
+        "delete": "Delete account",
+        "exportFailed": "导出数据失败。 请再试一次。",
+        "deleteFailed": "删除帐户失败。 请再试一次。",
+        "deleteConfirmPlaceholder": "输入“删除”进行确认"
       }
+    },
+    "integrations": {
+      "categories": {
+        "storage": "贮存",
+        "productivity": "生产率",
+        "communication": "沟通",
+        "project_management": "项目管理",
+        "utilities": "公用事业",
+        "social": "社交媒体",
+        "coming_soon": "不久"
+      },
+      "header": {
+        "title": "集成",
+        "description": "连接第三方服务以扩展代理的能力。"
+      },
+      "errors": {
+        "saveToken": "保存令牌时出错"
+      },
+      "status": {
+        "connected": "已连接",
+        "error": "错误",
+        "disconnected": "已断开连接"
+      },
+      "actions": {
+        "connect": "连接",
+        "save": "节省",
+        "authorizeTrello": "授权Trello",
+        "validate": "证实",
+        "disconnect": "断开",
+        "refresh": "更新",
+        "connectViaProvider": "通过提供商的应用程序连接"
+      },
+      "telegram": {
+        "tokenPlaceholder": "机器人令牌（例如：123456：ABC-DEF…）"
+      },
+      "trello": {
+        "tokenPlaceholder": "将 Trello 标记粘贴到此处"
+      },
+      "loading": "正在加载集成..."
     }
   },
   "help": {
@@ -400,7 +464,14 @@
       "pause": "æš‚åœ",
       "resume": "æ¢å¤",
       "configure": "é…ç½®",
-      "never": "ç»ä¸"
+      "never": "ç»ä¸",
+      "promptPlaceholder": "你想让我做什么？ （Enter = 发送，Esc = 取消）",
+      "cancel": "取消",
+      "closeResponse": "关闭回复",
+      "close": "关闭",
+      "aiResponseTitle": "代理响应（Gemini AI）",
+      "refusalTitle": "代理拒绝任务",
+      "recommendationPrefix": "建议：尝试一下"
     },
     "empty": "æ²¡æœ‰ä»£ç†ç¬¦åˆæ‚¨å½“å‰çš„è¿‡æ»¤æ¡ä»¶ã€‚ å°è¯•è°ƒæ•´æœç´¢æˆ–è¿‡æ»¤æ¡ä»¶ã€‚",
     "error": "æ— æ³•åŠ è½½ä»£ç†ã€‚ è¯·æ£€æŸ¥æ‚¨çš„è¿žæŽ¥å¹¶é‡è¯•ã€‚",
@@ -478,7 +549,11 @@
       "status": "çŠ¶æ€ï¼š{status}",
       "created": "å·¥ä½œæµç¨‹å·²åˆ›å»ºï¼ ä»£ç†ç±»åž‹ï¼š{agentType}ã€‚ æ‰¹å‡†ï¼š{approval}ã€‚",
       "required": "å¿…éœ€çš„",
-      "notRequired": "ä¸éœ€è¦"
+      "notRequired": "ä¸éœ€è¦",
+      "approve": "批准",
+      "deny": "否认",
+      "execute": "执行",
+      "running": "跑步…"
     },
     "errors": {
       "instructionTooShort": "è¯´æ˜Žå¿…é¡»è‡³å°‘ 10 ä¸ªå­—ç¬¦",
@@ -602,7 +677,10 @@
         "actions": "è¡ŒåŠ¨",
         "download": "ä¸‹è½½ç»“æžœ",
         "reprocess": "å†åŠ å·¥",
-        "delete": "åˆ é™¤"
+        "delete": "åˆ é™¤",
+        "statusCompleted": "完全的",
+        "statusProcessing": "加工",
+        "statusFailed": "失败的"
       },
       "processing": {
         "button": "å·¥è‰ºæ–‡ä»¶",
@@ -917,7 +995,7 @@
         "title": "AI ä»£ç†åº”è¯¥å¦‚ä½•å¤„ç†æ‚¨çš„æ–‡ä»¶ï¼Ÿ",
         "description": "ç”¨è‡ªç„¶è¯­è¨€æè¿°æ‚¨å¸Œæœ›å¦‚ä½•ç»„ç»‡ã€å¤„ç†æˆ–ç®¡ç†æ–‡ä»¶ã€‚",
         "label": "ä»£ç†æŒ‡ä»¤",
-        "placeholder": "ä¾‹å¦‚ï¼ŒæŒ‰åˆ›å»ºæ—¥æœŸç»„ç»‡â€œä¸‹è½½â€æ–‡ä»¶å¤¹ä¸­çš„æ‰€æœ‰ PDFï¼Œä½¿ç”¨â€œYYYY-MM-DD - åŽŸå§‹åç§°â€æ¨¡å¼é‡å‘½åå®ƒä»¬ï¼Œå°†å‘ç¥¨ç§»è‡³ /Finance/Invoices/{year}/{month}ï¼Œå¹¶åŽ‹ç¼© 6 ä¸ªæœˆä»¥ä¸Šçš„æ–‡ä»¶ã€‚",
+        "placeholder": "ä¾‹å¦‚ï¼ŒæŒ‰åˆ›å»ºæ—¥æœŸç»„ç»‡â€œä¸‹è½½â€æ–‡ä»¶å¤¹ä¸­çš„æ‰€æœ‰ PDFï¼Œä½¿ç”¨â€œYYYY-MM-DD - åŽŸå§‹åç§°â€æ¨¡å¼é‡å‘½åå®ƒä»¬ï¼Œå°†å‘ç¥¨ç§»è‡³ /Finance/Invoices/{ano}/{mês}ï¼Œå¹¶åŽ‹ç¼© 6 ä¸ªæœˆä»¥ä¸Šçš„æ–‡ä»¶ã€‚",
         "helper": "åŒ…æ‹¬ï¼šå½±å“å“ªäº›æ–‡ä»¶ã€å¦‚ä½•ç»„ç»‡å®ƒä»¬ã€é‡å‘½åæ¨¡å¼ã€ç›®æ ‡æ–‡ä»¶å¤¹å’Œå…¶ä»–æ“ä½œã€‚",
         "charCount": "{current}/{max} ä¸ªå­—ç¬¦",
         "button": "ç”¨äººå·¥æ™ºèƒ½æ‰§è¡Œ",
@@ -962,7 +1040,7 @@
         "condition": "å¥åº·ï¼‰çŠ¶å†µ",
         "conditionPlaceholder": "ä¾‹å¦‚ï¼Œæ–‡ä»¶ååŒ…å«â€œå‘ç¥¨â€",
         "action": "è¡ŒåŠ¨",
-        "actionPlaceholder": "ä¾‹å¦‚ï¼Œç§»è‡³ /Finance/Invoices/{year}/{month}",
+        "actionPlaceholder": "ä¾‹å¦‚ï¼Œç§»è‡³ /Finance/Invoices/{ano}/{mes}",
         "addRule": "æ·»åŠ è§„åˆ™",
         "active": "ç§¯æžçš„",
         "inactive": "ä¸æ´»è·ƒ",
@@ -980,7 +1058,7 @@
         "share": "Share",
         "download": "ä¸‹è½½"
       },
-      "aiPlaceholder": "E.g.: Organize all PDFs from the Downloads folder by creation date, renomeie com o padrÃ£o 'YYYY-MM-DD - nome original', mova faturas para /Financeiro/Faturas/{ano}/{mÃªs} e compacte arquivos com mais de 6 meses.",
+      "aiPlaceholder": "例如：按创建日期整理“下载”文件夹中的所有 PDF，使用“YYYY-MM-DD - 原始名称”模式重命名，将发票移至 /Finance/Invoices/{ano}/{mês}，并压缩超过 6 个月的文件。",
       "integrations": {
         "googleDrive": {
           "title": "Google Drive",
@@ -1004,7 +1082,12 @@
       "results": {
         "aiInterpreted": "æŒ‡ä»¤è§£é‡ŠæˆåŠŸï¼ ç»„ç»‡è§„åˆ™å·²è‡ªåŠ¨åˆ›å»ºã€‚ åœ¨è§„åˆ™é¢æ¿ä¸­æŸ¥çœ‹å®ƒä»¬ã€‚"
       },
-      "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!"
+      "loginPrompt": "Faça login ou cadastre-se para usar esta ferramenta!",
+      "aiActions": {
+        "rename": "重命名为“YYYY-MM-DD - 原始名称”",
+        "move": "移至/财务/发票/{ano}/{mes}",
+        "compress": "压缩到 ZIP 并移动到 /File"
+      }
     },
     "architecture": {
       "title": "å»ºç­‘å­¦",
@@ -1114,7 +1197,8 @@
       "ongoing": "em andamento"
     },
     "tableEmpty": "æœªæ‰¾åˆ°æ‰§è¡Œæ—¥å¿—ã€‚",
-    "loginPrompt": "ç™»å½•æ‚¨çš„å¸æˆ·å³å¯è®¿é—®å®žæ—¶æ•°æ®ï¼"
+    "loginPrompt": "ç™»å½•æ‚¨çš„å¸æˆ·å³å¯è®¿é—®å®žæ—¶æ•°æ®ï¼",
+    "loading": "加载中…"
   },
   "landing": {
     "nav": {
@@ -1129,7 +1213,28 @@
       "subtitle": "Create powerful automations, bots, and workflows without leaving your browser. Pytomatiza+ turns complex Python scripting into visual, manageable processes.",
       "cta": "Start Automating",
       "demo": "Watch Demo",
-      "badge": "New: AI Agents with CrewAI"
+      "badge": "New: AI Agents with CrewAI",
+      "mock": {
+        "kpi": {
+          "agents": "代理商",
+          "automations": "自动化",
+          "success": "成功",
+          "pending": "吊坠"
+        },
+        "activity": {
+          "items": [
+            {
+              "name": "发票处理",
+              "time": "09:45"
+            },
+            {
+              "name": "每周报告",
+              "time": "07:00"
+            }
+          ],
+          "label": "最近的活动"
+        }
+      }
     },
     "howItWorks": {
       "title": "How It Works",
@@ -1174,15 +1279,6 @@
         "title": "Built to Scale",
         "description": "From small tasks to enterprise workflows. Pytomatiza+ handles increased load without compromising performance."
       }
-    },
-    "demo": {
-      "title": "See It in Action",
-      "subtitle": "A visual platform designed for productivity",
-      "tabsLabel": "Choose a view",
-      "workflows": "Workflows",
-      "dashboard": "Dashboard",
-      "editor": "Editor",
-      "automations": "Automations"
     },
     "benefits": {
       "title": "Automation Without the Complexity",
@@ -1235,7 +1331,14 @@
     "cta": {
       "title": "Start Automating Today",
       "subtitle": "Join thousands of professionals who have transformed their workflow with Pytomatiza+",
-      "button": "Enter Pytomatiza+"
+      "button": "Enter Pytomatiza+",
+      "mock": {
+        "kpi": {
+          "agents": "代理商",
+          "success": "成功",
+          "today": "今天"
+        }
+      }
     },
     "footer": {
       "description": "The intelligent automation platform that thinks, learns, and executes.",
@@ -1295,14 +1398,25 @@
         "description": "Extract data from any invoice automatically, save it to Google Drive, and notify your team on Slack — without writing a single line of code.",
         "check1": "Smart OCR data extraction",
         "check2": "Native Gmail, Drive, and Slack integration",
-        "check3": "Scheduled or event-triggered runs"
+        "check3": "Scheduled or event-triggered runs",
+        "steps": [
+          "收到带有PDF的电子邮件",
+          "数据提取 (OCR)",
+          "保存到Google Drive",
+          "通知团队Slack"
+        ]
       },
       "block2": {
         "title": "Sales Reports Always Ready",
         "description": "Every Monday, compile data from Google Sheets, generate a PDF report, and email it to management — on autopilot.",
         "check1": "Automatic spreadsheet consolidation",
         "check2": "AI analysis with executive summary",
-        "check3": "On-time delivery to the whole team"
+        "check3": "On-time delivery to the whole team",
+        "chips": [
+          "床单",
+          "IAGemini",
+          "电子邮件"
+        ]
       }
     }
   },
@@ -1314,5 +1428,331 @@
     "feature2Desc": "ä¸“ä¸šçš„äººå·¥æ™ºèƒ½ä»£ç†åä½œå¤„ç†å¤æ‚çš„å¤šæ­¥éª¤æµç¨‹ã€‚",
     "feature3Title": "Enterprise-Grade å®‰å…¨",
     "feature3Desc": "End-to-end åŠ å¯†ã€åŸºäºŽè§’è‰²çš„è®¿é—®å’Œå®Œæ•´çš„å®¡è®¡è·Ÿè¸ªã€‚"
+  },
+  "integrationChips": {
+    "availableTitle": "可用的集成",
+    "availableBadge": "可用的",
+    "futureTitle": "未来服务",
+    "comingSoonBadge": "不久",
+    "discord": "Discord",
+    "telegram": "Telegram",
+    "trello": "Trello",
+    "jira": "Jira",
+    "googleDrive": "Google Drive",
+    "gmail": "Gmail",
+    "googleCalendar": "Google Calendar",
+    "googlePhotos": "Google Photos",
+    "googleMaps": "Google Maps",
+    "slack": "Slack",
+    "zoom": "Zoom",
+    "googleMeet": "Google Meet",
+    "facebookPages": "Facebook页数",
+    "whatsappBusiness": "WhatsApp 商业",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "microsoftTeams": "Microsoft Teams"
+  },
+  "integrationPanel": {
+    "categories": {
+      "communication": "沟通",
+      "projectManagement": "项目管理",
+      "storage": "贮存",
+      "productivity": "生产率",
+      "utilities": "公用事业",
+      "social": "社交媒体"
+    },
+    "services": {
+      "discord": {
+        "label": "Discord",
+        "category": "communication",
+        "capabilities": [
+          "发送消息",
+          "发送提醒",
+          "通过 webhook 创建通知"
+        ]
+      },
+      "telegram": {
+        "label": "Telegram",
+        "category": "communication",
+        "capabilities": [
+          "发送消息",
+          "发送文件",
+          "发送照片",
+          "通知用户"
+        ]
+      },
+      "trello": {
+        "label": "Trello",
+        "category": "projectManagement",
+        "capabilities": [
+          "创建卡片",
+          "在列表之间移动卡片",
+          "更新卡"
+        ]
+      },
+      "jira": {
+        "label": "Jira",
+        "category": "projectManagement",
+        "capabilities": [
+          "创建问题/错误/任务",
+          "更新门票",
+          "对问题发表评论"
+        ]
+      },
+      "google_drive": {
+        "label": "Google Drive",
+        "category": "storage",
+        "capabilities": [
+          "文件上传",
+          "创建文件夹",
+          "搜索文件",
+          "列出文件"
+        ]
+      },
+      "gmail": {
+        "label": "Gmail",
+        "category": "communication",
+        "capabilities": [
+          "发送电子邮件",
+          "列出消息",
+          "阅读电子邮件",
+          "按发件人搜索"
+        ]
+      },
+      "google_calendar": {
+        "label": "Google Calendar",
+        "category": "productivity",
+        "capabilities": [
+          "列出事件",
+          "创建事件",
+          "管理日历"
+        ]
+      },
+      "google_photos": {
+        "label": "Google Photos",
+        "category": "storage",
+        "capabilities": [
+          "店铺照片",
+          "创建相册",
+          "按日期搜索",
+          "分享媒体"
+        ]
+      },
+      "google_maps": {
+        "label": "Google Maps",
+        "category": "utilities",
+        "capabilities": [
+          "地理编码地址",
+          "反向地理编码",
+          "计算路线"
+        ]
+      },
+      "slack": {
+        "label": "Slack",
+        "category": "communication",
+        "capabilities": [
+          "在频道中发送消息",
+          "列出频道",
+          "通知团队"
+        ]
+      },
+      "zoom": {
+        "label": "Zoom",
+        "category": "communication",
+        "capabilities": [
+          "创建会议",
+          "列出会议",
+          "安排网络研讨会"
+        ]
+      },
+      "google_meet": {
+        "label": "Google Meet",
+        "category": "communication",
+        "capabilities": [
+          "创建视频通话",
+          "列出会议",
+          "安排Google Meet"
+        ]
+      },
+      "facebook": {
+        "label": "Facebook Pages",
+        "category": "social"
+      },
+      "whatsapp": {
+        "label": "WhatsApp Business",
+        "category": "communication"
+      },
+      "instagram": {
+        "label": "Instagram",
+        "category": "social"
+      },
+      "linkedin": {
+        "label": "LinkedIn",
+        "category": "social"
+      },
+      "teams": {
+        "label": "Microsoft Teams",
+        "category": "communication"
+      }
+    },
+    "title": "可用的集成",
+    "subtitle": "将Pytomatiza+连接到您最喜爱的服务。 工作流程可以利用任何连接的集成。",
+    "futureTitle": "未来服务",
+    "futureDescription": "此集成将在Pytomatiza+的未来版本中添加。",
+    "availableBadge": "可用的",
+    "comingSoonBadge": "不久",
+    "catalogTitle": "今天Pytomatiza+可以自动化什么"
+  },
+  "loginOverlay": {
+    "title": "登录以访问此功能",
+    "ctaLabel": "进入"
+  },
+  "loginAlert": {
+    "label": "登录才能访问"
+  },
+  "privacy": {
+    "footer": {
+      "copyright": "© {year} Pytomatiza+。 版权所有。",
+      "contact": "对于隐私请求，请通过privacy@pytomatiza.com联系我们。"
+    },
+    "intro": {
+      "title": "隐私政策和使用条款",
+      "description": "本政策描述了在您使用我们的服务时Pytomatiza+如何收集、使用和保护您的个人信息。 使用Pytomatiza+，即表示您同意根据本政策收集和使用信息。",
+      "effectiveDate": "生效日期：2026 年 6 月 18 日",
+      "contact": "疑问？ 联系方式：privacy@pytomatiza.com"
+    },
+    "dataCollection": {
+      "personalInfo": {
+        "items": [
+          "姓名",
+          "电子邮件",
+          "密码（使用安全哈希存储）",
+          "个人资料数据（照片、出生日期）",
+          "帐户偏好（语言、时区、主题）"
+        ],
+        "title": "个人信息"
+      },
+      "usageData": {
+        "items": [
+          "自动化和执行日志",
+          "与 AI 代理交互",
+          "发送处理的文件",
+          "连接的集成设置",
+          "性能指标和错误"
+        ],
+        "title": "使用数据"
+      },
+      "automaticData": {
+        "items": [
+          "IP地址和大概位置",
+          "浏览器类型和版本",
+          "操作系统",
+          "访问时间和会话持续时间",
+          "设备标识符"
+        ],
+        "title": "自动收集的数据"
+      },
+      "title": "1. 我们收集的数据",
+      "description": "我们收集您直接提供给我们的信息以及我们在您使用我们的服务时自动收集的信息。"
+    },
+    "dataUsage": {
+      "purposes": [
+        "提供和维护服务Pytomatiza+",
+        "流程自动化并运行 AI 代理",
+        "管理您的帐户和偏好设置",
+        "发送重要通知（安全、计费）",
+        "改善用户体验并开发新功能",
+        "检测并防止欺诈和滥用",
+        "遵守法律和监管义务"
+      ],
+      "title": "2. 我们如何使用您的数据",
+      "description": "我们使用您的数据来提供、改进和保护我们的服务。"
+    },
+    "dataSharing": {
+      "cases": [
+        "与人工智能提供商（例如 Google Gemini）一起运行自动化——仅需要必要的数据",
+        "通过您连接的集成（Google、Slack等）- 取决于您的设置",
+        "与基础设施提供商（托管、数据库）签订数据处理合同",
+        "当法律、法院命令要求或保护权利和安全时",
+        "如果合并、收购或出售资产——需事先通知"
+      ],
+      "title": "3. 数据共享",
+      "description": "我们不会出售您的个人数据。 我们仅在以下情况下分享："
+    },
+    "dataRetention": {
+      "periods": [
+        "帐户数据：帐户处于活动状态时",
+        "自动化日志：12 个月（默认），可配置",
+        "已处理的文件：处理后 24 小时内删除，除非另有配置",
+        "备份：帐户删除后 30 天",
+        "账单数据：按照税法要求（巴西至少 5 年）"
+      ],
+      "title": "4. 数据保留",
+      "description": "我们仅在本政策所述目的所需的时间内保留您的数据。"
+    },
+    "userRights": {
+      "rights": [
+        "访问：请求您的数据副本",
+        "纠正：纠正不完整或不正确的数据",
+        "删除：请求删除您的数据（法律义务除外）",
+        "可移植性：以结构化格式接收数据",
+        "限制：在某些情况下限制处理",
+        "反对：基于合法利益反对处理",
+        "撤回同意：随时进行基于同意的处理"
+      ],
+      "title": "5. 您的权利 (LGPD / GDPR)",
+      "description": "您可以控制您的个人数据。",
+      "howToExercise": "要行使您的权利，请使用“设置”中的“隐私和数据”面板或发送电子邮件privacy@pytomatiza.com。 我们将在 15 天内回复。"
+    },
+    "security": {
+      "measures": [
+        "传输中加密 (TLS 1.3) 和静态加密 (AES-256)",
+        "可选的双因素身份验证 (2FA)",
+        "JWT 具有自动轮换和撤销功能的代币",
+        "基于角色的访问控制 (RBAC)",
+        "敏感数据访问审核",
+        "定期安全测试和渗透测试",
+        "事件响应计划和泄漏通知"
+      ],
+      "title": "6. 数据安全",
+      "description": "我们实施技术和组织措施来保护您的数据。"
+    },
+    "cookies": {
+      "categories": [
+        "要点：身份验证、安全性、会话（无法禁用）",
+        "偏好设置：语言、主题、时区",
+        "分析：匿名使用指标（Google Analytics，可选）"
+      ],
+      "title": "7. Cookie 和类似技术",
+      "description": "我们使用基本 cookie 来使网站正常运行，使用偏好 cookie 来记住您的设置，并使用匿名分析 cookie 来改进服务。",
+      "management": "在浏览器设置或隐私和数据面板中管理 cookie。"
+    },
+    "internationalTransfers": {
+      "safeguards": [
+        "欧盟委员会标准合同条款 (SCCs)",
+        "适用性认证（例如：EU-U.S. Data Privacy Framework）",
+        "适用时具有约束力的公司规则 (BCRs)"
+      ],
+      "title": "8. 国际转账",
+      "description": "您的数据可能会在位于巴西境外（美国、欧洲）的服务器上进行处理。 我们通过以下方式保证充分的保护："
+    },
+    "children": {
+      "title": "9. 儿童隐私",
+      "description": "Pytomatiza+ 不适合 16 岁以下儿童。 我们不会故意收集儿童的数据。 如果您发现我们未经家长同意收集了未成年人的数据，请联系我们立即删除。"
+    },
+    "changes": {
+      "title": "10. 本政策的变更",
+      "description": "我们可能会不时更新本政策。 我们将提前 30 天通过电子邮件或应用内通知通知您重大变更。 变更后继续使用即表示接受。"
+    },
+    "contact": {
+      "title": "11. 联系方式",
+      "description": "有关隐私的问题、请求或投诉：",
+      "email": "privacy@pytomatiza.com",
+      "address": "Pytomatiza+ — DPO（数据保护官）\nAV。 das Automações, 1000 — 圣保罗，SP — 巴西",
+      "dpo": "数据保护官（DPO）：privacy@pytomatiza.com"
+    },
+    "lastUpdated": "最后更新时间：2026 年 6 月 18 日",
+    "complianceBadges": "LGPD·GDPR·SaaS合规性",
+    "navAriaLabel": "政策导航"
   }
 }
